@@ -20,6 +20,14 @@
 		0AE0B74C22042D5E0033A476 /* CatalogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B74822042D5E0033A476 /* CatalogPresenter.swift */; };
 		0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B74922042D5E0033A476 /* CatalogViewController.swift */; };
 		0AE0B74E22042D5E0033A476 /* CatalogWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B74A22042D5E0033A476 /* CatalogWireframe.swift */; };
+		0AE0B755220430070033A476 /* TableCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B754220430070033A476 /* TableCellItem.swift */; };
+		0AE0B757220430770033A476 /* CellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B756220430770033A476 /* CellItem.swift */; };
+		0AE0B759220435FA0033A476 /* TableDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B758220435FA0033A476 /* TableDataSourceDelegate.swift */; };
+		0AE0B75B2204362E0033A476 /* TableViewReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B75A2204362E0033A476 /* TableViewReloader.swift */; };
+		0AE0B75D2204365C0033A476 /* SectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B75C2204365C0033A476 /* SectionItem.swift */; };
+		0AE0B75F220436B10033A476 /* TableSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B75E220436B10033A476 /* TableSectionItem.swift */; };
+		0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B761220438AE0033A476 /* SimpleAnimationTableViewReloader.swift */; };
+		0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B763220439650033A476 /* BlankTableSection.swift */; };
 		66590488F0F41C2907C1E2B5 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3403687E4148D0617354B048 /* Pods_Tests.framework */; };
 		A079BE7DB48B4893DCFF0655 /* Pods_Catalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3591F78E371C1F705EDDB1C6 /* Pods_Catalog.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +60,14 @@
 		0AE0B74822042D5E0033A476 /* CatalogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogPresenter.swift; sourceTree = "<group>"; };
 		0AE0B74922042D5E0033A476 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		0AE0B74A22042D5E0033A476 /* CatalogWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogWireframe.swift; sourceTree = "<group>"; };
+		0AE0B754220430070033A476 /* TableCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellItem.swift; sourceTree = "<group>"; };
+		0AE0B756220430770033A476 /* CellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItem.swift; sourceTree = "<group>"; };
+		0AE0B758220435FA0033A476 /* TableDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataSourceDelegate.swift; sourceTree = "<group>"; };
+		0AE0B75A2204362E0033A476 /* TableViewReloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewReloader.swift; sourceTree = "<group>"; };
+		0AE0B75C2204365C0033A476 /* SectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItem.swift; sourceTree = "<group>"; };
+		0AE0B75E220436B10033A476 /* TableSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionItem.swift; sourceTree = "<group>"; };
+		0AE0B761220438AE0033A476 /* SimpleAnimationTableViewReloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAnimationTableViewReloader.swift; sourceTree = "<group>"; };
+		0AE0B763220439650033A476 /* BlankTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankTableSection.swift; sourceTree = "<group>"; };
 		3403687E4148D0617354B048 /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3591F78E371C1F705EDDB1C6 /* Pods_Catalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Catalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4931CA344FCE4E9513DB60BF /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +193,7 @@
 		0AD9EAC22204274300FF3F2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0AE0B74F22042F660033A476 /* DataSourceDelegate */,
 				0AD9EAC32204274300FF3F2C /* Storyboard */,
 			);
 			path = UI;
@@ -199,6 +216,45 @@
 				0AE0B74922042D5E0033A476 /* CatalogViewController.swift */,
 			);
 			path = Catalog;
+			sourceTree = "<group>";
+		};
+		0AE0B74F22042F660033A476 /* DataSourceDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				0AE0B756220430770033A476 /* CellItem.swift */,
+				0AE0B75C2204365C0033A476 /* SectionItem.swift */,
+				0AE0B75122042F970033A476 /* Table View */,
+				0AE0B75222042F9D0033A476 /* Collection View */,
+			);
+			path = DataSourceDelegate;
+			sourceTree = "<group>";
+		};
+		0AE0B75122042F970033A476 /* Table View */ = {
+			isa = PBXGroup;
+			children = (
+				0AE0B760220437410033A476 /* Reloader */,
+				0AE0B754220430070033A476 /* TableCellItem.swift */,
+				0AE0B75E220436B10033A476 /* TableSectionItem.swift */,
+				0AE0B763220439650033A476 /* BlankTableSection.swift */,
+				0AE0B758220435FA0033A476 /* TableDataSourceDelegate.swift */,
+			);
+			path = "Table View";
+			sourceTree = "<group>";
+		};
+		0AE0B75222042F9D0033A476 /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Collection View";
+			sourceTree = "<group>";
+		};
+		0AE0B760220437410033A476 /* Reloader */ = {
+			isa = PBXGroup;
+			children = (
+				0AE0B75A2204362E0033A476 /* TableViewReloader.swift */,
+				0AE0B761220438AE0033A476 /* SimpleAnimationTableViewReloader.swift */,
+			);
+			path = Reloader;
 			sourceTree = "<group>";
 		};
 		73307744A1CDBCE0F7329522 /* Frameworks */ = {
@@ -444,13 +500,21 @@
 				0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */,
 				0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
+				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
+				0AE0B75D2204365C0033A476 /* SectionItem.swift in Sources */,
 				0AD9EAC52204274300FF3F2C /* BaseWireframe.swift in Sources */,
+				0AE0B757220430770033A476 /* CellItem.swift in Sources */,
 				0AE0B74C22042D5E0033A476 /* CatalogPresenter.swift in Sources */,
+				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
+				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,
 				0AD9EAC72204274300FF3F2C /* ViewInterface.swift in Sources */,
 				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
 				0AD9EAC62204274300FF3F2C /* PresenterInterface.swift in Sources */,
 				0AE0B74E22042D5E0033A476 /* CatalogWireframe.swift in Sources */,
+				0AE0B75B2204362E0033A476 /* TableViewReloader.swift in Sources */,
+				0AE0B75F220436B10033A476 /* TableSectionItem.swift in Sources */,
 				0AD9EAC92204274300FF3F2C /* UIStoryboard+Instantiate.swift in Sources */,
+				0AE0B759220435FA0033A476 /* TableDataSourceDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
