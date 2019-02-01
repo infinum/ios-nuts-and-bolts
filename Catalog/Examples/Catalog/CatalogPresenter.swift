@@ -28,4 +28,10 @@ final class CatalogPresenter {
 // MARK: - Extensions -
 
 extension CatalogPresenter: CatalogPresenterInterface {
+    
+    func items() -> [TableCellItem] {
+        let item = CatalogItem.init(title: "Test", didSelect: nil)
+        return [item]
+    }
+    
 }

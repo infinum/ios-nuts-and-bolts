@@ -10,17 +10,26 @@
 
 import UIKit
 
-final class CatalogViewController: UITableViewController {
+final class CatalogViewController: UIViewController {
 
     // MARK: - Public properties -
 
     var presenter: CatalogPresenterInterface!
+    
+    // MARK: - Private properties -
+    
+    private lazy var _tableView: UITableView = _createTableView()
+    
+    private lazy var _dataSourceDelegate: TableDataSourceDelegate = {
+        return TableDataSourceDelegate(tableView: _tableView)
+    }()
 
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
         _setupUI()
+        _configure()
     }
 	
 }
@@ -35,4 +44,20 @@ private extension CatalogViewController {
     func _setupUI() {
         title = "Catalog"
     }
+    
+    func _configure() {
+        _tableView.registerClass(cellOfType: CatalogItemTableViewCell.self)
+        _dataSourceDelegate.items = presenter.items()
+    }
+    
+    func _createTableView() -> UITableView {
+        let tableView = UITableView()
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        tableView.pinToSuperview()
+        
+        return tableView
+    }
+    
 }

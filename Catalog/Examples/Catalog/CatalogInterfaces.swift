@@ -17,4 +17,5 @@ protocol CatalogViewInterface: ViewInterface {
 }
 
 protocol CatalogPresenterInterface: PresenterInterface {
+    func items() -> [TableCellItem]
 }
