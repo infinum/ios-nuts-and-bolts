@@ -55,6 +55,7 @@ public extension UIView {
     ) {
         translatesAutoresizingMaskIntoConstraints = false
         var constraints = [NSLayoutConstraint]()
+        
         if let top = top {
             constraints.append(topAnchor.constraint(equalTo: top, constant: insets.top))
         }
@@ -67,6 +68,43 @@ public extension UIView {
         if let right = right {
             constraints.append(rightAnchor.constraint(equalTo: right, constant: insets.top))
         }
+        
+        constraints.forEach { $0.isActive = true }
+    }
+    
+    /// Pins the current view to the specified size
+    ///
+    /// - Parameters:
+    ///   - size: Pin size
+    func pin(to size: CGSize) {
+        translatesAutoresizingMaskIntoConstraints = false
+        var constraints = [NSLayoutConstraint]()
+        
+        constraints.append(widthAnchor.constraint(equalToConstant: size.width))
+        constraints.append(heightAnchor.constraint(equalToConstant: size.height))
+        
+        constraints.forEach { $0.isActive = true }
+    }
+    
+    /// Pins the current view width and/or height to specified dimensions
+    ///
+    /// - Parameters:
+    ///   - width: Pin width
+    ///   - height: Pin height
+    func pinTo(
+        width: NSLayoutDimension? = nil,
+        height: NSLayoutDimension? = nil
+    ) {
+        translatesAutoresizingMaskIntoConstraints = false
+        var constraints = [NSLayoutConstraint]()
+        
+        if let height = height {
+            constraints.append(heightAnchor.constraint(equalTo: height, multiplier: 1.0))
+        }
+        if let width = width {
+            constraints.append(widthAnchor.constraint(equalTo: width, multiplier: 1.0))
+        }
+        
         constraints.forEach { $0.isActive = true }
     }
     
