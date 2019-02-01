@@ -85,10 +85,9 @@
 		0AD9EA922204218600FF3F2C /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
-				0AD9EA932204218600FF3F2C /* AppDelegate.swift */,
-				0AD9EA9A2204218800FF3F2C /* Assets.xcassets */,
-				0AD9EA9C2204218800FF3F2C /* LaunchScreen.storyboard */,
-				0AD9EA9F2204218800FF3F2C /* Info.plist */,
+				0AD9EAB6220424D200FF3F2C /* Application */,
+				0AD9EAB8220424F200FF3F2C /* Supporting Files */,
+				0AD9EAB7220424DB00FF3F2C /* Resources */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -100,6 +99,31 @@
 				0AD9EAAA2204218800FF3F2C /* Info.plist */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		0AD9EAB6220424D200FF3F2C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0AD9EA932204218600FF3F2C /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		0AD9EAB7220424DB00FF3F2C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0AD9EA9A2204218800FF3F2C /* Assets.xcassets */,
+				0AD9EA9C2204218800FF3F2C /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0AD9EAB8220424F200FF3F2C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0AD9EA9F2204218800FF3F2C /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		73307744A1CDBCE0F7329522 /* Frameworks */ = {
@@ -499,7 +523,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5F5M64F878;
-				INFOPLIST_FILE = Catalog/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Catalog/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,7 +542,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5F5M64F878;
-				INFOPLIST_FILE = Catalog/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Catalog/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
