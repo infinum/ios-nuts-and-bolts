@@ -33,12 +33,41 @@ public extension UIView {
     ///   - view: Other view
     ///   - insets: View insets
     func pin(to view: UIView, with insets: UIEdgeInsets = .zero) {
-        NSLayoutConstraint.activate([
-            leftAnchor.constraint(equalTo: view.leftAnchor, constant: insets.left),
-            topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top),
-            rightAnchor.constraint(equalTo: view.rightAnchor, constant: insets.right),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom)
-        ])
+        pinTo(
+            top: view.topAnchor,
+            left: view.leftAnchor,
+            bottom: view.bottomAnchor,
+            right: view.rightAnchor,
+            insets: insets
+        )
+    }
+    
+    /// Pins the current view edges to the specified edges with given insets
+    ///
+    /// It uses left/top/right/bottom anchors when pinning view.
+    /// Try to avoid leading/trailing anchors since they depend on locale
+    func pinTo(
+        top: NSLayoutYAxisAnchor? = nil,
+        left: NSLayoutXAxisAnchor? = nil,
+        bottom: NSLayoutYAxisAnchor? = nil,
+        right: NSLayoutXAxisAnchor? = nil,
+        insets: UIEdgeInsets = .zero
+    ) {
+        translatesAutoresizingMaskIntoConstraints = false
+        var constraints = [NSLayoutConstraint]()
+        if let top = top {
+            constraints.append(topAnchor.constraint(equalTo: top, constant: insets.top))
+        }
+        if let left = left {
+            constraints.append(leftAnchor.constraint(equalTo: left, constant: insets.top))
+        }
+        if let bottom = bottom {
+            constraints.append(bottomAnchor.constraint(equalTo: bottom, constant: insets.top))
+        }
+        if let right = right {
+            constraints.append(rightAnchor.constraint(equalTo: right, constant: insets.top))
+        }
+        constraints.forEach { $0.isActive = true }
     }
     
 }
