@@ -31,11 +31,11 @@ public class TableDataSourceDelegate: NSObject {
     public var items: [TableCellItem]? {
         get {
             return sections?
-                .map { $0.tableItems }
+                .map { $0.items }
                 .reduce([TableCellItem](), +)
         }
         set {
-            let section: TableSectionItem? = BlankTableSection(tableItems: newValue)
+            let section: TableSectionItem? = BlankTableSection(items: newValue)
             sections = [section].compactMap { $0 }
         }
     }
@@ -77,20 +77,20 @@ extension TableDataSourceDelegate: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections?[section].tableItems.count ?? 0
+        return sections?[section].items.count ?? 0
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return sections![indexPath].cell(from: tableView, at: indexPath)
     }
     
-    //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    //        return sections![section].titleForHeader(from: tableView, at: section)
-    //    }
-    //
-    //    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-    //        return sections![section].titleForFooter(from: tableView, at: section)
-    //    }
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections?[section].titleForHeader(from: tableView, at: section)
+    }
+    
+    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return sections?[section].titleForFooter(from: tableView, at: section)
+    }
     
 }
 

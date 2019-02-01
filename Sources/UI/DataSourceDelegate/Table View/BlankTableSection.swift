@@ -13,17 +13,17 @@ import UIKit
 /// or header - just like you didn't use section at all.
 public class BlankTableSection: TableSectionItem {
     
-    public var tableItems: [TableCellItem]
+    public var items: [TableCellItem]
     
-    public init(tableItems: [TableCellItem]) {
-        self.tableItems = tableItems
+    public init(items: [TableCellItem]) {
+        self.items = items
     }
     
-    public convenience init?(tableItems: [TableCellItem]?) {
-        guard let items = tableItems else {
+    public convenience init?(items: [TableCellItem]?) {
+        guard let items = items else {
             return nil
         }
-        self.init(tableItems: items)
+        self.init(items: items)
     }
     
     public var headerHeight: CGFloat {

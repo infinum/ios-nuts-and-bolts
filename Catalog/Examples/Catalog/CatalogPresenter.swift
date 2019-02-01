@@ -29,9 +29,19 @@ final class CatalogPresenter {
 
 extension CatalogPresenter: CatalogPresenterInterface {
     
-    func items() -> [TableCellItem] {
-        let item = CatalogItem.init(title: "Test", didSelect: nil)
-        return [item]
+    func sections() -> [TableSectionItem] {
+        return [
+            _createTestItemsSection()
+        ]
+    }
+    
+}
+
+private extension CatalogPresenter {
+    
+    func _createTestItemsSection() -> TableSectionItem {
+        let item = CatalogItem(title: "Test", didSelect: nil)
+        return CatalogSection.init(title: "Test", items: [item])
     }
     
 }

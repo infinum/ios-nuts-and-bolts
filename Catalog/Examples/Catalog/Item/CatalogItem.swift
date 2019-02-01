@@ -26,3 +26,20 @@ extension CatalogItem: TableCellItem {
     }
     
 }
+
+struct CatalogSection {
+    let title: String
+    let items: [TableCellItem]
+}
+
+extension CatalogSection: TableSectionItem {
+    
+    var estimatedHeaderHeight: CGFloat {
+        return 44.0
+    }
+    
+    func titleForHeader(from tableView: UITableView, at index: Int) -> String? {
+        return title
+    }
+    
+}

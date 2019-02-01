@@ -47,11 +47,11 @@ private extension CatalogViewController {
     
     func _configure() {
         _tableView.registerClass(cellOfType: CatalogItemTableViewCell.self)
-        _dataSourceDelegate.items = presenter.items()
+        _dataSourceDelegate.sections = presenter.sections()
     }
     
     func _createTableView() -> UITableView {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)

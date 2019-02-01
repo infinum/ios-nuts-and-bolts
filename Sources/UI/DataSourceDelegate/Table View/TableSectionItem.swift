@@ -11,7 +11,7 @@ public protocol TableSectionItem: SectionItem {
     
     // MARK: - Required methods and properties
 
-    var tableItems: [TableCellItem] { get }
+    var items: [TableCellItem] { get }
     
     // MARK: - Optional methods and properties
 
@@ -67,7 +67,7 @@ public extension TableSectionItem {
 public extension Array where Element: TableSectionItem {
     
     subscript(indexPath: IndexPath) -> TableCellItem {
-        return self[indexPath.section].tableItems[indexPath.row]
+        return self[indexPath.section].items[indexPath.row]
     }
     
 }
@@ -75,7 +75,7 @@ public extension Array where Element: TableSectionItem {
 public extension Array where Element == TableSectionItem {
     
     subscript(indexPath: IndexPath) -> TableCellItem {
-        return self[indexPath.section].tableItems[indexPath.row]
+        return self[indexPath.section].items[indexPath.row]
     }
     
 }
