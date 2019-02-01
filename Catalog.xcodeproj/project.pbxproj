@@ -16,6 +16,10 @@
 		0AD9EAC72204274300FF3F2C /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9EAC02204274300FF3F2C /* ViewInterface.swift */; };
 		0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9EAC12204274300FF3F2C /* InteractorInterface.swift */; };
 		0AD9EAC92204274300FF3F2C /* UIStoryboard+Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9EAC42204274300FF3F2C /* UIStoryboard+Instantiate.swift */; };
+		0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B74722042D5E0033A476 /* CatalogInterfaces.swift */; };
+		0AE0B74C22042D5E0033A476 /* CatalogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B74822042D5E0033A476 /* CatalogPresenter.swift */; };
+		0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B74922042D5E0033A476 /* CatalogViewController.swift */; };
+		0AE0B74E22042D5E0033A476 /* CatalogWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B74A22042D5E0033A476 /* CatalogWireframe.swift */; };
 		66590488F0F41C2907C1E2B5 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3403687E4148D0617354B048 /* Pods_Tests.framework */; };
 		A079BE7DB48B4893DCFF0655 /* Pods_Catalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3591F78E371C1F705EDDB1C6 /* Pods_Catalog.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +48,10 @@
 		0AD9EAC02204274300FF3F2C /* ViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		0AD9EAC12204274300FF3F2C /* InteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
 		0AD9EAC42204274300FF3F2C /* UIStoryboard+Instantiate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Instantiate.swift"; sourceTree = "<group>"; };
+		0AE0B74722042D5E0033A476 /* CatalogInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogInterfaces.swift; sourceTree = "<group>"; };
+		0AE0B74822042D5E0033A476 /* CatalogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogPresenter.swift; sourceTree = "<group>"; };
+		0AE0B74922042D5E0033A476 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		0AE0B74A22042D5E0033A476 /* CatalogWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogWireframe.swift; sourceTree = "<group>"; };
 		3403687E4148D0617354B048 /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3591F78E371C1F705EDDB1C6 /* Pods_Catalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Catalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4931CA344FCE4E9513DB60BF /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +149,7 @@
 		0AD9EAB92204267800FF3F2C /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				0AE0B74622042D140033A476 /* Catalog */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -179,6 +188,17 @@
 				0AD9EAC42204274300FF3F2C /* UIStoryboard+Instantiate.swift */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		0AE0B74622042D140033A476 /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				0AE0B74722042D5E0033A476 /* CatalogInterfaces.swift */,
+				0AE0B74A22042D5E0033A476 /* CatalogWireframe.swift */,
+				0AE0B74822042D5E0033A476 /* CatalogPresenter.swift */,
+				0AE0B74922042D5E0033A476 /* CatalogViewController.swift */,
+			);
+			path = Catalog;
 			sourceTree = "<group>";
 		};
 		73307744A1CDBCE0F7329522 /* Frameworks */ = {
@@ -422,10 +442,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */,
+				0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
 				0AD9EAC52204274300FF3F2C /* BaseWireframe.swift in Sources */,
+				0AE0B74C22042D5E0033A476 /* CatalogPresenter.swift in Sources */,
 				0AD9EAC72204274300FF3F2C /* ViewInterface.swift in Sources */,
+				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
 				0AD9EAC62204274300FF3F2C /* PresenterInterface.swift in Sources */,
+				0AE0B74E22042D5E0033A476 /* CatalogWireframe.swift in Sources */,
 				0AD9EAC92204274300FF3F2C /* UIStoryboard+Instantiate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
