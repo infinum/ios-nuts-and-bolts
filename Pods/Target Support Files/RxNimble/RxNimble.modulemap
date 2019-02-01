@@ -1,0 +1,6 @@
+framework module RxNimble {
+  umbrella header "RxNimble-umbrella.h"
+
+  export *
+  module * { export * }
+}

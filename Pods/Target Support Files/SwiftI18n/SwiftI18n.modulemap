@@ -1,0 +1,6 @@
+framework module SwiftI18n {
+  umbrella header "SwiftI18n-umbrella.h"
+
+  export *
+  module * { export * }
+}

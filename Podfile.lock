@@ -1,0 +1,91 @@
+PODS:
+  - Alamofire (4.8.1)
+  - CodableAlamofire (1.1.0):
+    - Alamofire (~> 4.0)
+  - Japx/Alamofire (2.0.1):
+    - Alamofire (~> 4.5)
+    - Japx/Core
+  - Japx/Codable (2.0.1):
+    - Japx/Core
+  - Japx/CodableAlamofire (2.0.1):
+    - Japx/Alamofire
+    - Japx/Codable
+  - Japx/Core (2.0.1)
+  - Japx/RxAlamofire (2.0.1):
+    - Japx/Alamofire
+    - RxSwift (~> 4.0)
+  - Japx/RxCodableAlamofire (2.0.1):
+    - Japx/CodableAlamofire
+    - Japx/RxAlamofire
+  - Loggie (2.0.0)
+  - Nimble (7.3.3)
+  - Quick (1.3.4)
+  - RxAtomic (4.4.0)
+  - RxBlocking (4.4.0):
+    - RxAtomic (~> 4.4)
+    - RxSwift (~> 4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxNimble (4.4.0):
+    - RxNimble/RxBlocking (= 4.4.0)
+  - RxNimble/Core (4.4.0):
+    - Nimble (~> 7.0)
+    - RxSwift (~> 4.2)
+  - RxNimble/RxBlocking (4.4.0):
+    - RxBlocking
+    - RxNimble/Core
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - RxTest (4.4.0):
+    - RxAtomic (~> 4.4)
+    - RxSwift (~> 4.0)
+  - "SwiftI18n/I18n+Case (1.1.0)"
+
+DEPENDENCIES:
+  - Alamofire
+  - CodableAlamofire
+  - Japx/RxCodableAlamofire
+  - Loggie
+  - Nimble
+  - Quick
+  - RxBlocking
+  - RxCocoa
+  - RxNimble
+  - RxSwift
+  - RxTest
+  - "SwiftI18n/I18n+Case"
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CodableAlamofire
+    - Japx
+    - Loggie
+    - Nimble
+    - Quick
+    - RxAtomic
+    - RxBlocking
+    - RxCocoa
+    - RxNimble
+    - RxSwift
+    - RxTest
+    - SwiftI18n
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  CodableAlamofire: e2d2edcec7cf413f7862c30c8fa98eded27a83f9
+  Japx: 153a8a39a71121827bcf89c6f89ef28091f2b3e7
+  Loggie: 0929bbede91331ee00e7e5ac94e8f5d66e47fbfa
+  Nimble: 3b434b1e7d0a92603a13550a82880b0d952f518e
+  Quick: f4f7f063c524394c73ed93ac70983c609805d481
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxBlocking: 138ad53217434444d6eeeb4fb406a45431d92e31
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxNimble: ba6caf0195c37fd50dd4b967624b66ff580d781a
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxTest: 19d03286bdc0a3aaea5d61d4cde31fdf4bb8a5ba
+  SwiftI18n: f4bdca8b90e453c29992f291a5b43b96f500b780
+
+PODFILE CHECKSUM: 25113aade5a45c793898ce4cd52b0e30f26ad427
+
+COCOAPODS: 1.6.0.rc.1
