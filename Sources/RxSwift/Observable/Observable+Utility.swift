@@ -1,6 +1,5 @@
 //
 //  Observable+Utility.swift
-//  Catalog
 //
 //  Created by Filip Gulan on 03/02/2019.
 //  Copyright © 2019 Infinum. All rights reserved.
