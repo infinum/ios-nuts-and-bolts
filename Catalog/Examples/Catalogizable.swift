@@ -17,11 +17,3 @@ protocol Catalogizable {
     static var viewController: UIViewController { get }
     
 }
-
-extension Catalogizable where Self: UIViewController {
-    
-    var title: String {
-        return Self.title
-    }
-    
-}
