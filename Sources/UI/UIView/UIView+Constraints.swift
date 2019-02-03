@@ -19,7 +19,6 @@ public extension UIView {
     /// Try to avoid leading/trailing anchors since they depend on locale
     ///
     /// - Parameters:
-    ///   - view: Other view
     ///   - insets: View insets
     func pinToSuperview(insets: UIEdgeInsets = .zero) {
         guard let superview = superview else { return }
@@ -112,6 +111,10 @@ public extension UIView {
     
     // MARK: - Center
     
+    /// Center the current view to the center of superview with specified insets
+    ///
+    /// - Parameters:
+    ///   - insets: Center insets
     func centerToSuperview(insets: CGPoint = .zero) {
         guard let superview = superview else { return }
         center(to: superview, with: insets)
