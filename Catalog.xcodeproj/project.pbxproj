@@ -62,6 +62,7 @@
 		0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationManager.swift; sourceTree = "<group>"; };
 		0A0ECF542207012E00C1853E /* Catalogizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalogizable.swift; sourceTree = "<group>"; };
 		0A0ECF582207024800C1853E /* RatioTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioTransitionViewController.swift; sourceTree = "<group>"; };
+		0A0ECF5A22071FA300C1853E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0AD9EA902204218600FF3F2C /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD9EA932204218600FF3F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AD9EA9A2204218800FF3F2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,6 +164,7 @@
 		0AD9EA872204218600FF3F2C = {
 			isa = PBXGroup;
 			children = (
+				0A0ECF5A22071FA300C1853E /* README.md */,
 				0AD9EABC2204274300FF3F2C /* Sources */,
 				0AD9EA922204218600FF3F2C /* Catalog */,
 				0AD9EAA72204218800FF3F2C /* Tests */,
