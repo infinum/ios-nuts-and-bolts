@@ -21,6 +21,8 @@
 		0A603FDC2207841800F25622 /* Driver+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FDB2207841800F25622 /* Driver+Progressable.swift */; };
 		0A603FE22207874D00F25622 /* ClosedRange+Scalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B784220485920033A476 /* ClosedRange+Scalable.swift */; };
 		0A603FE32207875D00F25622 /* Driver+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FDE2207849500F25622 /* Driver+Utility.swift */; };
+		0A603FE622078D0200F25622 /* Single+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FE522078D0200F25622 /* Single+Progressable.swift */; };
+		0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FE722078DC000F25622 /* Single+Utility.swift */; };
 		0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9EA932204218600FF3F2C /* AppDelegate.swift */; };
 		0AD9EA9B2204218800FF3F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9EA9A2204218800FF3F2C /* Assets.xcassets */; };
 		0AD9EA9E2204218800FF3F2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9EA9C2204218800FF3F2C /* LaunchScreen.storyboard */; };
@@ -82,6 +84,8 @@
 		0A603FD92207814A00F25622 /* UIViewController+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Progressable.swift"; sourceTree = "<group>"; };
 		0A603FDB2207841800F25622 /* Driver+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Driver+Progressable.swift"; sourceTree = "<group>"; };
 		0A603FDE2207849500F25622 /* Driver+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Driver+Utility.swift"; sourceTree = "<group>"; };
+		0A603FE522078D0200F25622 /* Single+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Progressable.swift"; sourceTree = "<group>"; };
+		0A603FE722078DC000F25622 /* Single+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Utility.swift"; sourceTree = "<group>"; };
 		0AD9EA902204218600FF3F2C /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD9EA932204218600FF3F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AD9EA9A2204218800FF3F2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 		0A0ECF5B2207717D00C1853E /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				0A603FE422078CF700F25622 /* Single */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -229,6 +234,15 @@
 				0A603FDE2207849500F25622 /* Driver+Utility.swift */,
 			);
 			path = Driver;
+			sourceTree = "<group>";
+		};
+		0A603FE422078CF700F25622 /* Single */ = {
+			isa = PBXGroup;
+			children = (
+				0A603FE522078D0200F25622 /* Single+Progressable.swift */,
+				0A603FE722078DC000F25622 /* Single+Utility.swift */,
+			);
+			path = Single;
 			sourceTree = "<group>";
 		};
 		0AD9EA872204218600FF3F2C = {
@@ -746,6 +760,7 @@
 				0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
+				0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */,
 				0AE0B75D2204365C0033A476 /* SectionItem.swift in Sources */,
 				0AD9EAC52204274300FF3F2C /* BaseWireframe.swift in Sources */,
 				0A0ECF592207024800C1853E /* RatioTransitionViewController.swift in Sources */,
@@ -756,6 +771,7 @@
 				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
 				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,
 				0A0ECF552207012E00C1853E /* Catalogizable.swift in Sources */,
+				0A603FE622078D0200F25622 /* Single+Progressable.swift in Sources */,
 				0AD9EAC72204274300FF3F2C /* ViewInterface.swift in Sources */,
 				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
 				0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */,

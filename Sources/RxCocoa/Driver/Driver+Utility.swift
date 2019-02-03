@@ -50,7 +50,7 @@ public extension SharedSequenceConvertibleType where SharingStrategy == DriverSh
             .asDriver(onErrorDriveWith: .empty())
     }
     
-    /// Maps each sequence element to given value.
+    /// Maps each sequence elements to given value.
     ///
     /// - Parameter value: Value to map
     /// - Returns: Sequence where all elements are given value.
