@@ -11,6 +11,7 @@
 import UIKit
 
 protocol CatalogWireframeInterface: WireframeInterface {
+    func show(_ model: Catalogizable.Type)
 }
 
 protocol CatalogViewInterface: ViewInterface {

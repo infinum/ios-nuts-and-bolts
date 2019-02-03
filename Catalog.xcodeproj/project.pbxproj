@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF502206FED800C1853E /* RatioPresentationController.swift */; };
+		0A0ECF532206FED800C1853E /* RatioPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */; };
+		0A0ECF552207012E00C1853E /* Catalogizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF542207012E00C1853E /* Catalogizable.swift */; };
+		0A0ECF592207024800C1853E /* RatioTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF582207024800C1853E /* RatioTransitionViewController.swift */; };
 		0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9EA932204218600FF3F2C /* AppDelegate.swift */; };
 		0AD9EA9B2204218800FF3F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9EA9A2204218800FF3F2C /* Assets.xcassets */; };
 		0AD9EA9E2204218800FF3F2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9EA9C2204218800FF3F2C /* LaunchScreen.storyboard */; };
@@ -54,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0ECF502206FED800C1853E /* RatioPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationController.swift; sourceTree = "<group>"; };
+		0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationManager.swift; sourceTree = "<group>"; };
+		0A0ECF542207012E00C1853E /* Catalogizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalogizable.swift; sourceTree = "<group>"; };
+		0A0ECF582207024800C1853E /* RatioTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioTransitionViewController.swift; sourceTree = "<group>"; };
 		0AD9EA902204218600FF3F2C /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD9EA932204218600FF3F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AD9EA9A2204218800FF3F2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +127,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A0ECF4E2206FEB200C1853E /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				0A0ECF4F2206FED800C1853E /* Ratio */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		0A0ECF4F2206FED800C1853E /* Ratio */ = {
+			isa = PBXGroup;
+			children = (
+				0A0ECF502206FED800C1853E /* RatioPresentationController.swift */,
+				0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */,
+			);
+			path = Ratio;
+			sourceTree = "<group>";
+		};
+		0A0ECF562207022200C1853E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0A0ECF572207023000C1853E /* Ratio Transition */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0A0ECF572207023000C1853E /* Ratio Transition */ = {
+			isa = PBXGroup;
+			children = (
+				0A0ECF582207024800C1853E /* RatioTransitionViewController.swift */,
+			);
+			path = "Ratio Transition";
+			sourceTree = "<group>";
+		};
 		0AD9EA872204218600FF3F2C = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +230,9 @@
 		0AD9EAB92204267800FF3F2C /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				0A0ECF542207012E00C1853E /* Catalogizable.swift */,
 				0AE0B74622042D140033A476 /* Catalog */,
+				0A0ECF562207022200C1853E /* UI */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -218,6 +261,7 @@
 		0AD9EAC22204274300FF3F2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0A0ECF4E2206FEB200C1853E /* Transition */,
 				0AE0B76F22046A0F0033A476 /* UIView */,
 				0AE0B76822045C6C0033A476 /* UITableView */,
 				0AE0B74F22042F660033A476 /* DataSourceDelegate */,
@@ -614,15 +658,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */,
+				0A0ECF532206FED800C1853E /* RatioPresentationManager.swift in Sources */,
+				0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */,
 				0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
 				0AE0B75D2204365C0033A476 /* SectionItem.swift in Sources */,
 				0AD9EAC52204274300FF3F2C /* BaseWireframe.swift in Sources */,
+				0A0ECF592207024800C1853E /* RatioTransitionViewController.swift in Sources */,
 				0AE0B757220430770033A476 /* CellItem.swift in Sources */,
 				0AE0B74C22042D5E0033A476 /* CatalogPresenter.swift in Sources */,
 				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
 				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,
+				0A0ECF552207012E00C1853E /* Catalogizable.swift in Sources */,
 				0AD9EAC72204274300FF3F2C /* ViewInterface.swift in Sources */,
 				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
 				0AE0B76E220467F80033A476 /* CatalogItemTableViewCell.swift in Sources */,

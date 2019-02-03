@@ -29,4 +29,11 @@ final class CatalogWireframe: BaseWireframe {
 // MARK: - Extensions -
 
 extension CatalogWireframe: CatalogWireframeInterface {
+    
+    func show(_ model: Catalogizable.Type) {
+        let viewController = model.viewController
+        viewController.title = model.title
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }

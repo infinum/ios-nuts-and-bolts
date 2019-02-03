@@ -9,19 +9,22 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class CatalogPresenter {
 
     // MARK: - Private properties -
 
-    private unowned let view: CatalogViewInterface
-    private let wireframe: CatalogWireframeInterface
+    private unowned let _view: CatalogViewInterface
+    private let _wireframe: CatalogWireframeInterface
+    private let _disposeBag = DisposeBag()
 
     // MARK: - Lifecycle -
 
     init(view: CatalogViewInterface, wireframe: CatalogWireframeInterface) {
-        self.view = view
-        self.wireframe = wireframe
+        _view = view
+        _wireframe = wireframe
     }
 }
 
@@ -30,8 +33,11 @@ final class CatalogPresenter {
 extension CatalogPresenter: CatalogPresenterInterface {
     
     func sections() -> [TableSectionItem] {
+        let didSelectRelay = PublishRelay<CatalogItem>()
+        
+        _handle(didSelect: didSelectRelay)
         return [
-            _createTestItemsSection()
+            _createTestItemsSection(didSelect: didSelectRelay)
         ]
     }
     
@@ -39,9 +45,19 @@ extension CatalogPresenter: CatalogPresenterInterface {
 
 private extension CatalogPresenter {
     
-    func _createTestItemsSection() -> TableSectionItem {
-        let item = CatalogItem(title: "Test", didSelect: nil)
-        return CatalogSection.init(title: "Test", items: [item])
+    func _createTestItemsSection(didSelect: PublishRelay<CatalogItem>) -> TableSectionItem {
+        let ratio = CatalogItem(
+            model: RatioTransitionViewController.self,
+            didSelect: didSelect
+        )
+        return CatalogSection.init(title: "Test", items: [ratio])
     }
     
+    func _handle(didSelect: PublishRelay<CatalogItem>) {
+        didSelect
+            .subscribe(onNext: { [unowned _wireframe] in
+                _wireframe.show($0.model)
+            })
+            .disposed(by: _disposeBag)
+    }
 }
