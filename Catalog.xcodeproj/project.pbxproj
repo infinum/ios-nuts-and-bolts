@@ -11,6 +11,13 @@
 		0A0ECF532206FED800C1853E /* RatioPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */; };
 		0A0ECF552207012E00C1853E /* Catalogizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF542207012E00C1853E /* Catalogizable.swift */; };
 		0A0ECF592207024800C1853E /* RatioTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF582207024800C1853E /* RatioTransitionViewController.swift */; };
+		0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF5D220771A600C1853E /* Progressable.swift */; };
+		0A0ECF602207720100C1853E /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF5F2207720100C1853E /* Refreshable.swift */; };
+		0A0ECF66220773D800C1853E /* UIAlertController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF65220773D800C1853E /* UIAlertController+Rx.swift */; };
+		0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */; };
+		0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */; };
+		0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */; };
+		0A603FDA2207814A00F25622 /* UIViewController+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD92207814A00F25622 /* UIViewController+Progressable.swift */; };
 		0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9EA932204218600FF3F2C /* AppDelegate.swift */; };
 		0AD9EA9B2204218800FF3F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9EA9A2204218800FF3F2C /* Assets.xcassets */; };
 		0AD9EA9E2204218800FF3F2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9EA9C2204218800FF3F2C /* LaunchScreen.storyboard */; };
@@ -63,6 +70,13 @@
 		0A0ECF542207012E00C1853E /* Catalogizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalogizable.swift; sourceTree = "<group>"; };
 		0A0ECF582207024800C1853E /* RatioTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioTransitionViewController.swift; sourceTree = "<group>"; };
 		0A0ECF5A22071FA300C1853E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0A0ECF5D220771A600C1853E /* Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progressable.swift; sourceTree = "<group>"; };
+		0A0ECF5F2207720100C1853E /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
+		0A0ECF65220773D800C1853E /* UIAlertController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Rx.swift"; sourceTree = "<group>"; };
+		0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxAlertExampleViewController.swift; sourceTree = "<group>"; };
+		0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxAlertExampleViewController.xib; sourceTree = "<group>"; };
+		0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseWireframe+Progressable.swift"; sourceTree = "<group>"; };
+		0A603FD92207814A00F25622 /* UIViewController+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Progressable.swift"; sourceTree = "<group>"; };
 		0AD9EA902204218600FF3F2C /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD9EA932204218600FF3F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AD9EA9A2204218800FF3F2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,6 +162,7 @@
 		0A0ECF562207022200C1853E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0A603FD222077C2900F25622 /* Rx Alert Controller */,
 				0A0ECF572207023000C1853E /* Ratio Transition */,
 			);
 			path = UI;
@@ -159,6 +174,46 @@
 				0A0ECF582207024800C1853E /* RatioTransitionViewController.swift */,
 			);
 			path = "Ratio Transition";
+			sourceTree = "<group>";
+		};
+		0A0ECF5B2207717D00C1853E /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RxSwift;
+			sourceTree = "<group>";
+		};
+		0A0ECF5C2207718500C1853E /* RxCocoa */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RxCocoa;
+			sourceTree = "<group>";
+		};
+		0A0ECF61220772A700C1853E /* Progressable */ = {
+			isa = PBXGroup;
+			children = (
+				0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */,
+				0A603FD92207814A00F25622 /* UIViewController+Progressable.swift */,
+			);
+			path = Progressable;
+			sourceTree = "<group>";
+		};
+		0A0ECF64220773CD00C1853E /* UIAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				0A0ECF65220773D800C1853E /* UIAlertController+Rx.swift */,
+			);
+			path = UIAlertController;
+			sourceTree = "<group>";
+		};
+		0A603FD222077C2900F25622 /* Rx Alert Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */,
+				0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */,
+			);
+			path = "Rx Alert Controller";
 			sourceTree = "<group>";
 		};
 		0AD9EA872204218600FF3F2C = {
@@ -242,6 +297,8 @@
 		0AD9EABC2204274300FF3F2C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0A0ECF5C2207718500C1853E /* RxCocoa */,
+				0A0ECF5B2207717D00C1853E /* RxSwift */,
 				0AE0B7722204772B0033A476 /* Foundation */,
 				0AD9EAC22204274300FF3F2C /* UI */,
 				0AD9EABD2204274300FF3F2C /* VIPER Interfaces */,
@@ -256,6 +313,8 @@
 				0AD9EAC12204274300FF3F2C /* InteractorInterface.swift */,
 				0AD9EABF2204274300FF3F2C /* PresenterInterface.swift */,
 				0AD9EAC02204274300FF3F2C /* ViewInterface.swift */,
+				0A0ECF5D220771A600C1853E /* Progressable.swift */,
+				0A0ECF5F2207720100C1853E /* Refreshable.swift */,
 			);
 			path = "VIPER Interfaces";
 			sourceTree = "<group>";
@@ -263,6 +322,8 @@
 		0AD9EAC22204274300FF3F2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0A0ECF64220773CD00C1853E /* UIAlertController */,
+				0A0ECF61220772A700C1853E /* Progressable */,
 				0A0ECF4E2206FEB200C1853E /* Transition */,
 				0AE0B76F22046A0F0033A476 /* UIView */,
 				0AE0B76822045C6C0033A476 /* UITableView */,
@@ -524,6 +585,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AD9EA9E2204218800FF3F2C /* LaunchScreen.storyboard in Resources */,
+				0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */,
 				0AD9EA9B2204218800FF3F2C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,6 +613,7 @@
 				"${BUILT_PRODUCTS_DIR}/CodableAlamofire/CodableAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Japx/Japx.framework",
 				"${BUILT_PRODUCTS_DIR}/Loggie/Loggie.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -564,6 +627,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Japx.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Loggie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -661,6 +725,7 @@
 			files = (
 				0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */,
 				0A0ECF532206FED800C1853E /* RatioPresentationManager.swift in Sources */,
+				0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */,
 				0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */,
 				0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
@@ -675,6 +740,7 @@
 				0A0ECF552207012E00C1853E /* Catalogizable.swift in Sources */,
 				0AD9EAC72204274300FF3F2C /* ViewInterface.swift in Sources */,
 				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
+				0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */,
 				0AE0B76E220467F80033A476 /* CatalogItemTableViewCell.swift in Sources */,
 				0AD9EAC62204274300FF3F2C /* PresenterInterface.swift in Sources */,
 				0AE0B775220477E40033A476 /* Array+Rotate.swift in Sources */,
@@ -684,7 +750,11 @@
 				0AE0B75F220436B10033A476 /* TableSectionItem.swift in Sources */,
 				0AE0B76722045BB00033A476 /* CatalogItem.swift in Sources */,
 				0AE0B77122046A190033A476 /* UIView+Constraints.swift in Sources */,
+				0A603FDA2207814A00F25622 /* UIViewController+Progressable.swift in Sources */,
 				0AE0B76C220461620033A476 /* UITableView+Dequeue.swift in Sources */,
+				0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */,
+				0A0ECF66220773D800C1853E /* UIAlertController+Rx.swift in Sources */,
+				0A0ECF602207720100C1853E /* Refreshable.swift in Sources */,
 				0AD9EAC92204274300FF3F2C /* UIStoryboard+Instantiate.swift in Sources */,
 				0AE0B759220435FA0033A476 /* TableDataSourceDelegate.swift in Sources */,
 				0AE0B77D2204803D0033A476 /* String+Blank.swift in Sources */,

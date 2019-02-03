@@ -37,7 +37,8 @@ extension CatalogPresenter: CatalogPresenterInterface {
         
         _handle(didSelect: didSelectRelay)
         return [
-            _createUIItemsSection(didSelect: didSelectRelay)
+            _createUIItemsSection(didSelect: didSelectRelay),
+            _createRxItemsSection(didSelect: didSelectRelay)
         ]
     }
     
@@ -51,6 +52,14 @@ private extension CatalogPresenter {
             didSelect: didSelect
         )
         return CatalogSection.init(title: "UI", items: [ratio])
+    }
+
+    func _createRxItemsSection(didSelect: PublishRelay<CatalogItem>) -> TableSectionItem {
+        let ratio = CatalogItem(
+            model: RxAlertExampleViewController.self,
+            didSelect: didSelect
+        )
+        return CatalogSection.init(title: "Rx", items: [ratio])
     }
     
     func _handle(didSelect: PublishRelay<CatalogItem>) {
