@@ -10,6 +10,8 @@ import UIKit
 
 public extension UIView {
     
+    // MARK: - Pin edges -
+    
     /// Pins the current view edges to the superview with specified insets
     ///
     /// If current view doesn't have superview, then it is no-op.
@@ -105,6 +107,44 @@ public extension UIView {
             constraints.append(widthAnchor.constraint(equalTo: width, multiplier: 1.0))
         }
         
+        constraints.forEach { $0.isActive = true }
+    }
+    
+    // MARK: - Center
+    
+    func centerToSuperview(insets: CGPoint = .zero) {
+        guard let superview = superview else { return }
+        center(to: superview, with: insets)
+    }
+    
+    /// Center the current view to the center of view with specified insets
+    ///
+    /// - Parameters:
+    ///   - view: Other view
+    ///   - insets: Center insets
+    func center(to view: UIView, with insets: CGPoint = .zero) {
+        centerTo(
+            centerX: view.centerXAnchor,
+            centerY: view.centerYAnchor,
+            insets: insets
+        )
+    }
+    
+    /// Centers the current view to the specified centers with given insets
+    func centerTo(
+        centerX: NSLayoutXAxisAnchor? = nil,
+        centerY: NSLayoutYAxisAnchor? = nil,
+        insets: CGPoint = .zero
+    ) {
+        translatesAutoresizingMaskIntoConstraints = false
+        var constraints = [NSLayoutConstraint]()
+        
+        if let centerX = centerX {
+            constraints.append(centerXAnchor.constraint(equalTo: centerX, constant: insets.x))
+        }
+        if let centerY = centerY {
+            constraints.append(centerYAnchor.constraint(equalTo: centerY, constant: insets.y))
+        }
         constraints.forEach { $0.isActive = true }
     }
     

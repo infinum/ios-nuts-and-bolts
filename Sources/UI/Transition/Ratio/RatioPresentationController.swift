@@ -47,10 +47,14 @@ final class RatioPresentationController: UIPresentationController {
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {
-        let size = self.size(forChildContentContainer: presentedViewController,
-                             withParentContainerSize: _containerBounds.size)
-        
-        return CGRect(origin: CGPoint(x: 0.0, y: _containerFrame.maxY / 2), size: size)
+        let size = self.size(
+            forChildContentContainer: presentedViewController,
+            withParentContainerSize: _containerBounds.size
+        )
+
+        let yPos = _containerFrame.maxY - size.height
+        let origin = CGPoint(x: 0.0, y: yPos)
+        return CGRect(origin: origin, size: size)
     }
     
     override func size(
@@ -69,7 +73,6 @@ final class RatioPresentationController: UIPresentationController {
         
         let animations = {
             self._dimmingView.alpha = 1.0
-            self.presentedView?.layer.cornerRadius = 16.0
         }
         
         if let transitionCoordinator = presentingViewController.transitionCoordinator {
