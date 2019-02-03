@@ -37,7 +37,7 @@ extension CatalogPresenter: CatalogPresenterInterface {
         
         _handle(didSelect: didSelectRelay)
         return [
-            _createTestItemsSection(didSelect: didSelectRelay)
+            _createUIItemsSection(didSelect: didSelectRelay)
         ]
     }
     
@@ -45,12 +45,12 @@ extension CatalogPresenter: CatalogPresenterInterface {
 
 private extension CatalogPresenter {
     
-    func _createTestItemsSection(didSelect: PublishRelay<CatalogItem>) -> TableSectionItem {
+    func _createUIItemsSection(didSelect: PublishRelay<CatalogItem>) -> TableSectionItem {
         let ratio = CatalogItem(
             model: RatioTransitionViewController.self,
             didSelect: didSelect
         )
-        return CatalogSection.init(title: "Test", items: [ratio])
+        return CatalogSection.init(title: "UI", items: [ratio])
     }
     
     func _handle(didSelect: PublishRelay<CatalogItem>) {

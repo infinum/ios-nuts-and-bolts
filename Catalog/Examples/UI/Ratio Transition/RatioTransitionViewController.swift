@@ -28,7 +28,7 @@ private extension RatioTransitionViewController {
         let showButton = UIButton(type: .system)
         view.addSubview(showButton)
         showButton.centerToSuperview()
-        showButton.setTitle("Show ratio presentation", for: .normal)
+        showButton.setTitle("Show ratio transition", for: .normal)
         
         showButton.addTarget(
             self,
