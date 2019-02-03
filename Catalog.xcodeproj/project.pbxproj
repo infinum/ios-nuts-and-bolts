@@ -18,6 +18,9 @@
 		0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */; };
 		0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */; };
 		0A603FDA2207814A00F25622 /* UIViewController+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD92207814A00F25622 /* UIViewController+Progressable.swift */; };
+		0A603FDC2207841800F25622 /* Driver+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FDB2207841800F25622 /* Driver+Progressable.swift */; };
+		0A603FE22207874D00F25622 /* ClosedRange+Scalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B784220485920033A476 /* ClosedRange+Scalable.swift */; };
+		0A603FE32207875D00F25622 /* Driver+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FDE2207849500F25622 /* Driver+Utility.swift */; };
 		0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9EA932204218600FF3F2C /* AppDelegate.swift */; };
 		0AD9EA9B2204218800FF3F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9EA9A2204218800FF3F2C /* Assets.xcassets */; };
 		0AD9EA9E2204218800FF3F2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9EA9C2204218800FF3F2C /* LaunchScreen.storyboard */; };
@@ -77,6 +80,8 @@
 		0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxAlertExampleViewController.xib; sourceTree = "<group>"; };
 		0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseWireframe+Progressable.swift"; sourceTree = "<group>"; };
 		0A603FD92207814A00F25622 /* UIViewController+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Progressable.swift"; sourceTree = "<group>"; };
+		0A603FDB2207841800F25622 /* Driver+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Driver+Progressable.swift"; sourceTree = "<group>"; };
+		0A603FDE2207849500F25622 /* Driver+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Driver+Utility.swift"; sourceTree = "<group>"; };
 		0AD9EA902204218600FF3F2C /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD9EA932204218600FF3F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AD9EA9A2204218800FF3F2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -186,6 +191,7 @@
 		0A0ECF5C2207718500C1853E /* RxCocoa */ = {
 			isa = PBXGroup;
 			children = (
+				0A603FE02207851100F25622 /* Driver */,
 			);
 			path = RxCocoa;
 			sourceTree = "<group>";
@@ -214,6 +220,15 @@
 				0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */,
 			);
 			path = "Rx Alert Controller";
+			sourceTree = "<group>";
+		};
+		0A603FE02207851100F25622 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				0A603FDB2207841800F25622 /* Driver+Progressable.swift */,
+				0A603FDE2207849500F25622 /* Driver+Utility.swift */,
+			);
+			path = Driver;
 			sourceTree = "<group>";
 		};
 		0AD9EA872204218600FF3F2C = {
@@ -723,6 +738,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A603FE22207874D00F25622 /* ClosedRange+Scalable.swift in Sources */,
 				0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */,
 				0A0ECF532206FED800C1853E /* RatioPresentationManager.swift in Sources */,
 				0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */,
@@ -734,7 +750,9 @@
 				0AD9EAC52204274300FF3F2C /* BaseWireframe.swift in Sources */,
 				0A0ECF592207024800C1853E /* RatioTransitionViewController.swift in Sources */,
 				0AE0B757220430770033A476 /* CellItem.swift in Sources */,
+				0A603FE32207875D00F25622 /* Driver+Utility.swift in Sources */,
 				0AE0B74C22042D5E0033A476 /* CatalogPresenter.swift in Sources */,
+				0A603FDC2207841800F25622 /* Driver+Progressable.swift in Sources */,
 				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
 				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,
 				0A0ECF552207012E00C1853E /* Catalogizable.swift in Sources */,
