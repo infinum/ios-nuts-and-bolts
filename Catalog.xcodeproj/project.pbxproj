@@ -138,8 +138,8 @@
 		0A0ECF4F2206FED800C1853E /* Ratio */ = {
 			isa = PBXGroup;
 			children = (
-				0A0ECF502206FED800C1853E /* RatioPresentationController.swift */,
 				0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */,
+				0A0ECF502206FED800C1853E /* RatioPresentationController.swift */,
 			);
 			path = Ratio;
 			sourceTree = "<group>";

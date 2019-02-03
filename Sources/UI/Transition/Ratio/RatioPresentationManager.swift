@@ -26,6 +26,10 @@ public final class RatioPresentationManager: NSObject {
     /// Dismiss view controller when user taps on non-filled part
     public var shouldDismissOnTap: Bool = true
     
+    /// Ability to customize animations on `presentedView` in
+    /// present and dismiss transition
+    /// **Please, use weak reference to self inside animation**
+    public var animations: ((_ presentedView: UIView?, _ transition: RatioPresentationController.TransitionType) -> ())?
 }
 
 // MARK: - UIViewControllerTransitioningDelegate
@@ -44,6 +48,8 @@ extension RatioPresentationManager: UIViewControllerTransitioningDelegate {
         presentationController.ratio = ratio
         presentationController.backgroundColor = backgroundColor
         presentationController.shouldDismissOnTap = shouldDismissOnTap
+        presentationController.animations = animations
+        
         return presentationController
     }
     

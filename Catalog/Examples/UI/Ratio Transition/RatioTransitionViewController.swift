@@ -43,9 +43,21 @@ private extension RatioTransitionViewController {
         dummyViewController.view.backgroundColor = .green
         
         // Config
-        _presentationManager.backgroundColor = UIColor.red.withAlphaComponent(0.3)
+        _presentationManager.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         _presentationManager.shouldDismissOnTap = true
         _presentationManager.ratio = 0.4
+        _presentationManager.animations = { (presentedView, transition) in
+            presentedView?.layer.masksToBounds = true
+
+            let radius: CGFloat
+            switch transition {
+            case .present:
+                radius = 16.0
+            case .dismiss:
+                radius = 0.0
+            }
+            presentedView?.layer.cornerRadius = radius
+        }
         
         dummyViewController.modalPresentationStyle = .custom
         dummyViewController.transitioningDelegate = _presentationManager

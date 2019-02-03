@@ -15,7 +15,11 @@ import UIKit
 /// Dismiss handling can be controlled via `shouldDismissOnTap` property.
 ///
 /// Idea from https://jessesquires.github.io/PresenterKit
-final class RatioPresentationController: UIPresentationController {
+public final class RatioPresentationController: UIPresentationController {
+    
+    public enum TransitionType {
+        case present, dismiss
+    }
     
     // MARK: - Public properties -
     
@@ -32,21 +36,26 @@ final class RatioPresentationController: UIPresentationController {
     /// Dismiss view controller when user taps on non-filled part
     public var shouldDismissOnTap: Bool = true
     
+    /// Ability to customize animations on `presentedView` in
+    /// present and dismiss transition
+    /// **Please, use weak reference to self inside animation**
+    public var animations: ((_ presentedView: UIView?, _ transition: TransitionType) -> ())?
+    
     // MARK: - Private properties -
     
     private lazy var _dimmingView: UIView = _createDimmingView()
     
     // MARK - Overrides -
     
-    override var adaptivePresentationStyle: UIModalPresentationStyle {
+    override public var adaptivePresentationStyle: UIModalPresentationStyle {
         return .none
     }
     
-    override var shouldPresentInFullscreen: Bool {
+    override public var shouldPresentInFullscreen: Bool {
         return true
     }
     
-    override var frameOfPresentedViewInContainerView: CGRect {
+    override public var frameOfPresentedViewInContainerView: CGRect {
         let size = self.size(
             forChildContentContainer: presentedViewController,
             withParentContainerSize: _containerBounds.size
@@ -57,22 +66,23 @@ final class RatioPresentationController: UIPresentationController {
         return CGRect(origin: origin, size: size)
     }
     
-    override func size(
+    override public func size(
         forChildContentContainer container: UIContentContainer,
         withParentContainerSize parentSize: CGSize
     ) -> CGSize {
         return CGSize(width: parentSize.width, height: round(parentSize.height * ratio))
     }
 
-    override func presentationTransitionWillBegin() {
+    override public func presentationTransitionWillBegin() {
         super.presentationTransitionWillBegin()
         _dimmingView.frame = _containerBounds
         _dimmingView.alpha = 0.0
         containerView?.insertSubview(_dimmingView, at: 0)
-        presentedView?.layer.masksToBounds = true
         
-        let animations = {
+        let animations = { [weak self] in
+            guard let self = self else { return }
             self._dimmingView.alpha = 1.0
+            self.animations?(self.presentedView, .present)
         }
         
         if let transitionCoordinator = presentingViewController.transitionCoordinator {
@@ -84,10 +94,12 @@ final class RatioPresentationController: UIPresentationController {
         }
     }
     
-    override func dismissalTransitionWillBegin() {
+    override public func dismissalTransitionWillBegin() {
         super.dismissalTransitionWillBegin()
-        let animations = {
+        let animations = { [weak self] in
+            guard let self = self else { return }
             self._dimmingView.alpha = 0.0
+            self.animations?(self.presentedView, .dismiss)
         }
         
         if let transitionCoordinator = presentingViewController.transitionCoordinator {
@@ -99,7 +111,7 @@ final class RatioPresentationController: UIPresentationController {
         }
     }
     
-    override func containerViewWillLayoutSubviews() {
+    override public func containerViewWillLayoutSubviews() {
         super.containerViewWillLayoutSubviews()
         _dimmingView.frame = _containerBounds
         presentedView?.frame = frameOfPresentedViewInContainerView
