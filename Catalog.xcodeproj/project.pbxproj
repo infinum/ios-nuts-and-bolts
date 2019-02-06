@@ -14,6 +14,8 @@
 		0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF5D220771A600C1853E /* Progressable.swift */; };
 		0A0ECF602207720100C1853E /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF5F2207720100C1853E /* Refreshable.swift */; };
 		0A0ECF66220773D800C1853E /* UIAlertController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF65220773D800C1853E /* UIAlertController+Rx.swift */; };
+		0A3C090B220AD44F00DEBECC /* UIView+Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C090A220AD44F00DEBECC /* UIView+Corners.swift */; };
+		0A3C090E220ADD3E00DEBECC /* RoundCornersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C090D220ADD3E00DEBECC /* RoundCornersViewController.swift */; };
 		0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */; };
 		0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */; };
 		0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */; };
@@ -81,6 +83,8 @@
 		0A0ECF5D220771A600C1853E /* Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progressable.swift; sourceTree = "<group>"; };
 		0A0ECF5F2207720100C1853E /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
 		0A0ECF65220773D800C1853E /* UIAlertController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Rx.swift"; sourceTree = "<group>"; };
+		0A3C090A220AD44F00DEBECC /* UIView+Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corners.swift"; sourceTree = "<group>"; };
+		0A3C090D220ADD3E00DEBECC /* RoundCornersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornersViewController.swift; sourceTree = "<group>"; };
 		0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxAlertExampleViewController.swift; sourceTree = "<group>"; };
 		0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxAlertExampleViewController.xib; sourceTree = "<group>"; };
 		0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseWireframe+Progressable.swift"; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 		0A0ECF562207022200C1853E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0A3C090C220ADD2500DEBECC /* Round Corners */,
 				0A603FD222077C2900F25622 /* Rx Alert Controller */,
 				0A0ECF572207023000C1853E /* Ratio Transition */,
 			);
@@ -223,6 +228,14 @@
 				0A0ECF65220773D800C1853E /* UIAlertController+Rx.swift */,
 			);
 			path = UIAlertController;
+			sourceTree = "<group>";
+		};
+		0A3C090C220ADD2500DEBECC /* Round Corners */ = {
+			isa = PBXGroup;
+			children = (
+				0A3C090D220ADD3E00DEBECC /* RoundCornersViewController.swift */,
+			);
+			path = "Round Corners";
 			sourceTree = "<group>";
 		};
 		0A603FD222077C2900F25622 /* Rx Alert Controller */ = {
@@ -460,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				0AE0B77022046A190033A476 /* UIView+Constraints.swift */,
+				0A3C090A220AD44F00DEBECC /* UIView+Corners.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -800,6 +814,8 @@
 				0AE0B74E22042D5E0033A476 /* CatalogWireframe.swift in Sources */,
 				0AE0B76A22045C9A0033A476 /* UITableView+Register.swift in Sources */,
 				0AE0B75B2204362E0033A476 /* TableViewReloader.swift in Sources */,
+				0A3C090E220ADD3E00DEBECC /* RoundCornersViewController.swift in Sources */,
+				0A3C090B220AD44F00DEBECC /* UIView+Corners.swift in Sources */,
 				0AE0B75F220436B10033A476 /* TableSectionItem.swift in Sources */,
 				0AE0B76722045BB00033A476 /* CatalogItem.swift in Sources */,
 				0AE0B77122046A190033A476 /* UIView+Constraints.swift in Sources */,

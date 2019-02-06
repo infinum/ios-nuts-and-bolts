@@ -56,7 +56,7 @@ private extension RatioTransitionViewController {
             case .dismiss:
                 radius = 0.0
             }
-            presentedView?.layer.cornerRadius = radius
+            presentedView?.roundCorners(corners: [.topLeft, .topRight], radius: radius)
         }
         
         dummyViewController.modalPresentationStyle = .custom

@@ -47,19 +47,20 @@ extension CatalogPresenter: CatalogPresenterInterface {
 private extension CatalogPresenter {
     
     func _createUIItemsSection(didSelect: PublishRelay<CatalogItem>) -> TableSectionItem {
-        let ratio = CatalogItem(
-            model: RatioTransitionViewController.self,
-            didSelect: didSelect
-        )
-        return CatalogSection.init(title: "UI", items: [ratio])
+        
+        /// MARK: Items
+        let ratio = CatalogItem(model: RatioTransitionViewController.self, didSelect: didSelect)
+        let roundCorners = CatalogItem(model: RoundCornersViewController.self, didSelect: didSelect)
+        
+        return CatalogSection.init(title: "UI", items: [
+            ratio, roundCorners
+        ])
     }
 
     func _createRxItemsSection(didSelect: PublishRelay<CatalogItem>) -> TableSectionItem {
-        let ratio = CatalogItem(
-            model: RxAlertExampleViewController.self,
-            didSelect: didSelect
-        )
-        return CatalogSection.init(title: "Rx", items: [ratio])
+        let rxAlert = CatalogItem(model: RxAlertExampleViewController.self, didSelect: didSelect)
+        
+        return CatalogSection.init(title: "Rx", items: [rxAlert])
     }
     
     func _handle(didSelect: PublishRelay<CatalogItem>) {
