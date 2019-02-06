@@ -61,13 +61,13 @@ public extension UIView {
             constraints.append(topAnchor.constraint(equalTo: top, constant: insets.top))
         }
         if let left = left {
-            constraints.append(leftAnchor.constraint(equalTo: left, constant: insets.top))
+            constraints.append(leftAnchor.constraint(equalTo: left, constant: insets.left))
         }
         if let bottom = bottom {
-            constraints.append(bottomAnchor.constraint(equalTo: bottom, constant: insets.top))
+            constraints.append(bottomAnchor.constraint(equalTo: bottom, constant: insets.bottom))
         }
         if let right = right {
-            constraints.append(rightAnchor.constraint(equalTo: right, constant: insets.top))
+            constraints.append(rightAnchor.constraint(equalTo: right, constant: insets.right))
         }
         
         constraints.forEach { $0.isActive = true }
