@@ -16,6 +16,8 @@
 		0A0ECF66220773D800C1853E /* UIAlertController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF65220773D800C1853E /* UIAlertController+Rx.swift */; };
 		0A3C090B220AD44F00DEBECC /* UIView+Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C090A220AD44F00DEBECC /* UIView+Corners.swift */; };
 		0A3C090E220ADD3E00DEBECC /* RoundCornersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C090D220ADD3E00DEBECC /* RoundCornersViewController.swift */; };
+		0A3C0911220AF20800DEBECC /* Date+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C0910220AF20800DEBECC /* Date+Comparison.swift */; };
+		0A3C0913220AF4F800DEBECC /* Date+ComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C0912220AF4F800DEBECC /* Date+ComparisonTests.swift */; };
 		0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */; };
 		0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */; };
 		0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */; };
@@ -57,7 +59,6 @@
 		0AE0B778220478220033A476 /* Array+RotateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B777220478220033A476 /* Array+RotateTests.swift */; };
 		0AE0B77D2204803D0033A476 /* String+Blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B77C2204803C0033A476 /* String+Blank.swift */; };
 		0AE0B77F220481C50033A476 /* String+BlankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B77E220481C50033A476 /* String+BlankTests.swift */; };
-		0AE0B785220485920033A476 /* ClosedRange+Scalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B784220485920033A476 /* ClosedRange+Scalable.swift */; };
 		0AE0B78722049CBD0033A476 /* ClosedRange+ScalableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B78622049CBD0033A476 /* ClosedRange+ScalableTests.swift */; };
 		0AE0B78922049DC50033A476 /* TableDataSourceDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B78822049DC50033A476 /* TableDataSourceDelegateTests.swift */; };
 		66590488F0F41C2907C1E2B5 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3403687E4148D0617354B048 /* Pods_Tests.framework */; };
@@ -85,6 +86,8 @@
 		0A0ECF65220773D800C1853E /* UIAlertController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Rx.swift"; sourceTree = "<group>"; };
 		0A3C090A220AD44F00DEBECC /* UIView+Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corners.swift"; sourceTree = "<group>"; };
 		0A3C090D220ADD3E00DEBECC /* RoundCornersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornersViewController.swift; sourceTree = "<group>"; };
+		0A3C0910220AF20800DEBECC /* Date+Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Comparison.swift"; sourceTree = "<group>"; };
+		0A3C0912220AF4F800DEBECC /* Date+ComparisonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ComparisonTests.swift"; sourceTree = "<group>"; };
 		0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxAlertExampleViewController.swift; sourceTree = "<group>"; };
 		0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxAlertExampleViewController.xib; sourceTree = "<group>"; };
 		0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseWireframe+Progressable.swift"; sourceTree = "<group>"; };
@@ -236,6 +239,14 @@
 				0A3C090D220ADD3E00DEBECC /* RoundCornersViewController.swift */,
 			);
 			path = "Round Corners";
+			sourceTree = "<group>";
+		};
+		0A3C090F220AF1FE00DEBECC /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				0A3C0910220AF20800DEBECC /* Date+Comparison.swift */,
+			);
+			path = Date;
 			sourceTree = "<group>";
 		};
 		0A603FD222077C2900F25622 /* Rx Alert Controller */ = {
@@ -481,6 +492,7 @@
 		0AE0B7722204772B0033A476 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				0A3C090F220AF1FE00DEBECC /* Date */,
 				0AE0B783220485450033A476 /* Range */,
 				0AE0B77B220480260033A476 /* String */,
 				0AE0B773220477440033A476 /* Array */,
@@ -511,6 +523,7 @@
 				0AE0B777220478220033A476 /* Array+RotateTests.swift */,
 				0AE0B77E220481C50033A476 /* String+BlankTests.swift */,
 				0AE0B78622049CBD0033A476 /* ClosedRange+ScalableTests.swift */,
+				0A3C0912220AF4F800DEBECC /* Date+ComparisonTests.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -813,6 +826,7 @@
 				0AE0B775220477E40033A476 /* Array+Rotate.swift in Sources */,
 				0AE0B74E22042D5E0033A476 /* CatalogWireframe.swift in Sources */,
 				0AE0B76A22045C9A0033A476 /* UITableView+Register.swift in Sources */,
+				0A3C0911220AF20800DEBECC /* Date+Comparison.swift in Sources */,
 				0AE0B75B2204362E0033A476 /* TableViewReloader.swift in Sources */,
 				0A3C090E220ADD3E00DEBECC /* RoundCornersViewController.swift in Sources */,
 				0A3C090B220AD44F00DEBECC /* UIView+Corners.swift in Sources */,
@@ -837,7 +851,7 @@
 			files = (
 				0AE0B778220478220033A476 /* Array+RotateTests.swift in Sources */,
 				0AE0B78922049DC50033A476 /* TableDataSourceDelegateTests.swift in Sources */,
-				0AE0B785220485920033A476 /* ClosedRange+Scalable.swift in Sources */,
+				0A3C0913220AF4F800DEBECC /* Date+ComparisonTests.swift in Sources */,
 				0AE0B78722049CBD0033A476 /* ClosedRange+ScalableTests.swift in Sources */,
 				0AE0B77F220481C50033A476 /* String+BlankTests.swift in Sources */,
 			);
