@@ -95,6 +95,62 @@ class Date_ComparisonTests: QuickSpec {
                 expect(isBetween).notTo(beTrue())
             }
             
+            it("should return false for current date same as start and end dates but hour after end with day granularity, and not inclusive") {
+                let start = formatter.date(from: "14-01-2018 08:00:00")!
+                let current = formatter.date(from: "14-01-2018 10:00:00")!
+                let end = formatter.date(from: "14-01-2018 09:00:00")!
+                
+                let isBetween = current.isBetween(start, and: end,
+                                                  withGranularity: .day, inclusive: false)
+                expect(isBetween).to(beFalse())
+            }
+            
+            it("should work for different days comparison with day granularity, and not inclusive") {
+                let start = formatter.date(from: "12-01-2018 00:00:00")!
+                let current = formatter.date(from: "14-01-2018 13:00:00")!
+                let end = formatter.date(from: "16-01-2018 23:59:59")!
+                
+                let isBetween = current.isBetween(start, and: end, withGranularity: .day, inclusive: false)
+                expect(isBetween).to(beTrue())
+            }
+            
+            it("should work for different days comparison with day granularity, reversed end and start") {
+                let start = formatter.date(from: "12-01-2018 00:00:00")!
+                let current = formatter.date(from: "14-01-2018 13:00:00")!
+                let end = formatter.date(from: "16-01-2018 23:59:59")!
+                
+                let isBetween = current.isBetween(end, and: start, withGranularity: .day, checkInterval: true)
+                expect(isBetween).to(beTrue())
+            }
+            
+            it("should return false for current date same as start and end dates but hour after end with day granularity, and not inclusive and reversed dates") {
+                let start = formatter.date(from: "14-01-2018 08:00:00")!
+                let current = formatter.date(from: "14-01-2018 10:00:00")!
+                let end = formatter.date(from: "14-01-2018 09:00:00")!
+                
+                let isBetween = current.isBetween(
+                    end, and: start,
+                    withGranularity: .day,
+                    inclusive: false,
+                    checkInterval: true
+                )
+                expect(isBetween).to(beFalse())
+            }
+            
+            it("should return false for current date same as start and end dates but hour after end with day granularity, and not inclusive and reversed dates") {
+                let start = formatter.date(from: "14-01-2018 08:00:00")!
+                let current = formatter.date(from: "14-01-2018 10:00:00")!
+                let end = formatter.date(from: "14-01-2018 09:00:00")!
+                
+                let isBetween = current.isBetween(
+                    end, and: start,
+                    withGranularity: .day,
+                    inclusive: false,
+                    checkInterval: true
+                )
+                expect(isBetween).to(beFalse())
+            }
+            
         }
 
     }
