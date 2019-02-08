@@ -1,0 +1,6 @@
+framework module Loggie {
+  umbrella header "Loggie-umbrella.h"
+
+  export *
+  module * { export * }
+}
