@@ -6,6 +6,7 @@ Collection of commonly shared and reused code throughout the team.
 
 Before adding a new feature, please ensure that:
 
+* Have checked there is no same component already in catalog. If similar component already exists, try to upgrade it if needed.
 * Have created a sufficient example or wrote tests for it. If component is for something in UIKit, then example is better, while tests are preferred for Foundation features. Please, take a look at one of the current available features to grasp the idea.
 * Code is structured, well written using standard Swift coding style or check one at our [Coding Style](https://handbook.infinum.co/books/ios/Basics/Coding%20style) handbook.
 * All public methods and properties have documentation - comments have to be meaningful and concise.

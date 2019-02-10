@@ -4,6 +4,11 @@ Please include a summary of the feature you have added.
 
 # Checklist:
 
+<!--
+Put `x` inside brackets for confirmation: [x]
+-->
+
+- [ ] Have checked there is no same component already in catalog.
 - [ ] Have created a sufficient example or wrote tests for it.
 - [ ] Code is structured, well written using standard Swift coding style.
 - [ ] All public methods and properties have meaningful and concise documentation.
