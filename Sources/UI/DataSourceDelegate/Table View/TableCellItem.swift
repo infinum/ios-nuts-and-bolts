@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// Base interface for all table view cell items - used in conjuction with
+/// `TableDataSourceDelegate`
 public protocol TableCellItem: CellItem {
     
     // MARK: - Required methods and properties

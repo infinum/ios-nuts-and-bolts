@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// Base interface for all table view section items - used in conjuction with
+/// `TableDataSourceDelegate`
 public protocol TableSectionItem: SectionItem {
     
     // MARK: - Required methods and properties

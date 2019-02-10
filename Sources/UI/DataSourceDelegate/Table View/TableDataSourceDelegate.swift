@@ -25,7 +25,7 @@ public class TableDataSourceDelegate: NSObject {
         }
     }
     
-    /// Setting a sections will invoke internal reloader causing table view to refresh.
+    /// Setting an items will invoke internal reloader causing table view to refresh.
     ///
     /// If there are multiple sections - then data is flattened to single array
     public var items: [TableCellItem]? {
