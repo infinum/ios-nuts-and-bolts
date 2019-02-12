@@ -59,16 +59,7 @@ public struct Router: URLRequestConvertible {
 //            headers: headers, encoding: encoding
 //        )
 //    }
-    
-    private func _pathURL() throws -> URL {
-        if _path.starts(with: "http") {
-            return try _path.asURL()
-        }
-        return try _base
-            .asURL()
-            .appendingPathComponent(_path)
-    }
-    
+
     public func asURLRequest() throws -> URLRequest {
         let url = try _pathURL()
         var request = try URLRequest(url: url, method: _method, headers: _headers)
@@ -76,4 +67,17 @@ public struct Router: URLRequestConvertible {
         return request
     }
     
+}
+
+private extension Router {
+
+    func _pathURL() throws -> URL {
+        if _path.starts(with: "http") {
+            return try _path.asURL()
+        }
+        return try _base
+            .asURL()
+            .appendingPathComponent(_path)
+    }
+
 }
