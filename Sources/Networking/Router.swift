@@ -18,10 +18,13 @@ public struct Router: URLRequestConvertible {
     private let _encoding: [ParameterEncoding]
     
     public init(
-        base: String, path: String,
-        method: HTTPMethod, params: Parameters?,
-        headers: HTTPHeaders?, encoding: [ParameterEncoding])
-    {
+        base: String,
+        path: String,
+        method: HTTPMethod = .get,
+        params: Parameters? = nil,
+        headers: HTTPHeaders? = nil,
+        encoding: [ParameterEncoding] = [URLEncoding.default]
+    ) {
         _base = base
         _path = path
         _method = method
@@ -30,29 +33,14 @@ public struct Router: URLRequestConvertible {
         _encoding = encoding
     }
     
-    public init(
-        base: String,
-        path: String,
-        method: HTTPMethod = .get,
-        params: Parameters? = nil,
-        encoding: [ParameterEncoding] = [URLEncoding.default],
-        headers: HTTPHeaders? = nil)
-    {
-        self.init(
-            base: base, path: path,
-            method: method, params: params,
-            headers: headers, encoding: encoding
-        )
-    }
-    
 /// Insert your base URL here
 //    public init(
 //        path: String,
 //        method: HTTPMethod = .get,
 //        params: Parameters? = nil,
+//        headers: HTTPHeaders? = nil
 //        encoding: [ParameterEncoding] = [URLEncoding.default],
-//        headers: HTTPHeaders? = nil)
-//    {
+//    ) {
 //        self.init(
 //            base: Constants.baseUrl,
 //            path: path, method: method, params: params,
