@@ -18,6 +18,7 @@
 		0A3C090E220ADD3E00DEBECC /* RoundCornersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C090D220ADD3E00DEBECC /* RoundCornersViewController.swift */; };
 		0A3C0911220AF20800DEBECC /* Date+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C0910220AF20800DEBECC /* Date+Comparison.swift */; };
 		0A3C0913220AF4F800DEBECC /* Date+ComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C0912220AF4F800DEBECC /* Date+ComparisonTests.swift */; };
+		0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5BE2212AA40007AFC6C /* CatalogDataSource.swift */; };
 		0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */; };
 		0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */; };
 		0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */; };
@@ -103,6 +104,7 @@
 		0A3C090D220ADD3E00DEBECC /* RoundCornersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornersViewController.swift; sourceTree = "<group>"; };
 		0A3C0910220AF20800DEBECC /* Date+Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Comparison.swift"; sourceTree = "<group>"; };
 		0A3C0912220AF4F800DEBECC /* Date+ComparisonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ComparisonTests.swift"; sourceTree = "<group>"; };
+		0A40C5BE2212AA40007AFC6C /* CatalogDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataSource.swift; sourceTree = "<group>"; };
 		0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxAlertExampleViewController.swift; sourceTree = "<group>"; };
 		0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxAlertExampleViewController.xib; sourceTree = "<group>"; };
 		0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseWireframe+Progressable.swift"; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				0A0ECF542207012E00C1853E /* Catalogizable.swift */,
+				0A40C5BE2212AA40007AFC6C /* CatalogDataSource.swift */,
 				0AE0B74622042D140033A476 /* Catalog */,
 				0A0ECF562207022200C1853E /* UI */,
 			);
@@ -909,6 +912,7 @@
 				0AB524162210AF3400F35F52 /* JSONAPI.swift in Sources */,
 				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
 				0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */,
+				0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */,
 				0AE0B76E220467F80033A476 /* CatalogItemTableViewCell.swift in Sources */,
 				0AB5241F2210B30F00F35F52 /* Encoding.swift in Sources */,
 				0AD9EAC62204274300FF3F2C /* PresenterInterface.swift in Sources */,

@@ -19,12 +19,14 @@ final class CatalogPresenter {
     private unowned let _view: CatalogViewInterface
     private let _wireframe: CatalogWireframeInterface
     private let _disposeBag = DisposeBag()
+    private let _dataSource: CatalogDataSource
 
     // MARK: - Lifecycle -
 
-    init(view: CatalogViewInterface, wireframe: CatalogWireframeInterface) {
+    init(view: CatalogViewInterface, wireframe: CatalogWireframeInterface, dataSource: CatalogDataSource = .init()) {
         _view = view
         _wireframe = wireframe
+        _dataSource = dataSource
     }
 }
 
@@ -34,40 +36,36 @@ extension CatalogPresenter: CatalogPresenterInterface {
     
     func sections() -> [TableSectionItem] {
         let didSelectRelay = PublishRelay<CatalogItem>()
-        
         _handle(didSelect: didSelectRelay)
-        return [
-            _createUIItemsSection(didSelect: didSelectRelay),
-            _createRxItemsSection(didSelect: didSelectRelay)
-        ]
+
+        return _createSections(didSelect: didSelectRelay)
     }
     
 }
 
 private extension CatalogPresenter {
-    
-    func _createUIItemsSection(didSelect: PublishRelay<CatalogItem>) -> TableSectionItem {
-        
-        /// MARK: Items
-        let ratio = CatalogItem(model: RatioTransitionViewController.self, didSelect: didSelect)
-        let roundCorners = CatalogItem(model: RoundCornersViewController.self, didSelect: didSelect)
-        
-        return CatalogSection.init(title: "UI", items: [
-            ratio, roundCorners
-        ])
+
+    func _createSections(didSelect: PublishRelay<CatalogItem>) -> [TableSectionItem] {
+        return _dataSource
+            .sections
+            .map { $0.toCatalogSectionItem(didSelect: didSelect) }
     }
 
-    func _createRxItemsSection(didSelect: PublishRelay<CatalogItem>) -> TableSectionItem {
-        let rxAlert = CatalogItem(model: RxAlertExampleViewController.self, didSelect: didSelect)
-        
-        return CatalogSection.init(title: "Rx", items: [rxAlert])
-    }
-    
     func _handle(didSelect: PublishRelay<CatalogItem>) {
         didSelect
             .subscribe(onNext: { [unowned _wireframe] in
                 _wireframe.show($0.model)
             })
             .disposed(by: _disposeBag)
+    }
+}
+
+extension CatalogSectionModel {
+
+    func toCatalogSectionItem(didSelect: PublishRelay<CatalogItem>) -> CatalogSection {
+        let cellItems = items
+            .map { CatalogItem(model: $0, didSelect: didSelect) }
+
+        return CatalogSection(title: title, items: cellItems)
     }
 }
