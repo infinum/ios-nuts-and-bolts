@@ -12,22 +12,27 @@ public extension JSONAPI {
     
     public enum Include {
         
+        /// Adds include list to given parameters
+        ///
+        /// - Parameters:
+        ///   - parameters: Current parameters
+        ///   - include: Objects to include in response
+        /// - Returns: Parameters containing include info.
         public static func adapt(parameters: Parameters, include: [String]) -> Parameters {
+            guard !include.isEmpty else { return parameters }
+
             var parameters = parameters
-            if !include.isEmpty {
-                let includeParams = include.joined(separator: ",")
-                parameters["include"] = includeParams
+            var include = include
+
+            /// If include list already exists - keep the old items
+            if let currentItemsString = parameters["include"] as? String {
+                include.append(contentsOf: currentItemsString.components(separatedBy: ","))
             }
+
+            /// Filter out the duplicates if needed
+            parameters["include"] = Set(include).joined(separator: ",")
+
             return parameters
-        }
-        
-        public static func adapt(url: String, include: [String]) -> String {
-            var url = url
-            if !include.isEmpty {
-                let includeParams = include.joined(separator: ",")
-                url = url + "?include=" + includeParams
-            }
-            return url
         }
         
     }

@@ -11,7 +11,13 @@ import Alamofire
 public extension JSONAPI {
     
     public enum Fields {
-        
+
+        /// Nested properties to include for given items
+        ///
+        /// - Parameters:
+        ///   - parameters: Current parameters
+        ///   - fields: Nested properties to include in response
+        /// - Returns: Parameters containing fields include info.
         public static func adapt(parameters: Parameters, fields: [String: [String]]) -> Parameters {
             var parameters = parameters
             for (field, properties) in fields {

@@ -12,12 +12,19 @@ public extension JSONAPI {
     
     public enum Sorting {
         
+        /// Adds sort list to given parameters
+        ///
+        /// - Parameters:
+        ///   - parameters: Current parameters
+        ///   - properties: Properties to sort by
+        /// - Returns: Parameters containing sort info.
         public static func adapt(parameters: Parameters, properties: [String]) -> Parameters {
+            guard !properties.isEmpty else { return parameters }
             var parameters = parameters
-            if !properties.isEmpty {
-                let propertiesString = properties.joined(separator: ",")
-                parameters["sort"] = propertiesString
-            }
+
+            let propertiesString = properties.joined(separator: ",")
+            parameters["sort"] = propertiesString
+
             return parameters
         }
         

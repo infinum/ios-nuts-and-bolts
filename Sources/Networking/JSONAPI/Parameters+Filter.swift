@@ -12,6 +12,12 @@ public extension JSONAPI {
     
     public enum Filter {
         
+        /// Adds filter info for each properties to given parameters.
+        ///
+        /// - Parameters:
+        ///   - parameters: Current parameters
+        ///   - properties: Properties and values to filter by
+        /// - Returns: Parameters containing filter info.
         public static func adapt(parameters: Parameters, properties: [String: Any]) -> Parameters {
             var parameters = parameters
             for (key, value) in properties {

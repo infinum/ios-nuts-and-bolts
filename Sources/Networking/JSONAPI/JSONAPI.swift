@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Helpers related to JSONAPI structure
 public enum JSONAPI {
     
 }
