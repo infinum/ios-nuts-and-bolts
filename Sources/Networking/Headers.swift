@@ -9,25 +9,39 @@ import Foundation
 import Alamofire
 
 public enum Headers {
-    
-    public static var defaultJSONAPIRequestHeaders: HTTPHeaders {
+
+    public enum Key {
+        /// Content-Type header key
+        public static var contentType = "Content-Type"
+        /// Accept header key
+        public static var accept = "Accept"
+    }
+
+    public enum ApplicationType {
+        /// JSON application type value
+        public static var json = "application/json"
+        /// JSONAPI application type value
+        public static var jsonApi = "application/vnd.api+json"
+    }
+
+    public static var jsonApiRequestHeaders: HTTPHeaders {
         return [
-            "Content-Type" : "application/vnd.api+json",
-            "Accept" : "application/vnd.api+json"
+            Key.contentType: ApplicationType.jsonApi,
+            Key.accept: ApplicationType.jsonApi
         ]
     }
     
-    public static var defaultJSONRequestHeaders: HTTPHeaders {
+    public static var jsonRequestHeaders: HTTPHeaders {
         return [
-            "Content-Type" : "application/json",
-            "Accept" : "application/json"
+            Key.contentType: ApplicationType.json,
+            Key.accept: ApplicationType.json
         ]
     }
     
-    public static var combinedJSONAPIRequestHeaders: HTTPHeaders {
+    public static var combinedJsonApiRequestHeaders: HTTPHeaders {
         return [
-            "Content-Type" : "application/vnd.api+json",
-            "Accept" : "application/vnd.api+json, application/json"
+            Key.contentType: ApplicationType.jsonApi,
+            Key.accept: "\(ApplicationType.jsonApi), \(ApplicationType.json)"
         ]
     }
     

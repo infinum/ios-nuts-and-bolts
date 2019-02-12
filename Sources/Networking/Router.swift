@@ -17,6 +17,15 @@ public struct Router: URLRequestConvertible {
     private let _headers: HTTPHeaders?
     private let _encoding: [ParameterEncoding]
     
+    /// Creates Routable item with given parameters.
+    ///
+    /// - Parameters:
+    ///   - base: Base url
+    ///   - path: Path
+    ///   - method: Request method, .get by default
+    ///   - params: Request parameters, nil by default
+    ///   - headers: Request headers, nil by default
+    ///   - encoding: Request encodings, [URLEncoding.default] by default
     public init(
         base: String,
         path: String,

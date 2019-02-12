@@ -19,6 +19,8 @@
 		0A3C0911220AF20800DEBECC /* Date+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C0910220AF20800DEBECC /* Date+Comparison.swift */; };
 		0A3C0913220AF4F800DEBECC /* Date+ComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C0912220AF4F800DEBECC /* Date+ComparisonTests.swift */; };
 		0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5BE2212AA40007AFC6C /* CatalogDataSource.swift */; };
+		0A40C5C22212EC1D007AFC6C /* URLQueryEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5C12212EC1D007AFC6C /* URLQueryEncoding.swift */; };
+		0A40C5C42212EC29007AFC6C /* URLQueryItemsEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5C32212EC29007AFC6C /* URLQueryItemsEncoding.swift */; };
 		0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */; };
 		0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */; };
 		0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */; };
@@ -44,7 +46,6 @@
 		0AB524162210AF3400F35F52 /* JSONAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB524152210AF3400F35F52 /* JSONAPI.swift */; };
 		0AB524182210AF9A00F35F52 /* Parameters+Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB524172210AF9A00F35F52 /* Parameters+Filter.swift */; };
 		0AB5241A2210AFFB00F35F52 /* Parameters+Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB524192210AFFB00F35F52 /* Parameters+Fields.swift */; };
-		0AB5241F2210B30F00F35F52 /* Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB5241E2210B30F00F35F52 /* Encoding.swift */; };
 		0AB524222210B3CB00F35F52 /* URL+Append.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB524212210B3CB00F35F52 /* URL+Append.swift */; };
 		0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9EA932204218600FF3F2C /* AppDelegate.swift */; };
 		0AD9EA9B2204218800FF3F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD9EA9A2204218800FF3F2C /* Assets.xcassets */; };
@@ -105,6 +106,8 @@
 		0A3C0910220AF20800DEBECC /* Date+Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Comparison.swift"; sourceTree = "<group>"; };
 		0A3C0912220AF4F800DEBECC /* Date+ComparisonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ComparisonTests.swift"; sourceTree = "<group>"; };
 		0A40C5BE2212AA40007AFC6C /* CatalogDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataSource.swift; sourceTree = "<group>"; };
+		0A40C5C12212EC1D007AFC6C /* URLQueryEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueryEncoding.swift; sourceTree = "<group>"; };
+		0A40C5C32212EC29007AFC6C /* URLQueryItemsEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueryItemsEncoding.swift; sourceTree = "<group>"; };
 		0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxAlertExampleViewController.swift; sourceTree = "<group>"; };
 		0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxAlertExampleViewController.xib; sourceTree = "<group>"; };
 		0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseWireframe+Progressable.swift"; sourceTree = "<group>"; };
@@ -129,7 +132,6 @@
 		0AB524152210AF3400F35F52 /* JSONAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONAPI.swift; sourceTree = "<group>"; };
 		0AB524172210AF9A00F35F52 /* Parameters+Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parameters+Filter.swift"; sourceTree = "<group>"; };
 		0AB524192210AFFB00F35F52 /* Parameters+Fields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Parameters+Fields.swift"; sourceTree = "<group>"; };
-		0AB5241E2210B30F00F35F52 /* Encoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encoding.swift; sourceTree = "<group>"; };
 		0AB524212210B3CB00F35F52 /* URL+Append.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Append.swift"; sourceTree = "<group>"; };
 		0AD9EA902204218600FF3F2C /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD9EA932204218600FF3F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -281,6 +283,15 @@
 			path = Date;
 			sourceTree = "<group>";
 		};
+		0A40C5C02212EC03007AFC6C /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				0A40C5C12212EC1D007AFC6C /* URLQueryEncoding.swift */,
+				0A40C5C32212EC29007AFC6C /* URLQueryItemsEncoding.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
 		0A603FD222077C2900F25622 /* Rx Alert Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,10 +340,10 @@
 		0AB524092210ACB400F35F52 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				0A40C5C02212EC03007AFC6C /* Encoding */,
 				0AB5240E2210AE8600F35F52 /* JSONAPI */,
 				0AB5240A2210ADA700F35F52 /* Router.swift */,
 				0AB5240C2210AE4E00F35F52 /* Headers.swift */,
-				0AB5241E2210B30F00F35F52 /* Encoding.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -888,6 +899,7 @@
 				0A603FEB220798D800F25622 /* Observable+Progressable.swift in Sources */,
 				0A603FEF22079BA100F25622 /* Observable+TakeUntil.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
+				0A40C5C22212EC1D007AFC6C /* URLQueryEncoding.swift in Sources */,
 				0AB524102210AEA000F35F52 /* Parameters+Pagination.swift in Sources */,
 				0AB524052210A11500F35F52 /* CollectionDataSourceDelegate.swift in Sources */,
 				0AB5240D2210AE4E00F35F52 /* Headers.swift in Sources */,
@@ -914,7 +926,7 @@
 				0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */,
 				0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */,
 				0AE0B76E220467F80033A476 /* CatalogItemTableViewCell.swift in Sources */,
-				0AB5241F2210B30F00F35F52 /* Encoding.swift in Sources */,
+				0A40C5C42212EC29007AFC6C /* URLQueryItemsEncoding.swift in Sources */,
 				0AD9EAC62204274300FF3F2C /* PresenterInterface.swift in Sources */,
 				0AE0B775220477E40033A476 /* Array+Rotate.swift in Sources */,
 				0AE0B74E22042D5E0033A476 /* CatalogWireframe.swift in Sources */,
