@@ -14,7 +14,7 @@ extension URL {
     ///
     /// - Parameter newQueryItems: Items to add
     /// - Returns: URL with given query items
-    public func append(_ newQueryItems: [URLQueryItem]) -> URL {
+    public func appendingQueryItems(_ newQueryItems: [URLQueryItem]) -> URL {
         guard var urlComponents = URLComponents(string: absoluteString) else {
             return self
         }

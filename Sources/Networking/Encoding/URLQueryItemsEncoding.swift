@@ -21,7 +21,7 @@ public struct URLQueryItemsEncoding: ParameterEncoding {
 
     public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
         var newRequest = try urlRequest.asURLRequest()
-        newRequest.url = newRequest.url?.append(_items)
+        newRequest.url = newRequest.url?.appendingQueryItems(_items)
         return newRequest
     }
 

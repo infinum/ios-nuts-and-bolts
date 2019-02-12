@@ -21,6 +21,7 @@
 		0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5BE2212AA40007AFC6C /* CatalogDataSource.swift */; };
 		0A40C5C22212EC1D007AFC6C /* URLQueryEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5C12212EC1D007AFC6C /* URLQueryEncoding.swift */; };
 		0A40C5C42212EC29007AFC6C /* URLQueryItemsEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5C32212EC29007AFC6C /* URLQueryItemsEncoding.swift */; };
+		0A40C5C62212F60A007AFC6C /* URL+AppendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5C52212F60A007AFC6C /* URL+AppendTests.swift */; };
 		0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */; };
 		0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */; };
 		0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */; };
@@ -108,6 +109,7 @@
 		0A40C5BE2212AA40007AFC6C /* CatalogDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataSource.swift; sourceTree = "<group>"; };
 		0A40C5C12212EC1D007AFC6C /* URLQueryEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueryEncoding.swift; sourceTree = "<group>"; };
 		0A40C5C32212EC29007AFC6C /* URLQueryItemsEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueryItemsEncoding.swift; sourceTree = "<group>"; };
+		0A40C5C52212F60A007AFC6C /* URL+AppendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+AppendTests.swift"; sourceTree = "<group>"; };
 		0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxAlertExampleViewController.swift; sourceTree = "<group>"; };
 		0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxAlertExampleViewController.xib; sourceTree = "<group>"; };
 		0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseWireframe+Progressable.swift"; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 				0AE0B77E220481C50033A476 /* String+BlankTests.swift */,
 				0AE0B78622049CBD0033A476 /* ClosedRange+ScalableTests.swift */,
 				0A3C0912220AF4F800DEBECC /* Date+ComparisonTests.swift */,
+				0A40C5C52212F60A007AFC6C /* URL+AppendTests.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -960,6 +963,7 @@
 				0AE0B778220478220033A476 /* Array+RotateTests.swift in Sources */,
 				0AE0B78922049DC50033A476 /* TableDataSourceDelegateTests.swift in Sources */,
 				0A3C0913220AF4F800DEBECC /* Date+ComparisonTests.swift in Sources */,
+				0A40C5C62212F60A007AFC6C /* URL+AppendTests.swift in Sources */,
 				0AE0B78722049CBD0033A476 /* ClosedRange+ScalableTests.swift in Sources */,
 				0AE0B77F220481C50033A476 /* String+BlankTests.swift in Sources */,
 			);
