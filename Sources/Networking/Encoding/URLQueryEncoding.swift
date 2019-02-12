@@ -20,7 +20,7 @@ public struct URLQueryEncoding: ParameterEncoding {
     }
 
     public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
-        /// Use internal paremeters - not provided ones since this
+        /// Use internal paremeters
         return try URLEncoding.queryString.encode(urlRequest, with: _params)
     }
 
