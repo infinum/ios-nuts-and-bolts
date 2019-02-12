@@ -6,11 +6,15 @@
 //
 
 import Foundation
-import Alamofire
 
 extension URL {
     
-    public func append(_ newQueryItems: [URLQueryItem]) throws -> URL {
+    /// Appends given query items to the URL. If appending fails or
+    /// query items are invalid, current url is returned.
+    ///
+    /// - Parameter newQueryItems: Items to add
+    /// - Returns: URL with given query items
+    public func append(_ newQueryItems: [URLQueryItem]) -> URL {
         guard var urlComponents = URLComponents(string: absoluteString) else {
             return self
         }
@@ -18,12 +22,9 @@ extension URL {
         var queryItems: [URLQueryItem] = urlComponents.queryItems ?? []
         queryItems.append(contentsOf: newQueryItems)
         urlComponents.queryItems = queryItems
-        
-        guard let url = urlComponents.url else {
-            throw AFError.invalidURL(url: self)
-        }
-        
-        return url
+
+        /// If appending fails, use current URL
+        return urlComponents.url ?? self
     }
     
 }
