@@ -30,7 +30,7 @@ public extension JSONAPI {
             }
 
             /// Filter out the duplicates if needed
-            parameters["include"] = Set(include).joined(separator: ",")
+            parameters["include"] = include.joined(separator: ",")
 
             return parameters
         }
