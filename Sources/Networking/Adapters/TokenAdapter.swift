@@ -23,7 +23,7 @@ public class TokenAdapter: RequestAdapter {
 
     public func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         var urlRequest = urlRequest
-        urlRequest.setValue(_token, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(_token, forHTTPHeaderField: Headers.Key.authorization)
         return urlRequest
     }
 }

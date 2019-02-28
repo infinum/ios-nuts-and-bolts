@@ -15,6 +15,8 @@ public enum Headers {
         public static var contentType = "Content-Type"
         /// Accept header key
         public static var accept = "Accept"
+        /// Authorization
+        public static var authorization = "Authorization"
     }
 
     public enum ApplicationType {
