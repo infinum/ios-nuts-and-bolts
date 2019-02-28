@@ -9,10 +9,14 @@
 import Foundation
 import Alamofire
 
+/// Adapter used for token-based authorization
 public class TokenAdapter: RequestAdapter {
 
     private let _token: String
 
+    /// Adapter used for token-based authorization
+    ///
+    /// - Parameter token: Authorization token
     public init(token: String) {
         _token = token
     }

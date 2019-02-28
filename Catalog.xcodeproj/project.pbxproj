@@ -41,6 +41,8 @@
 		0AA45E8222188AE2009CF93E /* ReactiveDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA45E8122188AE2009CF93E /* ReactiveDataRequest.swift */; };
 		0AA45E8422188D0B009CF93E /* Service+Japx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA45E8322188D0B009CF93E /* Service+Japx.swift */; };
 		0AA45E8922189093009CF93E /* Service+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA45E8822189093009CF93E /* Service+Rx.swift */; };
+		0AA45E8F22197AEE009CF93E /* BasicNetworkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA45E8D22197AEE009CF93E /* BasicNetworkingViewController.swift */; };
+		0AA45E9022197AEE009CF93E /* BasicNetworkingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AA45E8E22197AEE009CF93E /* BasicNetworkingViewController.xib */; };
 		0AB523FF2210A0EE00F35F52 /* CollectionCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB523FE2210A0EE00F35F52 /* CollectionCellItem.swift */; };
 		0AB524012210A0FB00F35F52 /* CollectionSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB524002210A0FB00F35F52 /* CollectionSectionItem.swift */; };
 		0AB524032210A10800F35F52 /* BlankCollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB524022210A10800F35F52 /* BlankCollectionSection.swift */; };
@@ -135,6 +137,8 @@
 		0AA45E8122188AE2009CF93E /* ReactiveDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveDataRequest.swift; sourceTree = "<group>"; };
 		0AA45E8322188D0B009CF93E /* Service+Japx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+Japx.swift"; sourceTree = "<group>"; };
 		0AA45E8822189093009CF93E /* Service+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+Rx.swift"; sourceTree = "<group>"; };
+		0AA45E8D22197AEE009CF93E /* BasicNetworkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicNetworkingViewController.swift; sourceTree = "<group>"; };
+		0AA45E8E22197AEE009CF93E /* BasicNetworkingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicNetworkingViewController.xib; sourceTree = "<group>"; };
 		0AB523FE2210A0EE00F35F52 /* CollectionCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellItem.swift; sourceTree = "<group>"; };
 		0AB524002210A0FB00F35F52 /* CollectionSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSectionItem.swift; sourceTree = "<group>"; };
 		0AB524022210A10800F35F52 /* BlankCollectionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankCollectionSection.swift; sourceTree = "<group>"; };
@@ -380,6 +384,31 @@
 			path = Rx;
 			sourceTree = "<group>";
 		};
+		0AA45E8A22197AAD009CF93E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0AA45E8B22197ACB009CF93E /* Basic */,
+				0AA45E8C22197AD4009CF93E /* Rx */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		0AA45E8B22197ACB009CF93E /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				0AA45E8E22197AEE009CF93E /* BasicNetworkingViewController.xib */,
+				0AA45E8D22197AEE009CF93E /* BasicNetworkingViewController.swift */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		0AA45E8C22197AD4009CF93E /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
 		0AB524062210A44600F35F52 /* Reloader */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +528,7 @@
 				0A40C5BE2212AA40007AFC6C /* CatalogDataSource.swift */,
 				0AE0B74622042D140033A476 /* Catalog */,
 				0A0ECF562207022200C1853E /* UI */,
+				0AA45E8A22197AAD009CF93E /* Networking */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -805,6 +835,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AD9EA9E2204218800FF3F2C /* LaunchScreen.storyboard in Resources */,
+				0AA45E9022197AEE009CF93E /* BasicNetworkingViewController.xib in Resources */,
 				0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */,
 				0AD9EA9B2204218800FF3F2C /* Assets.xcassets in Resources */,
 			);
@@ -994,6 +1025,7 @@
 				0AE0B775220477E40033A476 /* Array+Rotate.swift in Sources */,
 				0AE0B74E22042D5E0033A476 /* CatalogWireframe.swift in Sources */,
 				0AE0B76A22045C9A0033A476 /* UITableView+Register.swift in Sources */,
+				0AA45E8F22197AEE009CF93E /* BasicNetworkingViewController.swift in Sources */,
 				0A3C0911220AF20800DEBECC /* Date+Comparison.swift in Sources */,
 				0AE0B75B2204362E0033A476 /* TableViewReloader.swift in Sources */,
 				0A3C090E220ADD3E00DEBECC /* RoundCornersViewController.swift in Sources */,
