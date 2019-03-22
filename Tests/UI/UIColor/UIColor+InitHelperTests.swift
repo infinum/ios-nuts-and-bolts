@@ -16,7 +16,7 @@ class UIColor_InitHelperTests: QuickSpec {
         
         describe("testing UIColor init without dividing the R/G/B value with 255.0") {
             
-            it("should initialize the same color object, as it normally would, with default initializer", closure: {
+            it("should initialize the same color object, as it normally would, with default initializer") {
                 
                 let value: CGFloat = 100
                 
@@ -24,7 +24,7 @@ class UIColor_InitHelperTests: QuickSpec {
                 let c2 = UIColor(red: value / CGFloat(255.0), green: value / CGFloat(255.0), blue: value / CGFloat(255.0), alpha: 1)
                 
                 expect(c1).to(equal(c2))
-            })
+            }
         }
     }
 }

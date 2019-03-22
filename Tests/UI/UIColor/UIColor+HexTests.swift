@@ -16,7 +16,7 @@ class UIColor_HexTests: QuickSpec {
         
         describe("testing UIColor with HEX") {
          
-            it("should create the same color for both RGB and corresponding HEX", closure: {
+            it("should create the same color for both RGB and corresponding HEX") {
                 
                 let rgbValue: CGFloat = 255.0
                 let rgbColor = UIColor(r: rgbValue, g: rgbValue, b: rgbValue)
@@ -42,7 +42,7 @@ class UIColor_HexTests: QuickSpec {
                 
                 expect(hexColor.getHex(withAlpha: true)).toNot(beNil())
                 expect(hexColor.getHex(withAlpha: true)).to(equal(hexValue))
-            })
+            }
         }
     }
 }

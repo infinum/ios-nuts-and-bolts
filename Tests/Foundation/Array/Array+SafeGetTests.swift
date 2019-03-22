@@ -18,13 +18,13 @@ class Array_SafeGetTests: QuickSpec {
             
             let arr = [4]
          
-            it("should have non-nil object at first index", closure: {
+            it("should have non-nil object at first index") {
                 expect(arr[safe: 0]).toNot(beNil())
-            })
+            }
             
-            it("should have nil object at any index except first index", closure: {
+            it("should have nil object at any index except first index") {
                 expect(arr[safe: 1]).to(beNil())
-            })
+            }
         }
     }
 }
