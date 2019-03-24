@@ -6,6 +6,12 @@
 
 Collection of commonly shared and reused code throughout the team.
 
+## Usage
+
+You can find all the features inside the `Sources` folder. Each feature has its sample inside the catalog list or tests written for it, where you can find more info on feature usage.
+
+To explore features feel free to open the `Catalog.xcworkspace` and run Catalog app or go trough tests inside `Tests` folder.
+
 ## Contributing
 
 Before adding a new feature, please ensure that:
