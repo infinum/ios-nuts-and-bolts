@@ -11,6 +11,11 @@ import Alamofire
 import CodableAlamofire
 import RxSwift
 
+/// Base protocol for API networking communication.
+///
+/// NB: If you don't use Rx in your project, just remove `ReactiveCompatible`
+/// protocol conformance (it is not possible for protocol to conform
+/// to another protocol via extension, only in protocol declaration)
 public protocol APIServiceable: class, ReactiveCompatible {
 
     func request<T: Decodable>(
@@ -27,6 +32,7 @@ public protocol APIServiceable: class, ReactiveCompatible {
 
 }
 
+/// Base API service class containing shared logic for all API calls
 open class APIService: APIServiceable {
 
     public static var instance = APIService()
