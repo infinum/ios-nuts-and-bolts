@@ -26,25 +26,31 @@ public enum Headers {
         public static var jsonApi = "application/vnd.api+json"
     }
 
-    public static var jsonApiRequestHeaders: HTTPHeaders {
+}
+
+/// MARK: - JSONAPI Request headers
+
+public extension Headers {
+
+    static var jsonApiRequestHeaders: HTTPHeaders {
         return [
             Key.contentType: ApplicationType.jsonApi,
             Key.accept: ApplicationType.jsonApi
         ]
     }
-    
-    public static var jsonRequestHeaders: HTTPHeaders {
+
+    static var jsonRequestHeaders: HTTPHeaders {
         return [
             Key.contentType: ApplicationType.json,
             Key.accept: ApplicationType.json
         ]
     }
-    
-    public static var combinedJsonApiRequestHeaders: HTTPHeaders {
+
+    static var combinedJsonApiRequestHeaders: HTTPHeaders {
         return [
             Key.contentType: ApplicationType.jsonApi,
             Key.accept: "\(ApplicationType.jsonApi), \(ApplicationType.json)"
         ]
     }
-    
+
 }

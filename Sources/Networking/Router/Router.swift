@@ -8,40 +8,43 @@
 import Foundation
 import Alamofire
 
-public struct Router: URLRequestConvertible {
-    
-    private let _base: String
-    private let _path: String
-    private let _method: HTTPMethod
-    private let _params: Parameters?
-    private let _headers: HTTPHeaders?
-    private let _encoding: [ParameterEncoding]
-    
+/// Base API routing class containing shared logic for all routers.
+/// For each new router, for example LoginRouter, just extend this
+/// class and fill necessary data
+open class Router: Routable {
+
+    open var baseUrl: String
+    open var path: String
+    open var method: HTTPMethod
+    open var params: Parameters?
+    open var headers: HTTPHeaders?
+    open var encoding: [ParameterEncoding]
+
     /// Creates Routable item with given parameters.
     ///
     /// - Parameters:
-    ///   - base: Base url
+    ///   - baseUrl: Base URL
     ///   - path: Path
     ///   - method: Request method, .get by default
     ///   - params: Request parameters, nil by default
     ///   - headers: Request headers, nil by default
     ///   - encoding: Request encodings, [URLEncoding.default] by default
     public init(
-        base: String,
+        baseUrl: String,
         path: String,
         method: HTTPMethod = .get,
         params: Parameters? = nil,
         headers: HTTPHeaders? = nil,
         encoding: [ParameterEncoding] = [URLEncoding.default]
     ) {
-        _base = base
-        _path = path
-        _method = method
-        _params = params
-        _headers = headers
-        _encoding = encoding
+        self.baseUrl = baseUrl
+        self.path = path
+        self.method = method
+        self.params = params
+        self.headers = headers
+        self.encoding = encoding
     }
-    
+
 /// Insert your base URL here
 //    public init(
 //        path: String,
@@ -56,25 +59,5 @@ public struct Router: URLRequestConvertible {
 //            headers: headers, encoding: encoding
 //        )
 //    }
-
-    public func asURLRequest() throws -> URLRequest {
-        let url = try _pathURL()
-        var request = try URLRequest(url: url, method: _method, headers: _headers)
-        try _encoding.forEach { request = try $0.encode(request, with: _params) }
-        return request
-    }
-    
-}
-
-private extension Router {
-
-    func _pathURL() throws -> URL {
-        if _path.starts(with: "http") {
-            return try _path.asURL()
-        }
-        return try _base
-            .asURL()
-            .appendingPathComponent(_path)
-    }
 
 }
