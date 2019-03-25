@@ -20,10 +20,8 @@ public extension JSONAPI {
         /// - Returns: Parameters containing fields include info.
         public static func adapt(parameters: Parameters, fields: [String: [String]]) -> Parameters {
             var parameters = parameters
-            for (field, properties) in fields {
-                if !properties.isEmpty {
-                    parameters["fields[\(field)]"] = properties.joined(separator: ",")
-                }
+            for (field, properties) in fields where !properties.isEmpty {
+                parameters["fields[\(field)]"] = properties.joined(separator: ",")
             }
             return parameters
         }
