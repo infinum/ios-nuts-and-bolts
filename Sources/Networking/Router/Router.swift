@@ -18,7 +18,7 @@ open class Router: Routable {
     open var method: HTTPMethod
     open var params: Parameters?
     open var headers: HTTPHeaders?
-    open var encoding: [ParameterEncoding]
+    open var encodableParams: [EncodableParams]
 
     /// Creates Routable item with given parameters.
     ///
@@ -33,30 +33,29 @@ open class Router: Routable {
         baseUrl: String,
         path: String,
         method: HTTPMethod = .get,
-        params: Parameters? = nil,
         headers: HTTPHeaders? = nil,
-        encoding: [ParameterEncoding] = [URLEncoding.default]
+        encodableParams: [EncodableParams]
     ) {
         self.baseUrl = baseUrl
         self.path = path
         self.method = method
-        self.params = params
         self.headers = headers
-        self.encoding = encoding
+        self.encodableParams = encodableParams
     }
 
-/// Insert your base URL here
-//    public init(
+    /// Insert your base URL here
+//    public convenience init(
 //        path: String,
 //        method: HTTPMethod = .get,
-//        params: Parameters? = nil,
-//        headers: HTTPHeaders? = nil
-//        encoding: [ParameterEncoding] = [URLEncoding.default],
+//        headers: HTTPHeaders? = nil,
+//        encodableParams: EncodableParams...
 //    ) {
 //        self.init(
-//            base: Constants.baseUrl,
-//            path: path, method: method, params: params,
-//            headers: headers, encoding: encoding
+//            baseUrl: Constants.baseUrl,
+//            path: path,
+//            method: method,
+//            headers: headers,
+//            encodableParams: encodableParams
 //        )
 //    }
 

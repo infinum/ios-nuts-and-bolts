@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0C8CFE22492E2C0071011F /* EncodableParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C8CFD22492E2C0071011F /* EncodableParams.swift */; };
 		0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF502206FED800C1853E /* RatioPresentationController.swift */; };
 		0A0ECF532206FED800C1853E /* RatioPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */; };
 		0A0ECF552207012E00C1853E /* Catalogizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF542207012E00C1853E /* Catalogizable.swift */; };
@@ -23,7 +24,6 @@
 		0A3C0911220AF20800DEBECC /* Date+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C0910220AF20800DEBECC /* Date+Comparison.swift */; };
 		0A3C0913220AF4F800DEBECC /* Date+ComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C0912220AF4F800DEBECC /* Date+ComparisonTests.swift */; };
 		0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5BE2212AA40007AFC6C /* CatalogDataSource.swift */; };
-		0A40C5C22212EC1D007AFC6C /* URLQueryEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5C12212EC1D007AFC6C /* URLQueryEncoding.swift */; };
 		0A40C5C42212EC29007AFC6C /* URLQueryItemsEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5C32212EC29007AFC6C /* URLQueryItemsEncoding.swift */; };
 		0A40C5C62212F60A007AFC6C /* URL+AppendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40C5C52212F60A007AFC6C /* URL+AppendTests.swift */; };
 		0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */; };
@@ -110,6 +110,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0C8CFD22492E2C0071011F /* EncodableParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableParams.swift; sourceTree = "<group>"; };
 		0A0ECF502206FED800C1853E /* RatioPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationController.swift; sourceTree = "<group>"; };
 		0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationManager.swift; sourceTree = "<group>"; };
 		0A0ECF542207012E00C1853E /* Catalogizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalogizable.swift; sourceTree = "<group>"; };
@@ -126,7 +127,6 @@
 		0A3C0910220AF20800DEBECC /* Date+Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Comparison.swift"; sourceTree = "<group>"; };
 		0A3C0912220AF4F800DEBECC /* Date+ComparisonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ComparisonTests.swift"; sourceTree = "<group>"; };
 		0A40C5BE2212AA40007AFC6C /* CatalogDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataSource.swift; sourceTree = "<group>"; };
-		0A40C5C12212EC1D007AFC6C /* URLQueryEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueryEncoding.swift; sourceTree = "<group>"; };
 		0A40C5C32212EC29007AFC6C /* URLQueryItemsEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueryItemsEncoding.swift; sourceTree = "<group>"; };
 		0A40C5C52212F60A007AFC6C /* URL+AppendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+AppendTests.swift"; sourceTree = "<group>"; };
 		0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxAlertExampleViewController.swift; sourceTree = "<group>"; };
@@ -304,8 +304,8 @@
 		0A0F24432247CE490005CF41 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				0AB5240A2210ADA700F35F52 /* Router.swift */,
 				0A0F24442247CE5D0005CF41 /* Routable.swift */,
+				0AB5240A2210ADA700F35F52 /* Router.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 		0A40C5C02212EC03007AFC6C /* Encoding */ = {
 			isa = PBXGroup;
 			children = (
-				0A40C5C12212EC1D007AFC6C /* URLQueryEncoding.swift */,
+				0A0C8CFD22492E2C0071011F /* EncodableParams.swift */,
 				0A40C5C32212EC29007AFC6C /* URLQueryItemsEncoding.swift */,
 			);
 			path = Encoding;
@@ -443,9 +443,9 @@
 			isa = PBXGroup;
 			children = (
 				0A0F24432247CE490005CF41 /* Router */,
+				0A40C5C02212EC03007AFC6C /* Encoding */,
 				0AA45E7D22188A78009CF93E /* Adapters */,
 				0AA45E7A22188A57009CF93E /* Service */,
-				0A40C5C02212EC03007AFC6C /* Encoding */,
 				0AA45E8022188AC5009CF93E /* Rx */,
 				0AB5240E2210AE8600F35F52 /* JSONAPI */,
 				0AB5240C2210AE4E00F35F52 /* Headers.swift */,
@@ -1052,7 +1052,6 @@
 				0A0F24472247D5D80005CF41 /* APIService.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
 				0A0F244A2247DCC70005CF41 /* Service+JapxRx.swift in Sources */,
-				0A40C5C22212EC1D007AFC6C /* URLQueryEncoding.swift in Sources */,
 				0AB524102210AEA000F35F52 /* Parameters+Pagination.swift in Sources */,
 				0AB524052210A11500F35F52 /* CollectionDataSourceDelegate.swift in Sources */,
 				0AA45E772218880A009CF93E /* JapxResponse.swift in Sources */,
@@ -1100,6 +1099,7 @@
 				0AE0B76C220461620033A476 /* UITableView+Dequeue.swift in Sources */,
 				0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */,
 				0AB524142210AF1000F35F52 /* Parameters+Sorting.swift in Sources */,
+				0A0C8CFE22492E2C0071011F /* EncodableParams.swift in Sources */,
 				0AB523FF2210A0EE00F35F52 /* CollectionCellItem.swift in Sources */,
 				0A0ECF66220773D800C1853E /* UIAlertController+Rx.swift in Sources */,
 				0A603FED22079A9800F25622 /* Observable+Utility.swift in Sources */,

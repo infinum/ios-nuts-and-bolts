@@ -21,25 +21,20 @@ public protocol Routable: URLRequestConvertible {
     /// Request method
     var method: HTTPMethod { get }
 
-    /// Request parameters
-    var params: Parameters? { get }
-
     /// Request headers
     var headers: HTTPHeaders? { get }
 
-    /// Paremeter encodings. Add more than one if custom behaviour is needed.
-    /// For example, if you have a POST request with body params and URL query items,
-    /// you can create custom encoding for query items - to append them
-    /// on requesting URL.
-    var encoding: [ParameterEncoding] { get }
+    /// Request parameters with associated encoding
+    var encodableParams: [EncodableParams] { get }
 }
+
 
 public extension Routable {
 
     func asURLRequest() throws -> URLRequest {
         let url = try _pathUrl()
         var request = try URLRequest(url: url, method: method, headers: headers)
-        try encoding.forEach { request = try $0.encode(request, with: params) }
+        try encodableParams.forEach { request = try $0.encode(request) }
         return request
     }
 

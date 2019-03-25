@@ -12,44 +12,28 @@ public enum Headers {
 
     public enum Key {
         /// Content-Type header key
-        public static var contentType = "Content-Type"
+        public static let contentType = "Content-Type"
         /// Accept header key
-        public static var accept = "Accept"
+        public static let accept = "Accept"
         /// Authorization
-        public static var authorization = "Authorization"
+        public static let authorization = "Authorization"
     }
 
     public enum ApplicationType {
         /// JSON application type value
-        public static var json = "application/json"
-        /// JSONAPI application type value
-        public static var jsonApi = "application/vnd.api+json"
+        public static let json = "application/json"
     }
 
 }
 
-/// MARK: - JSONAPI Request headers
+/// MARK: - JSON Request headers
 
 public extension Headers {
-
-    static var jsonApiRequestHeaders: HTTPHeaders {
-        return [
-            Key.contentType: ApplicationType.jsonApi,
-            Key.accept: ApplicationType.jsonApi
-        ]
-    }
 
     static var jsonRequestHeaders: HTTPHeaders {
         return [
             Key.contentType: ApplicationType.json,
             Key.accept: ApplicationType.json
-        ]
-    }
-
-    static var combinedJsonApiRequestHeaders: HTTPHeaders {
-        return [
-            Key.contentType: ApplicationType.jsonApi,
-            Key.accept: "\(ApplicationType.jsonApi), \(ApplicationType.json)"
         ]
     }
 

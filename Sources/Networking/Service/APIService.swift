@@ -19,8 +19,11 @@ import RxSwift
 public protocol APIServiceable: class, ReactiveCompatible {
 
     func request<T: Decodable>(
-        _: T.Type, keyPath: String?, decoder: JSONDecoder,
-        router: Routable, sessionManager: SessionManager,
+        _: T.Type,
+        keyPath: String?,
+        decoder: JSONDecoder,
+        router: Routable,
+        sessionManager: SessionManager,
         completion: @escaping (Result<T>) -> ()
     ) -> DataRequest
 

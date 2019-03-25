@@ -32,7 +32,7 @@ public extension Reactive where Base: APIServiceable {
                         router: router,
                         sessionManager: sessionManager,
                         completion: processResult
-                )
+                    )
                 return Disposables.create { request?.cancel() }
         }
     }
@@ -51,7 +51,7 @@ public extension Reactive where Base: APIServiceable {
                         router: router,
                         sessionManager: sessionManager,
                         completion: processResult
-                )
+                    )
                 return Disposables.create { request?.cancel() }
         }
     }

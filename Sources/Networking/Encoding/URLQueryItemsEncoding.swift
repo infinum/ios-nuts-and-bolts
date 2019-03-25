@@ -10,7 +10,7 @@ import Alamofire
 
 /// Appends given query items to query part of the URL.
 /// Useful when you have POST request with JSON body but you also need to
-/// add custom query parameters to the url.
+/// add custom query items to the url.
 public struct URLQueryItemsEncoding: ParameterEncoding {
 
     private let _items: [URLQueryItem]
