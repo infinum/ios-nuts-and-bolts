@@ -53,4 +53,31 @@ public extension Date {
         return afterStart && beforeEnd
     }
     
+    
+    /// `true` if `self` is today, false otherwise
+    var isToday: Bool {
+        return Calendar.current.isDateInToday(self)
+    }
+    
+    /// `true` if `self` after today, false otherwise
+    var isAfterToday: Bool {
+        return self > Date() && !isToday
+    }
+
+    /// Checks whether `self` is in the same month as the provided date.
+    ///
+    /// - Parameter date: Other date
+    /// - Returns: `true` if `self` is in the same month as the provided date, false otherwise.
+    func isInSameMonth(as date: Date) -> Bool {
+        return Calendar.current.isDate(self, equalTo: date, toGranularity: .month)
+    }
+    
+    /// Checks whether `self` is the same day as the provided date.
+    ///
+    /// - Parameter date: Other date
+    /// - Returns: `true` if `self` is the same date as the provided date, false otherwise.
+    func isInSameDay(as date: Date) -> Bool {
+        return Calendar.current.isDate(self, equalTo: date, toGranularity: .day)
+    }
+    
 }
