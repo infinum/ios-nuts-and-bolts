@@ -15,7 +15,7 @@ public protocol Routable: URLRequestConvertible {
     /// Base API url, e.g.: *htttps://www.google.com*
     var baseUrl: String { get }
 
-    /// Path to requested resource, e.g.: *htttps://www.google.com/* **text**
+    /// Path to requested resource, e.g.: /text
     var path: String { get }
 
     /// Request method

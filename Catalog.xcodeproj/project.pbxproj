@@ -65,6 +65,8 @@
 		0AD9EAC72204274300FF3F2C /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9EAC02204274300FF3F2C /* ViewInterface.swift */; };
 		0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9EAC12204274300FF3F2C /* InteractorInterface.swift */; };
 		0AD9EAC92204274300FF3F2C /* UIStoryboard+Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9EAC42204274300FF3F2C /* UIStoryboard+Instantiate.swift */; };
+		0ADB25AD2270806A00288054 /* BasicAuthAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB25AC2270806A00288054 /* BasicAuthAdapter.swift */; };
+		0ADB25B0227081E000288054 /* RequestAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB25AF227081E000288054 /* RequestAdapterTests.swift */; };
 		0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B74722042D5E0033A476 /* CatalogInterfaces.swift */; };
 		0AE0B74C22042D5E0033A476 /* CatalogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B74822042D5E0033A476 /* CatalogPresenter.swift */; };
 		0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B74922042D5E0033A476 /* CatalogViewController.swift */; };
@@ -172,6 +174,8 @@
 		0AD9EAC02204274300FF3F2C /* ViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		0AD9EAC12204274300FF3F2C /* InteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
 		0AD9EAC42204274300FF3F2C /* UIStoryboard+Instantiate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Instantiate.swift"; sourceTree = "<group>"; };
+		0ADB25AC2270806A00288054 /* BasicAuthAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthAdapter.swift; sourceTree = "<group>"; };
+		0ADB25AF227081E000288054 /* RequestAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAdapterTests.swift; sourceTree = "<group>"; };
 		0AE0B74722042D5E0033A476 /* CatalogInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogInterfaces.swift; sourceTree = "<group>"; };
 		0AE0B74822042D5E0033A476 /* CatalogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogPresenter.swift; sourceTree = "<group>"; };
 		0AE0B74922042D5E0033A476 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA45E7E22188A80009CF93E /* TokenAdapter.swift */,
+				0ADB25AC2270806A00288054 /* BasicAuthAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 		0AD9EAA72204218800FF3F2C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0ADB25AE227081B800288054 /* Networking */,
 				0AE0B780220483810033A476 /* UI */,
 				0AE0B77A220478500033A476 /* Foundation */,
 				0AE0B779220478430033A476 /* SupportingFiles */,
@@ -603,6 +609,14 @@
 				0AD9EAC42204274300FF3F2C /* UIStoryboard+Instantiate.swift */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		0ADB25AE227081B800288054 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0ADB25AF227081E000288054 /* RequestAdapterTests.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		0AE0B74622042D140033A476 /* Catalog */ = {
@@ -1093,6 +1107,7 @@
 				0A3C090B220AD44F00DEBECC /* UIView+Corners.swift in Sources */,
 				0AB524032210A10800F35F52 /* BlankCollectionSection.swift in Sources */,
 				0AE0B75F220436B10033A476 /* TableSectionItem.swift in Sources */,
+				0ADB25AD2270806A00288054 /* BasicAuthAdapter.swift in Sources */,
 				0AE0B76722045BB00033A476 /* CatalogItem.swift in Sources */,
 				0AE0B77122046A190033A476 /* UIView+Constraints.swift in Sources */,
 				0A603FDA2207814A00F25622 /* UIViewController+Progressable.swift in Sources */,
@@ -1126,6 +1141,7 @@
 				60B4BDF22243AC7000849B8D /* Array+SafeGetTests.swift in Sources */,
 				0AE0B78722049CBD0033A476 /* ClosedRange+ScalableTests.swift in Sources */,
 				0AE0B77F220481C50033A476 /* String+BlankTests.swift in Sources */,
+				0ADB25B0227081E000288054 /* RequestAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
