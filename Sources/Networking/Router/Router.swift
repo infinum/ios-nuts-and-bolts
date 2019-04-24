@@ -43,6 +43,30 @@ open class Router: Routable {
         self.encodableParams = encodableParams
     }
 
+    /// Creates Routable item with given parameters.
+    ///
+    /// - Parameters:
+    ///   - baseUrl: Base URL
+    ///   - path: Path
+    ///   - method: Request method, .get by default
+    ///   - params: Request parameters, nil by default
+    ///   - headers: Request headers, nil by default
+    ///   - encoding: Request encodings, [URLEncoding.default] by default
+    public init(
+        baseUrl: String,
+        path: String,
+        method: HTTPMethod = .get,
+        headers: HTTPHeaders? = nil,
+        parameters: Parameters? = nil,
+        encoding: ParameterEncoding = URLEncoding.default
+    ) {
+        self.baseUrl = baseUrl
+        self.path = path
+        self.method = method
+        self.headers = headers
+        self.encodableParams = [EncodableParams(encoding: encoding, parameters: parameters)]
+    }
+
     /// Insert your base URL here
 //    public convenience init(
 //        path: String,
@@ -58,5 +82,23 @@ open class Router: Routable {
 //            encodableParams: encodableParams
 //        )
 //    }
+
+//    public convenience init(
+//        path: String,
+//        method: HTTPMethod = .get,
+//        headers: HTTPHeaders? = nil,
+//        parameters: Parameters? = nil,
+//        encoding: ParameterEncoding = URLEncoding.default
+//    ) {
+//        self.init(
+//            baseUrl: Constants.baseUrl,
+//            path: path,
+//            method: method,
+//            headers: headers,
+//            parameters: parameters,
+//            encoding: encoding
+//        )
+//    }
+
 
 }
