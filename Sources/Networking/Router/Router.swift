@@ -22,13 +22,16 @@ open class Router: Routable {
 
     /// Creates Routable item with given parameters.
     ///
+    /// Parameters are passed as EncodableParams in a way to enable
+    /// different encoding combinations, e.g.: URL query and POST body
+    ///
     /// - Parameters:
     ///   - baseUrl: Base URL
     ///   - path: Path
     ///   - method: Request method, .get by default
     ///   - params: Request parameters, nil by default
     ///   - headers: Request headers, nil by default
-    ///   - encoding: Request encodings, [URLEncoding.default] by default
+    ///   - encodableParams: Request parameters with corresponding encoding
     public init(
         baseUrl: String,
         path: String,
@@ -67,8 +70,11 @@ open class Router: Routable {
         self.encodableParams = [EncodableParams(encoding: encoding, parameters: parameters)]
     }
 
-    /// Insert your base URL here
-//    public convenience init(
+}
+
+/// Insert your base URL here
+public extension Router {
+//    convenience init(
 //        path: String,
 //        method: HTTPMethod = .get,
 //        headers: HTTPHeaders? = nil,
@@ -83,7 +89,7 @@ open class Router: Routable {
 //        )
 //    }
 
-//    public convenience init(
+//    convenience init(
 //        path: String,
 //        method: HTTPMethod = .get,
 //        headers: HTTPHeaders? = nil,
@@ -99,6 +105,4 @@ open class Router: Routable {
 //            encoding: encoding
 //        )
 //    }
-
-
 }
