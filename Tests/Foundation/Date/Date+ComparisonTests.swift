@@ -152,6 +152,158 @@ class Date_ComparisonTests: QuickSpec {
             }
             
         }
+        
+        describe("testing isToday") {
+            
+            it("Should return true if date is today") {
+                let date = Date()
+
+                expect(date.isToday).to(beTrue())
+            }
+            
+            it("Should return false if date is not today") {
+                var date: Date {
+                    let isoDate = "1995-05-20T10:44:00+0000"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
+                    return dateFormatter.date(from: isoDate)!
+                }
+                
+                expect(date.isToday).to(beFalse())
+            }
+            
+        }
+        
+        describe("testing isAfterToday") {
+            
+            it("Should return false if date is before today") {
+                let date = Date()
+                
+                expect(date.isAfterToday).to(beFalse())
+            }
+            
+            it("Should return false if date is exactly today") {
+                let date = Date()
+                
+                expect(date.isAfterToday).to(beFalse())
+            }
+            
+            it("Should return true if date is after today") {
+                var date: Date {
+                    let isoDate = "1995-05-20T10:44:00+0000"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
+                    return dateFormatter.date(from: isoDate)!
+                }
+                
+                expect(date.isToday).to(beFalse())
+            }
+            
+        }
+        
+        describe("testing isInSameMonth(as:)") {
+            
+            it("Should return true if dates are both today") {
+                let first = Date()
+                let second = Date()
+                
+                expect(first.isInSameDay(as: second)).to(beTrue())
+            }
+            
+            it("Should return true if dates are both in the same month") {
+                var first: Date {
+                    let isoDate = "2019-05-20T10:44:00+0000"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
+                    return dateFormatter.date(from: isoDate)!
+                }
+                
+                var second: Date {
+                    let isoDate = "2019-05-20T10:44:00+0000"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
+                    return dateFormatter.date(from: isoDate)!
+                }
+                
+                expect(first.isInSameMonth(as: second)).to(beTrue())
+            }
+            
+            it("Should return false if dates are not in the same month") {
+                var first: Date {
+                    let isoDate = "2019-05-20T10:44:00+0000"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
+                    return dateFormatter.date(from: isoDate)!
+                }
+                
+                var second: Date {
+                    let isoDate = "2019-04-20T10:44:00+0000"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
+                    return dateFormatter.date(from: isoDate)!
+                }
+                
+                expect(first.isInSameMonth(as: second)).to(beFalse())
+            }
+            
+        }
+        
+        describe("testing isInSameDay(as:)") {
+            
+            it("Should return true if dates are both today") {
+                let first = Date()
+                let second = Date()
+                
+                expect(first.isInSameDay(as: second)).to(beTrue())
+            }
+            
+            it("Should return false if dates are not in the same day") {
+                var first: Date {
+                    let isoDate = "2019-05-20T10:44:00+0000"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
+                    return dateFormatter.date(from: isoDate)!
+                }
+                
+                var second: Date {
+                    let isoDate = "2019-05-21T10:44:00+0000"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
+                    return dateFormatter.date(from: isoDate)!
+                }
+                
+                expect(first.isInSameDay(as: second)).to(beFalse())
+            }
+            
+            it("Should return false if dates are on the same day, but different month") {
+                var first: Date {
+                    let isoDate = "2019-05-20T10:44:00+0000"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
+                    return dateFormatter.date(from: isoDate)!
+                }
+                
+                var second: Date {
+                    let isoDate = "2019-04-20T10:44:00+0000"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
+                    return dateFormatter.date(from: isoDate)!
+                }
+                
+                expect(first.isInSameDay(as: second)).to(beFalse())
+            }
+            
+        }
 
     }
 }
