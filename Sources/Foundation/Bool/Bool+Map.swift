@@ -10,7 +10,6 @@ import Foundation
 
 public extension Bool {
     
-    
     /// If the bool is `true` the provided object is returned, otherwise `nil` is returned.
     ///
     /// - Parameter object: Object to be returned if the bool is `true`.

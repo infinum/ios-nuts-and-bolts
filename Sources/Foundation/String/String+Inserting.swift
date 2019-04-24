@@ -17,7 +17,7 @@ public extension String {
     ///   - position: Position at which the character should be added
     /// - Returns: String with character inserted at provided position.
     func insertingCharacter(_ charToAdd: Character, at position: Int) -> String {
-        if position > self.count || position < 0 {
+        if position > count || position < 0 {
             return self
         }
         

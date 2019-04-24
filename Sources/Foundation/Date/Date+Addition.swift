@@ -12,19 +12,21 @@ public extension Date {
     
     /// Adds `numOfMonths` to `self` and returns it as a new `Date`.
     ///
-    /// - Parameter numOfMonths: Number of months to add
+    /// - Parameters:
+    ///   - numOfMonths: Number of months to add
+    ///   - calendar: Calendar to use
     /// - Returns: Resulting date by adding `numOfMonths` to `self`.
-    func date(byAddingMonths numOfMonths: Int) -> Date? {
-        let calendar = Calendar(identifier: .gregorian)
+    func date(byAddingMonths numOfMonths: Int, calendar: Calendar = .current) -> Date? {
         return calendar.date(byAdding: .month, value: numOfMonths, to: self)
     }
     
     /// Adds `numOfDays` to `self` and returns it as a new `Date`.
     ///
-    /// - Parameter numOfDays: Number of months to add
+    /// - Parameters:
+    ///   - numOfDays: Number of days to add
+    ///   - calendar: Calendar to use
     /// - Returns: Resulting date by adding `numOfDays` to `self`.
-    func date(byAddingDays numOfDays: Int) -> Date? {
-        let calendar = Calendar(identifier: .gregorian)
+    func date(byAddingDays numOfDays: Int, calendar: Calendar = .current) -> Date? {
         return calendar.date(byAdding: .day, value: numOfDays, to: self)
     }
     

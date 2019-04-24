@@ -12,17 +12,17 @@ public extension Date {
     
     /// Returns the start fo current month.
     var startOfCurrentMonth: Date? {
-        let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents([.year, .month], from: self)
+        let calendar = Calendar.current
+        let components = Calendar.current.dateComponents([.year, .month], from: self)
         return calendar.date(from: components)
     }
     
     
     /// Returns the end of current month.
     var endOfCurrentMonth: Date? {
-        let calendar = Calendar(identifier: .gregorian)
+        let calendar = Calendar.current
         guard
-            let startOfCurrentMoth = self.startOfCurrentMonth,
+            let startOfCurrentMoth = startOfCurrentMonth,
             let startOfNextMonth = calendar.date(byAdding: .month, value: 1, to: startOfCurrentMoth)
             else { return nil }
         
