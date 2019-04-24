@@ -48,7 +48,7 @@ public extension Bool {
     ///   - object: Optional object to be returned if the bool is `true`.
     ///   - mapping: Function to be applied on the `object` parameter.
     /// - Returns: Result of applying `mapping` on `object` if `true`, `nil` otherwise.
-    func mapTrue<T, U>(for object: T?, _ mapping: (T)->(U)) -> U? {
+    func mapTrue<T, U>(for object: T?, _ mapping: (T) -> (U)) -> U? {
         return self ? object.flatMap(mapping) : nil
     }
 
@@ -57,7 +57,7 @@ public extension Bool {
     ///   - object: Optional object to be returned if the bool is `false`.
     ///   - mapping: Function to be applied on the `object` parameter.
     /// - Returns: Result of applying `mapping` on `object` if `false`, `nil` otherwise.
-    func mapFalse<T, U>(for object: T?, _ mapping: (T)->(U)) -> U? {
+    func mapFalse<T, U>(for object: T?, _ mapping: (T) -> (U)) -> U? {
         return self ? nil : object.flatMap(mapping)
     }
     

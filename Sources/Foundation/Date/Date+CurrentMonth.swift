@@ -13,7 +13,7 @@ public extension Date {
     /// Returns the start fo current month.
     var startOfCurrentMonth: Date? {
         let calendar = Calendar.current
-        let components = Calendar.current.dateComponents([.year, .month], from: self)
+        let components = calendar.dateComponents([.year, .month], from: self)
         return calendar.date(from: components)
     }
     
