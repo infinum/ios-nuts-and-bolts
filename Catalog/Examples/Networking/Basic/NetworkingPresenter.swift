@@ -30,4 +30,16 @@ final class NetworkingPresenter {
 // MARK: - Extensions -
 
 extension NetworkingPresenter: NetworkingPresenterInterface {
+
+    func viewDidLoad() {
+        interactor.login(email: "ios.team@infinum.hr", password: "infinum1") { result in
+            switch result {
+            case .success:
+                print("Login successful")
+            case .failure(let error):
+                print("Login error: \(error)")
+            }
+        }
+    }
+
 }

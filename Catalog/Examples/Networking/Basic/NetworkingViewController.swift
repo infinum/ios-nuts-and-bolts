@@ -20,6 +20,7 @@ final class NetworkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad()
     }
 	
 }

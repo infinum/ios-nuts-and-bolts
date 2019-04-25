@@ -38,6 +38,7 @@
 		0A54436422718AB100F26468 /* RxNetworkingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A54435E22718AB100F26468 /* RxNetworkingInteractor.swift */; };
 		0A54436522718AB100F26468 /* RxNetworkingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A54435F22718AB100F26468 /* RxNetworkingViewController.xib */; };
 		0A54436622718AB100F26468 /* RxNetworkingWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A54436022718AB100F26468 /* RxNetworkingWireframe.swift */; };
+		0A54436922718DF100F26468 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A54436822718DF100F26468 /* LoginRouter.swift */; };
 		0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */; };
 		0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */; };
 		0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */; };
@@ -173,6 +174,7 @@
 		0A54435E22718AB100F26468 /* RxNetworkingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNetworkingInteractor.swift; sourceTree = "<group>"; };
 		0A54435F22718AB100F26468 /* RxNetworkingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxNetworkingViewController.xib; sourceTree = "<group>"; };
 		0A54436022718AB100F26468 /* RxNetworkingWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNetworkingWireframe.swift; sourceTree = "<group>"; };
+		0A54436822718DF100F26468 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		0A603FD322077C4400F25622 /* RxAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxAlertExampleViewController.swift; sourceTree = "<group>"; };
 		0A603FD422077C4400F25622 /* RxAlertExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RxAlertExampleViewController.xib; sourceTree = "<group>"; };
 		0A603FD72207802E00F25622 /* BaseWireframe+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseWireframe+Progressable.swift"; sourceTree = "<group>"; };
@@ -401,6 +403,14 @@
 			path = Encoding;
 			sourceTree = "<group>";
 		};
+		0A54436722718DE100F26468 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0A54436822718DF100F26468 /* LoginRouter.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		0A603FD222077C2900F25622 /* Rx Alert Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +486,7 @@
 		0AA45E8A22197AAD009CF93E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				0A54436722718DE100F26468 /* Common */,
 				0AA45E8B22197ACB009CF93E /* Basic */,
 				0AA45E8C22197AD4009CF93E /* Rx */,
 			);
@@ -1276,6 +1287,7 @@
 				0A0ECF66220773D800C1853E /* UIAlertController+Rx.swift in Sources */,
 				0A603FED22079A9800F25622 /* Observable+Utility.swift in Sources */,
 				604712832226800700809454 /* UIColor+Hex.swift in Sources */,
+				0A54436922718DF100F26468 /* LoginRouter.swift in Sources */,
 				0A0ECF602207720100C1853E /* Refreshable.swift in Sources */,
 				0AD9EAC92204274300FF3F2C /* UIStoryboard+Instantiate.swift in Sources */,
 				60471281222679BC00809454 /* UIColor+InitHelper.swift in Sources */,

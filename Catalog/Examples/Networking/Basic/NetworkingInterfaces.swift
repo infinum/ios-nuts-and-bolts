@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol NetworkingWireframeInterface: WireframeInterface {
 }
@@ -20,4 +21,5 @@ protocol NetworkingPresenterInterface: PresenterInterface {
 }
 
 protocol NetworkingInteractorInterface: InteractorInterface {
+    func login(email: String, password: String, completion: @escaping (Result<Void>) -> Void)
 }

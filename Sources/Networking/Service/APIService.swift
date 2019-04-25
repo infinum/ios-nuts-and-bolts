@@ -12,12 +12,9 @@ import CodableAlamofire
 import RxSwift
 
 /// Base protocol for API networking communication.
-///
-/// NB: If you don't use Rx in your project, just remove `ReactiveCompatible`
-/// protocol conformance (it is not possible for protocol to conform
-/// to another protocol via extension, only in protocol declaration)
-public protocol APIServiceable: class, ReactiveCompatible {
+public protocol APIServiceable: class {
 
+    @discardableResult
     func request<T: Decodable>(
         _: T.Type,
         keyPath: String?,
@@ -27,6 +24,7 @@ public protocol APIServiceable: class, ReactiveCompatible {
         completion: @escaping (Result<T>) -> ()
     ) -> DataRequest
 
+    @discardableResult
     func requestCompletion(
         router: Routable,
         sessionManager: SessionManager,
@@ -40,6 +38,7 @@ open class APIService: APIServiceable {
 
     public static var instance = APIService()
 
+    @discardableResult
     open func request<T: Decodable>(
         _: T.Type,
         keyPath: String? = nil,
@@ -54,6 +53,7 @@ open class APIService: APIServiceable {
             .responseDecodableObject { completion($0.result) }
     }
 
+    @discardableResult
     open func requestCompletion(
         router: Routable,
         sessionManager: SessionManager,
@@ -72,3 +72,8 @@ open class APIService: APIServiceable {
     }
 
 }
+
+///
+/// NB: If you don't use Rx in your project, just remove `ReactiveCompatible`
+/// protocol conformance
+extension APIService: ReactiveCompatible { }
