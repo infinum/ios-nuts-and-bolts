@@ -34,7 +34,18 @@ final class RxNetworkingPresenter {
 extension RxNetworkingPresenter: RxNetworkingPresenterInterface {
 
     func configure(with output: RxNetworking.ViewOutput) -> RxNetworking.ViewInput {
-        return RxNetworking.ViewInput()
+        let userInfo = Driver
+            .combineLatest(output.email, output.password)
+        let didLogin = output
+            .login
+            .withLatestFrom(userInfo)
+            .flatMapLatest { [unowned interactor] in
+                return interactor
+                    .login(email: $0, password: $1)
+                    .mapTo(true)
+                    .asDriver(onErrorJustReturn: false)
+            }
+        return RxNetworking.ViewInput(didLogin: didLogin)
     }
 
 }

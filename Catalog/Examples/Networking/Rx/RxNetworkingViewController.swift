@@ -18,6 +18,10 @@ final class RxNetworkingViewController: UIViewController {
 
     var presenter: RxNetworkingPresenterInterface!
 
+    // MARK: - Private properties -
+
+    private let disposeBag = DisposeBag()
+
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
@@ -35,11 +39,18 @@ extension RxNetworkingViewController: RxNetworkingViewInterface {
 private extension RxNetworkingViewController {
 
     func configure() {
-
-        let output = RxNetworking.ViewOutput()
+        let output = RxNetworking.ViewOutput(
+            email: .just("ios.team@infinum.hr"),
+            password: .just("infinum1"),
+            login: .just(())
+        )
 
         let input = presenter.configure(with: output)
 
+        input
+            .didLogin
+            .drive(onNext: { print("Login: \($0)") })
+            .disposed(by: disposeBag)
     }
 
 }

@@ -23,14 +23,19 @@ protocol RxNetworkingPresenterInterface: PresenterInterface {
 }
 
 protocol RxNetworkingInteractorInterface: InteractorInterface {
+    func login(email: String, password: String) -> Single<Void>
 }
 
 enum RxNetworking {
 
     struct ViewOutput {
+        let email: Driver<String>
+        let password: Driver<String>
+        let login: Driver<Void>
     }
 
     struct ViewInput {
+        let didLogin: Driver<Bool>
     }
 
 }

@@ -10,11 +10,31 @@
 
 import Foundation
 import RxSwift
+import Alamofire
 
 final class RxNetworkingInteractor {
+
+    private let service: APIService
+    private let sessionManager: SessionManager
+
+    init(service: APIService = .instance, sessionManager: SessionManager = .default) {
+        self.service = service
+        self.sessionManager = sessionManager
+    }
 }
+
 
 // MARK: - Extensions -
 
 extension RxNetworkingInteractor: RxNetworkingInteractorInterface {
+
+    func login(email: String, password: String) -> Single<Void> {
+        return service.rx
+            .requestCompletion(
+                router: LoginRouter.login(email: email, password: password),
+                sessionManager: sessionManager
+            )
+            .andThen(Single.just(()))
+    }
+
 }
