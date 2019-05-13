@@ -68,6 +68,7 @@
 		0AE0B78722049CBD0033A476 /* ClosedRange+ScalableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B78622049CBD0033A476 /* ClosedRange+ScalableTests.swift */; };
 		0AE0B78922049DC50033A476 /* TableDataSourceDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B78822049DC50033A476 /* TableDataSourceDelegateTests.swift */; };
 		4F14006D2289FF9D0005F37A /* NSArray+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */; };
+		4F140071228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F140070228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m */; };
 		536E5AB5225F19D300EF01A6 /* Bool+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB4225F19D300EF01A6 /* Bool+Map.swift */; };
 		536E5AB7225F1BB300EF01A6 /* Bool+MappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB6225F1BB300EF01A6 /* Bool+MappingTests.swift */; };
 		536E5AB9225F1E5000EF01A6 /* Bool+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB8225F1E5000EF01A6 /* Bool+Logic.swift */; };
@@ -183,6 +184,8 @@
 		4F14006A2289FF9C0005F37A /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FunctionalOperators.m"; sourceTree = "<group>"; };
 		4F14006C2289FF9C0005F37A /* NSArray+FunctionalOperators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FunctionalOperators.h"; sourceTree = "<group>"; };
+		4F14006F228A00F60005F37A /* NSArray+FunctionalOperatorsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+FunctionalOperatorsTests.h"; sourceTree = "<group>"; };
+		4F140070228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FunctionalOperatorsTests.m"; sourceTree = "<group>"; };
 		536E5AB4225F19D300EF01A6 /* Bool+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Map.swift"; sourceTree = "<group>"; };
 		536E5AB6225F1BB300EF01A6 /* Bool+MappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+MappingTests.swift"; sourceTree = "<group>"; };
 		536E5AB8225F1E5000EF01A6 /* Bool+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Logic.swift"; sourceTree = "<group>"; };
@@ -614,6 +617,7 @@
 		0AE0B77A220478500033A476 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				4F14006E228A00DC0005F37A /* NSArray */,
 				536E5AE1225F387200EF01A6 /* Collection */,
 				536E5AD7225F30F600EF01A6 /* String */,
 				536E5ACF225F2E1000EF01A6 /* Date */,
@@ -657,6 +661,15 @@
 			children = (
 				4F14006C2289FF9C0005F37A /* NSArray+FunctionalOperators.h */,
 				4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */,
+			);
+			path = NSArray;
+			sourceTree = "<group>";
+		};
+		4F14006E228A00DC0005F37A /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				4F14006F228A00F60005F37A /* NSArray+FunctionalOperatorsTests.h */,
+				4F140070228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m */,
 			);
 			path = NSArray;
 			sourceTree = "<group>";
@@ -1085,6 +1098,7 @@
 				536E5AB7225F1BB300EF01A6 /* Bool+MappingTests.swift in Sources */,
 				536E5AE5225F397600EF01A6 /* RangeReplaceableCollection+Moving.swift in Sources */,
 				536E5AD2225F2EAC00EF01A6 /* Optional+Function.swift in Sources */,
+				4F140071228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m in Sources */,
 				536E5AD6225F2FF000EF01A6 /* String+Substring.swift in Sources */,
 				536E5ABB225F1F7400EF01A6 /* Bool+LogicTests.swift in Sources */,
 				0AE0B78922049DC50033A476 /* TableDataSourceDelegateTests.swift in Sources */,

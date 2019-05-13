@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  Returns the result of combining the elements of the sequence
  using the given closure.
  */
-- (id)reduce:(id)initial block:(id (^)(T _Nonnull obj1, T _Nonnull obj2))block;
+- (id)reduce:(id)initial block:(id (^)(T _Nonnull acc, T _Nonnull obj))block;
 
 @end
 
