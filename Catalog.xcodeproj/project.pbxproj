@@ -74,6 +74,7 @@
 		4F286F8A2291E1DA00935FD3 /* NSSet+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F286F882291E1CE00935FD3 /* NSSet+FunctionalOperators.m */; };
 		4F286F8D2291E33600935FD3 /* NSSet+FunctionalOperatorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F286F8C2291E33600935FD3 /* NSSet+FunctionalOperatorsTests.m */; };
 		4F286F942291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F286F932291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m */; };
+		4F286F972291E4E500935FD3 /* NSMutableSet+FunctionalOperatorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F286F962291E4E500935FD3 /* NSMutableSet+FunctionalOperatorsTests.m */; };
 		536E5AB5225F19D300EF01A6 /* Bool+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB4225F19D300EF01A6 /* Bool+Map.swift */; };
 		536E5AB7225F1BB300EF01A6 /* Bool+MappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB6225F1BB300EF01A6 /* Bool+MappingTests.swift */; };
 		536E5AB9225F1E5000EF01A6 /* Bool+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB8225F1E5000EF01A6 /* Bool+Logic.swift */; };
@@ -200,6 +201,7 @@
 		4F286F8C2291E33600935FD3 /* NSSet+FunctionalOperatorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSSet+FunctionalOperatorsTests.m"; sourceTree = "<group>"; };
 		4F286F922291E46A00935FD3 /* NSMutableSet+FunctionalOperators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+FunctionalOperators.h"; sourceTree = "<group>"; };
 		4F286F932291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+FunctionalOperators.m"; sourceTree = "<group>"; };
+		4F286F962291E4E500935FD3 /* NSMutableSet+FunctionalOperatorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+FunctionalOperatorsTests.m"; sourceTree = "<group>"; };
 		536E5AB4225F19D300EF01A6 /* Bool+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Map.swift"; sourceTree = "<group>"; };
 		536E5AB6225F1BB300EF01A6 /* Bool+MappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+MappingTests.swift"; sourceTree = "<group>"; };
 		536E5AB8225F1E5000EF01A6 /* Bool+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Logic.swift"; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 				4F14006E228A00DC0005F37A /* NSArray */,
 				4F286F822291DFEE00935FD3 /* NSMutableArray */,
 				4F286F8B2291E31600935FD3 /* NSSet */,
+				4F286F952291E4CD00935FD3 /* NSMutableSet */,
 				536E5AE1225F387200EF01A6 /* Collection */,
 				536E5AD7225F30F600EF01A6 /* String */,
 				536E5ACF225F2E1000EF01A6 /* Date */,
@@ -733,6 +736,14 @@
 			children = (
 				4F286F922291E46A00935FD3 /* NSMutableSet+FunctionalOperators.h */,
 				4F286F932291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m */,
+			);
+			path = NSMutableSet;
+			sourceTree = "<group>";
+		};
+		4F286F952291E4CD00935FD3 /* NSMutableSet */ = {
+			isa = PBXGroup;
+			children = (
+				4F286F962291E4E500935FD3 /* NSMutableSet+FunctionalOperatorsTests.m */,
 			);
 			path = NSMutableSet;
 			sourceTree = "<group>";
@@ -1170,6 +1181,7 @@
 				536E5AD6225F2FF000EF01A6 /* String+Substring.swift in Sources */,
 				536E5ABB225F1F7400EF01A6 /* Bool+LogicTests.swift in Sources */,
 				0AE0B78922049DC50033A476 /* TableDataSourceDelegateTests.swift in Sources */,
+				4F286F972291E4E500935FD3 /* NSMutableSet+FunctionalOperatorsTests.m in Sources */,
 				60B4BDF52243B78A00849B8D /* UIColor+InitHelperTests.swift in Sources */,
 				0A3C0913220AF4F800DEBECC /* Date+ComparisonTests.swift in Sources */,
 				536E5ACA225F2B0600EF01A6 /* Date+CurrentMonthTests.swift in Sources */,
