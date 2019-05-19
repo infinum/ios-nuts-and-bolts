@@ -18,6 +18,7 @@
     NSArray<NSString *> *result = [values map:^id _Nonnull(NSString * _Nonnull obj) {
         return [obj stringByAppendingString:@"Map"];
     }];
+
     XCTAssertTrue([result isEqual:expected]);
 }
 
