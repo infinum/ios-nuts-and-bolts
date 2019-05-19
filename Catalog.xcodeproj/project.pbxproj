@@ -190,11 +190,9 @@
 		4F14006A2289FF9C0005F37A /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FunctionalOperators.m"; sourceTree = "<group>"; };
 		4F14006C2289FF9C0005F37A /* NSArray+FunctionalOperators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FunctionalOperators.h"; sourceTree = "<group>"; };
-		4F14006F228A00F60005F37A /* NSArray+FunctionalOperatorsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+FunctionalOperatorsTests.h"; sourceTree = "<group>"; };
 		4F140070228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FunctionalOperatorsTests.m"; sourceTree = "<group>"; };
 		4F286F7F2291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+FunctionalOperators.h"; sourceTree = "<group>"; };
 		4F286F802291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+FunctionalOperators.m"; sourceTree = "<group>"; };
-		4F286F832291E01B00935FD3 /* NSMutableArray+FunctionalOperatorsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+FunctionalOperatorsTests.h"; sourceTree = "<group>"; };
 		4F286F842291E01B00935FD3 /* NSMutableArray+FunctionalOperatorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+FunctionalOperatorsTests.m"; sourceTree = "<group>"; };
 		4F286F872291E1CE00935FD3 /* NSSet+FunctionalOperators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSSet+FunctionalOperators.h"; sourceTree = "<group>"; };
 		4F286F882291E1CE00935FD3 /* NSSet+FunctionalOperators.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSSet+FunctionalOperators.m"; sourceTree = "<group>"; };
@@ -690,7 +688,6 @@
 		4F14006E228A00DC0005F37A /* NSArray */ = {
 			isa = PBXGroup;
 			children = (
-				4F14006F228A00F60005F37A /* NSArray+FunctionalOperatorsTests.h */,
 				4F140070228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m */,
 			);
 			path = NSArray;
@@ -708,7 +705,6 @@
 		4F286F822291DFEE00935FD3 /* NSMutableArray */ = {
 			isa = PBXGroup;
 			children = (
-				4F286F832291E01B00935FD3 /* NSMutableArray+FunctionalOperatorsTests.h */,
 				4F286F842291E01B00935FD3 /* NSMutableArray+FunctionalOperatorsTests.m */,
 			);
 			path = NSMutableArray;

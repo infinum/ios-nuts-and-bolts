@@ -6,8 +6,12 @@
 //  Copyright © 2019 Infinum. All rights reserved.
 //
 
-#import "NSMutableArray+FunctionalOperatorsTests.h"
+#import <XCTest/XCTest.h>
 #import "NSMutableArray+FunctionalOperators.h"
+
+@interface NSMutableArray_FunctionalOperatorsTests : XCTestCase
+
+@end
 
 @implementation NSMutableArray_FunctionalOperatorsTests
 
