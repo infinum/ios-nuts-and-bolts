@@ -200,6 +200,7 @@
 		4F286F922291E46A00935FD3 /* NSMutableSet+FunctionalOperators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+FunctionalOperators.h"; sourceTree = "<group>"; };
 		4F286F932291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+FunctionalOperators.m"; sourceTree = "<group>"; };
 		4F286F962291E4E500935FD3 /* NSMutableSet+FunctionalOperatorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+FunctionalOperatorsTests.m"; sourceTree = "<group>"; };
+		4F286F992291E62A00935FD3 /* NSSequence+FunctionalOperators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSSequence+FunctionalOperators.h"; sourceTree = "<group>"; };
 		536E5AB4225F19D300EF01A6 /* Bool+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Map.swift"; sourceTree = "<group>"; };
 		536E5AB6225F1BB300EF01A6 /* Bool+MappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+MappingTests.swift"; sourceTree = "<group>"; };
 		536E5AB8225F1E5000EF01A6 /* Bool+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Logic.swift"; sourceTree = "<group>"; };
@@ -598,6 +599,7 @@
 		0AE0B7722204772B0033A476 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				4F286F982291E60E00935FD3 /* NSSequence */,
 				4F1400692289FF890005F37A /* NSArray */,
 				4F286F792291DC0300935FD3 /* NSMutableArray */,
 				4F286F862291E1AA00935FD3 /* NSSet */,
@@ -742,6 +744,14 @@
 				4F286F962291E4E500935FD3 /* NSMutableSet+FunctionalOperatorsTests.m */,
 			);
 			path = NSMutableSet;
+			sourceTree = "<group>";
+		};
+		4F286F982291E60E00935FD3 /* NSSequence */ = {
+			isa = PBXGroup;
+			children = (
+				4F286F992291E62A00935FD3 /* NSSequence+FunctionalOperators.h */,
+			);
+			path = NSSequence;
 			sourceTree = "<group>";
 		};
 		536E5AB3225F198200EF01A6 /* Bool */ = {
