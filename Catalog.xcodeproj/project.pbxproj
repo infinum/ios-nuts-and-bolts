@@ -73,6 +73,7 @@
 		4F286F852291E01B00935FD3 /* NSMutableArray+FunctionalOperatorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F286F842291E01B00935FD3 /* NSMutableArray+FunctionalOperatorsTests.m */; };
 		4F286F8A2291E1DA00935FD3 /* NSSet+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F286F882291E1CE00935FD3 /* NSSet+FunctionalOperators.m */; };
 		4F286F8D2291E33600935FD3 /* NSSet+FunctionalOperatorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F286F8C2291E33600935FD3 /* NSSet+FunctionalOperatorsTests.m */; };
+		4F286F942291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F286F932291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m */; };
 		536E5AB5225F19D300EF01A6 /* Bool+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB4225F19D300EF01A6 /* Bool+Map.swift */; };
 		536E5AB7225F1BB300EF01A6 /* Bool+MappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB6225F1BB300EF01A6 /* Bool+MappingTests.swift */; };
 		536E5AB9225F1E5000EF01A6 /* Bool+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB8225F1E5000EF01A6 /* Bool+Logic.swift */; };
@@ -197,6 +198,8 @@
 		4F286F872291E1CE00935FD3 /* NSSet+FunctionalOperators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSSet+FunctionalOperators.h"; sourceTree = "<group>"; };
 		4F286F882291E1CE00935FD3 /* NSSet+FunctionalOperators.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSSet+FunctionalOperators.m"; sourceTree = "<group>"; };
 		4F286F8C2291E33600935FD3 /* NSSet+FunctionalOperatorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSSet+FunctionalOperatorsTests.m"; sourceTree = "<group>"; };
+		4F286F922291E46A00935FD3 /* NSMutableSet+FunctionalOperators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+FunctionalOperators.h"; sourceTree = "<group>"; };
+		4F286F932291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+FunctionalOperators.m"; sourceTree = "<group>"; };
 		536E5AB4225F19D300EF01A6 /* Bool+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Map.swift"; sourceTree = "<group>"; };
 		536E5AB6225F1BB300EF01A6 /* Bool+MappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+MappingTests.swift"; sourceTree = "<group>"; };
 		536E5AB8225F1E5000EF01A6 /* Bool+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Logic.swift"; sourceTree = "<group>"; };
@@ -598,6 +601,7 @@
 				4F1400692289FF890005F37A /* NSArray */,
 				4F286F792291DC0300935FD3 /* NSMutableArray */,
 				4F286F862291E1AA00935FD3 /* NSSet */,
+				4F286F8E2291E43B00935FD3 /* NSMutableSet */,
 				536E5AD0225F2E9500EF01A6 /* Optional */,
 				536E5AC6225F25CA00EF01A6 /* Collection */,
 				536E5AB3225F198200EF01A6 /* Bool */,
@@ -722,6 +726,15 @@
 				4F286F8C2291E33600935FD3 /* NSSet+FunctionalOperatorsTests.m */,
 			);
 			path = NSSet;
+			sourceTree = "<group>";
+		};
+		4F286F8E2291E43B00935FD3 /* NSMutableSet */ = {
+			isa = PBXGroup;
+			children = (
+				4F286F922291E46A00935FD3 /* NSMutableSet+FunctionalOperators.h */,
+				4F286F932291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m */,
+			);
+			path = NSMutableSet;
 			sourceTree = "<group>";
 		};
 		536E5AB3225F198200EF01A6 /* Bool */ = {
@@ -1085,6 +1098,7 @@
 				0AB524082210A45400F35F52 /* CollectionViewReloader.swift in Sources */,
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
 				0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */,
+				4F286F942291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m in Sources */,
 				0AE0B75D2204365C0033A476 /* SectionItem.swift in Sources */,
 				0AD9EAC52204274300FF3F2C /* BaseWireframe.swift in Sources */,
 				0A0ECF592207024800C1853E /* RatioTransitionViewController.swift in Sources */,
