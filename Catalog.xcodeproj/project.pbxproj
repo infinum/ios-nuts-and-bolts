@@ -104,7 +104,6 @@
 		A8FD60FD2292AFCC00FB50CE /* BaseCollectionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60FC2292AFCC00FB50CE /* BaseCollectionSection.m */; };
 		A8FD61012292BB6D00FB50CE /* CollectionViewReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD61002292BB6D00FB50CE /* CollectionViewReloader.m */; };
 		A8FD61052292C44500FB50CE /* TableDataSourceDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD61042292C44500FB50CE /* TableDataSourceDelegateTests.m */; };
-		A8FD61072292C45C00FB50CE /* CollectionDataSourceDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD61062292C45C00FB50CE /* CollectionDataSourceDelegateTests.m */; };
 		A8FD61092292CC2C00FB50CE /* TableDataSourceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60E72292ADF100FB50CE /* TableDataSourceDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -241,7 +240,6 @@
 		A8FD61022292BB9E00FB50CE /* CollectionSectionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionSectionItem.h; sourceTree = "<group>"; };
 		A8FD61032292BBB400FB50CE /* CollectionCellItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionCellItem.h; sourceTree = "<group>"; };
 		A8FD61042292C44500FB50CE /* TableDataSourceDelegateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableDataSourceDelegateTests.m; sourceTree = "<group>"; };
-		A8FD61062292C45C00FB50CE /* CollectionDataSourceDelegateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionDataSourceDelegateTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -670,7 +668,6 @@
 				60B4BDF32243B77E00849B8D /* UIColor */,
 				0AE0B78822049DC50033A476 /* TableDataSourceDelegateTests.swift */,
 				A8FD61042292C44500FB50CE /* TableDataSourceDelegateTests.m */,
-				A8FD61062292C45C00FB50CE /* CollectionDataSourceDelegateTests.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1230,7 +1227,6 @@
 				60B4BDF52243B78A00849B8D /* UIColor+InitHelperTests.swift in Sources */,
 				0A3C0913220AF4F800DEBECC /* Date+ComparisonTests.swift in Sources */,
 				536E5ACA225F2B0600EF01A6 /* Date+CurrentMonthTests.swift in Sources */,
-				A8FD61072292C45C00FB50CE /* CollectionDataSourceDelegateTests.m in Sources */,
 				536E5AE3225F387F00EF01A6 /* Collection+GroupingTests.swift in Sources */,
 				536E5AD9225F311600EF01A6 /* String+SubstringTests.swift in Sources */,
 				60B4BDF22243AC7000849B8D /* Array+SafeGetTests.swift in Sources */,
