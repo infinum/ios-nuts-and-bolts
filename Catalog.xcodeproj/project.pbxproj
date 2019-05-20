@@ -103,7 +103,7 @@
 		A8FD60F92292AF5000FB50CE /* BaseCollectionCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60F82292AF5000FB50CE /* BaseCollectionCellItem.m */; };
 		A8FD60FD2292AFCC00FB50CE /* BaseCollectionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60FC2292AFCC00FB50CE /* BaseCollectionSection.m */; };
 		A8FD61012292BB6D00FB50CE /* CollectionViewReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD61002292BB6D00FB50CE /* CollectionViewReloader.m */; };
-		A8FD61052292C44500FB50CE /* TableDataSourceDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD61042292C44500FB50CE /* TableDataSourceDelegateTests.m */; };
+		A8FD61052292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD61042292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m */; };
 		A8FD61092292CC2C00FB50CE /* TableDataSourceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60E72292ADF100FB50CE /* TableDataSourceDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -239,7 +239,7 @@
 		A8FD61002292BB6D00FB50CE /* CollectionViewReloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewReloader.m; sourceTree = "<group>"; };
 		A8FD61022292BB9E00FB50CE /* CollectionSectionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionSectionItem.h; sourceTree = "<group>"; };
 		A8FD61032292BBB400FB50CE /* CollectionCellItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionCellItem.h; sourceTree = "<group>"; };
-		A8FD61042292C44500FB50CE /* TableDataSourceDelegateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableDataSourceDelegateTests.m; sourceTree = "<group>"; };
+		A8FD61042292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableDataSourceDelegateTestsObjC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -667,7 +667,7 @@
 			children = (
 				60B4BDF32243B77E00849B8D /* UIColor */,
 				0AE0B78822049DC50033A476 /* TableDataSourceDelegateTests.swift */,
-				A8FD61042292C44500FB50CE /* TableDataSourceDelegateTests.m */,
+				A8FD61042292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1209,7 +1209,7 @@
 			files = (
 				536E5ADB225F334300EF01A6 /* String+Inserting.swift in Sources */,
 				536E5ACE225F2CF500EF01A6 /* Date+AdditionTests.swift in Sources */,
-				A8FD61052292C44500FB50CE /* TableDataSourceDelegateTests.m in Sources */,
+				A8FD61052292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m in Sources */,
 				0AE0B778220478220033A476 /* Array+RotateTests.swift in Sources */,
 				60B4BDF82243B8AF00849B8D /* UIColor+HexTests.swift in Sources */,
 				536E5AB9225F1E5000EF01A6 /* Bool+Logic.swift in Sources */,
