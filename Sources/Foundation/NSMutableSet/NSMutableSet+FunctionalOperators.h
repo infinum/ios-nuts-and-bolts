@@ -16,13 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
  Returns a mutable set containing the results of mapping the given
  closure over the sequence's elements.
  */
-- (NSSet<id> *)map:(id _Nonnull (^)(T _Nonnull obj))block;
+- (NSMutableSet<id> *)map:(id _Nonnull (^)(T _Nonnull obj))block;
 
 /**
  Returns a mutable set containing the concatenated results of calling
  the given transformation with each element of this sequence.
  */
-- (NSSet<id> *)flatMap:(id (^)(T _Nonnull obj))block;
+- (NSMutableSet<id> *)flatMap:(id (^)(T _Nonnull obj))block;
 
 /**
  Calls the given closure on each element in the sequence
@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  Returns a mutable set containing in order, the elements of the
  sequence that satisfy the given predicate.
  */
-- (NSSet<T> *)filter:(BOOL (^)(T _Nonnull obj))block;
+- (NSMutableSet<T> *)filter:(BOOL (^)(T _Nonnull obj))block;
 
 /**
  Returns the result of combining the elements of the sequence
