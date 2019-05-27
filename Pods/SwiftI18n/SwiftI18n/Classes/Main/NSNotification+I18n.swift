@@ -10,6 +10,6 @@ import UIKit
 
 public extension NSNotification.Name {
     
-    public static let loc_LanguageDidChangeNotification = NSNotification.Name("loc_LanguageDidChangeNotification")
+    static let loc_LanguageDidChangeNotification = NSNotification.Name("loc_LanguageDidChangeNotification")
     
 }

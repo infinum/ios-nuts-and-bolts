@@ -13,8 +13,7 @@ public extension UITextField {
     static let loc_titleKey = "KEY"
     static let loc_placeholderKey = "PKEY"
     
-    @IBInspectable public var locTitleKey: String? {
-        
+    @IBInspectable var locTitleKey: String? {
         get {
             return loc_keysDictionary[UITextField.loc_titleKey]
         }
@@ -23,11 +22,9 @@ public extension UITextField {
             loc_keysDictionary[UITextField.loc_titleKey] = newValue
             loc_localeDidChange()
         }
-        
     }
     
-    @IBInspectable public var locPlaceholderKey: String? {
-        
+    @IBInspectable var locPlaceholderKey: String? {
         get {
             return loc_keysDictionary[UITextField.loc_placeholderKey]
         }
@@ -36,7 +33,6 @@ public extension UITextField {
             loc_keysDictionary[UITextField.loc_placeholderKey] = newValue
             loc_localeDidChange()
         }
-        
     }
     
 }

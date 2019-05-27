@@ -14,13 +14,13 @@ public extension Single {
     /// Converts current Single sequence to Driver, completing on error event.
     ///
     /// - Returns: Driver - completing on error event
-    func asDriverOnErrorComplete() -> Driver<ElementType> {
+    func asDriverOnErrorComplete() -> Driver<Element> {
         return asDriver(onErrorDriveWith: .empty())
     }
     
 }
 
-public extension PrimitiveSequenceType where TraitType == SingleTrait {
+public extension PrimitiveSequenceType where Trait == SingleTrait {
     
     /// Maps sequence element to given value.
     ///

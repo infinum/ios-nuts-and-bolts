@@ -15,12 +15,12 @@ public extension SharedSequenceConvertibleType where SharingStrategy == DriverSh
     ///
     /// - Parameter relay: PublishRelay instance
     /// - Returns: Disposable for current subscription
-    func drive(_ relay: PublishRelay<E>) -> Disposable {
+    func drive(_ relay: PublishRelay<Element>) -> Disposable {
         return drive(onNext: { e in relay.accept(e) })
     }
     
     /// Safely unwraps optional value from chain
-    func unwrap<T>() -> Driver<T> where E == Optional<T> {
+    func unwrap<T>() -> Driver<T> where Element == Optional<T> {
         return self
             .filter { $0 != nil }
             .map { $0! }
@@ -32,7 +32,7 @@ public extension SharedSequenceConvertibleType where SharingStrategy == DriverSh
     ///
     /// - Parameter dueTime: Delay time interval (seconds)
     /// - Returns: Delayed sequnece
-    func delay(dueTime: RxTimeInterval) -> Driver<E> {
+    func delay(dueTime: RxTimeInterval) -> Driver<Element> {
         return self
             .asObservable()
             .delay(dueTime, scheduler: MainScheduler.instance)
@@ -43,7 +43,7 @@ public extension SharedSequenceConvertibleType where SharingStrategy == DriverSh
     ///
     /// - Parameter count: The number of elements to return.
     /// - Returns: A sequence that contains the specified number of elements from the start of the input sequence.
-    func take(_ count: Int) -> Driver<E> {
+    func take(_ count: Int) -> Driver<Element> {
         return self
             .asObservable()
             .take(count)

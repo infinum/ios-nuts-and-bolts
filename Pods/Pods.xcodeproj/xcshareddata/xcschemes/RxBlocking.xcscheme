@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "19FF9F1C45FEF4B48D90A90A6C78E1B2"
+               BlueprintIdentifier = "F243B36381C0CE83CCFF789AC38F0D36"
                BuildableName = "RxBlocking.framework"
                BlueprintName = "RxBlocking"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "19FF9F1C45FEF4B48D90A90A6C78E1B2"
+            BlueprintIdentifier = "F243B36381C0CE83CCFF789AC38F0D36"
             BuildableName = "RxBlocking.framework"
             BlueprintName = "RxBlocking"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "19FF9F1C45FEF4B48D90A90A6C78E1B2"
+            BlueprintIdentifier = "F243B36381C0CE83CCFF789AC38F0D36"
             BuildableName = "RxBlocking.framework"
             BlueprintName = "RxBlocking"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -12,8 +12,7 @@ public extension UILabel {
     
     static let loc_titleKey = "KEY"
     
-    @IBInspectable public var locTitleKey: String? {
-        
+    @IBInspectable var locTitleKey: String? {
         get {
             return loc_keysDictionary[UILabel.loc_titleKey]
         }
@@ -22,7 +21,6 @@ public extension UILabel {
             loc_keysDictionary[UILabel.loc_titleKey] = newValue
             loc_localeDidChange()
         }
-        
     }
     
 }
