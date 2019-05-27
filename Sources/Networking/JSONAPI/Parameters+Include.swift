@@ -10,7 +10,7 @@ import Alamofire
 
 public extension JSONAPI {
     
-    public enum Include {
+    enum Include {
         
         /// Adds include list to given parameters
         ///

@@ -10,7 +10,7 @@ import Alamofire
 
 public extension JSONAPI {
     
-    public enum Filter {
+    enum Filter {
         
         /// Adds filter info for each properties to given parameters.
         ///

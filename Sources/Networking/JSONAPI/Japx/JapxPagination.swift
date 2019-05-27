@@ -38,16 +38,16 @@ public enum Pagination {
 
 public extension Pagination.Response where T: JapxCodable {
 
-    public var isFirstPage: Bool {
+    var isFirstPage: Bool {
         // 0 and 1 represents first page on API side
         return meta.currentPage < 2
     }
 
-    public func append(page: Pagination.Response<T>) -> Pagination.Response<T> {
+    func append(page: Pagination.Response<T>) -> Pagination.Response<T> {
         return Pagination.Response(data: data + page.data, meta: page.meta)
     }
 
-    public func hasNext() -> Bool {
+    func hasNext() -> Bool {
         return meta.currentPage < meta.totalPages
     }
 
@@ -71,7 +71,7 @@ public extension Pagination.Response where T: JapxCodable {
 
 public extension Pagination.Meta {
 
-    public static func firstPage(totalCount: Int = 0) -> Pagination.Meta {
+    static func firstPage(totalCount: Int = 0) -> Pagination.Meta {
         return Pagination.Meta(
             currentPage: 1,
             totalPages: 1,
@@ -80,7 +80,7 @@ public extension Pagination.Meta {
         )
     }
 
-    public func nextPage() -> Int {
+    func nextPage() -> Int {
         return currentPage + 1
     }
 

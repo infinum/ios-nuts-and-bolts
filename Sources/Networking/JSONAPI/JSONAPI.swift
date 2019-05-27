@@ -17,7 +17,7 @@ public enum JSONAPI {
 
 public extension Headers.ApplicationType {
     /// JSONAPI application type value
-    public static let jsonApi = "application/vnd.api+json"
+    static let jsonApi = "application/vnd.api+json"
 }
 
 public extension Headers {
