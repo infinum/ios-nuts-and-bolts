@@ -49,7 +49,7 @@ public class I18nManager {
 
 public extension I18nManager {
     
-    public static func subscribeForLocaleDidChange(block: @escaping ()->()) -> NSObjectProtocol {
+    static func subscribeForLocaleDidChange(block: @escaping ()->()) -> NSObjectProtocol {
         return NotificationCenter.default.addObserver(forName: .loc_LanguageDidChangeNotification, object: nil, queue: OperationQueue.main) { _ in
             block()
         }
@@ -58,7 +58,7 @@ public extension I18nManager {
 
 public extension I18nManager {
     
-    public func localizedString(forKey key: String) -> String {
+    func localizedString(forKey key: String) -> String {
         return localizationPerformingBlock(key, language)
     }
     

@@ -24,7 +24,7 @@ public extension ClosedRange where Bound: Scalable {
     ///   - value: Value to scale
     ///   - toInterval: Target interval
     /// - Returns: Value scaled to target interval
-    public func scale(value: Bound, toInterval: ClosedRange) -> Bound {
+    func scale(value: Bound, toInterval: ClosedRange) -> Bound {
         
         func interpolate(_ value: Bound) -> Bound {
             return toInterval.lowerBound * (1.0 - value) + toInterval.upperBound * value

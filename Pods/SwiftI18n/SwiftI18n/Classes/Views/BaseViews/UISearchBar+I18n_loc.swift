@@ -12,8 +12,7 @@ public extension UISearchBar {
     static let loc_titleKey = "KEY"
     static let loc_placeholderKey = "PKEY"
     
-    @IBInspectable public var locTitleKey: String? {
-        
+    @IBInspectable var locTitleKey: String? {
         get {
             return loc_keysDictionary[UISearchBar.loc_titleKey]
         }
@@ -22,20 +21,16 @@ public extension UISearchBar {
             loc_keysDictionary[UISearchBar.loc_titleKey] = newValue
             loc_localeDidChange()
         }
-        
     }
     
-    @IBInspectable public var locPlaceholderKey: String? {
-        
+    @IBInspectable var locPlaceholderKey: String? {
         get {
             return loc_keysDictionary[UISearchBar.loc_placeholderKey]
         }
-        
         set(newValue) {
             loc_keysDictionary[UISearchBar.loc_placeholderKey] = newValue
             loc_localeDidChange()
         }
-        
     }
     
 }

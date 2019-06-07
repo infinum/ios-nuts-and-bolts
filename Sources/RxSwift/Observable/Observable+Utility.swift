@@ -14,7 +14,7 @@ public extension ObservableType {
     /// Converts current Observable sequence to Driver, completing on error event.
     ///
     /// - Returns: Driver - completing on error event
-    public func asDriverOnErrorComplete() -> Driver<E> {
+    func asDriverOnErrorComplete() -> Driver<Element> {
         return asDriver(onErrorDriveWith: .empty())
     }
     

@@ -10,7 +10,7 @@ import Alamofire
 
 public extension JSONAPI {
     
-    public enum Fields {
+    enum Fields {
 
         /// Nested properties to include for given items
         ///

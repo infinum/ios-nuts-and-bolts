@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/Japx.svg?style=flat)](http://cocoapods.org/pods/Japx)
 
 <p align="center">
-    <img src="japx-logo.png" width="200" max-width="50%" alt="Japx"/>
+    <img src="japx-logo-new.png" width="300" max-width="50%" alt="Japx"/>
 </p>
 
 Lightweight [JSON:API][1] parser that flattens complex [JSON:API][1] structure and turns it into simple JSON and vice versa.

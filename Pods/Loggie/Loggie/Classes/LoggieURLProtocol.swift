@@ -66,6 +66,11 @@ public class LoggieURLProtocol: URLProtocol {
             self.client?.urlProtocolDidFinishLoading(self)
         })
         dataTask?.resume()
+
+        /// Call to `finishTasksAndInvalidate()` will break the connection with delegate
+        /// and avoid memory leak. It is safe to call it immediately after dataTask
+        /// resume() call since it won't cancel running task.
+        session.finishTasksAndInvalidate()
     }
 
     public override func stopLoading() {

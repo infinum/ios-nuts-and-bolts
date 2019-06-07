@@ -10,7 +10,7 @@ import Alamofire
 
 public extension JSONAPI {
     
-    public enum Sorting {
+    enum Sorting {
         
         /// Adds sort list to given parameters
         ///

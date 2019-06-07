@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1010"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9229A0FC2BAF15FBA59A4A8D1C506E1C"
+               BlueprintIdentifier = "3A123D3A67DDAD1D8B81618777C7056A"
                BuildableName = "RxNimble.framework"
                BlueprintName = "RxNimble"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9229A0FC2BAF15FBA59A4A8D1C506E1C"
+            BlueprintIdentifier = "3A123D3A67DDAD1D8B81618777C7056A"
             BuildableName = "RxNimble.framework"
             BlueprintName = "RxNimble"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9229A0FC2BAF15FBA59A4A8D1C506E1C"
+            BlueprintIdentifier = "3A123D3A67DDAD1D8B81618777C7056A"
             BuildableName = "RxNimble.framework"
             BlueprintName = "RxNimble"
             ReferencedContainer = "container:Pods.xcodeproj">

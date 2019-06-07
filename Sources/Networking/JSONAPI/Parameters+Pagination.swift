@@ -10,7 +10,7 @@ import Alamofire
 
 public extension JSONAPI {
  
-    public enum Pagination {
+    enum Pagination {
         
         /// Adds pagination info to given parameters.
         ///

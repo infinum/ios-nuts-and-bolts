@@ -15,7 +15,7 @@ public protocol ServerTrustPolicy: NSObjectProtocol {
 
 public extension ServerTrustPolicy {
 
-    public func trustIsValid(_ trust: SecTrust) -> Bool {
+    func trustIsValid(_ trust: SecTrust) -> Bool {
         var isValid = false
 
         var result = SecTrustResultType.invalid
@@ -125,6 +125,7 @@ public class PinCertificates: NSObject, ServerTrustPolicy {
         self.validateHost = validateHost
     }
 
+    @objc(initWithCertificatesData:validateCertificateChain:validateHost:)
     public init(certificatesData: [Data], validateCertificateChain: Bool, validateHost: Bool) {
         self.validateCertificateChain = validateCertificateChain
         self.validateHost = validateHost
@@ -225,6 +226,7 @@ open class ServerTrustPolicyManager: NSObject {
     /// The dictionary of policies mapped to a particular host.
     public let policies: [String: ServerTrustPolicy]
 
+    @objc(initWithPolicies:)
     public init(policies: [String: ServerTrustPolicy]) {
         self.policies = policies
     }
