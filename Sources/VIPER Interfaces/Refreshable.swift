@@ -13,7 +13,7 @@ public protocol Refreshable {
 
 public extension Refreshable {
     
-    public func endRefreshing() {
+    func endRefreshing() {
         // Check if refresh control is refreshing before calling endRefreshing,
         // otherwise it will result in wierd glitch while scrolling and reloading
         if refreshControl.isRefreshing {

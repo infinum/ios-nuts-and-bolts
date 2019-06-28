@@ -10,11 +10,11 @@ import UIKit
 
 public extension String {
     
-    public var localised: String {
+    var localised: String {
         return I18nManager.instance[self]
     }
     
-    public func  localisedFormat(with args: CVarArg...) -> String {
+    func localisedFormat(with args: CVarArg...) -> String {
         return String(format: self.localised, args)
     }
     

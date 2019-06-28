@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 extension UIControl.State: Hashable {
     
     public var hashValue: Int {
@@ -19,8 +18,7 @@ extension UIControl.State: Hashable {
 
 public extension UIButton {
     
-    @IBInspectable public var locTitleKey: String? {
-        
+    @IBInspectable var locTitleKey: String? {
         get {
             return locTitleKey(for: .normal)
         }
@@ -29,14 +27,13 @@ public extension UIButton {
             loc_allStates.forEach { setLocTitleKey(newValue, for: $0) }
             loc_localeDidChange()
         }
-        
     }
     
-    public func setLocTitleKey(_ key: String?, `for` state: UIControl.State) {
+    func setLocTitleKey(_ key: String?, `for` state: UIControl.State) {
         loc_keysDictionary[state] = key
     }
     
-    public func locTitleKey(`for` state: UIControl.State) -> String? {
+    func locTitleKey(`for` state: UIControl.State) -> String? {
         return loc_keysDictionary[state]
     }
     

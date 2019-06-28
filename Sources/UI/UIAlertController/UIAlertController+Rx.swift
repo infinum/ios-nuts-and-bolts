@@ -47,7 +47,7 @@ public extension UIAlertController {
     ///   - actions: Actions
     ///   - style: Alert style - sheet or alert
     /// - Returns: `Maybe` type containing selected value
-    public static func present<T>(
+    static func present<T>(
         on viewController: UIViewController,
         title: String? = nil,
         message: String? = nil,
