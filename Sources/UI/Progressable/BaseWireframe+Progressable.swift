@@ -18,17 +18,17 @@ public extension Progressable where Self: BaseWireframe {
     
     // MARK: - Show/hide
     
-    public func showLoading() {
+    func showLoading() {
         showLoading(blocking: true)
     }
 
-    public func hideLoading() {
+    func hideLoading() {
         hideLoading(blocking: true)
     }
     
     // MARK: - Show/hide with blocking state
     
-    public func showLoading(blocking: Bool) {
+    func showLoading(blocking: Bool) {
         // Remove previously added so we don't need to take care about
         // multiple async calls to show loading
         MBProgressHUD.hide(for: _hudParentView, animated: true)
@@ -36,18 +36,18 @@ public extension Progressable where Self: BaseWireframe {
         hud.isUserInteractionEnabled = blocking
     }
     
-    public func hideLoading(blocking: Bool) {
+    func hideLoading(blocking: Bool) {
         _stopRefreshingIfNeeded()
         MBProgressHUD.hide(for: _hudParentView, animated: true)
     }
 
     // MARK: - Failure handling
     
-    public func showFailure(with error: Error) {
+    func showFailure(with error: Error) {
         showFailure(with: nil, message: error.localizedDescription)
     }
     
-    public func showFailure(with title: String?, message: String?) {
+    func showFailure(with title: String?, message: String?) {
         let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertView.addAction(UIAlertAction(title: "Ok", style: .cancel))
         viewController.present(alertView, animated: true)

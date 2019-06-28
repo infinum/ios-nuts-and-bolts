@@ -392,11 +392,12 @@ private extension Japx.Encoder {
 // MARK: - General helper extensions -
 
 extension TypeIdPair: Hashable, Equatable {
-    
-    var hashValue: Int {
-        return (type + id).hashValue
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(type)
+        hasher.combine(id)
     }
-    
+
     static func == (lhs: TypeIdPair, rhs: TypeIdPair) -> Bool {
         return lhs.type == rhs.type && lhs.id == rhs.id
     }

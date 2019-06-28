@@ -201,7 +201,7 @@
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 
-    TestTableViewCell *cell = [self.tableDataSourceDelegate tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableDataSourceDelegate tableView:self.tableView cellForRowAtIndexPath:indexPath];
     
     XCTAssertTrue([cell isKindOfClass:TestTableViewCell.class]);
 }

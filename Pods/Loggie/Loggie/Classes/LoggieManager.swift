@@ -29,6 +29,7 @@ public class LoggieManager: NSObject {
     @objc(sharedManager)
     public static let shared = LoggieManager()
 
+    @objc
     public var serverTrustPolicyManager: ServerTrustPolicyManager? = nil
     public var authentication: AuthenticationBlock? = nil
 

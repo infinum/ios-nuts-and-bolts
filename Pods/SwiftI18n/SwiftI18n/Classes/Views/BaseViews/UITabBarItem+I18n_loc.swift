@@ -11,8 +11,7 @@ public extension UITabBarItem {
     
     static let loc_titleKey = "KEY"
     
-    @IBInspectable public var locTitleKey: String? {
-        
+    @IBInspectable var locTitleKey: String? {
         get {
             return loc_keysDictionary[UIViewController.loc_titleKey]
         }
@@ -21,7 +20,6 @@ public extension UITabBarItem {
             loc_keysDictionary[UIViewController.loc_titleKey] = newValue
             loc_localeDidChange()
         }
-        
     }
     
 }

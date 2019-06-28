@@ -17,9 +17,9 @@ public protocol LocKeyAcceptable: class {
 }
 
 public extension LocKeyAcceptable {
-    public var loc: Localizable<Self> {
+    var loc: Localizable<Self> {
         get { return Localizable(base: self) }
-        set {}
+        set { }
     }
 }
 

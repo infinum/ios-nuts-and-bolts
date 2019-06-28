@@ -15,7 +15,7 @@ public extension ObservableType {
     ///
     /// - Parameter predicate: Predicate function that will decide if we should continue or complete
     /// - Returns: Observable of type `E`.
-    func takeUntil(predicate: @escaping (E) -> Bool) -> Observable<E> {
+    func takeUntil(predicate: @escaping (Element) -> Bool) -> Observable<Element> {
         return Observable.create { observer in
             return self.subscribe { event in
                 switch event {

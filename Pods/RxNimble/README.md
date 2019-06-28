@@ -2,7 +2,7 @@
 
 # RxNimble
 
-Nimble extensions that making unit testing with RxSwift easier :tada:
+Nimble extensions that make unit testing with RxSwift easier :tada:
 
 ## Why
 
@@ -29,7 +29,7 @@ If on the other hand you'd rather use [RxTest](http://cocoapods.org/pods/RxTest)
 
 That means _RxTest_ allows you to verify the occurrence of multiple `next`, `error` and `completed` events at specific virtual times:
 
-```
+```swift
 expect(subject).events(scheduler: scheduler, disposeBag: disposeBag)
     .to(equal([
         Recorded.next(5, "Hello"),
@@ -40,7 +40,7 @@ expect(subject).events(scheduler: scheduler, disposeBag: disposeBag)
 
 You may also verify specific error types:
 
-```
+```swift
 expect(imageSubject).events(scheduler: scheduler, disposeBag: disposeBag)
     .to(equal([
         Recorded.error(5, ImageError.invalidImage)
@@ -48,6 +48,8 @@ expect(imageSubject).events(scheduler: scheduler, disposeBag: disposeBag)
 ```
 
 ## Installation
+
+### CocoaPods
 
 Add to the tests target in your Podfile:
 
@@ -68,6 +70,19 @@ pod 'RxNimble', subspecs: ['RxBlocking', 'RxTest'] # installs both dependencies
 ```
 
 And `pod install` and that's it!
+
+### Carthage
+
+Add to your Cartfile.private:
+
+```rb
+github 'RxSwiftCommunity/RxNimble'
+```
+
+Run `carthage update --cache-builds` then drag & drop from the Carthage/Builds folder into your project either or both of:
+
+- `RxNimbleRxBlocking.framework` and `RxBlocking.framework`
+- `RxNimbleRxTest.framework` and `RxTest.framework`
 
 ## Known Issues
 
