@@ -17,20 +17,20 @@ NS_ASSUME_NONNULL_BEGIN
  Returns an mutable array containing the results of mapping the given
  closure over the sequence's elements. Nil values will be ignored.
  */
-- (NSMutableArray *)map:(id (^)(T _Nonnull obj))mapValue;
+- (NSMutableArray *)map:(id _Nullable (^)(T value))mapValue;
 
 /**
  Returns an mutable array containing the concatenated results of calling
  the given transformation with each element of this sequence.
  Nil values will be ignored.
  */
-- (NSMutableArray *)flatMap:(id (^)(id _Nonnull))flatMapValue;
+- (NSMutableArray *)flatMap:(id _Nullable (^)(id value))flatMapValue;
 
 /**
  Returns an mutable array containing in order, the elements of the
  sequence that satisfy the given predicate.
  */
-- (NSMutableArray<T> *)filter:(BOOL (^)(T _Nonnull obj))includeValue;
+- (NSMutableArray<T> *)filter:(BOOL (^)(T value))includeValue;
 
 @end
 

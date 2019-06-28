@@ -10,7 +10,7 @@
 
 @implementation NSArray (FunctionalOperators)
 
-- (NSArray *)map:(id (^)(id _Nonnull))mapValue
+- (NSArray *)map:(id (^)(id))mapValue
 {
     if (!mapValue) { return self; }
     NSMutableArray *result = [NSMutableArray new];
@@ -23,7 +23,7 @@
     return [NSArray arrayWithArray:result];
 }
 
-- (NSArray *)flatMap:(id (^)(id _Nonnull))flatMapValue
+- (NSArray *)flatMap:(id (^)(id))flatMapValue
 {
     if (!flatMapValue) { return self; }
     NSMutableArray *result = [NSMutableArray new];
@@ -39,7 +39,7 @@
     return [NSArray arrayWithArray:result];
 }
 
-- (void)forEach:(void (^)(id _Nonnull))forEachValue
+- (void)forEach:(void (^)(id))forEachValue
 {
     if (!forEachValue) { return; }
     [self enumerateObjectsUsingBlock:^(id _Nonnull item, NSUInteger index, BOOL *stop) {
@@ -47,7 +47,7 @@
     }];
 }
 
-- (NSArray *)filter:(BOOL (^)(id _Nonnull obj))includeValue
+- (NSArray *)filter:(BOOL (^)(id))includeValue
 {
     if (!includeValue) { return self; }
     NSMutableArray *result = [NSMutableArray new];
@@ -59,7 +59,7 @@
     return [NSArray arrayWithArray:result];
 }
 
-- (id)reduce:(id)initial next:(id (^)(id accumulator, id _Nonnull value))nextValue
+- (id)reduce:(id)initial next:(id (^)(id accumulator, id value))nextValue
 {
     if (!nextValue) { return initial; }
     __block id result = initial;

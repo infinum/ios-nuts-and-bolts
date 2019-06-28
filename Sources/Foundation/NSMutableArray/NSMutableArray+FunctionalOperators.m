@@ -10,7 +10,7 @@
 
 @implementation NSMutableArray (FunctionalOperators)
 
-- (NSMutableArray *)map:(id _Nonnull (^)(id _Nonnull))mapValue
+- (NSMutableArray *)map:(id (^)(id))mapValue
 {
     if (!mapValue) { return [self copy]; }
     NSMutableArray *result = [[NSMutableArray alloc] init];
@@ -23,14 +23,14 @@
     return result;
 }
 
-- (NSMutableArray *)flatMap:(id  _Nonnull (^)(id _Nonnull))block
+- (NSMutableArray *)flatMap:(id (^)(id))flatMapValue
 {
-    if (!block) { return [self copy]; }
+    if (!flatMapValue) { return [self copy]; }
     NSMutableArray *result = [[NSMutableArray alloc] init];
     [self enumerateObjectsUsingBlock:^(id _Nonnull item, NSUInteger index, BOOL *stop) {
-        id mappedItem = block(item);
+        id mappedItem = flatMapValue(item);
         if ([mappedItem isKindOfClass:[NSArray class]]) {
-            NSArray *flattenedArray = [mappedItem flatMap:block];
+            NSArray *flattenedArray = [mappedItem flatMap:flatMapValue];
             [result addObjectsFromArray:flattenedArray];
         } else if (mappedItem) {
             [result addObject:mappedItem];
@@ -39,7 +39,7 @@
     return result;
 }
 
-- (NSMutableArray *)filter:(BOOL (^)(id _Nonnull))includeValue
+- (NSMutableArray *)filter:(BOOL (^)(id))includeValue
 {
     if (!includeValue) { return [self copy]; }
     NSMutableArray *result = [[NSMutableArray alloc] init];

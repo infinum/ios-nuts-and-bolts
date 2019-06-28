@@ -7,63 +7,70 @@
 //
 
 #import "NSSet+FunctionalOperators.h"
+#import "NSArray+FunctionalOperators.h"
 
 @implementation NSSet (FunctionalOperators)
 
-- (NSSet *)map:(id  _Nonnull (^)(id _Nonnull))block
+- (NSSet *)map:(id (^)(id))mapValue
 {
-    if (!block) { return [self copy]; }
-    NSMutableSet *mutableSet = [[NSMutableSet alloc] init];
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
-        [mutableSet addObject:block(obj)];
-    }];
-    return [mutableSet copy];
-}
-
-- (NSSet *)flatMap:(id  _Nonnull (^)(id _Nonnull))block
-{
-    if (!block) { return [self copy]; }
-    NSMutableSet *mutableSet = [[NSMutableSet alloc] init];
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
-        id object = block(obj);
-        if ([object isKindOfClass:[NSArray class]]) {
-            NSArray *array = [[object flatMap:block] allObjects];
-            [mutableSet addObjectsFromArray:array];
-            return;
-        }
-        [mutableSet addObject:object];
-    }];
-    return [mutableSet copy];
-}
-
-- (void)forEach:(void (^)(id _Nonnull))block
-{
-    if (!block) { return; }
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
-        block(obj);
-    }];
-}
-
-- (NSSet *)filter:(BOOL (^)(id _Nonnull obj))block
-{
-    if (!block) { return [self copy]; }
-    NSMutableSet *mutableSet = [[NSMutableSet alloc] init];
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
-        if (block(obj)) {
-            [mutableSet addObject:obj];
+    if (!mapValue) { return self; }
+    NSMutableSet *result = [[NSMutableSet alloc] init];
+    [self enumerateObjectsUsingBlock:^(id _Nonnull item, BOOL *stop) {
+        id mappedItem = mapValue(item);
+        if (mappedItem) {
+            [result addObject:mappedItem];
         }
     }];
-    return [mutableSet copy];
+    return [NSSet setWithSet:result];
 }
 
-- (id)reduce:(id)initial block:(id  _Nonnull (^)(id _Nonnull, id _Nonnull))block
+- (NSSet *)flatMap:(id (^)(id))flatMapValue
 {
-    if (!block) { return initial; }
-    __block id object = initial;
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
-        object = block(object, obj);
+    if (!flatMapValue) { return self; }
+    NSMutableSet *result = [NSMutableSet new];
+    [self enumerateObjectsUsingBlock:^(id item, BOOL *stop) {
+        id flattenedItem = flatMapValue(item);
+        if ([flattenedItem isKindOfClass:NSArray.class]) {
+            NSArray *flattenedArray = [(NSArray *)flattenedItem flatMap:flatMapValue];
+            [result addObjectsFromArray:flattenedArray];
+        } else if ([flattenedItem isKindOfClass:NSSet.class]) {
+            NSSet *flattenedSet = [(NSSet *)flattenedItem flatMap:flatMapValue];
+            [result addObjectsFromArray:flattenedSet.allObjects];
+        } else if (flattenedItem) {
+            [result addObject:flattenedItem];
+        }
     }];
-    return object;
+    return [NSSet setWithSet:result];
+}
+
+- (void)forEach:(void (^)(id))forEachValue
+{
+    if (!forEachValue) { return; }
+    [self enumerateObjectsUsingBlock:^(id _Nonnull item, BOOL *stop) {
+        forEachValue(item);
+    }];
+}
+
+- (NSSet *)filter:(BOOL (^)(id))includeValue
+{
+    if (!includeValue) { return self; }
+    NSMutableSet *result = [[NSMutableSet alloc] init];
+    [self enumerateObjectsUsingBlock:^(id _Nonnull item, BOOL *stop) {
+        if (includeValue(item)) {
+            [result addObject:item];
+        }
+    }];
+    return [NSSet setWithSet:result];
+}
+
+- (id)reduce:(id)initial next:(id (^)(id accumulator, id value))nextValue
+{
+    if (!nextValue) { return initial; }
+    __block id result = initial;
+    [self enumerateObjectsUsingBlock:^(id item, BOOL *stop) {
+        result = nextValue(result, item);
+    }];
+    return result;
 }
 
 @end

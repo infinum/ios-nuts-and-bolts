@@ -15,7 +15,7 @@
 
 @implementation NSMutableArray_FunctionalOperatorsTests
 
-- (void)testArrayMapOperator
+- (void)testMutableArrayMapOperator
 {
     NSMutableArray<NSString *> *values = [[NSMutableArray alloc] initWithArray:@[@"One", @"Two", @"Three"]];
     NSMutableArray<NSString *> *expected = [[NSMutableArray alloc] initWithArray:@[@"OneMap", @"TwoMap", @"ThreeMap"]];
@@ -25,7 +25,7 @@
     XCTAssertTrue([result isEqual:expected]);
 }
 
-- (void)testArrayFlatMapOperator
+- (void)testMutableArrayFlatMapOperator
 {
     NSMutableArray *values = [[NSMutableArray alloc] initWithArray:@[@"One", @[@"Two", @"Three"], @"Four"]];
     NSMutableArray *result = [values flatMap:^id _Nonnull(id  _Nonnull obj) {
@@ -35,7 +35,7 @@
     XCTAssertTrue([result isEqual:expected]);
 }
 
-- (void)testArrayForEachOperator
+- (void)testMutableArrayForEachOperator
 {
     NSMutableArray<NSString *> *values = [[NSMutableArray alloc] initWithArray:@[@"One", @"Two", @"Three"]];
     NSMutableArray<NSString *> *result = [[NSMutableArray alloc] init];
@@ -45,7 +45,7 @@
     XCTAssertTrue([result isEqual:values]);
 }
 
-- (void)testArrayFilterOperator
+- (void)testMutableArrayFilterOperator
 {
     NSMutableArray<NSNumber *> *values = [[NSMutableArray alloc] initWithArray:@[@(10), @(20), @(30), @(40), @(50)]];
     NSMutableArray<NSNumber *> *expected = [[NSMutableArray alloc] initWithArray:@[@(20), @(40)]];
@@ -55,7 +55,7 @@
     XCTAssertTrue([result isEqual:expected]);
 }
 
-- (void)testArrayReduceOperator
+- (void)testMutableArrayReduceOperator
 {
     NSMutableArray<NSNumber *> *values = [[NSMutableArray alloc] initWithArray:@[@(1), @(2), @(3), @(4), @(5)]];
     NSNumber *expected = @(25);

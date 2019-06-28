@@ -15,7 +15,7 @@
 
 @implementation NSMutableSet_FunctionalOperatorsTests
 
-- (void)testArrayMapOperator
+- (void)testMutableSetMapOperator
 {
     NSMutableSet<NSString *> *values = [NSMutableSet setWithArray:@[@"One", @"Two", @"Three"]];
     NSMutableSet<NSString *> *expected = [NSMutableSet setWithArray:@[@"OneMap", @"TwoMap", @"ThreeMap"]];
@@ -26,7 +26,7 @@
     XCTAssertTrue([result isEqual:expected]);
 }
 
-- (void)testArrayFlatMapOperator
+- (void)testMutableSetFlatMapOperator
 {
     NSMutableSet<NSString *> *values = [NSMutableSet setWithArray:@[@"One", @[@"Two", @"Three"], @"Four"]];
     NSMutableSet<NSString *> *result = (NSMutableSet<NSString *> *)[values flatMap:^id _Nonnull(id  _Nonnull obj) {
@@ -36,7 +36,7 @@
     XCTAssertTrue([result isEqual:expected]);
 }
 
-- (void)testArrayForEachOperator
+- (void)testMutableSetForEachOperator
 {
     NSMutableSet<NSString *> *values = [NSMutableSet setWithArray:@[@"One", @"Two", @"Three"]];
     NSMutableSet<NSString *> *result = [[NSMutableSet alloc] init];
@@ -46,7 +46,7 @@
     XCTAssertTrue([result isEqual:values]);
 }
 
-- (void)testArrayFilterOperator
+- (void)testMutableSetFilterOperator
 {
     NSMutableSet<NSNumber *> *values = [NSMutableSet setWithArray:@[@(10), @(20), @(30), @(40), @(50)]];
     NSMutableSet<NSNumber *> *expected = [NSMutableSet setWithArray:@[@(20), @(40)]];
@@ -56,11 +56,11 @@
     XCTAssertTrue([result isEqual:expected]);
 }
 
-- (void)testArrayReduceOperator
+- (void)testMutableSetReduceOperator
 {
     NSMutableSet<NSNumber *> *values = [NSMutableSet setWithArray:@[@(1), @(2), @(3), @(4), @(5)]];
     NSNumber *expected = @(25);
-    NSNumber *result = [values reduce:@(10) block:^id _Nonnull(NSNumber * _Nonnull acc, NSNumber * _Nonnull obj) {
+    NSNumber *result = [values reduce:@(10) next:^id _Nonnull(NSNumber * _Nonnull acc, NSNumber * _Nonnull obj) {
         return @(acc.integerValue + obj.integerValue);
     }];
     XCTAssertTrue([expected isEqual:result]);
