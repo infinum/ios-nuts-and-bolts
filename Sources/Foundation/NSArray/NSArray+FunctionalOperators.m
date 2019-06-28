@@ -59,7 +59,7 @@
     return [NSArray arrayWithArray:result];
 }
 
-- (id)reduce:(id)initial next:(id (^)(id _Nonnull accumulator, id _Nonnull value))nextValue
+- (id)reduce:(id)initial next:(id (^)(id accumulator, id _Nonnull value))nextValue
 {
     if (!nextValue) { return initial; }
     __block id result = initial;

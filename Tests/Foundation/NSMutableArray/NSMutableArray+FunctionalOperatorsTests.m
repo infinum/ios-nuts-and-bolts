@@ -59,8 +59,8 @@
 {
     NSMutableArray<NSNumber *> *values = [[NSMutableArray alloc] initWithArray:@[@(1), @(2), @(3), @(4), @(5)]];
     NSNumber *expected = @(25);
-    NSNumber *result = [values reduce:@(10) block:^id _Nonnull(NSNumber * _Nonnull acc, NSNumber * _Nonnull obj) {
-        return @(acc.integerValue + obj.integerValue);
+    NSNumber *result = [values reduce:@(10) next:^id _Nonnull(NSNumber * _Nonnull accumulator, NSNumber * _Nonnull value) {
+        return @(accumulator.integerValue + value.integerValue);
     }];
     XCTAssertTrue([expected isEqual:result]);
 }

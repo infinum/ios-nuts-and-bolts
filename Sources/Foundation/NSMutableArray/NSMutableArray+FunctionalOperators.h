@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSArray+FunctionalOperators.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,31 +17,19 @@ NS_ASSUME_NONNULL_BEGIN
  Returns an mutable array containing the results of mapping the given
  closure over the sequence's elements.
  */
-- (NSMutableArray<id> *)map:(id _Nonnull (^)(T _Nonnull obj))block;
+- (NSMutableArray *)map:(id (^)(T _Nonnull obj))mapValue;
 
 /**
  Returns an mutable array containing the concatenated results of calling
  the given transformation with each element of this sequence.
  */
-- (NSMutableArray<id> *)flatMap:(id (^)(T _Nonnull obj))block;
-
-/**
- Calls the given closure on each element in the sequence
- in the same order as @p for-in loop.
- */
-- (void)forEach:(void (^)(T _Nonnull obj))block;
+- (NSMutableArray *)flatMap:(id (^)(id _Nonnull))flatMapValue;
 
 /**
  Returns an mutable array containing in order, the elements of the
  sequence that satisfy the given predicate.
  */
-- (NSMutableArray<T> *)filter:(BOOL (^)(T _Nonnull obj))block;
-
-/**
- Returns the result of combining the elements of the sequence
- using the given closure.
- */
-- (id)reduce:(id)initial block:(id (^)(T _Nonnull acc, T _Nonnull obj))block;
+- (NSMutableArray<T> *)filter:(BOOL (^)(T _Nonnull obj))includeValue;
 
 @end
 

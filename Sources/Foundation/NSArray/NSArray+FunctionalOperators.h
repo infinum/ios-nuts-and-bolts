@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  Returns an array containing the results of mapping the given
  closure over the sequence's elements.
  */
-- (NSArray<id> *)map:(id (^)(T _Nonnull obj))mapValue;
+- (NSArray *)map:(id (^)(T _Nonnull obj))mapValue;
 
 /**
  Returns an array containing the concatenated results of calling
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  Returns the result of combining the elements of the sequence
  using the given block.
  */
-- (id)reduce:(id)initial next:(id (^)(T _Nonnull accumulator, T _Nonnull value))nextValue;
+- (id)reduce:(id)initial next:(id (^)(T accumulator, T _Nonnull value))nextValue;
 
 @end
 
