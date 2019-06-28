@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  Returns the result of combining the elements of the sequence
  using the given block.
  */
-- (id)reduce:(id)initial next:(id (^)(id _Nonnull accumulator, id _Nonnull value))nextValue;
+- (id)reduce:(id)initial next:(id (^)(T _Nonnull accumulator, T _Nonnull value))nextValue;
 
 @end
 
