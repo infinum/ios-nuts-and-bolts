@@ -1,6 +1,5 @@
 //
 //  Routable.swift
-//  Catalog
 //
 //  Created by Filip Gulan on 24/03/2019.
 //  Copyright © 2019 Infinum. All rights reserved.

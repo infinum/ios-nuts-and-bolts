@@ -1,6 +1,5 @@
 //
 //  String+Inserting.swift
-//  Tests
 //
 //  Created by Goran Brlas on 11/04/2019.
 //  Copyright © 2019 Infinum. All rights reserved.

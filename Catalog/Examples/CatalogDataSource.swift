@@ -1,6 +1,5 @@
 //
 //  CatalogDataSource.swift
-//  Catalog
 //
 //  Created by Filip Gulan on 12/02/2019.
 //  Copyright © 2019 Infinum. All rights reserved.

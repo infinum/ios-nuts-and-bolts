@@ -1,6 +1,5 @@
 //
 //  RoundCornersViewController.swift
-//  Catalog
 //
 //  Created by Filip Gulan on 06/02/2019.
 //  Copyright © 2019 Infinum. All rights reserved.
