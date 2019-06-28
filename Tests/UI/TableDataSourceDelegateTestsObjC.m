@@ -110,7 +110,7 @@
 
 @interface TableDataSourceDelegateTests : XCTestCase
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) TableDataSourceDelegate *tableDataSourceDelegate;
 
 @end
