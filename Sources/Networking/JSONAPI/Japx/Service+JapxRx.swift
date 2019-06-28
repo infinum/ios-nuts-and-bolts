@@ -1,6 +1,5 @@
 //
 //  Service+Japx.swift
-//  Catalog
 //
 //  Created by Filip Gulan on 16/02/2019.
 //  Copyright © 2019 Infinum. All rights reserved.

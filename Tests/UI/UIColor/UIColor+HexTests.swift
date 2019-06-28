@@ -1,6 +1,5 @@
 //
 //  UIColor+HexTests.swift
-//  Tests
 //
 //  Created by Mario Galijot on 21/03/2019.
 //  Copyright © 2019 Infinum. All rights reserved.

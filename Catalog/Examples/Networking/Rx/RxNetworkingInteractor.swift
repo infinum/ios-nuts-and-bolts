@@ -1,6 +1,5 @@
 //
 //  RxNetworkingInteractor.swift
-//  Catalog
 //
 //  Created by Filip Gulan on 25/04/2019.
 //  Copyright (c) 2019 Infinum. All rights reserved.
