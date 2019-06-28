@@ -10,60 +10,63 @@
 
 @implementation NSArray (FunctionalOperators)
 
-- (NSArray *)map:(id  _Nonnull (^)(id _Nonnull))block
+- (NSArray *)map:(id (^)(id _Nonnull))mapValue
 {
-    if (!block) { return [self copy]; }
-    NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [mutableArray addObject:block(obj)];
-    }];
-    return [mutableArray copy];
-}
-
-- (NSArray *)flatMap:(id  _Nonnull (^)(id _Nonnull))block
-{
-    if (!block) { return [self copy]; }
-    NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        id object = block(obj);
-        if ([object isKindOfClass:[NSArray class]]) {
-            NSArray *array = [object flatMap:block];
-            [mutableArray addObjectsFromArray:array];
-            return;
-        }
-        [mutableArray addObject:object];
-    }];
-    return [mutableArray copy];
-}
-
-- (void)forEach:(void (^)(id _Nonnull))block
-{
-    if (!block) { return; }
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        block(obj);
-    }];
-}
-
-- (NSArray *)filter:(BOOL (^)(id _Nonnull obj))block
-{
-    if (!block) { return [self copy]; }
-    NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (block(obj)) {
-            [mutableArray addObject:obj];
+    if (!mapValue) { return self; }
+    NSMutableArray *result = [NSMutableArray new];
+    [self enumerateObjectsUsingBlock:^(id item, NSUInteger index, BOOL *stop) {
+        id mappedItem = mapValue(item);
+        if (mappedItem) {
+            [result addObject:mappedItem];
         }
     }];
-    return [mutableArray copy];
+    return [NSArray arrayWithArray:result];
 }
 
-- (id)reduce:(id)initial block:(id  _Nonnull (^)(id _Nonnull, id _Nonnull))block
+- (NSArray *)flatMap:(id (^)(id _Nonnull))flatMapValue
 {
-    if (!block) { return initial; }
-    __block id object = initial;
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        object = block(object, obj);
+    if (!flatMapValue) { return self; }
+    NSMutableArray *result = [NSMutableArray new];
+    [self enumerateObjectsUsingBlock:^(id item, NSUInteger index, BOOL *stop) {
+        id flattenedItem = flatMapValue(item);
+        if ([flattenedItem isKindOfClass:NSArray.class]) {
+            NSArray *flattenedArray = [flattenedItem flatMap:flatMapValue];
+            [result addObjectsFromArray:flattenedArray];
+        } else if (flattenedItem) {
+            [result addObject:flattenedItem];
+        }
     }];
-    return object;
+    return [NSArray arrayWithArray:result];
+}
+
+- (void)forEach:(void (^)(id _Nonnull))forEachValue
+{
+    if (!forEachValue) { return; }
+    [self enumerateObjectsUsingBlock:^(id _Nonnull item, NSUInteger index, BOOL *stop) {
+        forEachValue(item);
+    }];
+}
+
+- (NSArray *)filter:(BOOL (^)(id _Nonnull obj))includeValue
+{
+    if (!includeValue) { return self; }
+    NSMutableArray *result = [NSMutableArray new];
+    [self enumerateObjectsUsingBlock:^(id item, NSUInteger index, BOOL *stop) {
+        if (includeValue(item)) {
+            [result addObject:item];
+        }
+    }];
+    return [NSArray arrayWithArray:result];
+}
+
+- (id)reduce:(id)initial next:(id (^)(id _Nonnull accumulator, id _Nonnull value))nextValue
+{
+    if (!nextValue) { return initial; }
+    __block id result = initial;
+    [self enumerateObjectsUsingBlock:^(id item, NSUInteger index, BOOL *stop) {
+        result = nextValue(result, item);
+    }];
+    return result;
 }
 
 @end
