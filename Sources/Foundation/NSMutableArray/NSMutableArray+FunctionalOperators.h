@@ -15,13 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Returns an mutable array containing the results of mapping the given
- closure over the sequence's elements.
+ closure over the sequence's elements. Nil values will be ignored.
  */
 - (NSMutableArray *)map:(id (^)(T _Nonnull obj))mapValue;
 
 /**
  Returns an mutable array containing the concatenated results of calling
  the given transformation with each element of this sequence.
+ Nil values will be ignored.
  */
 - (NSMutableArray *)flatMap:(id (^)(id _Nonnull))flatMapValue;
 
