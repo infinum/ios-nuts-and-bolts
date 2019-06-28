@@ -440,10 +440,10 @@
 		0A3DA14822C63F79008C9E74 /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				A8FD60F12292AEED00FB50CE /* CollectionView */,
-				A8FD60DE2292AD7B00FB50CE /* TableView */,
 				A8FD60DC2292AD4600FB50CE /* CellItem.h */,
 				A8FD60DD2292AD6C00FB50CE /* SectionItem.h */,
+				A8FD60F12292AEED00FB50CE /* CollectionView */,
+				A8FD60DE2292AD7B00FB50CE /* TableView */,
 			);
 			path = ObjC;
 			sourceTree = "<group>";
@@ -1037,12 +1037,12 @@
 		A8FD60DE2292AD7B00FB50CE /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				A8FD60F02292AEA900FB50CE /* TableCellItem.h */,
+				A8FD60EF2292AE8A00FB50CE /* TableSectionItem.h */,
 				A8FD60E22292ADAB00FB50CE /* BaseTableCellItem */,
 				A8FD60E12292ADA000FB50CE /* TableDataSourceDelegate */,
 				A8FD60E02292AD9300FB50CE /* BaseTableSection */,
 				A8FD60DF2292AD8900FB50CE /* Reloader */,
-				A8FD60EF2292AE8A00FB50CE /* TableSectionItem.h */,
-				A8FD60F02292AEA900FB50CE /* TableCellItem.h */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -1086,12 +1086,12 @@
 		A8FD60F12292AEED00FB50CE /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				A8FD60FE2292BB5700FB50CE /* Reloader */,
-				A8FD60FA2292AFB500FB50CE /* BaseCollectionSection */,
-				A8FD60F62292AF3C00FB50CE /* BaseCollectionCellItem */,
-				A8FD60F22292AF0100FB50CE /* CollectionDataSourceDelegate */,
-				A8FD61022292BB9E00FB50CE /* CollectionSectionItem.h */,
 				A8FD61032292BBB400FB50CE /* CollectionCellItem.h */,
+				A8FD61022292BB9E00FB50CE /* CollectionSectionItem.h */,
+				A8FD60F22292AF0100FB50CE /* CollectionDataSourceDelegate */,
+				A8FD60F62292AF3C00FB50CE /* BaseCollectionCellItem */,
+				A8FD60FA2292AFB500FB50CE /* BaseCollectionSection */,
+				A8FD60FE2292BB5700FB50CE /* Reloader */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
