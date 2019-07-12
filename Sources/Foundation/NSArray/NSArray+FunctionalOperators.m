@@ -69,4 +69,19 @@
     return result;
 }
 
+- (NSArray *)composeWithArray:(NSArray *)array usingBlock:(id _Nullable (^)(id firstItem, id secondItem))block
+{
+    if (self.count != array.count) {
+        [NSException raise:@"Invalid array length." format:@"Arrays must be of same length."];
+    }
+    
+    NSMutableArray *result = [NSMutableArray new];
+    
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [result addObject:block(obj, array[idx])];
+    }];
+    
+    return [NSArray arrayWithArray:result];
+}
+
 @end

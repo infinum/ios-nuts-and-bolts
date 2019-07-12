@@ -147,6 +147,7 @@
 		A8FD61012292BB6D00FB50CE /* CollectionViewReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD61002292BB6D00FB50CE /* CollectionViewReloader.m */; };
 		A8FD61052292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD61042292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m */; };
 		A8FD61092292CC2C00FB50CE /* TableDataSourceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60E72292ADF100FB50CE /* TableDataSourceDelegate.m */; };
+		D70CF64A22D7757E00A267C8 /* NSArrayTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D70CF64922D7757E00A267C8 /* NSArrayTestModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -330,6 +331,8 @@
 		A8FD61022292BB9E00FB50CE /* CollectionSectionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionSectionItem.h; sourceTree = "<group>"; };
 		A8FD61032292BBB400FB50CE /* CollectionCellItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionCellItem.h; sourceTree = "<group>"; };
 		A8FD61042292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableDataSourceDelegateTestsObjC.m; sourceTree = "<group>"; };
+		D70CF64822D7757E00A267C8 /* NSArrayTestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSArrayTestModel.h; sourceTree = "<group>"; };
+		D70CF64922D7757E00A267C8 /* NSArrayTestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSArrayTestModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -957,6 +960,7 @@
 		4F14006E228A00DC0005F37A /* NSArray */ = {
 			isa = PBXGroup;
 			children = (
+				D70CF64B22D7758500A267C8 /* Model */,
 				4F140070228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m */,
 			);
 			path = NSArray;
@@ -1238,6 +1242,15 @@
 				A8FD61002292BB6D00FB50CE /* CollectionViewReloader.m */,
 			);
 			path = Reloader;
+			sourceTree = "<group>";
+		};
+		D70CF64B22D7758500A267C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D70CF64822D7757E00A267C8 /* NSArrayTestModel.h */,
+				D70CF64922D7757E00A267C8 /* NSArrayTestModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1555,6 +1568,7 @@
 				4F286F852291E01B00935FD3 /* NSMutableArray+FunctionalOperatorsTests.m in Sources */,
 				536E5AD6225F2FF000EF01A6 /* String+Substring.swift in Sources */,
 				536E5ABB225F1F7400EF01A6 /* Bool+LogicTests.swift in Sources */,
+				D70CF64A22D7757E00A267C8 /* NSArrayTestModel.m in Sources */,
 				0AE0B78922049DC50033A476 /* TableDataSourceDelegateTests.swift in Sources */,
 				4F286F972291E4E500935FD3 /* NSMutableSet+FunctionalOperatorsTests.m in Sources */,
 				60B4BDF52243B78A00849B8D /* UIColor+InitHelperTests.swift in Sources */,
