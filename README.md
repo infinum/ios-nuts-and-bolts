@@ -60,7 +60,7 @@ extension SomeCoolFeatureViewController: Catalogizable {
         return SomeCoolFeatureViewController()
         /// Or if creating it from storyboard:
         /// let storyboard = UIStoryboard(name: "SomeStoryboardName", bundle: nil)
-        /// return storyboard.instantiateViewController(ofType: SomeCoolFeatureViewController)
+        /// return storyboard.instantiateViewController(ofType: SomeCoolFeatureViewController.self)
     }
 
 }
