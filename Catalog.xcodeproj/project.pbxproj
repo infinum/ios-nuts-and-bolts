@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0612E33C22D32A540081BCF6 /* UIViewModifiers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0612E33B22D32A540081BCF6 /* UIViewModifiers.storyboard */; };
 		0612E33F22D32A750081BCF6 /* UIViewModifiersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E33E22D32A750081BCF6 /* UIViewModifiersViewController.swift */; };
+		064B18FB22DF47AD001D4489 /* UIView+LayerModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B18FA22DF47AD001D4489 /* UIView+LayerModifiers.swift */; };
 		0A0C8CFE22492E2C0071011F /* EncodableParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C8CFD22492E2C0071011F /* EncodableParams.swift */; };
 		0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF502206FED800C1853E /* RatioPresentationController.swift */; };
 		0A0ECF532206FED800C1853E /* RatioPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */; };
@@ -164,6 +165,7 @@
 /* Begin PBXFileReference section */
 		0612E33B22D32A540081BCF6 /* UIViewModifiers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIViewModifiers.storyboard; sourceTree = "<group>"; };
 		0612E33E22D32A750081BCF6 /* UIViewModifiersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewModifiersViewController.swift; sourceTree = "<group>"; };
+		064B18FA22DF47AD001D4489 /* UIView+LayerModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayerModifiers.swift"; sourceTree = "<group>"; };
 		0A0C8CFD22492E2C0071011F /* EncodableParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableParams.swift; sourceTree = "<group>"; };
 		0A0ECF502206FED800C1853E /* RatioPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationController.swift; sourceTree = "<group>"; };
 		0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationManager.swift; sourceTree = "<group>"; };
@@ -878,6 +880,7 @@
 			children = (
 				0AE0B77022046A190033A476 /* UIView+Constraints.swift */,
 				0A3C090A220AD44F00DEBECC /* UIView+Corners.swift */,
+				064B18FA22DF47AD001D4489 /* UIView+LayerModifiers.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1498,6 +1501,7 @@
 				0AE0B74C22042D5E0033A476 /* CatalogPresenter.swift in Sources */,
 				0A54436122718AB100F26468 /* RxNetworkingInterfaces.swift in Sources */,
 				0A603FDC2207841800F25622 /* Driver+Progressable.swift in Sources */,
+				064B18FB22DF47AD001D4489 /* UIView+LayerModifiers.swift in Sources */,
 				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
 				0A54435A22718A8F00F26468 /* NetworkingWireframe.swift in Sources */,
 				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,
