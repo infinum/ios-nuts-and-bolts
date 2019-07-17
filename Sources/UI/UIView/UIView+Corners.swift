@@ -15,15 +15,10 @@ public extension UIView {
     /// `borderColor` could be set from Storyboard.
     @IBInspectable var borderColor: UIColor? {
         get {
-            guard let color = layer.borderColor else { return nil }
-            return UIColor(cgColor: color)
+            return layer.borderColor.flatMap(UIColor.init)
         }
         set (newColor) {
-            guard let color = newColor else {
-                layer.borderColor = nil
-                return
-            }
-            layer.borderColor = color.cgColor
+            layer.borderColor = newColor?.cgColor
         }
     }
 
