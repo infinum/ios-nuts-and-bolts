@@ -71,14 +71,19 @@
 
 - (NSArray *)composeWithArray:(NSArray *)array usingBlock:(id _Nullable (^)(id firstItem, id secondItem))block
 {
-    if (self.count != array.count) {
-        [NSException raise:@"Invalid array length." format:@"Arrays must be of same length."];
+    if (!block) {
+        return [NSArray new];
     }
     
+    BOOL isFirstArraySmaller = self.count <= array.count;
+    NSArray *enumeratingArray = isFirstArraySmaller ? self : array;
+    NSArray *secondArray = isFirstArraySmaller ? array : self;
     NSMutableArray *result = [NSMutableArray new];
     
-    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [result addObject:block(obj, array[idx])];
+    [enumeratingArray enumerateObjectsUsingBlock:^(id _Nonnull item, NSUInteger index, BOOL *stop) {
+        id blockResult = block(item, secondArray[index]);
+        if (!blockResult) { return; }
+        [result addObject:blockResult];
     }];
     
     return [NSArray arrayWithArray:result];

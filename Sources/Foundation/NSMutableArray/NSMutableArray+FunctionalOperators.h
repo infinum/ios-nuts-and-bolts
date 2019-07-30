@@ -34,8 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Returns a mutable array composed with another mutable array using the given block.
+ Returns an empty mutable array if block is not provided.
  */
-- (NSMutableArray<T> *)composeWithArray:(NSMutableArray *)array usingBlock:(T _Nullable (^)(T firstItem, id secondItem))block;
+- (NSMutableArray *)composeWithArray:(NSMutableArray *)array usingBlock:(id _Nullable (^)(T firstItem, id secondItem))block;
 
 @end
 
