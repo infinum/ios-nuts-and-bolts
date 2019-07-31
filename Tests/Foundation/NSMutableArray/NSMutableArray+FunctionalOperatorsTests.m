@@ -70,7 +70,7 @@
 {
     NSMutableArray<NSString *> *values = [[NSMutableArray alloc] initWithArray:@[@"One", @"Two", @"Three"]];
     NSMutableArray<NSString *> *otherValues = [[NSMutableArray alloc] initWithArray:@[@"1", @"2", @"3"]];
-    NSMutableArray<NSString *> *result = [values composeWithArray:otherValues usingBlock:^NSString *(NSString *firstItem, NSString *secondItem) {
+    NSMutableArray<NSString *> *result = [values composeWithMutableArray:otherValues usingBlock:^NSString *(NSString *firstItem, NSString *secondItem) {
         return [NSString stringWithFormat:@"%@%@", firstItem, secondItem];
     }];
     NSMutableArray<NSString *> *expected = [[NSMutableArray alloc] initWithArray:@[@"One1", @"Two2", @"Three3"]];
@@ -87,7 +87,7 @@
     
     NSMutableArray<NSArrayTestModel *> *values = [[NSMutableArray alloc] initWithArray:@[modelOne, modelTwo]];
     NSMutableArray<UIColor *> *otherValues = [[NSMutableArray alloc] initWithArray:@[[UIColor whiteColor], [UIColor blackColor]]];
-    NSMutableArray<NSArrayTestModel *> *result = [values composeWithArray:otherValues usingBlock:^NSArrayTestModel *(NSArrayTestModel *firstItem, UIColor *secondItem) {
+    NSMutableArray<NSArrayTestModel *> *result = [values composeWithMutableArray:otherValues usingBlock:^NSArrayTestModel *(NSArrayTestModel *firstItem, UIColor *secondItem) {
         firstItem.color = secondItem;
         return firstItem;
     }];
