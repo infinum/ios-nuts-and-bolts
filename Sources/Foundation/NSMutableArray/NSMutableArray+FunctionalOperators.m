@@ -64,8 +64,7 @@
     
     [enumeratingArray enumerateObjectsUsingBlock:^(id _Nonnull item, NSUInteger index, BOOL *stop) {
         id blockResult = block(item, secondArray[index]);
-        if (!blockResult) { return; }
-        [result addObject:blockResult];
+        if (blockResult) { [result addObject:blockResult]; }
     }];
     
     return result;
