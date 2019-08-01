@@ -69,4 +69,23 @@
     return result;
 }
 
+- (NSArray *)composeWithArray:(NSArray *)array usingBlock:(id _Nullable (^)(id firstItem, id secondItem))block
+{
+    if (!block) {
+        return [NSArray new];
+    }
+    
+    BOOL isFirstArraySmaller = self.count <= array.count;
+    NSArray *enumeratingArray = isFirstArraySmaller ? self : array;
+    NSArray *secondArray = isFirstArraySmaller ? array : self;
+    NSMutableArray *result = [NSMutableArray new];
+    
+    [enumeratingArray enumerateObjectsUsingBlock:^(id _Nonnull item, NSUInteger index, BOOL *stop) {
+        id blockResult = block(item, secondArray[index]);
+        if (blockResult) { [result addObject:blockResult]; }
+    }];
+    
+    return [NSArray arrayWithArray:result];
+}
+
 @end

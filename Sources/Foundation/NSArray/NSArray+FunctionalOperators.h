@@ -43,6 +43,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (id _Nullable)reduce:(id _Nullable)initial next:(id _Nullable (^)(T _Nullable accumulator, T value))nextValue;
 
+/**
+ Returns an array composed with another array using the given block.
+ Returns an empty array if block is not provided.
+ */
+- (NSArray *)composeWithArray:(NSArray *)array usingBlock:(id _Nullable (^)(T firstItem, id secondItem))block;
+
 @end
 
 NS_ASSUME_NONNULL_END

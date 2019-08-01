@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "NSArray+FunctionalOperators.h"
+#import "NSArrayTestModel.h"
 
 @interface NSArray_FunctionalOperatorsTests : XCTestCase
 
@@ -64,6 +65,40 @@
         return @(accumulator.integerValue + value.integerValue);
     }];
     XCTAssertTrue([expected isEqual:result]);
+}
+
+- (void)testArrayComposeOperator
+{
+    NSArray<NSString *> *values = @[@"One", @"Two", @"Three"];
+    NSArray<NSString *> *otherValues = @[@"1", @"2", @"3"];
+    NSArray<NSString *> *result = [values composeWithArray:otherValues usingBlock:^NSString *(NSString *firstItem, NSString *secondItem) {
+        return [NSString stringWithFormat:@"%@%@", firstItem, secondItem];
+    }];
+    NSArray<NSString *> *expected = @[@"One1", @"Two2", @"Three3"];
+    
+    XCTAssertTrue([expected isEqual:result]);
+}
+
+- (void)testArrayComposeOperatorWithModel
+{
+    NSArrayTestModel *modelOne = [NSArrayTestModel new];
+    modelOne.firstTestString = @"This";
+    NSArrayTestModel *modelTwo = [NSArrayTestModel new];
+    modelTwo.firstTestString = @"That";
+
+    NSArray<NSArrayTestModel *> *values = @[modelOne, modelTwo];
+    NSArray<UIColor *> *otherValues = @[[UIColor whiteColor], [UIColor blackColor]];
+    NSArray<NSArrayTestModel *> *result = [values composeWithArray:otherValues usingBlock:^NSArrayTestModel *(NSArrayTestModel *firstItem, UIColor *secondItem) {
+        firstItem.color = secondItem;
+        return firstItem;
+    }];
+    
+    UIColor *firstModelColor = [UIColor whiteColor];
+    UIColor *secondModelColor = [UIColor blackColor];
+    NSArray<UIColor *> *expected = @[firstModelColor, secondModelColor];
+    
+    XCTAssertTrue([expected[0] isEqual:result[0].color]);
+    XCTAssertTrue([expected[1] isEqual:result[1].color]);
 }
 
 @end
