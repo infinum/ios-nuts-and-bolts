@@ -15,13 +15,15 @@ public extension UIColor {
     ///
     /// - Parameter size: Size of image, default size is 1pt
     /// - Returns: Image filled with color on which method is called with the given size
-    func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+    func image(withSize size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         self.setFill()
         UIRectFill(rect)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+       
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        
+        return image ?? UIImage()
     }
 }
