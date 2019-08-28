@@ -38,6 +38,7 @@ private extension CatalogDataSource {
         return [
             RatioTransitionViewController.self,
             RoundCornersViewController.self,
+            ImageFromColorViewController.self
         ]
     }
 
