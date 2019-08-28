@@ -16,10 +16,6 @@ class ImageFromColorViewController: UIViewController {
         super.viewDidLoad()
         _createSampleView()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
 }
 
 private extension ImageFromColorViewController {
