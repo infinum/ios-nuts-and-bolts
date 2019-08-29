@@ -40,6 +40,7 @@ private extension CatalogDataSource {
             RatioTransitionViewController.self,
             RoundCornersViewController.self,
             UIViewModifiersViewController.self,
+            ImageFromColorViewController.self,
             CatalogNavigationController.self
         ]
     }
