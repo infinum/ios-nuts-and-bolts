@@ -37,8 +37,8 @@ private extension CatalogDataSource {
     func _uiItems() -> [Catalogizable.Type] {
         return [
             RatioTransitionViewController.self,
-            RoundCornersViewController.self,
-            ImageFromColorViewController.self
+            ImageFromColorViewController.self,
+            UIViewModifiersViewController.self
         ]
     }
 
