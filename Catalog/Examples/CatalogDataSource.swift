@@ -27,6 +27,7 @@ private extension CatalogDataSource {
             CatalogSectionModel(title: "UI", items: _uiItems()),
             CatalogSectionModel(title: "Rx", items: _rxItems()),
             CatalogSectionModel(title: "Networking", items: _networkingItems()),
+            CatalogSectionModel(title: "Interactive push navigation", items: _networkingItems()),
         ]
     }
 
@@ -38,7 +39,8 @@ private extension CatalogDataSource {
         return [
             RatioTransitionViewController.self,
             RoundCornersViewController.self,
-            UIViewModifiersViewController.self
+            UIViewModifiersViewController.self,
+            CatalogNavigationController.self
         ]
     }
 
