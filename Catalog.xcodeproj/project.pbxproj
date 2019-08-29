@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		0612E33C22D32A540081BCF6 /* UIViewModifiers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0612E33B22D32A540081BCF6 /* UIViewModifiers.storyboard */; };
 		0612E33F22D32A750081BCF6 /* UIViewModifiersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E33E22D32A750081BCF6 /* UIViewModifiersViewController.swift */; };
+		062FF5292317E559004B90F9 /* WithoutBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062FF5282317E559004B90F9 /* WithoutBackViewController.swift */; };
 		064B18FB22DF47AD001D4489 /* UIView+LayerModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B18FA22DF47AD001D4489 /* UIView+LayerModifiers.swift */; };
+		06B602B12317C45A001A295B /* InteractiveNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B602B02317C45A001A295B /* InteractiveNavigationController.swift */; };
+		06B602BD2317C717001A295B /* InteractiveNavigationExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B602B82317C717001A295B /* InteractiveNavigationExample.storyboard */; };
+		06B602C32317C958001A295B /* CatalogNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B602C22317C958001A295B /* CatalogNavigationController.swift */; };
+		06B602C52317CA4C001A295B /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B602C42317CA4C001A295B /* BasicViewController.swift */; };
 		0A0C8CFE22492E2C0071011F /* EncodableParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C8CFD22492E2C0071011F /* EncodableParams.swift */; };
 		0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF502206FED800C1853E /* RatioPresentationController.swift */; };
 		0A0ECF532206FED800C1853E /* RatioPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */; };
@@ -166,7 +171,12 @@
 /* Begin PBXFileReference section */
 		0612E33B22D32A540081BCF6 /* UIViewModifiers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIViewModifiers.storyboard; sourceTree = "<group>"; };
 		0612E33E22D32A750081BCF6 /* UIViewModifiersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewModifiersViewController.swift; sourceTree = "<group>"; };
+		062FF5282317E559004B90F9 /* WithoutBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithoutBackViewController.swift; sourceTree = "<group>"; };
 		064B18FA22DF47AD001D4489 /* UIView+LayerModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayerModifiers.swift"; sourceTree = "<group>"; };
+		06B602B02317C45A001A295B /* InteractiveNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveNavigationController.swift; sourceTree = "<group>"; };
+		06B602B82317C717001A295B /* InteractiveNavigationExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InteractiveNavigationExample.storyboard; sourceTree = "<group>"; };
+		06B602C22317C958001A295B /* CatalogNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogNavigationController.swift; sourceTree = "<group>"; };
+		06B602C42317CA4C001A295B /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		0A0C8CFD22492E2C0071011F /* EncodableParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableParams.swift; sourceTree = "<group>"; };
 		0A0ECF502206FED800C1853E /* RatioPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationController.swift; sourceTree = "<group>"; };
 		0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationManager.swift; sourceTree = "<group>"; };
@@ -379,6 +389,25 @@
 			path = UIViewModifiers;
 			sourceTree = "<group>";
 		};
+		06B602AF2317C42F001A295B /* UINavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				06B602B02317C45A001A295B /* InteractiveNavigationController.swift */,
+			);
+			path = UINavigationController;
+			sourceTree = "<group>";
+		};
+		06B602B72317C6C3001A295B /* Interactive UINavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				06B602B82317C717001A295B /* InteractiveNavigationExample.storyboard */,
+				06B602C22317C958001A295B /* CatalogNavigationController.swift */,
+				06B602C42317CA4C001A295B /* BasicViewController.swift */,
+				062FF5282317E559004B90F9 /* WithoutBackViewController.swift */,
+			);
+			path = "Interactive UINavigationController";
+			sourceTree = "<group>";
+		};
 		0A0ECF4E2206FEB200C1853E /* Transition */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +428,7 @@
 		0A0ECF562207022200C1853E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				06B602B72317C6C3001A295B /* Interactive UINavigationController */,
 				0612E33A22D32A360081BCF6 /* UIView Modifiers */,
 				0A603FD222077C2900F25622 /* Rx Alert Controller */,
 				0A0ECF572207023000C1853E /* Ratio Transition */,
@@ -777,6 +807,7 @@
 		0AD9EAC22204274300FF3F2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				06B602AF2317C42F001A295B /* UINavigationController */,
 				0A0ECF64220773CD00C1853E /* UIAlertController */,
 				0A0ECF61220772A700C1853E /* Progressable */,
 				0A0ECF4E2206FEB200C1853E /* Transition */,
@@ -1367,6 +1398,7 @@
 			files = (
 				0A54436522718AB100F26468 /* RxNetworkingViewController.xib in Resources */,
 				0A54435922718A8F00F26468 /* NetworkingViewController.xib in Resources */,
+				06B602BD2317C717001A295B /* InteractiveNavigationExample.storyboard in Resources */,
 				0AD9EA9E2204218800FF3F2C /* LaunchScreen.storyboard in Resources */,
 				0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */,
 				0612E33C22D32A540081BCF6 /* UIViewModifiers.storyboard in Resources */,
@@ -1493,6 +1525,7 @@
 				0A0F244A2247DCC70005CF41 /* Service+JapxRx.swift in Sources */,
 				0AB524102210AEA000F35F52 /* Parameters+Pagination.swift in Sources */,
 				0AB524052210A11500F35F52 /* CollectionDataSourceDelegate.swift in Sources */,
+				06B602C32317C958001A295B /* CatalogNavigationController.swift in Sources */,
 				4F14006D2289FF9D0005F37A /* NSArray+FunctionalOperators.m in Sources */,
 				0AA45E772218880A009CF93E /* JapxResponse.swift in Sources */,
 				0A54435522718A8F00F26468 /* NetworkingInterfaces.swift in Sources */,
@@ -1529,9 +1562,11 @@
 				0AD9EAC72204274300FF3F2C /* ViewInterface.swift in Sources */,
 				0AB524162210AF3400F35F52 /* JSONAPI.swift in Sources */,
 				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
+				06B602C52317CA4C001A295B /* BasicViewController.swift in Sources */,
 				0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */,
 				0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */,
 				0AA45E7922188833009CF93E /* JapxPagination.swift in Sources */,
+				062FF5292317E559004B90F9 /* WithoutBackViewController.swift in Sources */,
 				0AE0B76E220467F80033A476 /* CatalogItemTableViewCell.swift in Sources */,
 				0A40C5C42212EC29007AFC6C /* URLQueryItemsEncoding.swift in Sources */,
 				0AD9EAC62204274300FF3F2C /* PresenterInterface.swift in Sources */,
@@ -1563,6 +1598,7 @@
 				A8FD60EE2292AE5400FB50CE /* TableViewReloader.m in Sources */,
 				604712832226800700809454 /* UIColor+Hex.swift in Sources */,
 				0A54436922718DF100F26468 /* LoginRouter.swift in Sources */,
+				06B602B12317C45A001A295B /* InteractiveNavigationController.swift in Sources */,
 				0A0ECF602207720100C1853E /* Refreshable.swift in Sources */,
 				0AD9EAC92204274300FF3F2C /* UIStoryboard+Instantiate.swift in Sources */,
 				60471281222679BC00809454 /* UIColor+InitHelper.swift in Sources */,
