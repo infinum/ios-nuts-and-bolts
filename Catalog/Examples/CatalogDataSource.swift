@@ -26,8 +26,7 @@ private extension CatalogDataSource {
         return [
             CatalogSectionModel(title: "UI", items: _uiItems()),
             CatalogSectionModel(title: "Rx", items: _rxItems()),
-            CatalogSectionModel(title: "Networking", items: _networkingItems()),
-            CatalogSectionModel(title: "Interactive push navigation", items: _networkingItems()),
+            CatalogSectionModel(title: "Networking", items: _networkingItems())
         ]
     }
 

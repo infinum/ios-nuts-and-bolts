@@ -25,15 +25,15 @@ class BasicViewController: UIViewController {
 
     // MARK: - Actions -
 
-    @IBAction func navigateNextActionHandler() {
-        _navigate(to: .basic)
+    @IBAction private func navigateNextActionHandler() {
+        navigate(to: .basic)
     }
 
-    @IBAction func navigateNextWithoutBackButtonActionHandler() {
-        _navigate(to: .withoutBackButton)
+    @IBAction private func navigateNextWithoutBackButtonActionHandler() {
+        navigate(to: .withoutBackButton)
     }
 
-    @IBAction func closeActionHandler() {
+    @IBAction private func closeActionHandler() {
         dismiss(animated: true, completion: nil)
     }
 }
@@ -46,7 +46,7 @@ private extension BasicViewController {
         case basic, withoutBackButton
     }
 
-    func _navigate(to option: NavigationOption) {
+    func navigate(to option: NavigationOption) {
         let interactiveStoryboard = UIStoryboard(name: "InteractiveNavigationExample", bundle: nil)
         let nextViewController: UIViewController
         switch option {
