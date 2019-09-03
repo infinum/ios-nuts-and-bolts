@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum PresentationStyle {
+    case push
+    case present
+}
+
 protocol Catalogizable {
     
     /// Catalog item title - shown in catalog table view
@@ -14,5 +19,14 @@ protocol Catalogizable {
     
     /// Example view controller to display - it will be pushed
     static var viewController: UIViewController { get }
-    
+
+    /// Presentation style
+    static var presentationStyle: PresentationStyle { get }
+}
+
+extension Catalogizable {
+
+    static var presentationStyle: PresentationStyle {
+        return .push
+    }
 }

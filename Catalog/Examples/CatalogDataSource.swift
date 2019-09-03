@@ -26,7 +26,7 @@ private extension CatalogDataSource {
         return [
             CatalogSectionModel(title: "UI", items: _uiItems()),
             CatalogSectionModel(title: "Rx", items: _rxItems()),
-            CatalogSectionModel(title: "Networking", items: _networkingItems()),
+            CatalogSectionModel(title: "Networking", items: _networkingItems())
         ]
     }
 
@@ -37,8 +37,10 @@ private extension CatalogDataSource {
     func _uiItems() -> [Catalogizable.Type] {
         return [
             RatioTransitionViewController.self,
+            RoundCornersViewController.self,
+            UIViewModifiersViewController.self,
             ImageFromColorViewController.self,
-            UIViewModifiersViewController.self
+            CatalogNavigationController.self
         ]
     }
 

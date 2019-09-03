@@ -32,7 +32,12 @@ extension CatalogWireframe: CatalogWireframeInterface {
     func show(_ model: Catalogizable.Type) {
         let viewController = model.viewController
         viewController.title = model.title
-        navigationController?.pushViewController(viewController, animated: true)
+        switch model.presentationStyle {
+        case .present:
+            navigationController?.present(viewController, animated: true, completion: nil)
+        case .push:
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
-    
 }
+
