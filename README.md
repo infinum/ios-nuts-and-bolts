@@ -6,6 +6,100 @@
 
 Collection of commonly shared and reused code throughout the team.
 
+Minimum iOS deployment target: iOS 10
+
+## Features 
+
+<details>
+<summary><big><b>Networking</b></big></summary>
+<hr />
+Used for easier implementation of networking features.
+
+* **Router** - Base API routing containing shared logic for all routers.
+* **Encoding** - Request params with associated encoding.
+* **Adapters** - Adapters used for both basic and token authentication.
+* **Service** - Base protocol for API networking communication.
+* **Rx** - Reactive implementation of networking communication.
+* **JSONAPI** - Used for handling JSONAPI networking.
+* **Headers** - commonly used request headers
+<br/><br/>
+</details>
+
+<details>
+<summary><big><b>RxCocoa</b></big></summary>
+<hr />
+Extensions useful when dealing with all things Cocoa, in a reactive way.
+<br/><br/>
+</details>
+
+<details>
+<summary><big><b>RxSwift</b></big></summary>
+<hr />
+Extensions for Observables and Singles which will make your reactive life a little easier.
+<br/><br/>
+</details>
+
+<details>
+<summary><big><b>Foundation</b></big></summary>
+<hr />
+Wide range of useful extensions and computed properties covering many commonly used Foundation features: *Arrays*, *Strings*, *Bools*, *Date*, *Optional* etc.
+<br/><br/>
+</details>
+
+<details>
+<summary><big><b>UI</b></big></summary>
+<hr />
+Plenty of extensions of most used UI elements, along with reactive extensions to common UI types such as *UIView*, *UIColor* etc.
+<br/><br/>
+</details>
+
+<details>
+<summary><big><b>Viper interfaces</b></big></summary>
+<hr />
+Interfaces used for building your application using the VIPER architecture pattern. Its usage is explained in more detail in our [Xcode templates github page](https://github.com/infinum/iOS-VIPER-Xcode-Templates).
+<br/><br/>
+</details>
+
+## Framework manager
+
+[Cocoapods](https://cocoapods.org) - a Ruby-built dependency manager for Swift and Objective-C Cocoa projects. It has over 65 thousand libraries and is used in over 3 million apps
+
+
+<details>
+<summary><big><b>Third party integrations</b></big></summary>
+<hr />
+
+### UI
+
+* **[MBProgressHud](https://cocoapods.org/pods/MBProgressHUD)** - an iOS drop-in class that displays a translucent HUD with an indicator and/or labels while work is being done in a background thread. The HUD is meant as a replacement for the undocumented, private UIKit UIProgressHUD with some additional features.
+
+### Networking
+
+* **[Alamofire](https://cocoapods.org/pods/Alamofire)** - an HTTP networking library written in Swift.
+* **[CodableAlamofire](https://cocoapods.org/pods/CodableAlamofire)** - an extension for Alamofire that converts JSON data into Decodable object.
+* **[Japx/RxCodableAlamofire]()** - Lightweight JSON:API parser that flattens complex JSON:API structure and turns it into simple JSON and vice versa. 
+* **[Loggie]()** - in-app network logging library.
+
+### Reactive
+
+* **[RxSwift](https://cocoapods.org/pods/RxSwift)** -  is a generic abstraction of computation expressed through Observable interface.
+* **[RxCocoa](https://cocoapods.org/pods/RxCocoa)** - provides the fundamentals of Observables and provides extensions to the Cocoa and Cocoa Touch frameworks to take advantage of RxSwift.
+
+### Localization
+
+* **[SwiftI18n](https://cocoapods.org/pods/SwiftI18n)** - used for easier localization.
+
+### Testing
+
+* **[RxBlocking](https://cocoapods.org/pods/RxBlocking)** - is set of blocking operators for easy unit testing.
+* **[RxTest](https://cocoapods.org/pods/RxTest)** - a test framework published at RxSwift repository.
+* **[Nimble](https://cocoapods.org/pods/Nimble)** - used to express the expected outcomes of Swift or Objective-C expressions.
+* **[Quick](https://cocoapods.org/pods/Quick)** - behavior-driven development framework for Swift and Objective-C.
+* **[RxNimble](https://cocoapods.org/pods/RxNimble)** - Nimble extensions that make unit testing with RxSwift easier.
+<br/><br/>
+</details>
+
+
 ## Usage
 
 You can find all the features inside the `Sources` folder. Each feature has its sample inside the catalog list or tests written for it, where you can find more info on feature usage.
@@ -14,7 +108,7 @@ To explore features feel free to open the `Catalog.xcworkspace` and run Catalog 
 
 ## Contributing
 
-Before adding a new feature, please ensure that:
+Before adding a new feature, please ensure that you:
 
 * Have checked there is no same component already in the catalog. If a similar component already exists, try to upgrade it if needed.
 * Have created a sufficient example or wrote tests for it. If the component is for something in UIKit, the example is better, while tests are preferred for Foundation features. Please, take a look at one of the currently available features to grasp the idea.
@@ -22,7 +116,7 @@ Before adding a new feature, please ensure that:
 * All public methods and properties have documentation - comments have to be meaningful and concise.
 * Use `public` modifier for all method and properties that could be changed from a user of your feature, and `private` for internal properties. Another reason why `public` is mandatory when using framework based development, only public properties and methods will be visible to the user.
 * Remove any reference to the project that piece of code was created in - mostly the project name from header comment in the file.
-* Reduce the dependencies to the minimum.
+* Reduce the dependencies to a minimum.
 
 ## Adding a new feature
 
@@ -30,7 +124,7 @@ If you are reading this, you probably have a feature PR in mind.
 
 All features should go inside the `Sources` folder, inside an appropriate category (create a new one, if missing). Take a look at already created features to get a feeling on how to sort the things out.
 
-However, before creating a PR with a new chunk of code - create an example app or write tests describing how to use your feature.
+However, before creating a PR with a new chunk of code - create an example or write tests describing how to use your feature.
 
 For UI components we suggest creating an example view controller, while for some Foundation related feature we recommend creating tests - since they will cover how to use the feature and what to expect from it.
 
