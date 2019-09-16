@@ -35,7 +35,6 @@ Extensions useful when dealing with all things Cocoa, in a reactive way.
 <hr />
 
 Extensions for *Observables* and *Singles* which will make your reactive life a little easier.
-
 <br/><br/>
 </details>
 
@@ -44,7 +43,6 @@ Extensions for *Observables* and *Singles* which will make your reactive life a 
 <hr />
 
 Wide range of useful extensions and computed properties covering many commonly used Foundation features: *Arrays, Strings, Bools, Date, Optional* etc.
-
 <br/><br/>
 </details>
 
@@ -53,7 +51,6 @@ Wide range of useful extensions and computed properties covering many commonly u
 <hr />
 
 Plenty of extensions of most used UI elements, along with reactive extensions to common UI types such as *UIView*, *UIColor* etc.
-
 <br/><br/>
 </details>
 
@@ -62,7 +59,6 @@ Plenty of extensions of most used UI elements, along with reactive extensions to
 <hr />
 
 Interfaces used for building your application using the VIPER architecture pattern. Its usage is explained in more detail in our [Xcode templates github page](https://github.com/infinum/iOS-VIPER-Xcode-Templates).
-
 <br/><br/>
 </details>
 
