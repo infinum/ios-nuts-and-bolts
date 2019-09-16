@@ -13,6 +13,7 @@
 - (NSArray *)map:(id (^)(id))mapValue
 {
     if (!mapValue) { return self; }
+    
     NSMutableArray *result = [NSMutableArray new];
     [self enumerateObjectsUsingBlock:^(id item, NSUInteger index, BOOL *stop) {
         id mappedItem = mapValue(item);
@@ -20,12 +21,14 @@
             [result addObject:mappedItem];
         }
     }];
+    
     return [NSArray arrayWithArray:result];
 }
 
 - (NSArray *)flatMap:(id (^)(id))flatMapValue
 {
     if (!flatMapValue) { return self; }
+    
     NSMutableArray *result = [NSMutableArray new];
     [self enumerateObjectsUsingBlock:^(id item, NSUInteger index, BOOL *stop) {
         id flattenedItem = flatMapValue(item);
@@ -36,6 +39,7 @@
             [result addObject:flattenedItem];
         }
     }];
+    
     return [NSArray arrayWithArray:result];
 }
 
@@ -50,22 +54,26 @@
 - (NSArray *)filter:(BOOL (^)(id))includeValue
 {
     if (!includeValue) { return self; }
+    
     NSMutableArray *result = [NSMutableArray new];
     [self enumerateObjectsUsingBlock:^(id item, NSUInteger index, BOOL *stop) {
         if (includeValue(item)) {
             [result addObject:item];
         }
     }];
+    
     return [NSArray arrayWithArray:result];
 }
 
 - (id)reduce:(id)initial next:(id (^)(id accumulator, id value))nextValue
 {
     if (!nextValue) { return initial; }
+    
     __block id result = initial;
     [self enumerateObjectsUsingBlock:^(id item, NSUInteger index, BOOL *stop) {
         result = nextValue(result, item);
     }];
+    
     return result;
 }
 

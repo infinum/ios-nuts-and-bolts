@@ -28,6 +28,7 @@ public struct BasicAuthAdapter: RequestAdapter {
         guard let data = "\(_username):\(_password)".data(using: .utf8) else {
             return urlRequest
         }
+        
         var urlRequest = urlRequest
         let credential = data.base64EncodedString(options: [])
         urlRequest.setValue("Basic \(credential)", forHTTPHeaderField: Headers.Key.authorization)

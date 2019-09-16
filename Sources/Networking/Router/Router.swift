@@ -72,7 +72,7 @@ open class Router: Routable {
 
 }
 
-/// Insert your base URL here
+/// Convenience initializers which can be used if you have a base URL.
 public extension Router {
 //    convenience init(
 //        path: String,

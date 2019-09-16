@@ -14,6 +14,7 @@
 - (NSSet *)map:(id (^)(id))mapValue
 {
     if (!mapValue) { return self; }
+    
     NSMutableSet *result = [[NSMutableSet alloc] init];
     [self enumerateObjectsUsingBlock:^(id _Nonnull item, BOOL *stop) {
         id mappedItem = mapValue(item);
@@ -21,12 +22,14 @@
             [result addObject:mappedItem];
         }
     }];
+    
     return [NSSet setWithSet:result];
 }
 
 - (NSSet *)flatMap:(id (^)(id))flatMapValue
 {
     if (!flatMapValue) { return self; }
+    
     NSMutableSet *result = [NSMutableSet new];
     [self enumerateObjectsUsingBlock:^(id item, BOOL *stop) {
         id flattenedItem = flatMapValue(item);
@@ -40,12 +43,14 @@
             [result addObject:flattenedItem];
         }
     }];
+    
     return [NSSet setWithSet:result];
 }
 
 - (void)forEach:(void (^)(id))forEachValue
 {
     if (!forEachValue) { return; }
+    
     [self enumerateObjectsUsingBlock:^(id _Nonnull item, BOOL *stop) {
         forEachValue(item);
     }];
@@ -54,22 +59,26 @@
 - (NSSet *)filter:(BOOL (^)(id))includeValue
 {
     if (!includeValue) { return self; }
+    
     NSMutableSet *result = [[NSMutableSet alloc] init];
     [self enumerateObjectsUsingBlock:^(id _Nonnull item, BOOL *stop) {
         if (includeValue(item)) {
             [result addObject:item];
         }
     }];
+    
     return [NSSet setWithSet:result];
 }
 
 - (id)reduce:(id)initial next:(id (^)(id accumulator, id value))nextValue
 {
     if (!nextValue) { return initial; }
+    
     __block id result = initial;
     [self enumerateObjectsUsingBlock:^(id item, BOOL *stop) {
         result = nextValue(result, item);
     }];
+    
     return result;
 }
 

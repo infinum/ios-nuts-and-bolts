@@ -14,6 +14,7 @@
 - (NSMutableSet *)map:(id (^)(id))mapValue
 {
     if (!mapValue) { return [self copy]; }
+    
     NSMutableSet *result = [[NSMutableSet alloc] init];
     [self enumerateObjectsUsingBlock:^(id _Nonnull item, BOOL *stop) {
         id mappedItem = mapValue(item);
@@ -21,12 +22,14 @@
             [result addObject:mappedItem];
         }
     }];
+    
     return result;
 }
 
 - (NSMutableSet *)flatMap:(id (^)(id))flatMapValue
 {
     if (!flatMapValue) { return [self copy]; }
+    
     NSMutableSet *result = [NSMutableSet new];
     [self enumerateObjectsUsingBlock:^(id item, BOOL *stop) {
         id flattenedItem = flatMapValue(item);
@@ -40,18 +43,21 @@
             [result addObject:flattenedItem];
         }
     }];
+    
     return result;
 }
 
 - (NSSet *)filter:(BOOL (^)(id))includeValue
 {
     if (!includeValue) { return [self copy]; }
+    
     NSMutableSet *result = [[NSMutableSet alloc] init];
     [self enumerateObjectsUsingBlock:^(id _Nonnull item, BOOL *stop) {
         if (includeValue(item)) {
             [result addObject:item];
         }
     }];
+    
     return result;
 }
 
