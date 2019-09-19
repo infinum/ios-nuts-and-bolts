@@ -64,7 +64,7 @@ Interfaces used for building your application using the VIPER architecture patte
 
 ## Framework manager
 
-[CocoaPods](https://cocoapods.org) - a Ruby-built dependency manager for Swift and Objective-C Cocoa projects. It has over 65 thousand libraries and is used in over 3 million apps
+[CocoaPods](https://cocoapods.org) - a Ruby-built dependency manager for Swift and Objective-C Cocoa projects. It has over 65 thousand libraries and is used in over 3 million apps.
 
 
 <details>
