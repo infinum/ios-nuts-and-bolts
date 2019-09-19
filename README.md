@@ -18,7 +18,7 @@ Used for easier implementation of networking features.
 * **Adapters** - Adapters used for both basic and token authentication.
 * **Service** - Base protocol for API networking communication.
 * **Rx** - Reactive implementation of networking communication.
-* **JSONAPI** - Used for handling JSONAPI networking.
+* **JSONAPI** - Used for handling JSON:API networking.
 * **Headers** - commonly used request headers
 <br/><br/>
 </details>
@@ -58,13 +58,13 @@ Plenty of extensions of most used UI elements, along with reactive extensions to
 <summary><big><b>Viper interfaces</b></big></summary>
 <hr />
 
-Interfaces used for building your application using the VIPER architecture pattern. Its usage is explained in more detail in our [Xcode templates github page](https://github.com/infinum/iOS-VIPER-Xcode-Templates).
+Interfaces used for building your application using the VIPER architecture pattern. Its usage is explained in more detail in our [Xcode templates GitHub page](https://github.com/infinum/iOS-VIPER-Xcode-Templates).
 <br/><br/>
 </details>
 
 ## Framework manager
 
-[Cocoapods](https://cocoapods.org) - a Ruby-built dependency manager for Swift and Objective-C Cocoa projects. It has over 65 thousand libraries and is used in over 3 million apps
+[CocoaPods](https://cocoapods.org) - a Ruby-built dependency manager for Swift and Objective-C Cocoa projects. It has over 65 thousand libraries and is used in over 3 million apps
 
 
 <details>
@@ -73,7 +73,7 @@ Interfaces used for building your application using the VIPER architecture patte
 
 ### UI
 
-* **[MBProgressHud](https://cocoapods.org/pods/MBProgressHUD)** - an iOS drop-in class that displays a translucent HUD with an indicator and/or labels while work is being done in a background thread. The HUD is meant as a replacement for the undocumented, private UIKit UIProgressHUD with some additional features.
+* **[MBProgressHUD](https://cocoapods.org/pods/MBProgressHUD)** - an iOS drop-in class that displays a translucent HUD with an indicator and/or labels while work is being done in a background thread. The HUD is meant as a replacement for the undocumented, private UIKit UIProgressHUD with some additional features.
 
 ### Networking
 
