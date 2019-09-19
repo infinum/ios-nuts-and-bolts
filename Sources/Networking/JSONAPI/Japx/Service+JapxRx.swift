@@ -49,6 +49,7 @@ public extension Reactive where Base: APIServiceable {
                 let processResult = { (result: Result<T>) in
                     single(result.mapToRxSingleEvent())
                 }
+                
                 let request = base?
                     .requestJSONAPI(
                         T.self,
@@ -59,6 +60,7 @@ public extension Reactive where Base: APIServiceable {
                         sessionManager: sessionManager,
                         completion: processResult
                     )
+                
                 return Disposables.create { request?.cancel() }
         }
     }

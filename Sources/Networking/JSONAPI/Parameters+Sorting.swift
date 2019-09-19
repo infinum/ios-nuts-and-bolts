@@ -20,6 +20,7 @@ public extension JSONAPI {
         /// - Returns: Parameters containing sort info.
         public static func adapt(parameters: Parameters, properties: [String]) -> Parameters {
             guard !properties.isEmpty else { return parameters }
+            
             var parameters = parameters
 
             let propertiesString = properties.joined(separator: ",")

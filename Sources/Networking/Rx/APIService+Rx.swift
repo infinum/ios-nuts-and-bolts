@@ -23,6 +23,7 @@ public extension Reactive where Base: APIServiceable {
                 let processResult = { (result: Result<T>) in
                     single(result.mapToRxSingleEvent())
                 }
+                
                 let request = base?
                     .request(
                         T.self,
@@ -32,6 +33,7 @@ public extension Reactive where Base: APIServiceable {
                         sessionManager: sessionManager,
                         completion: processResult
                     )
+                
                 return Disposables.create { request?.cancel() }
         }
     }
@@ -45,12 +47,14 @@ public extension Reactive where Base: APIServiceable {
                 let processResult = { (result: Result<Void>) in
                     completable(result.mapToRxCompletableEvent())
                 }
+                
                 let request = base?
                     .requestCompletion(
                         router: router,
                         sessionManager: sessionManager,
                         completion: processResult
                     )
+                
                 return Disposables.create { request?.cancel() }
         }
     }

@@ -15,6 +15,7 @@ public extension String {
     /// - Returns: Substring from `self`'s start up to the `to` index.
     func substring(to: Int) -> String? {
         guard 0..<count ~= to else { return nil }
+        
         let index = self.index(startIndex, offsetBy: to)
         return String(self[..<index])
     }
@@ -25,6 +26,7 @@ public extension String {
     /// - Returns: Substring from `self` starting from the `from` index.
     func substring(from: Int) -> String? {
         guard 0..<count ~= from else { return nil }
+        
         let index = self.index(startIndex, offsetBy: from)
         return String(self[index...])
     }
