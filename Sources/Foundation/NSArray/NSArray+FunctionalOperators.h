@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  Returns an array composed with another array using the given block.
  Returns an empty array if block is not provided.
  */
-- (NSArray *)composeWithArray:(NSArray *)array usingBlock:(id _Nullable (^)(T firstItem, id secondItem))block;
+- (NSArray *)composeWithArray:(NSArray *)array usingBlock:(id _Nonnull (^)(T firstItem, id secondItem))block;
 
 @end
 

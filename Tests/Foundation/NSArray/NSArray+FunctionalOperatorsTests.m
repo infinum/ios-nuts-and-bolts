@@ -101,4 +101,42 @@
     XCTAssertTrue([expected[1] isEqual:result[1].color]);
 }
 
+- (void)testArrayComposeOperatorWithSmallerArray
+{
+    NSArrayTestModel *modelOne = [NSArrayTestModel new];
+    modelOne.firstTestString = @"This";
+    NSArrayTestModel *modelTwo = [NSArrayTestModel new];
+    modelTwo.firstTestString = @"That";
+    
+    NSArray<NSArrayTestModel *> *values = @[modelOne, modelTwo];
+    NSArray<UIColor *> *otherValues = @[[UIColor whiteColor]];
+    NSArray<NSArrayTestModel *> *result = [values composeWithArray:otherValues usingBlock:^NSArrayTestModel *(NSArrayTestModel *firstItem, UIColor *secondItem) {
+        firstItem.color = secondItem;
+        return firstItem;
+    }];
+    
+    UIColor *firstModelColor = [UIColor whiteColor];
+    NSArray<UIColor *> *expected = @[firstModelColor];
+    
+    XCTAssertTrue([expected[0] isEqual:result[0].color]);
+    XCTAssertTrue([result count] == 1);
+}
+
+- (void)testArrayComposeOperatorWithEmptyArray
+{
+    NSArrayTestModel *modelOne = [NSArrayTestModel new];
+    modelOne.firstTestString = @"This";
+    NSArrayTestModel *modelTwo = [NSArrayTestModel new];
+    modelTwo.firstTestString = @"That";
+    
+    NSArray<NSArrayTestModel *> *values = @[modelOne, modelTwo];
+    NSArray<UIColor *> *otherValues = @[];
+    NSArray<NSArrayTestModel *> *result = [values composeWithArray:otherValues usingBlock:^NSArrayTestModel *(NSArrayTestModel *firstItem, UIColor *secondItem) {
+        firstItem.color = secondItem;
+        return firstItem;
+    }];
+    
+    XCTAssertTrue([result count] == 0);
+}
+
 @end
