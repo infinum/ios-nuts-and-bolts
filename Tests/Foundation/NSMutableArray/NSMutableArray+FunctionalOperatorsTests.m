@@ -99,4 +99,42 @@
     XCTAssertTrue([expected[0] isEqual:result[0].color]);
 }
 
+- (void)testMutableArrayComposeOperatorWithSmallerArray
+{
+    NSArrayTestModel *modelOne = [NSArrayTestModel new];
+    modelOne.firstTestString = @"This";
+    NSArrayTestModel *modelTwo = [NSArrayTestModel new];
+    modelTwo.firstTestString = @"That";
+    
+    NSMutableArray<NSArrayTestModel *> *values = [[NSMutableArray alloc] initWithArray:@[modelOne, modelTwo]];
+    NSMutableArray<UIColor *> *otherValues = [[NSMutableArray alloc] initWithArray:@[[UIColor whiteColor]]];
+    NSMutableArray<NSArrayTestModel *> *result = [values composeWithArray:otherValues usingBlock:^NSArrayTestModel *(NSArrayTestModel *firstItem, UIColor *secondItem) {
+        firstItem.color = secondItem;
+        return firstItem;
+    }];
+    
+    UIColor *firstModelColor = [UIColor whiteColor];
+    NSMutableArray<UIColor *> *expected = [[NSMutableArray alloc] initWithArray:@[firstModelColor]];
+
+    XCTAssertTrue([expected[0] isEqual:result[0].color]);
+    XCTAssertTrue([result count] == 1);
+}
+
+- (void)testMutableArrayComposeOperatorWithEmptyArray
+{
+    NSArrayTestModel *modelOne = [NSArrayTestModel new];
+    modelOne.firstTestString = @"This";
+    NSArrayTestModel *modelTwo = [NSArrayTestModel new];
+    modelTwo.firstTestString = @"That";
+    
+    NSMutableArray<NSArrayTestModel *> *values = [[NSMutableArray alloc] initWithArray:@[modelOne, modelTwo]];
+    NSMutableArray<UIColor *> *otherValues = [NSMutableArray new];
+    NSMutableArray<NSArrayTestModel *> *result = [values composeWithArray:otherValues usingBlock:^NSArrayTestModel *(NSArrayTestModel *firstItem, UIColor *secondItem) {
+        firstItem.color = secondItem;
+        return firstItem;
+    }];
+    
+    XCTAssertTrue([result count] == 0);
+}
+
 @end
