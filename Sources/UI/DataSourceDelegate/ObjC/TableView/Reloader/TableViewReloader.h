@@ -8,6 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "TableSectionItem.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// Used in conjuction with TableDataSourceDelegate to provide a way
 /// to control table view reloading behavior
 @protocol TableViewReloader <NSObject>
@@ -28,3 +30,5 @@
 @interface DefaultTableViewReloader : NSObject <TableViewReloader>
 
 @end
+
+NS_ASSUME_NONNULL_END

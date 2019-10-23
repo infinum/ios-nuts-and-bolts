@@ -10,6 +10,8 @@
 #import "CollectionCellItem.h"
 #import "CollectionViewReloader.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// Object serving as a data source and delegate for a collection view.
 /// Main purpose is to reduce a boilerplate when dealing with simple
 /// collection view data displaying.
@@ -57,3 +59,4 @@
 
 @end
 
+NS_ASSUME_NONNULL_END

@@ -9,6 +9,8 @@
 #import "TableCellItem.h"
 #import "TableSectionItem.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// Represents blank section - without header or footer
 /// Used in conjuction with table view data source delegate
 /// for easy mapping items to single section without footer
@@ -20,3 +22,5 @@
 - (instancetype)initWithItems:(NSArray<id<TableCellItem>> *)items;
 
 @end
+
+NS_ASSUME_NONNULL_END

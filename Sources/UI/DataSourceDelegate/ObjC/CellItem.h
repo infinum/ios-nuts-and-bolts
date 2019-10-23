@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// Base protocol for all possible kinds of cell items like
 /// collection view cell item, table view cell item.
 ///
@@ -14,3 +16,5 @@
 @protocol CellItem <NSObject>
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -8,6 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "CellItem.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// Base interface for all collection view cell items - used in conjuction with
 /// `CollectionDataSourceDelegate`
 @protocol CollectionCellItem <NSObject, CellItem>
@@ -52,3 +54,5 @@
 - (void)didSelectAt:(NSIndexPath *)indexPath;
 
 @end
+
+NS_ASSUME_NONNULL_END

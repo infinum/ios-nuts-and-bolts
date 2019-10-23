@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// Base protocol for all possible kinds of sections
 /// collection view section, table view section...
 ///
@@ -14,3 +16,5 @@
 @protocol SectionItem <NSObject>
 
 @end
+
+NS_ASSUME_NONNULL_END

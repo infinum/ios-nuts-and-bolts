@@ -8,6 +8,10 @@
 #import <Foundation/Foundation.h>
 #import "CollectionCellItem.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface BaseCollectionCellItem : NSObject <CollectionCellItem>
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -9,6 +9,8 @@
 #import "SectionItem.h"
 #import "CollectionCellItem.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol CollectionSectionItem <NSObject, SectionItem>
 
 #pragma mark - Required methods and properties
@@ -17,3 +19,4 @@
 
 @end
 
+NS_ASSUME_NONNULL_END

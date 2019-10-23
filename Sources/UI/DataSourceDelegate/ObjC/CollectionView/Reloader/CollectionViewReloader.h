@@ -8,6 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "CollectionSectionItem.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// Used in conjuction with CollectionDataSourceDelegate to provide a way
 /// to control collection view reloading behavior
 @protocol CollectionViewReloader <NSObject>
@@ -27,3 +29,5 @@
 @interface DefaultCollectionViewReloader : NSObject <CollectionViewReloader>
 
 @end
+
+NS_ASSUME_NONNULL_END

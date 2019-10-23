@@ -10,6 +10,8 @@
 #import "TableCellItem.h"
 #import "TableViewReloader.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// Object serving as a data source and delegate for a table view.
 /// Main purpose is to reduce a boilerplate when dealing with simple
 /// table view data displaying.
@@ -55,3 +57,5 @@
 - (instancetype)initWithTableView:(UITableView *)tableView reloader:(id<TableViewReloader>)reloader;
 
 @end
+
+NS_ASSUME_NONNULL_END

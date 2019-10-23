@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// Base interface for all table view cell items - used in conjuction with
 /// `TableDataSourceDelegate`
 @protocol TableCellItem <NSObject>
@@ -42,3 +44,5 @@
 - (void)didSelectAt:(NSIndexPath *)indexPath;
 
 @end
+
+NS_ASSUME_NONNULL_END

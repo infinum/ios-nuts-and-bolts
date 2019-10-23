@@ -9,6 +9,8 @@
 #import "SectionItem.h"
 #import "TableCellItem.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /// Base interface for all table view section items - used in conjuction with
 /// `TableDataSourceDelegate`
 @protocol TableSectionItem <NSObject, SectionItem>
@@ -31,3 +33,5 @@
 - (NSString *)titleForFooterFrom:(UITableView *)tableView at:(NSInteger)index;
 
 @end
+
+NS_ASSUME_NONNULL_END
