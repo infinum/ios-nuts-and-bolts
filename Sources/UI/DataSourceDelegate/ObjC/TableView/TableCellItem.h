@@ -30,17 +30,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// Dequeued cell should be configured with current item before
 /// returning it.
 ///
-/// - Parameters:
-///   - tableView: parent table view
-///   - indexPath: index path of cell to configure
-/// - Returns: Dequeued, configured and reused cell
+/// @param tableView Parent table view
+/// @param indexPath Index path of cell to configure
 - (__kindof UITableViewCell *)cellFromTableView:(UITableView*)tableView at:(NSIndexPath*)indexPath;
 
 #pragma mark - Optional methods and properties
 
 /// Notifies cell item when user selects table view cell.
 ///
-/// - Parameter indexPath: index path of a selected cell
+/// @param indexPath Index path of a selected cell
 - (void)didSelectAt:(NSIndexPath *)indexPath;
 
 @end

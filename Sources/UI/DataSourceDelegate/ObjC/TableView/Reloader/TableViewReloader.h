@@ -16,10 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Called when new data arrives and reload is necessary
 ///
-/// - Parameters:
-///   - tableView: Current table view
-///   - oldSections: Previous sections/items
-///   - newSections: New sections/items
+/// @param tableView Current table view
+/// @param oldSections Previous sections/items
+/// @param newSections New sections/items
 - (void)reloadTableView:(UITableView *)tableView
             oldSections:(NSArray<id<TableSectionItem>> *)oldSections
             newSections:(NSArray<id<TableSectionItem>> *)newSections;

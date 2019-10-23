@@ -38,8 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///
 /// Object will have DefaultTableViewReloader as reloader.
 ///
-/// - Parameters:
-///   - collectionView: Collection view to control
+/// @param collectionView Collection view to control
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView;
 
 /// Creates a new data source delegate object responsible for handling
@@ -51,9 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// Freely use `delegate` property since internally data source delegate will
 /// use pass through delegate.
 ///
-/// - Parameters:
-///   - collectionView: Collection view to control
-///   - reloader: Data reloader
+/// @param collectionView Collection view to control
+/// @param reloader Data reloader
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView
                               reloader:(id<CollectionViewReloader>)reloader;
 

@@ -16,10 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Called when new data arrives and reload is necessary
 ///
-/// - Parameters:
-///   - collectionView: Current collection view
-///   - oldSections: Previous sections/items
-///   - newSections: New sections/items
+/// @param collectionView Current collection view
+/// @param oldSections Previous sections/items
+/// @param newSections New sections/items
 - (void)reloadCollectionView:(UICollectionView *)collectionView
                  oldSections:(NSArray<id<CollectionSectionItem>> *)oldSections
                  newSections:(NSArray<id<CollectionSectionItem>> *)newSections;

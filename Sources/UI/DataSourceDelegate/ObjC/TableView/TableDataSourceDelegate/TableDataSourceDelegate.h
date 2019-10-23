@@ -38,8 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///
 /// Object will have DefaultTableViewReloader as reloader.
 ///
-/// - Parameters:
-///   - tableView: Table view to control
+/// @param tableView Table view to control
 - (instancetype)initWithTableView:(UITableView *)tableView;
 
 /// Creates a new data source delegate object responsible for handling
@@ -51,9 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// Freely use `delegate` property since internally data source delegate will
 /// use pass through delegate.
 ///
-/// - Parameters:
-///   - tableView: Table view to control
-///   - reloader: Data reloader
+/// @param tableView Table view to control
+/// @param reloader Data reloader
 - (instancetype)initWithTableView:(UITableView *)tableView reloader:(id<TableViewReloader>)reloader;
 
 @end
