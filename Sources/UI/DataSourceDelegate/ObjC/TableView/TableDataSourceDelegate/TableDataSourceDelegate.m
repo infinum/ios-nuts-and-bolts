@@ -11,23 +11,50 @@
 #import "BaseTableSection.h"
 #import "BaseTableCellItem.h"
 
+#pragma mark - Table mode classes
+
+// TableViewModeClassic
 @interface TableDataSourceDelegate ()
 
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) id<TableViewReloader> reloader;
+@property (nonatomic, strong, readonly) UITableView *tableView;
+@property (nonatomic, strong, readonly) id<TableViewReloader> reloader;
 
+@end
+
+// TableViewModeTitledHeaderFooter
+@interface TitledTableDataSourceDelegate : TableDataSourceDelegate
+@end
+
+// TableViewModeCustomHeaderFooter
+@interface CustomHeaderTableDataSourceDelegate : TableDataSourceDelegate
 @end
 
 @implementation TableDataSourceDelegate
 
-#pragma mark - inits
+#pragma mark - Inits
 
-- (instancetype)initWithTableView:(UITableView *)tableView reloader:(id<TableViewReloader>)reloader
+- (instancetype)initWithTableView:(UITableView *)tableView
+                          forMode:(TableViewMode)mode
+                         reloader:(id<TableViewReloader>)reloader
 {
-    self = [super init];
+    switch (mode) {
+        case TableViewModeClassic:
+            self = [super init];
+            break;
+            
+        case TableViewModeTitledHeaderFooter:
+            self = [[TitledTableDataSourceDelegate alloc] init];
+            break;
+            
+        case TableViewModeCustomHeaderFooter:
+            self = [[CustomHeaderTableDataSourceDelegate alloc] init];
+            break;
+    }
+    
     if (self) {
         _tableView = tableView;
         _reloader = reloader;
+        
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }
@@ -35,11 +62,12 @@
 }
 
 - (instancetype)initWithTableView:(UITableView *)tableView
+                          forMode:(TableViewMode)mode
 {
-    return [self initWithTableView:tableView reloader:[DefaultTableViewReloader new]];
+    return [self initWithTableView:tableView forMode:mode reloader:[DefaultTableViewReloader new]];
 }
 
-#pragma mark - setters
+#pragma mark - Setters
 
 - (void)setSections:(NSArray<id<TableSectionItem>> *)sections
 {
@@ -53,7 +81,7 @@
     self.sections = @[[[BaseTableSection alloc] initWithItems:items]];
 }
 
-#pragma mark - getters
+#pragma mark - Getters
 
 - (NSArray<id<TableCellItem>> *)items
 {
@@ -66,7 +94,7 @@
     return items;
 }
 
-#pragma mark - UITableViewDataSource methods -
+#pragma mark - UITableViewDataSource -
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -83,37 +111,7 @@
     return [self.sections[indexPath.section].items[indexPath.row] cellFromTableView:tableView at:indexPath];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return [self.sections[section] titleForHeaderFrom:tableView at:section];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
-{
-    return [self.sections[section] titleForFooterFrom:tableView at:section];
-}
-
-#pragma mark - UITableViewDelegate methods -
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
-{
-    return self.sections[section].estimatedHeaderHeight;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return self.sections[section].headerHeight;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
-{
-    return self.sections[section].estimatedFooterHeight;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return self.sections[section].footerHeight;
-}
+#pragma mark - UITableViewDelegate -
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -125,20 +123,64 @@
     return self.sections[indexPath.section].items[indexPath.row].height;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.sections[indexPath.section].items[indexPath.row] didSelectAt:indexPath];
+}
+
+@end
+
+#pragma mark - TitledHeader-Mode
+
+@implementation TitledTableDataSourceDelegate
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.sections[section] titleForHeaderFrom:tableView at:section];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return [self.sections[section] titleForFooterFrom:tableView at:section];
+}
+
+@end
+
+#pragma mark - CustomHeader-Mode
+
+@implementation CustomHeaderTableDataSourceDelegate
+
+// header
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
+{
+    return self.sections[section].estimatedHeaderHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return self.sections[section].headerHeight;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     return [self.sections[section] headerViewFromTableView:tableView at:section];
 }
 
+// footer
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
+{
+    return self.sections[section].estimatedFooterHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return self.sections[section].footerHeight;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     return [self.sections[section] footerViewFromTableView:tableView at:section];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.sections[indexPath.section].items[indexPath.row] didSelectAt:indexPath];
 }
 
 @end

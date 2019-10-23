@@ -9,7 +9,7 @@
 
 @implementation BaseCollectionSection
 
-- (instancetype)initWithItems:(NSArray<id> *)items
+- (instancetype)initWithItems:(NSArray<id<CollectionCellItem>> *)items
 {
     self = [super init];
     if (self) {
