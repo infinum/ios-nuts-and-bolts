@@ -11,6 +11,8 @@
 #import "BaseTableCellItem.h"
 #import "BaseTableSection.h"
 
+#pragma mark - Cell
+
 @interface TestTableViewCell : UITableViewCell
 
 @end
@@ -18,6 +20,8 @@
 @implementation TestTableViewCell
 
 @end
+
+#pragma mark - Cell Item
 
 @interface TestCellItem: BaseTableCellItem
 
@@ -57,6 +61,8 @@
 }
 
 @end
+
+#pragma mark - Section
 
 @interface TestSection : BaseTableSection
 
@@ -108,6 +114,25 @@
 
 @end
 
+#pragma mark - Tests
+
+/*
+ We're testing TableDataSourceDelegate with 3 classes.
+ 
+ First one is testing a classic tableView (TableViewModeClassic), which is not supposed to have
+ title or customView at header/footer view.
+ 
+ Second is testing a titled tableView (TableViewModeTitledHeaderFooter),
+ which is supposed to have a title in header/footer view, but no customView.
+ This class inherits from the first one, in order to avoid duplicated section creation etc.
+ 
+ Third is testing a tableView with custom view at header/footer view (TableViewModeCustomHeaderFooter),
+ which is supposed to have a custom view in header/footer view, but no (system) title in it.
+ This class also inherits from the first one, in order to avoid duplicated section creation etc.
+ */
+
+#pragma mark - Classic
+
 @interface TableDataSourceDelegateTests : XCTestCase
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -122,7 +147,9 @@
     [super setUp];
     
     self.tableView = [[UITableView alloc] init];
-    self.tableDataSourceDelegate = [[TableDataSourceDelegate alloc] initWithTableView:self.tableView];
+    self.tableDataSourceDelegate = [[TableDataSourceDelegate alloc]
+                                    initWithTableView:self.tableView
+                                    forMode:TableViewModeClassic];
     
     self.tableDataSourceDelegate.sections = self.createSections;
 }
@@ -149,33 +176,6 @@
     XCTAssertEqual(height, 50);
 }
 
-- (void)testSectionHeaderSize
-{
-    CGFloat height = [self.tableDataSourceDelegate tableView:self.tableView heightForHeaderInSection:0];
-    CGFloat estimatedHeighteight = [self.tableDataSourceDelegate tableView:self.tableView estimatedHeightForHeaderInSection:0];
-    
-    XCTAssertEqual(estimatedHeighteight, 3);
-    XCTAssertEqual(height, 1);
-}
-
-- (void)testSectionFooterSize
-{
-    CGFloat height = [self.tableDataSourceDelegate tableView:self.tableView heightForFooterInSection:0];
-    CGFloat estimatedHeighteight = [self.tableDataSourceDelegate tableView:self.tableView estimatedHeightForFooterInSection:0];
-    
-    XCTAssertEqual(estimatedHeighteight, 4);
-    XCTAssertEqual(height, 2);
-}
-
-- (void)testSectionTitles
-{
-    NSString *headerTitle = [self.tableDataSourceDelegate tableView:self.tableView titleForHeaderInSection:1];
-    NSString *footerTitle = [self.tableDataSourceDelegate tableView:self.tableView titleForFooterInSection:1];
-
-    XCTAssertEqual(headerTitle, @"Section2");
-    XCTAssertEqual(footerTitle, @"Section2");
-}
-
 - (void)testDidSelectInvocation
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -185,15 +185,6 @@
     TestCellItem *item = self.tableDataSourceDelegate.items[0];
 
     XCTAssertTrue(item.didSelectCalled);
-}
-
-- (void)testSectionHeaderFooterView
-{
-    UIView *header = [self.tableDataSourceDelegate tableView:self.tableView viewForHeaderInSection:0];
-    UIView *footer = [self.tableDataSourceDelegate tableView:self.tableView viewForFooterInSection:0];
-
-    XCTAssertNotNil(header);
-    XCTAssertNotNil(footer);
 }
 
 - (void)testCellType
@@ -233,11 +224,6 @@
     XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView numberOfRowsInSection:0], 0);
     XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView heightForRowAtIndexPath:indexPath], 0);
     XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView estimatedHeightForRowAtIndexPath:indexPath], 0);
-    XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView heightForFooterInSection:0], 0);
-    XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView estimatedHeightForFooterInSection:0], 0);
-
-    XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView heightForHeaderInSection:0], 0);
-    XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView estimatedHeightForHeaderInSection:0], 0);
 }
 
 - (NSArray<TestSection*> *)createSections
@@ -252,6 +238,109 @@
     section2.title = @"Section2";
     
     return [[NSArray alloc] initWithObjects:section1, section2, nil];
+}
+
+@end
+
+#pragma mark - Titled
+
+@interface TitledTableDataSourceDelegateTests : TableDataSourceDelegateTests
+
+@property (nonatomic, strong) TableDataSourceDelegate *titledTableDataSourceDelegate;
+
+@end
+
+@implementation TitledTableDataSourceDelegateTests
+
+- (void)setUp
+{
+    [super setUp];
+
+    self.titledTableDataSourceDelegate = [[TableDataSourceDelegate alloc]
+                                          initWithTableView:self.tableView
+                                          forMode:TableViewModeTitledHeaderFooter];
+
+    self.titledTableDataSourceDelegate.sections = self.createSections;
+}
+
+- (void)tearDown
+{
+    [super tearDown];
+}
+
+- (void)testSectionTitles
+{
+    NSString *headerTitle = [self.titledTableDataSourceDelegate tableView:self.tableView titleForHeaderInSection:1];
+    NSString *footerTitle = [self.titledTableDataSourceDelegate tableView:self.tableView titleForFooterInSection:1];
+
+    XCTAssertEqual(headerTitle, @"Section2");
+    XCTAssertEqual(footerTitle, @"Section2");
+}
+
+@end
+
+#pragma mark - Custom
+
+@interface CustomHeaderTableDataSourceDelegateTests : TableDataSourceDelegateTests
+
+@property (nonatomic, strong) TableDataSourceDelegate *customHeaderTableDataSourceDelegate;
+
+@end
+
+@implementation CustomHeaderTableDataSourceDelegateTests
+
+- (void)setUp
+{
+    [super setUp];
+
+    self.customHeaderTableDataSourceDelegate = [[TableDataSourceDelegate alloc]
+                                          initWithTableView:self.tableView
+                                          forMode:TableViewModeCustomHeaderFooter];
+
+    self.customHeaderTableDataSourceDelegate.sections = self.createSections;
+}
+
+- (void)tearDown
+{
+    [super tearDown];
+}
+
+- (void)testSectionHeaderSize
+{
+    CGFloat height = [self.customHeaderTableDataSourceDelegate tableView:self.tableView heightForHeaderInSection:0];
+    CGFloat estimatedHeighteight = [self.customHeaderTableDataSourceDelegate tableView:self.tableView estimatedHeightForHeaderInSection:0];
+    
+    XCTAssertEqual(estimatedHeighteight, 3);
+    XCTAssertEqual(height, 1);
+}
+
+- (void)testSectionFooterSize
+{
+    CGFloat height = [self.customHeaderTableDataSourceDelegate tableView:self.tableView heightForFooterInSection:0];
+    CGFloat estimatedHeighteight = [self.customHeaderTableDataSourceDelegate tableView:self.tableView estimatedHeightForFooterInSection:0];
+    
+    XCTAssertEqual(estimatedHeighteight, 4);
+    XCTAssertEqual(height, 2);
+}
+
+- (void)testSectionHeaderFooterView
+{
+    UIView *header = [self.customHeaderTableDataSourceDelegate tableView:self.tableView viewForHeaderInSection:0];
+    UIView *footer = [self.customHeaderTableDataSourceDelegate tableView:self.tableView viewForFooterInSection:0];
+
+    XCTAssertNotNil(header);
+    XCTAssertNotNil(footer);
+}
+
+- (void)testHeightWhenSectionsAreNil
+{
+    self.customHeaderTableDataSourceDelegate.sections = nil;
+
+    XCTAssertEqual([self.customHeaderTableDataSourceDelegate tableView:self.tableView heightForFooterInSection:0], 0);
+    XCTAssertEqual([self.customHeaderTableDataSourceDelegate tableView:self.tableView estimatedHeightForFooterInSection:0], 0);
+
+    XCTAssertEqual([self.customHeaderTableDataSourceDelegate tableView:self.tableView heightForHeaderInSection:0], 0);
+    XCTAssertEqual([self.customHeaderTableDataSourceDelegate tableView:self.tableView estimatedHeightForHeaderInSection:0], 0);
 }
 
 @end

@@ -43,12 +43,12 @@ typedef NS_ENUM(NSUInteger, TableViewMode) {
 @interface TableDataSourceDelegate : NSObject <UITableViewDelegate, UITableViewDataSource>
 
 /// Setting a sections will invoke internal reloader causing table view to refresh.
-@property (nonatomic, strong) NSArray<id<TableSectionItem>> *sections;
+@property (nonatomic, strong, nullable) NSArray<id<TableSectionItem>> *sections;
 
 /// Setting an items will invoke internal reloader causing table view to refresh.
 ///
 /// If there are multiple sections - then data is flattened to single array
-@property (nonatomic, strong) NSArray<id<TableCellItem>> *items;
+@property (nonatomic, strong, nullable) NSArray<id<TableCellItem>> *items;
 
 /// Creates a new data source delegate object responsible for handling
 /// table view data source and delegate logic.
