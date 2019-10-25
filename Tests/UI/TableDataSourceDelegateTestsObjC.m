@@ -214,6 +214,24 @@
     XCTAssertTrue([sections.firstObject isKindOfClass:BaseTableSection.class]);
 }
 
+- (void)testSectionHeaderSize
+{
+    CGFloat height = [self.tableDataSourceDelegate tableView:self.tableView heightForHeaderInSection:0];
+    CGFloat estimatedHeighteight = [self.tableDataSourceDelegate tableView:self.tableView estimatedHeightForHeaderInSection:0];
+    
+    XCTAssertEqual(estimatedHeighteight, 3);
+    XCTAssertEqual(height, 1);
+}
+
+- (void)testSectionFooterSize
+{
+    CGFloat height = [self.tableDataSourceDelegate tableView:self.tableView heightForFooterInSection:0];
+    CGFloat estimatedHeighteight = [self.tableDataSourceDelegate tableView:self.tableView estimatedHeightForFooterInSection:0];
+    
+    XCTAssertEqual(estimatedHeighteight, 4);
+    XCTAssertEqual(height, 2);
+}
+
 - (void)testHeightWhenSectionsAreNil
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -222,8 +240,15 @@
     
     XCTAssertEqual(self.tableDataSourceDelegate.sections.count, 0);
     XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView numberOfRowsInSection:0], 0);
+    
     XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView heightForRowAtIndexPath:indexPath], 0);
     XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView estimatedHeightForRowAtIndexPath:indexPath], 0);
+    
+    XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView heightForHeaderInSection:0], 0);
+    XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView estimatedHeightForHeaderInSection:0], 0);
+    
+    XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView heightForFooterInSection:0], 0);
+    XCTAssertEqual([self.tableDataSourceDelegate tableView:self.tableView estimatedHeightForFooterInSection:0], 0);
 }
 
 - (NSArray<TestSection*> *)createSections
@@ -305,24 +330,6 @@
     [super tearDown];
 }
 
-- (void)testSectionHeaderSize
-{
-    CGFloat height = [self.customHeaderTableDataSourceDelegate tableView:self.tableView heightForHeaderInSection:0];
-    CGFloat estimatedHeighteight = [self.customHeaderTableDataSourceDelegate tableView:self.tableView estimatedHeightForHeaderInSection:0];
-    
-    XCTAssertEqual(estimatedHeighteight, 3);
-    XCTAssertEqual(height, 1);
-}
-
-- (void)testSectionFooterSize
-{
-    CGFloat height = [self.customHeaderTableDataSourceDelegate tableView:self.tableView heightForFooterInSection:0];
-    CGFloat estimatedHeighteight = [self.customHeaderTableDataSourceDelegate tableView:self.tableView estimatedHeightForFooterInSection:0];
-    
-    XCTAssertEqual(estimatedHeighteight, 4);
-    XCTAssertEqual(height, 2);
-}
-
 - (void)testSectionHeaderFooterView
 {
     UIView *header = [self.customHeaderTableDataSourceDelegate tableView:self.tableView viewForHeaderInSection:0];
@@ -330,17 +337,6 @@
 
     XCTAssertNotNil(header);
     XCTAssertNotNil(footer);
-}
-
-- (void)testHeightWhenSectionsAreNil
-{
-    self.customHeaderTableDataSourceDelegate.sections = nil;
-
-    XCTAssertEqual([self.customHeaderTableDataSourceDelegate tableView:self.tableView heightForFooterInSection:0], 0);
-    XCTAssertEqual([self.customHeaderTableDataSourceDelegate tableView:self.tableView estimatedHeightForFooterInSection:0], 0);
-
-    XCTAssertEqual([self.customHeaderTableDataSourceDelegate tableView:self.tableView heightForHeaderInSection:0], 0);
-    XCTAssertEqual([self.customHeaderTableDataSourceDelegate tableView:self.tableView estimatedHeightForHeaderInSection:0], 0);
 }
 
 @end
