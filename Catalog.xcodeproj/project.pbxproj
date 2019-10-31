@@ -155,6 +155,8 @@
 		A8FD61012292BB6D00FB50CE /* CollectionViewReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD61002292BB6D00FB50CE /* CollectionViewReloader.m */; };
 		A8FD61052292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD61042292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m */; };
 		A8FD61092292CC2C00FB50CE /* TableDataSourceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60E72292ADF100FB50CE /* TableDataSourceDelegate.m */; };
+		C2220318236AF76700C11B2E /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = C2220317236AF76700C11B2E /* NSDate+Addition.m */; };
+		C2220327236B1D7900C11B2E /* NSDate+AdditionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2220326236B1D7900C11B2E /* NSDate+AdditionTests.m */; };
 		D70CF64A22D7757E00A267C8 /* NSArrayTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D70CF64922D7757E00A267C8 /* NSArrayTestModel.m */; };
 		D737030D2316A06000D7A986 /* UIColor+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737030C2316A06000D7A986 /* UIColor+UIImage.swift */; };
 		D73703102316A34800D7A986 /* ImageFromColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737030F2316A34800D7A986 /* ImageFromColorViewController.swift */; };
@@ -353,6 +355,9 @@
 		A8FD61022292BB9E00FB50CE /* CollectionSectionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionSectionItem.h; sourceTree = "<group>"; };
 		A8FD61032292BBB400FB50CE /* CollectionCellItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionCellItem.h; sourceTree = "<group>"; };
 		A8FD61042292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableDataSourceDelegateTestsObjC.m; sourceTree = "<group>"; };
+		C2220313236AF72F00C11B2E /* NSDate+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
+		C2220317236AF76700C11B2E /* NSDate+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Addition.m"; sourceTree = "<group>"; };
+		C2220326236B1D7900C11B2E /* NSDate+AdditionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+AdditionTests.m"; sourceTree = "<group>"; };
 		D70CF64822D7757E00A267C8 /* NSArrayTestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSArrayTestModel.h; sourceTree = "<group>"; };
 		D70CF64922D7757E00A267C8 /* NSArrayTestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSArrayTestModel.m; sourceTree = "<group>"; };
 		D737030C2316A06000D7A986 /* UIColor+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+UIImage.swift"; sourceTree = "<group>"; };
@@ -943,6 +948,7 @@
 		0AE0B7722204772B0033A476 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				C2220311236AE7EF00C11B2E /* NSDate */,
 				4F286F982291E60E00935FD3 /* NSSequence */,
 				4F1400692289FF890005F37A /* NSArray */,
 				4F286F792291DC0300935FD3 /* NSMutableArray */,
@@ -981,6 +987,7 @@
 		0AE0B77A220478500033A476 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				C2220323236B1C9200C11B2E /* NSDate */,
 				4F14006E228A00DC0005F37A /* NSArray */,
 				4F286F822291DFEE00935FD3 /* NSMutableArray */,
 				4F286F8B2291E31600935FD3 /* NSSet */,
@@ -1322,6 +1329,23 @@
 			path = Reloader;
 			sourceTree = "<group>";
 		};
+		C2220311236AE7EF00C11B2E /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				C2220313236AF72F00C11B2E /* NSDate+Addition.h */,
+				C2220317236AF76700C11B2E /* NSDate+Addition.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		C2220323236B1C9200C11B2E /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				C2220326236B1D7900C11B2E /* NSDate+AdditionTests.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
 		D70CF64B22D7758500A267C8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1597,6 +1621,7 @@
 				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
 				0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */,
 				0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */,
+				C2220318236AF76700C11B2E /* NSDate+Addition.m in Sources */,
 				0AA45E7922188833009CF93E /* JapxPagination.swift in Sources */,
 				0AE0B76E220467F80033A476 /* CatalogItemTableViewCell.swift in Sources */,
 				063B5AA52317F64D003A7B84 /* CatalogNavigationController.swift in Sources */,
@@ -1659,6 +1684,7 @@
 				536E5AC0225F20A600EF01A6 /* Bool+FunctionTests.swift in Sources */,
 				536E5AB7225F1BB300EF01A6 /* Bool+MappingTests.swift in Sources */,
 				536E5AE5225F397600EF01A6 /* RangeReplaceableCollection+Moving.swift in Sources */,
+				C2220327236B1D7900C11B2E /* NSDate+AdditionTests.m in Sources */,
 				536E5AD2225F2EAC00EF01A6 /* Optional+Function.swift in Sources */,
 				4F140071228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m in Sources */,
 				4F286F852291E01B00935FD3 /* NSMutableArray+FunctionalOperatorsTests.m in Sources */,
