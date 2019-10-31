@@ -20,7 +20,7 @@
  @param days number of days to add or subtract to 'self'.
  @return resulting date by adding or subtracting years, months and days to 'self'.
  */
-- (NSDate *)dateByAddingYears:(NSInteger)years andMonths:(NSInteger)months andDays:(NSInteger)days;
+- (NSDate *)dateByAddingYears:(NSInteger)years months:(NSInteger)months days:(NSInteger)days;
 
 /**
  Creates a new date by adding or subtracting years to 'self'.

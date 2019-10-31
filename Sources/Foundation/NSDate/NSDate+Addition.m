@@ -9,32 +9,32 @@
 
 @implementation NSDate (NSDateAddition)
 
-- (NSDate *)dateByAddingYears:(NSInteger)years andMonths:(NSInteger)months andDays:(NSInteger)days
+- (NSDate *)dateByAddingYears:(NSInteger)years months:(NSInteger)months days:(NSInteger)days
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *currentDateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self];
+    NSDateComponents *currentDateComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:self];
     
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    [dateComponents setYear:[currentDateComponents year] + years];
-    [dateComponents setMonth:[currentDateComponents month] + months];
-    [dateComponents setDay:[currentDateComponents day] + days];
+    NSDateComponents *dateComponents = [NSDateComponents new];
+    dateComponents.year = currentDateComponents.year + years;
+    dateComponents.month = currentDateComponents.month + months;
+    dateComponents.day = currentDateComponents.day + days;
     
     return [calendar dateFromComponents:dateComponents];
 }
 
 - (NSDate *)dateByAddingYears:(NSInteger)years
 {
-    return [self dateByAddingYears:years andMonths:0 andDays:0];
+    return [self dateByAddingYears:years months:0 days:0];
 }
 
 - (NSDate *)dateByAddingMonths:(NSInteger)months
 {
-    return [self dateByAddingYears:0 andMonths:months andDays:0];
+    return [self dateByAddingYears:0 months:months days:0];
 }
 
 - (NSDate *)dateByAddingDays:(NSInteger)days
 {
-    return [self dateByAddingYears:0 andMonths:0 andDays:days];
+    return [self dateByAddingYears:0 months:0 days:days];
 }
 
 @end

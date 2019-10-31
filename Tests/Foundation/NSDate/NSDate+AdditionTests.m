@@ -19,7 +19,7 @@
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
-    NSDateComponents *startingDateComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *startingDateComponents = [NSDateComponents new];
     [startingDateComponents setDay:15];
     [startingDateComponents setMonth:6];
     [startingDateComponents setYear:2015];
@@ -27,7 +27,7 @@
     
     NSDate *testDate = [startingDate dateByAddingDays:10];
     
-    NSDateComponents *expectedDateComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *expectedDateComponents = [NSDateComponents new];
     [expectedDateComponents setDay:25];
     [expectedDateComponents setMonth:6];
     [expectedDateComponents setYear:2015];
@@ -41,7 +41,7 @@
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
 
-    NSDateComponents *startingDateComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *startingDateComponents = [NSDateComponents new];
     [startingDateComponents setDay:15];
     [startingDateComponents setMonth:6];
     [startingDateComponents setYear:2015];
@@ -49,7 +49,7 @@
     
     NSDate *testDate = [startingDate dateByAddingDays:40];
     
-    NSDateComponents *expectedDateComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *expectedDateComponents = [NSDateComponents new];
     [expectedDateComponents setDay:25];
     [expectedDateComponents setMonth:7];
     [expectedDateComponents setYear:2015];
@@ -63,7 +63,7 @@
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
 
-    NSDateComponents *startingDateComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *startingDateComponents = [NSDateComponents new];
     [startingDateComponents setDay:15];
     [startingDateComponents setMonth:6];
     [startingDateComponents setYear:2015];
@@ -71,7 +71,7 @@
     
     NSDate *testDate = [startingDate dateByAddingMonths:-3];
     
-    NSDateComponents *expectedDateComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *expectedDateComponents = [NSDateComponents new];
     [expectedDateComponents setDay:15];
     [expectedDateComponents setMonth:3];
     [expectedDateComponents setYear:2015];
@@ -85,7 +85,7 @@
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
 
-    NSDateComponents *startingDateComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *startingDateComponents = [NSDateComponents new];
     [startingDateComponents setDay:15];
     [startingDateComponents setMonth:6];
     [startingDateComponents setYear:2015];
@@ -93,14 +93,14 @@
     
     NSDate *testDate = [startingDate dateByAddingMonths:-14];
     
-    NSDateComponents *expectedDateComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *expectedDateComponents = [NSDateComponents new];
     [expectedDateComponents setDay:15];
     [expectedDateComponents setMonth:4];
     [expectedDateComponents setYear:2014];
     NSDate *expectedDate = [calendar dateFromComponents:expectedDateComponents];
     
     XCTAssertTrue([testDate isEqualToDate:expectedDate]);
-    XCTAssertTrue([[testDate dateByAddingYears:1 andMonths:2 andDays:0] isEqualToDate:startingDate]);
+    XCTAssertTrue([[testDate dateByAddingYears:1 months:2 days:0] isEqualToDate:startingDate]);
     XCTAssertTrue([[testDate dateByAddingMonths:14] isEqualToDate:startingDate]);
 }
 
@@ -108,7 +108,7 @@
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
 
-    NSDateComponents *startingDateComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *startingDateComponents = [NSDateComponents new];
     [startingDateComponents setDay:15];
     [startingDateComponents setMonth:6];
     [startingDateComponents setYear:2015];
@@ -116,7 +116,7 @@
     
     NSDate *testDate = [startingDate dateByAddingYears:-10];
     
-    NSDateComponents *expectedDateComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *expectedDateComponents = [NSDateComponents new];
     [expectedDateComponents setDay:15];
     [expectedDateComponents setMonth:6];
     [expectedDateComponents setYear:2005];
