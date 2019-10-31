@@ -20,17 +20,17 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
     NSDateComponents *startingDateComponents = [NSDateComponents new];
-    [startingDateComponents setDay:15];
-    [startingDateComponents setMonth:6];
-    [startingDateComponents setYear:2015];
+    startingDateComponents.day = 15;
+    startingDateComponents.month = 6;
+    startingDateComponents.year = 2015;
     NSDate *startingDate = [calendar dateFromComponents:startingDateComponents];
     
     NSDate *testDate = [startingDate dateByAddingDays:10];
     
     NSDateComponents *expectedDateComponents = [NSDateComponents new];
-    [expectedDateComponents setDay:25];
-    [expectedDateComponents setMonth:6];
-    [expectedDateComponents setYear:2015];
+    expectedDateComponents.day = 25;
+    expectedDateComponents.month = 6;
+    expectedDateComponents.year = 2015;
     NSDate *expectedDate = [calendar dateFromComponents:expectedDateComponents];
     
     XCTAssertTrue([testDate isEqualToDate:expectedDate]);
@@ -42,17 +42,17 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
 
     NSDateComponents *startingDateComponents = [NSDateComponents new];
-    [startingDateComponents setDay:15];
-    [startingDateComponents setMonth:6];
-    [startingDateComponents setYear:2015];
+    startingDateComponents.day = 15;
+    startingDateComponents.month = 6;
+    startingDateComponents.year = 2015;
     NSDate *startingDate = [calendar dateFromComponents:startingDateComponents];
     
     NSDate *testDate = [startingDate dateByAddingDays:40];
     
     NSDateComponents *expectedDateComponents = [NSDateComponents new];
-    [expectedDateComponents setDay:25];
-    [expectedDateComponents setMonth:7];
-    [expectedDateComponents setYear:2015];
+    expectedDateComponents.day = 25;
+    expectedDateComponents.month = 7;
+    expectedDateComponents.year = 2015;
     NSDate *expectedDate = [calendar dateFromComponents:expectedDateComponents];
     
     XCTAssertTrue([testDate isEqualToDate:expectedDate]);
@@ -64,17 +64,17 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
 
     NSDateComponents *startingDateComponents = [NSDateComponents new];
-    [startingDateComponents setDay:15];
-    [startingDateComponents setMonth:6];
-    [startingDateComponents setYear:2015];
+    startingDateComponents.day = 15;
+    startingDateComponents.month = 6;
+    startingDateComponents.year = 2015;
     NSDate *startingDate = [calendar dateFromComponents:startingDateComponents];
     
     NSDate *testDate = [startingDate dateByAddingMonths:-3];
     
     NSDateComponents *expectedDateComponents = [NSDateComponents new];
-    [expectedDateComponents setDay:15];
-    [expectedDateComponents setMonth:3];
-    [expectedDateComponents setYear:2015];
+    expectedDateComponents.day = 15;
+    expectedDateComponents.month = 3;
+    expectedDateComponents.year = 2015;
     NSDate *expectedDate = [calendar dateFromComponents:expectedDateComponents];
     
     XCTAssertTrue([testDate isEqualToDate:expectedDate]);
@@ -86,17 +86,17 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
 
     NSDateComponents *startingDateComponents = [NSDateComponents new];
-    [startingDateComponents setDay:15];
-    [startingDateComponents setMonth:6];
-    [startingDateComponents setYear:2015];
+    startingDateComponents.day = 15;
+    startingDateComponents.month = 6;
+    startingDateComponents.year = 2015;
     NSDate *startingDate = [calendar dateFromComponents:startingDateComponents];
     
     NSDate *testDate = [startingDate dateByAddingMonths:-14];
     
     NSDateComponents *expectedDateComponents = [NSDateComponents new];
-    [expectedDateComponents setDay:15];
-    [expectedDateComponents setMonth:4];
-    [expectedDateComponents setYear:2014];
+    expectedDateComponents.day = 15;
+    expectedDateComponents.month = 4;
+    expectedDateComponents.year = 2014;
     NSDate *expectedDate = [calendar dateFromComponents:expectedDateComponents];
     
     XCTAssertTrue([testDate isEqualToDate:expectedDate]);
@@ -109,17 +109,17 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
 
     NSDateComponents *startingDateComponents = [NSDateComponents new];
-    [startingDateComponents setDay:15];
-    [startingDateComponents setMonth:6];
-    [startingDateComponents setYear:2015];
+    startingDateComponents.day = 15;
+    startingDateComponents.month = 6;
+    startingDateComponents.year = 2015;
     NSDate *startingDate = [calendar dateFromComponents:startingDateComponents];
     
     NSDate *testDate = [startingDate dateByAddingYears:-10];
     
     NSDateComponents *expectedDateComponents = [NSDateComponents new];
-    [expectedDateComponents setDay:15];
-    [expectedDateComponents setMonth:6];
-    [expectedDateComponents setYear:2005];
+    expectedDateComponents.day = 15;
+    expectedDateComponents.month = 6;
+    expectedDateComponents.year = 2005;
     NSDate *expectedDate = [calendar dateFromComponents:expectedDateComponents];
     
     XCTAssertTrue([testDate isEqualToDate:expectedDate]);
