@@ -10,7 +10,20 @@ import RxSwift
 import RxRelay
 
 public enum Paging {
-
+    
+    /// Simple pagination implementation in RxSwift. It defines how next page is loaded, how page is
+    /// appended to last page, what is inital state and how events, like reload, next page are processed.
+    ///
+    /// Method defines two generic types: `Page` and `Container` where `Container` represents
+    /// inital state where value from last `Page` is appened through `accumulator`, and `Page`
+    /// represents single page, mostly response from the API. In most cases `Page` and `Container` will be
+    /// of the same type, for examle `[SomeModel]`.
+    /// - Parameter nextPage: Next page creator, here you can return API call observable
+    /// - Parameter containerCreator: Inital state for creator, common case empty array
+    /// - Parameter accumulator: Define how page is appended to current state
+    /// - Parameter hasNext: Decide when to stop querying for next page
+    /// - Parameter event: Possible events: .reload, .nextPage, .update, .updateWithoutNextEvent
+    /// - Parameter scheduler: Used only for tests
     public static func page<Page, Container>(
         make nextPage: @escaping (_ container: Container, _ lastPage: Page?) -> Single<Page>,
         startingWith containerCreator: @autoclosure @escaping () -> Container,
@@ -76,7 +89,9 @@ public enum Paging {
 
         return newState.map { $0.response }
     }
-
+    
+    /// Check `page` method for nore info, but what it does is to load and accumulate all pages until
+    /// `hasNext` returns false.
     public static func allPages<Page, Container>(
         make nextPage: @escaping (_ container: Container, _ lastPage: Page?) -> Single<Page>,
         startingWith containerCreator: @autoclosure @escaping () -> Container,
@@ -111,8 +126,11 @@ public enum Paging {
 public extension Paging {
     
     enum Event<Container> {
+        // Use on initial load or for refresh from start
         case reload
+        // Load next page
         case nextPage
+        // Update current container without invoking API call
         case update((Container) -> (Container))
         // Update current container without sending next
         // event through observable pipe. It is useful when

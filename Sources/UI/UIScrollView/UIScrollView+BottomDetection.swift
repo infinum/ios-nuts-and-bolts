@@ -11,7 +11,12 @@ import RxCocoa
 import RxSwift
 
 public extension UIScrollView {
-
+    
+    /// Checks if the current postion of scroll view is near bottom with given offset.
+    /// It is useful when implementing pagination and want start loading next page
+    /// few points before user even reaches bottom.
+    ///
+    /// - Parameter offset: Offset from bottom to treat as bottom edge. Value is sign agnostic.
     func isNearBottomEdge(offset: CGFloat = 0) -> Bool {
         let visibleHeight = frame.height
             - contentInset.top
@@ -23,13 +28,22 @@ public extension UIScrollView {
 }
 
 public extension Reactive where Base: UIScrollView {
-
+    
+    /// Fires event when user reaches scroll view bottom for given offset. For more info check ` reachedBottomOnce(offset:)` method.
+    /// Since this method uses scan and max, restart is used as a signal to reset internal scan state.
+    /// It is useful in case when you have pull to refresh where you need to reset what vas the latest postion on bottom of scroll view.
+    ///
+    /// - Parameter restart: Signal when to restart internal state of latest content offset position
+    /// - Parameter offset: Offset from bottom to treat as bottom edge. Value is sign agnostic.
     func reachedBottomOnceWith(restart: Driver<Void>, offset: CGFloat = 200.0) -> Driver<Void> {
         return restart
             .startWith(())
             .flatMapLatest { [unowned base] in return base.rx.reachedBottomOnce(offset: offset) }
     }
-
+    
+    /// Fires event when user reaches scroll view bottom for given offset. It uses content offset as measurement method so
+    /// client should take care of case where content size changes.
+    /// - Parameter offset: Offset from bottom to treat as bottom edge. Value is sign agnostic.
     func reachedBottomOnce(offset: CGFloat) -> Driver<Void> {
         return contentOffset
             .asDriver()
