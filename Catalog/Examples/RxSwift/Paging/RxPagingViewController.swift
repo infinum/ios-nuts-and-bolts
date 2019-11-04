@@ -54,7 +54,15 @@ final class RxPagingViewController: UIViewController, Refreshable {
 
 private extension RxPagingViewController {
 
+
     func _setupPagination() {
+        let item = UIBarButtonItem(title: "Sort", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = item
+        
+        let sort = item.rx.tap
+            .asDriver()
+            .scan(false) { (state, _) in !state }
+        
         let pullToRefresh = refreshControl.rx
             .controlEvent(.valueChanged)
             .asDriver()
@@ -65,7 +73,8 @@ private extension RxPagingViewController {
 
         let pokemons = _pokemons(
             loadNextPage: willDisplayLastCell,
-            reload: pullToRefresh.startWith(()) // Start inital load
+            reload: pullToRefresh.startWith(()), // Start initial load
+            sort: sort
         )
 
         pokemons
@@ -84,11 +93,16 @@ private extension RxPagingViewController {
     typealias Page = PokemonsPage
     typealias PagingEvent = Paging.Event<Container>
 
-    func _pokemons(loadNextPage: Driver<Void>, reload: Driver<Void>) -> Observable<[Pokemon]> {
+    func _pokemons(loadNextPage: Driver<Void>, reload: Driver<Void>, sort: Driver<Bool>) -> Observable<[Pokemon]> {
+        let sortItems = sort.map { ascending in
+            return PagingEvent.update { ascending ? $0.sorted() : $0.sorted().reversed() }
+        }
+
         let events = Driver
             .merge(
                 loadNextPage.mapTo(PagingEvent.nextPage),
-                reload.mapTo(PagingEvent.reload)
+                reload.mapTo(PagingEvent.reload),
+                sortItems
             )
 
         func nextPage(container: Container, lastPage: Page?) -> Single<PokemonsPage> {
