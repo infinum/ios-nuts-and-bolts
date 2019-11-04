@@ -73,13 +73,12 @@ private extension RxPagingViewController {
 
         let pokemons = _pokemons(
             loadNextPage: willDisplayLastCell,
-            reload: pullToRefresh.startWith(()), // Start initial load
+            reload: pullToRefresh,
             sort: sort
         )
 
         pokemons
             .map { $0.map(PokemonTableCellItem.init) }
-            .map { $0 as [TableCellItem] }
             .do(onNext: { [unowned self] _ in self.endRefreshing() })
             .bind(to: _dataSourceDelegate.rx.items)
             .disposed(by: _disposeBag)
@@ -101,7 +100,7 @@ private extension RxPagingViewController {
         let events = Driver
             .merge(
                 loadNextPage.mapTo(PagingEvent.nextPage),
-                reload.mapTo(PagingEvent.reload),
+                reload.startWith(()).mapTo(PagingEvent.reload), // Start initial load
                 sortItems
             )
 

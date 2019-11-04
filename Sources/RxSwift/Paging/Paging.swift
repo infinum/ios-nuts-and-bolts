@@ -47,7 +47,7 @@ public enum Paging {
         )
 
         let stateRelay = BehaviorRelay(value: initialState)
-        // Forbbid loading next page while current page is not loaded
+        // Forbid loading next page while current page is not loaded
         let loadingRelay = BehaviorRelay(value: false)
         let filteredEvents = _prepareEvent(event, stateRelay: stateRelay, loadingRelay: loadingRelay)
 
