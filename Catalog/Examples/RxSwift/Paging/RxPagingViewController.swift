@@ -11,17 +11,17 @@ import RxSwift
 import RxCocoa
 import Alamofire
 
-final class RxPagingViewController: UIViewController {
+final class RxPagingViewController: UIViewController, Refreshable {
 
-    // MARK: - Private properties
-
-    private let _disposeBag = DisposeBag()
-
-    private lazy var _refreshControl: UIRefreshControl = {
+    lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         _tableView.refreshControl = refreshControl
         return refreshControl
     }()
+
+    // MARK: - Private properties
+
+    private let _disposeBag = DisposeBag()
 
     private lazy var _dataSourceDelegate: TableDataSourceDelegate = {
         return TableDataSourceDelegate(tableView: _tableView)
@@ -55,7 +55,7 @@ final class RxPagingViewController: UIViewController {
 private extension RxPagingViewController {
 
     func _setupPagination() {
-        let pullToRefresh = _refreshControl.rx
+        let pullToRefresh = refreshControl.rx
             .controlEvent(.valueChanged)
             .asDriver()
             .mapToVoid()
@@ -71,11 +71,7 @@ private extension RxPagingViewController {
         pokemons
             .map { $0.map(PokemonTableCellItem.init) }
             .map { $0 as [TableCellItem] }
-            .do(onNext: { [unowned self] _ in
-                if self._refreshControl.isRefreshing {
-                    self._refreshControl.endRefreshing()
-                }
-            })
+            .do(onNext: { [unowned self] _ in self.endRefreshing() })
             .bind(to: _dataSourceDelegate.rx.items)
             .disposed(by: _disposeBag)
     }
@@ -94,12 +90,9 @@ private extension RxPagingViewController {
                 loadNextPage.mapTo(PagingEvent.nextPage),
                 reload.mapTo(PagingEvent.reload)
             )
-        func accumulator(_ container: Container, _ page: Page) -> Container {
-            return container + page.results
-        }
 
         func nextPage(container: Container, lastPage: Page?) -> Single<PokemonsPage> {
-            // Fetch pokemons in batch of 60
+            // Fetch pokemons in batch of 60, no last page represents inital load
             let url = lastPage?.next?.absoluteString ?? "https://pokeapi.co/api/v2/pokemon?limit=60"
             let router = Router(baseUrl: url, path: "")
 
@@ -112,6 +105,10 @@ private extension RxPagingViewController {
                 )
         }
 
+        func accumulator(_ container: Container, _ page: Page) -> Container {
+            return container + page.results
+        }
+        
         func hasNext(container: Container, lastPage: Page) -> Bool {
             return lastPage.next != nil
         }
