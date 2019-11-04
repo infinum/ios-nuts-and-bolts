@@ -31,7 +31,7 @@ public extension Reactive where Base: UIScrollView {
     
     /// Fires event when user reaches scroll view bottom for given offset. For more info check ` reachedBottomOnce(offset:)` method.
     /// Since this method uses scan and max, restart is used as a signal to reset internal scan state.
-    /// It is useful in case when you have pull to refresh where you need to reset what vas the latest postion on bottom of scroll view.
+    /// It is useful in case when you have pull to refresh where you need to reset what was the latest postion on bottom of scroll view.
     ///
     /// - Parameter restart: Signal when to restart internal state of latest content offset position
     /// - Parameter offset: Offset from bottom to treat as bottom edge. Value is sign agnostic.

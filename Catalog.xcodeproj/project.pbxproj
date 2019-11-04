@@ -181,16 +181,12 @@
 /* Begin PBXFileReference section */
 		0612E33B22D32A540081BCF6 /* UIViewModifiers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIViewModifiers.storyboard; sourceTree = "<group>"; };
 		0612E33E22D32A750081BCF6 /* UIViewModifiersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewModifiersViewController.swift; sourceTree = "<group>"; };
-		062FF5282317E559004B90F9 /* WithoutBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithoutBackViewController.swift; sourceTree = "<group>"; };
 		063B5AA12317F64C003A7B84 /* CatalogNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogNavigationController.swift; sourceTree = "<group>"; };
 		063B5AA22317F64C003A7B84 /* BasicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		063B5AA32317F64D003A7B84 /* InteractiveNavigationExample.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InteractiveNavigationExample.storyboard; sourceTree = "<group>"; };
 		063B5AA42317F64D003A7B84 /* WithoutBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithoutBackViewController.swift; sourceTree = "<group>"; };
 		064B18FA22DF47AD001D4489 /* UIView+LayerModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayerModifiers.swift"; sourceTree = "<group>"; };
 		06B602B02317C45A001A295B /* InteractiveNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveNavigationController.swift; sourceTree = "<group>"; };
-		06B602B82317C717001A295B /* InteractiveNavigationExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InteractiveNavigationExample.storyboard; sourceTree = "<group>"; };
-		06B602C22317C958001A295B /* CatalogNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogNavigationController.swift; sourceTree = "<group>"; };
-		06B602C42317CA4C001A295B /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		0A0C8CFD22492E2C0071011F /* EncodableParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableParams.swift; sourceTree = "<group>"; };
 		0A0ECF502206FED800C1853E /* RatioPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationController.swift; sourceTree = "<group>"; };
 		0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationManager.swift; sourceTree = "<group>"; };
@@ -411,17 +407,6 @@
 				0612E33E22D32A750081BCF6 /* UIViewModifiersViewController.swift */,
 			);
 			path = UIViewModifiers;
-			sourceTree = "<group>";
-		};
-		063B5A8E2317F52B003A7B84 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				06B602C22317C958001A295B /* CatalogNavigationController.swift */,
-				06B602C42317CA4C001A295B /* BasicViewController.swift */,
-				062FF5282317E559004B90F9 /* WithoutBackViewController.swift */,
-				06B602B82317C717001A295B /* InteractiveNavigationExample.storyboard */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		063B5A982317F622003A7B84 /* Interactive UINavigationController */ = {
@@ -795,7 +780,6 @@
 				0AD9EA912204218600FF3F2C /* Products */,
 				90EBDBD00C93EFA90B6B3BBD /* Pods */,
 				73307744A1CDBCE0F7329522 /* Frameworks */,
-				063B5A8E2317F52B003A7B84 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
