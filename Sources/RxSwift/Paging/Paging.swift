@@ -51,7 +51,7 @@ public enum Paging {
         let loadingRelay = BehaviorRelay(value: false)
         let filteredEvents = _prepareEvent(event, stateRelay: stateRelay, loadingRelay: loadingRelay)
 
-        // We need observe on for:
+        // We need observeOn for:
         // 1. Supporting feedback loop to avoid reentrancy issue, so scheduler must
         // be MainScheduler.asyncInstance
         // 2. Tests, where we inject TestScheduler since testing with async scheduler
@@ -68,7 +68,7 @@ public enum Paging {
                 // If current event is next page, and there are no next pages
                 // just ignore current event and prepare stateRelay to accpet
                 // new items. stateRelay is inside zip, so it is very important to
-                // reset state
+                // reset state, otherwise it will block zip
                 if event == .nextPage && !state.hasNext {
                     stateRelay.accept(state)
                     return false
@@ -90,7 +90,7 @@ public enum Paging {
         return newState.map { $0.response }
     }
     
-    /// Check `page` method for nore info, but what it does is to load and accumulate all pages until
+    /// Check `page` method for nore info, but what it does is load and accumulate all pages until
     /// `hasNext` returns false.
     public static func allPages<Page, Container>(
         make nextPage: @escaping (_ container: Container, _ lastPage: Page?) -> Single<Page>,
