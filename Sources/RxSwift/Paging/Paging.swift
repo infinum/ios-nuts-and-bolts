@@ -81,11 +81,8 @@ public enum Paging {
             .do(onNext: {
                 stateRelay.accept($0)
                 loadingRelay.accept(false)
-            }) // Action finished!
-            .filter { state -> Bool in
-                guard let event = state.event else { return true }
-                return event._shouldPropagateNextEvent
-            }
+            })
+            .filter { $0.event?._shouldPropagateNextEvent ?? true }
 
         return newState.map { $0.response }
     }
