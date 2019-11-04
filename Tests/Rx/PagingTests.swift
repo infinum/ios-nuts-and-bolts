@@ -254,6 +254,6 @@ class PagingTests: QuickSpec {
 extension TestScheduler {
     
     public func startWithDefaultParams<Element>(_ create: @escaping () -> Observable<Element>) -> TestableObserver<Element> {
-        start(created: 0, subscribed: 1, disposed: 1000, create: create)
+        return start(created: 0, subscribed: 1, disposed: 1000, create: create)
     }
 }
