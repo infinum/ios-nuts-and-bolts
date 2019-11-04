@@ -22,6 +22,10 @@ public class LoggieAuthentication: NSObject {
     }
 }
 
+@objc public protocol LoggieClientCertificateDelegate: class {
+    func clientCertificate(forChallenge challenge: URLAuthenticationChallenge, inSession session: URLSession) -> URLCredential?
+}
+
 public typealias AuthenticationBlock = (() -> (LoggieAuthentication?))
 
 public class LoggieManager: NSObject {
@@ -29,6 +33,9 @@ public class LoggieManager: NSObject {
     @objc(sharedManager)
     public static let shared = LoggieManager()
 
+    @objc
+    public weak var clientCertificateDelegate: LoggieClientCertificateDelegate? = nil
+    
     @objc
     public var serverTrustPolicyManager: ServerTrustPolicyManager? = nil
     public var authentication: AuthenticationBlock? = nil
