@@ -12,14 +12,13 @@
 - (NSDate *)dateByAddingYears:(NSInteger)years months:(NSInteger)months days:(NSInteger)days
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *currentDateComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:self];
     
     NSDateComponents *dateComponents = [NSDateComponents new];
-    dateComponents.year = currentDateComponents.year + years;
-    dateComponents.month = currentDateComponents.month + months;
-    dateComponents.day = currentDateComponents.day + days;
+    dateComponents.year = years;
+    dateComponents.month = months;
+    dateComponents.day = days;
     
-    return [calendar dateFromComponents:dateComponents];
+    return [calendar dateByAddingComponents:dateComponents toDate:self options:0];
 }
 
 - (NSDate *)dateByAddingYears:(NSInteger)years
