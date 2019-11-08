@@ -105,6 +105,12 @@ extension LoggieURLProtocol: URLSessionDelegate, URLSessionDataDelegate {
                 }
             }
         }
+        else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodClientCertificate {
+            if let clientCertificate = loggieManager.clientCertificateDelegate?.clientCertificate(forChallenge: challenge, inSession: session) {
+                credential = clientCertificate
+                disposition = .useCredential
+            }
+        }
         completionHandler(disposition, credential)
     }
 

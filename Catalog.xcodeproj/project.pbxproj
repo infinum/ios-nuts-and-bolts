@@ -27,6 +27,15 @@
 		0A0F24472247D5D80005CF41 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F24462247D5D80005CF41 /* APIService.swift */; };
 		0A0F24492247D9DC0005CF41 /* APIService+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F24482247D9DC0005CF41 /* APIService+Rx.swift */; };
 		0A0F244A2247DCC70005CF41 /* Service+JapxRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA45E8322188D0B009CF93E /* Service+JapxRx.swift */; };
+		0A1DFE4F236EE8C5000F2538 /* Signal+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DFE4E236EE8C5000F2538 /* Signal+Utility.swift */; };
+		0A1DFE52236EE90B000F2538 /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DFE51236EE90B000F2538 /* Paging.swift */; };
+		0A1DFE55236EEA0B000F2538 /* PagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DFE54236EEA0B000F2538 /* PagingTests.swift */; };
+		0A1DFE5C236EF5B4000F2538 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DFE58236EF5B4000F2538 /* Pokemon.swift */; };
+		0A1DFE5D236EF5B4000F2538 /* RxPagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DFE59236EF5B4000F2538 /* RxPagingViewController.swift */; };
+		0A1DFE5E236EF5B4000F2538 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DFE5A236EF5B4000F2538 /* PokemonTableViewCell.swift */; };
+		0A1DFE5F236EF5B4000F2538 /* RxPagingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A1DFE5B236EF5B4000F2538 /* RxPagingViewController.xib */; };
+		0A1DFE61236EF9CF000F2538 /* Rx+DataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DFE60236EF9CF000F2538 /* Rx+DataSourceDelegate.swift */; };
+		0A1DFE64236EFA78000F2538 /* UIScrollView+BottomDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1DFE63236EFA78000F2538 /* UIScrollView+BottomDetection.swift */; };
 		0A37C9AF2270882A00B50CEB /* Date+ComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37C9AE2270882A00B50CEB /* Date+ComparisonTests.swift */; };
 		0A3C090B220AD44F00DEBECC /* UIView+Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C090A220AD44F00DEBECC /* UIView+Corners.swift */; };
 		0A3C090E220ADD3E00DEBECC /* RoundCornersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C090D220ADD3E00DEBECC /* RoundCornersViewController.swift */; };
@@ -58,7 +67,6 @@
 		0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FE722078DC000F25622 /* Single+Utility.swift */; };
 		0A603FEB220798D800F25622 /* Observable+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FEA220798D800F25622 /* Observable+Progressable.swift */; };
 		0A603FED22079A9800F25622 /* Observable+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FEC22079A9800F25622 /* Observable+Utility.swift */; };
-		0A603FEF22079BA100F25622 /* Observable+TakeUntil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FEE22079BA100F25622 /* Observable+TakeUntil.swift */; };
 		0AA45E772218880A009CF93E /* JapxResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA45E762218880A009CF93E /* JapxResponse.swift */; };
 		0AA45E7922188833009CF93E /* JapxPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA45E7822188833009CF93E /* JapxPagination.swift */; };
 		0AA45E7F22188A80009CF93E /* TokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA45E7E22188A80009CF93E /* TokenAdapter.swift */; };
@@ -175,16 +183,12 @@
 /* Begin PBXFileReference section */
 		0612E33B22D32A540081BCF6 /* UIViewModifiers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIViewModifiers.storyboard; sourceTree = "<group>"; };
 		0612E33E22D32A750081BCF6 /* UIViewModifiersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewModifiersViewController.swift; sourceTree = "<group>"; };
-		062FF5282317E559004B90F9 /* WithoutBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithoutBackViewController.swift; sourceTree = "<group>"; };
 		063B5AA12317F64C003A7B84 /* CatalogNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogNavigationController.swift; sourceTree = "<group>"; };
 		063B5AA22317F64C003A7B84 /* BasicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		063B5AA32317F64D003A7B84 /* InteractiveNavigationExample.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InteractiveNavigationExample.storyboard; sourceTree = "<group>"; };
 		063B5AA42317F64D003A7B84 /* WithoutBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithoutBackViewController.swift; sourceTree = "<group>"; };
 		064B18FA22DF47AD001D4489 /* UIView+LayerModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayerModifiers.swift"; sourceTree = "<group>"; };
 		06B602B02317C45A001A295B /* InteractiveNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveNavigationController.swift; sourceTree = "<group>"; };
-		06B602B82317C717001A295B /* InteractiveNavigationExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InteractiveNavigationExample.storyboard; sourceTree = "<group>"; };
-		06B602C22317C958001A295B /* CatalogNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogNavigationController.swift; sourceTree = "<group>"; };
-		06B602C42317CA4C001A295B /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		0A0C8CFD22492E2C0071011F /* EncodableParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableParams.swift; sourceTree = "<group>"; };
 		0A0ECF502206FED800C1853E /* RatioPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationController.swift; sourceTree = "<group>"; };
 		0A0ECF512206FED800C1853E /* RatioPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationManager.swift; sourceTree = "<group>"; };
@@ -197,6 +201,15 @@
 		0A0F24442247CE5D0005CF41 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		0A0F24462247D5D80005CF41 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		0A0F24482247D9DC0005CF41 /* APIService+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Rx.swift"; sourceTree = "<group>"; };
+		0A1DFE4E236EE8C5000F2538 /* Signal+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Signal+Utility.swift"; sourceTree = "<group>"; };
+		0A1DFE51236EE90B000F2538 /* Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paging.swift; sourceTree = "<group>"; };
+		0A1DFE54236EEA0B000F2538 /* PagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTests.swift; sourceTree = "<group>"; };
+		0A1DFE58236EF5B4000F2538 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		0A1DFE59236EF5B4000F2538 /* RxPagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxPagingViewController.swift; sourceTree = "<group>"; };
+		0A1DFE5A236EF5B4000F2538 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
+		0A1DFE5B236EF5B4000F2538 /* RxPagingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RxPagingViewController.xib; sourceTree = "<group>"; };
+		0A1DFE60236EF9CF000F2538 /* Rx+DataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+DataSourceDelegate.swift"; sourceTree = "<group>"; };
+		0A1DFE63236EFA78000F2538 /* UIScrollView+BottomDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+BottomDetection.swift"; sourceTree = "<group>"; };
 		0A37C9AE2270882A00B50CEB /* Date+ComparisonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+ComparisonTests.swift"; sourceTree = "<group>"; };
 		0A3C090A220AD44F00DEBECC /* UIView+Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corners.swift"; sourceTree = "<group>"; };
 		0A3C090D220ADD3E00DEBECC /* RoundCornersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornersViewController.swift; sourceTree = "<group>"; };
@@ -228,7 +241,6 @@
 		0A603FE722078DC000F25622 /* Single+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Utility.swift"; sourceTree = "<group>"; };
 		0A603FEA220798D800F25622 /* Observable+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Progressable.swift"; sourceTree = "<group>"; };
 		0A603FEC22079A9800F25622 /* Observable+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Utility.swift"; sourceTree = "<group>"; };
-		0A603FEE22079BA100F25622 /* Observable+TakeUntil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+TakeUntil.swift"; sourceTree = "<group>"; };
 		0AA45E762218880A009CF93E /* JapxResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxResponse.swift; sourceTree = "<group>"; };
 		0AA45E7822188833009CF93E /* JapxPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxPagination.swift; sourceTree = "<group>"; };
 		0AA45E7E22188A80009CF93E /* TokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAdapter.swift; sourceTree = "<group>"; };
@@ -402,17 +414,6 @@
 			path = UIViewModifiers;
 			sourceTree = "<group>";
 		};
-		063B5A8E2317F52B003A7B84 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				06B602C22317C958001A295B /* CatalogNavigationController.swift */,
-				06B602C42317CA4C001A295B /* BasicViewController.swift */,
-				062FF5282317E559004B90F9 /* WithoutBackViewController.swift */,
-				06B602B82317C717001A295B /* InteractiveNavigationExample.storyboard */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		063B5A982317F622003A7B84 /* Interactive UINavigationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +473,7 @@
 		0A0ECF5B2207717D00C1853E /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				0A1DFE50236EE8EB000F2538 /* Paging */,
 				0A603FE9220798C800F25622 /* Observable */,
 				0A603FE422078CF700F25622 /* Single */,
 			);
@@ -481,6 +483,7 @@
 		0A0ECF5C2207718500C1853E /* RxCocoa */ = {
 			isa = PBXGroup;
 			children = (
+				0A1DFE4D236EE8C5000F2538 /* Signal */,
 				0A603FE02207851100F25622 /* Driver */,
 			);
 			path = RxCocoa;
@@ -512,6 +515,57 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		0A1DFE4D236EE8C5000F2538 /* Signal */ = {
+			isa = PBXGroup;
+			children = (
+				0A1DFE4E236EE8C5000F2538 /* Signal+Utility.swift */,
+			);
+			path = Signal;
+			sourceTree = "<group>";
+		};
+		0A1DFE50236EE8EB000F2538 /* Paging */ = {
+			isa = PBXGroup;
+			children = (
+				0A1DFE51236EE90B000F2538 /* Paging.swift */,
+			);
+			path = Paging;
+			sourceTree = "<group>";
+		};
+		0A1DFE53236EE9F6000F2538 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				0A1DFE54236EEA0B000F2538 /* PagingTests.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		0A1DFE56236EF5B4000F2538 /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				0A1DFE57236EF5B4000F2538 /* Paging */,
+			);
+			path = RxSwift;
+			sourceTree = "<group>";
+		};
+		0A1DFE57236EF5B4000F2538 /* Paging */ = {
+			isa = PBXGroup;
+			children = (
+				0A1DFE58236EF5B4000F2538 /* Pokemon.swift */,
+				0A1DFE5A236EF5B4000F2538 /* PokemonTableViewCell.swift */,
+				0A1DFE59236EF5B4000F2538 /* RxPagingViewController.swift */,
+				0A1DFE5B236EF5B4000F2538 /* RxPagingViewController.xib */,
+			);
+			path = Paging;
+			sourceTree = "<group>";
+		};
+		0A1DFE62236EFA3D000F2538 /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				0A1DFE63236EFA78000F2538 /* UIScrollView+BottomDetection.swift */,
+			);
+			path = UIScrollView;
+			sourceTree = "<group>";
+		};
 		0A3C090C220ADD2500DEBECC /* Round Corners */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +591,7 @@
 				0AE0B75C2204365C0033A476 /* SectionItem.swift */,
 				0AE0B75122042F970033A476 /* Table View */,
 				0AE0B75222042F9D0033A476 /* Collection View */,
+				0A1DFE60236EF9CF000F2538 /* Rx+DataSourceDelegate.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -601,7 +656,6 @@
 			children = (
 				0A603FEA220798D800F25622 /* Observable+Progressable.swift */,
 				0A603FEC22079A9800F25622 /* Observable+Utility.swift */,
-				0A603FEE22079BA100F25622 /* Observable+TakeUntil.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -731,7 +785,6 @@
 				0AD9EA912204218600FF3F2C /* Products */,
 				90EBDBD00C93EFA90B6B3BBD /* Pods */,
 				73307744A1CDBCE0F7329522 /* Frameworks */,
-				063B5A8E2317F52B003A7B84 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -758,6 +811,7 @@
 		0AD9EAA72204218800FF3F2C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0A1DFE53236EE9F6000F2538 /* Rx */,
 				0ADB25AE227081B800288054 /* Networking */,
 				0AE0B780220483810033A476 /* UI */,
 				0AE0B77A220478500033A476 /* Foundation */,
@@ -799,6 +853,7 @@
 				0A40C5BE2212AA40007AFC6C /* CatalogDataSource.swift */,
 				0AE0B74622042D140033A476 /* Catalog */,
 				0A0ECF562207022200C1853E /* UI */,
+				0A1DFE56236EF5B4000F2538 /* RxSwift */,
 				0AA45E8A22197AAD009CF93E /* Networking */,
 			);
 			path = Examples;
@@ -833,6 +888,7 @@
 		0AD9EAC22204274300FF3F2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0A1DFE62236EFA3D000F2538 /* UIScrollView */,
 				06B602AF2317C42F001A295B /* UINavigationController */,
 				0A0ECF64220773CD00C1853E /* UIAlertController */,
 				0A0ECF61220772A700C1853E /* Progressable */,
@@ -1452,6 +1508,7 @@
 			files = (
 				0A54436522718AB100F26468 /* RxNetworkingViewController.xib in Resources */,
 				0A54435922718A8F00F26468 /* NetworkingViewController.xib in Resources */,
+				0A1DFE5F236EF5B4000F2538 /* RxPagingViewController.xib in Resources */,
 				063B5AA72317F64D003A7B84 /* InteractiveNavigationExample.storyboard in Resources */,
 				0AD9EA9E2204218800FF3F2C /* LaunchScreen.storyboard in Resources */,
 				0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */,
@@ -1558,24 +1615,28 @@
 				A8FD61092292CC2C00FB50CE /* TableDataSourceDelegate.m in Sources */,
 				063B5AA62317F64D003A7B84 /* BasicViewController.swift in Sources */,
 				0AA45E7F22188A80009CF93E /* TokenAdapter.swift in Sources */,
+				0A1DFE5E236EF5B4000F2538 /* PokemonTableViewCell.swift in Sources */,
 				D73703102316A34800D7A986 /* ImageFromColorViewController.swift in Sources */,
 				0A603FE22207874D00F25622 /* ClosedRange+Scalable.swift in Sources */,
 				0A54435622718A8F00F26468 /* NetworkingPresenter.swift in Sources */,
 				0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */,
 				0A0ECF532206FED800C1853E /* RatioPresentationManager.swift in Sources */,
 				0AB524122210AECB00F35F52 /* Parameters+Include.swift in Sources */,
+				0A1DFE52236EE90B000F2538 /* Paging.swift in Sources */,
 				0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */,
 				063B5AA82317F64D003A7B84 /* WithoutBackViewController.swift in Sources */,
+				0A1DFE64236EFA78000F2538 /* UIScrollView+BottomDetection.swift in Sources */,
 				0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */,
 				A8FD60EB2292AE2C00FB50CE /* BaseTableSection.m in Sources */,
 				0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */,
 				0AB524182210AF9A00F35F52 /* Parameters+Filter.swift in Sources */,
 				0612E33F22D32A750081BCF6 /* UIViewModifiersViewController.swift in Sources */,
 				0AB524222210B3CB00F35F52 /* URL+Append.swift in Sources */,
+				0A1DFE4F236EE8C5000F2538 /* Signal+Utility.swift in Sources */,
 				0A0F24492247D9DC0005CF41 /* APIService+Rx.swift in Sources */,
 				0A603FEB220798D800F25622 /* Observable+Progressable.swift in Sources */,
 				6047127E222678EA00809454 /* UITextView+ZeroInsets.swift in Sources */,
-				0A603FEF22079BA100F25622 /* Observable+TakeUntil.swift in Sources */,
+				0A1DFE5D236EF5B4000F2538 /* RxPagingViewController.swift in Sources */,
 				0A0F24472247D5D80005CF41 /* APIService.swift in Sources */,
 				0A54436622718AB100F26468 /* RxNetworkingWireframe.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
@@ -1601,6 +1662,7 @@
 				0A54435722718A8F00F26468 /* NetworkingViewController.swift in Sources */,
 				0A603FE32207875D00F25622 /* Driver+Utility.swift in Sources */,
 				0AE0B74C22042D5E0033A476 /* CatalogPresenter.swift in Sources */,
+				0A1DFE61236EF9CF000F2538 /* Rx+DataSourceDelegate.swift in Sources */,
 				0A54436122718AB100F26468 /* RxNetworkingInterfaces.swift in Sources */,
 				0A603FDC2207841800F25622 /* Driver+Progressable.swift in Sources */,
 				064B18FB22DF47AD001D4489 /* UIView+LayerModifiers.swift in Sources */,
@@ -1623,6 +1685,7 @@
 				0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */,
 				C2220318236AF76700C11B2E /* NSDate+Addition.m in Sources */,
 				0AA45E7922188833009CF93E /* JapxPagination.swift in Sources */,
+				0A1DFE5C236EF5B4000F2538 /* Pokemon.swift in Sources */,
 				0AE0B76E220467F80033A476 /* CatalogItemTableViewCell.swift in Sources */,
 				063B5AA52317F64D003A7B84 /* CatalogNavigationController.swift in Sources */,
 				0A40C5C42212EC29007AFC6C /* URLQueryItemsEncoding.swift in Sources */,
@@ -1700,6 +1763,7 @@
 				536E5ACA225F2B0600EF01A6 /* Date+CurrentMonthTests.swift in Sources */,
 				536E5AE3225F387F00EF01A6 /* Collection+GroupingTests.swift in Sources */,
 				536E5AD9225F311600EF01A6 /* String+SubstringTests.swift in Sources */,
+				0A1DFE55236EEA0B000F2538 /* PagingTests.swift in Sources */,
 				60B4BDF22243AC7000849B8D /* Array+SafeGetTests.swift in Sources */,
 				0AE0B78722049CBD0033A476 /* ClosedRange+ScalableTests.swift in Sources */,
 				0AE0B77F220481C50033A476 /* String+BlankTests.swift in Sources */,

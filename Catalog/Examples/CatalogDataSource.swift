@@ -51,6 +51,7 @@ private extension CatalogDataSource {
     func _rxItems() -> [Catalogizable.Type] {
         return [
             RxAlertExampleViewController.self,
+            RxPagingViewController.self
         ]
     }
 
