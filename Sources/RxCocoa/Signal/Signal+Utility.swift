@@ -19,12 +19,24 @@ public extension SharedSequenceConvertibleType where SharingStrategy == SignalSh
     func emit(_ relay: PublishRelay<Element>) -> Disposable {
         return emit(onNext: { e in relay.accept(e) })
     }
-
+    
     /// Safely unwraps optional value from chain
-    func unwrap<T>() -> Signal<T> where Element == Optional<T> {
+    func compactMap<T>() -> Signal<T> where Element == Optional<T> {
+        return self.compactMap { $0 }
+    }
+    
+    /**
+    Projects each element of this signal sequence into an optional form and filters all optional results.
+
+    - parameter transform: A transform function to apply to each source element and which returns an element or nil.
+    - returns: An observable sequence whose elements are the result of filtering the transform function for each element of the source.
+
+    */
+    func compactMap<Result>(transform: @escaping (Element) throws -> (Result?)) -> Signal<Result> {
         return self
-            .filter { $0 != nil }
-            .map { $0! }
+            .asObservable()
+            .compactMap(transform)
+            .asSignalOnErrorComplete()
     }
 
     /// Returns a sequence by the source observable sequence

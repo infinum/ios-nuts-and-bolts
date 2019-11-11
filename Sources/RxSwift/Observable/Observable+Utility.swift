@@ -18,6 +18,13 @@ public extension ObservableType {
         return asDriver(onErrorDriveWith: .empty())
     }
     
+    /// Converts current Observable sequence to Signal, completing on error event.
+    ///
+    /// - Returns: Signal - completing on error event
+    func asSignalOnErrorComplete() -> Signal<Element> {
+        return self.asSignal(onErrorSignalWith: .empty())
+    }
+    
     /// Maps each sequence elements to given value.
     ///
     /// - Parameter value: Value to map
