@@ -1,6 +1,5 @@
 //
-//  File.swift
-//  Catalog
+//  InteractiveNavigationController.swift
 //
 //  Created by Jasmin Abou Aldan on 29/08/2019.
 //  Copyright © 2019 Infinum. All rights reserved.
