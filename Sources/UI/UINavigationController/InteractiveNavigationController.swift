@@ -25,7 +25,6 @@ class InteractiveNavigationController: UINavigationController {
         delegate = self
         interactivePopGestureRecognizer?.delegate = self
     }
-
 }
 
 // MARK: - UINavigationController -
@@ -50,12 +49,10 @@ extension InteractiveNavigationController {
 extension InteractiveNavigationController: UINavigationControllerDelegate {
 
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-
         if interactivePopGestureRecognizer?.delegate !== self {
             assertionFailure("InteractiveNavigationController won't work correctly if you change interactivePopGestureRecognizer's delegate.")
             return
         }
-
         duringPushAnimation = false
         realDelegate?.navigationController?(navigationController, didShow: viewController, animated:animated)
     }
@@ -70,12 +67,12 @@ extension InteractiveNavigationController: UIGestureRecognizerDelegate {
             return true
         }
 
-        // Disable pop gesture in two situations:
+        // Disable pop gesture in three situations:
         // 1) when the pop animation is in progress
         let multipleViewControllers = viewControllers.count > 1
         // 2) when user swipes quickly a couple of times and animations don't have time to be performed
         let animationNotInProgress = !duringPushAnimation
-        // 3) when we weant to hide back button from our users to disabled navigation to previous screen
+        // 3) when we want to hide back button from our users to disabled navigation to previous screen
         let backButtonVisible = !(topViewController?.navigationItem.hidesBackButton ?? false)
         return multipleViewControllers && animationNotInProgress && backButtonVisible
     }
@@ -86,14 +83,13 @@ extension InteractiveNavigationController: UIGestureRecognizerDelegate {
 extension InteractiveNavigationController {
 
     override func responds(to aSelector: Selector!) -> Bool {
-        return super.responds(to: aSelector) || realDelegate?.responds(to: aSelector) == true
+        return super.responds(to: aSelector) || realDelegate?.responds(to: aSelector)
     }
 
     override func forwardingTarget(for selector: Selector) -> Any? {
-        if realDelegate?.responds(to: selector) == true {
+        if realDelegate?.responds(to: selector) {
             return realDelegate
         }
         return super.forwardingTarget(for: selector)
     }
-
 }
