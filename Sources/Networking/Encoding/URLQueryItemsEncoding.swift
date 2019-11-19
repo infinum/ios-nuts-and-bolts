@@ -12,16 +12,16 @@ import Alamofire
 /// Useful when you have POST request with JSON body but you also need to
 /// add custom query items to the url.
 public struct URLQueryItemsEncoding: ParameterEncoding {
+    
+    public static var `default`: URLQueryItemsEncoding { return URLQueryItemsEncoding() }
 
-    private let _items: [URLQueryItem]
-
-    public init(items: [URLQueryItem]) {
-        _items = items
-    }
+    public init() { }
 
     public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
         var newRequest = try urlRequest.asURLRequest()
-        newRequest.url = newRequest.url?.appendingQueryItems(_items)
+        if let params = parameters {
+            newRequest.url = newRequest.url?.appendingQueryParameters(params)
+        }
         return newRequest
     }
 
