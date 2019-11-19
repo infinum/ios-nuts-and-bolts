@@ -11,8 +11,7 @@ import Alamofire
 /// Appends given query items to query part of the URL.
 /// Useful when you have POST request with JSON body but you also need to
 /// add custom query items to the url.
-///
-/// DEPRECATED: Just use URLEncoding.queryItems instead
+@available(*, deprecated, message: "Use URLEncoding.queryString instead")
 public struct URLQueryItemsEncoding: ParameterEncoding {
     
     public static var `default`: URLQueryItemsEncoding { return URLQueryItemsEncoding() }
