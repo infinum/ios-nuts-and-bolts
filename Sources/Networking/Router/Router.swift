@@ -16,7 +16,6 @@ open class Router: Routable {
     open var baseUrl: String
     open var path: String
     open var method: HTTPMethod
-    open var params: Parameters?
     open var headers: HTTPHeaders?
     open var encodableParams: [EncodableParams]
 
@@ -29,7 +28,6 @@ open class Router: Routable {
     ///   - baseUrl: Base URL
     ///   - path: Path
     ///   - method: Request method, .get by default
-    ///   - params: Request parameters, nil by default
     ///   - headers: Request headers, nil by default
     ///   - encodableParams: Request parameters with corresponding encoding
     public init(
@@ -52,8 +50,8 @@ open class Router: Routable {
     ///   - baseUrl: Base URL
     ///   - path: Path
     ///   - method: Request method, .get by default
-    ///   - params: Request parameters, nil by default
     ///   - headers: Request headers, nil by default
+    ///   - parameters: Request parameters, nil by default
     ///   - encoding: Request encodings, [URLEncoding.default] by default
     public init(
         baseUrl: String,
