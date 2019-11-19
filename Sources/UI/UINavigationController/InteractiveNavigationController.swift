@@ -82,11 +82,11 @@ extension InteractiveNavigationController: UIGestureRecognizerDelegate {
 extension InteractiveNavigationController {
 
     override func responds(to aSelector: Selector!) -> Bool {
-        return super.responds(to: aSelector) || realDelegate?.responds(to: aSelector)
+        return super.responds(to: aSelector) || realDelegate?.responds(to: aSelector) == true
     }
 
     override func forwardingTarget(for selector: Selector) -> Any? {
-        if realDelegate?.responds(to: selector) {
+        if realDelegate?.responds(to: selector) == true {
             return realDelegate
         }
         return super.forwardingTarget(for: selector)
