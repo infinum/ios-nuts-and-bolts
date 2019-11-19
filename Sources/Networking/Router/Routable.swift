@@ -11,7 +11,7 @@ import Alamofire
 /// Defines all data needed for making an API request
 public protocol Routable: URLRequestConvertible {
 
-    /// Base API url, e.g.: *htttps://www.google.com*
+    /// Base API url, e.g.: *https://www.google.com*
     var baseUrl: String { get }
 
     /// Path to requested resource, e.g.: /text
