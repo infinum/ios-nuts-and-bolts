@@ -68,8 +68,7 @@ public extension UIView {
         if let right = right {
             constraints.append(rightAnchor.constraint(equalTo: right, constant: insets.right))
         }
-        
-        constraints.forEach { $0.isActive = true }
+        NSLayoutConstraint.activate(constraints)
     }
     
     /// Pins the current view to the specified size
@@ -83,7 +82,7 @@ public extension UIView {
         constraints.append(widthAnchor.constraint(equalToConstant: size.width))
         constraints.append(heightAnchor.constraint(equalToConstant: size.height))
         
-        constraints.forEach { $0.isActive = true }
+        NSLayoutConstraint.activate(constraints)
     }
     
     /// Pins the current view width and/or height to specified dimensions
@@ -105,7 +104,7 @@ public extension UIView {
             constraints.append(widthAnchor.constraint(equalTo: width, multiplier: 1.0))
         }
         
-        constraints.forEach { $0.isActive = true }
+        NSLayoutConstraint.activate(constraints)
     }
     
     // MARK: - Center
@@ -147,7 +146,7 @@ public extension UIView {
         if let centerY = centerY {
             constraints.append(centerYAnchor.constraint(equalTo: centerY, constant: insets.y))
         }
-        constraints.forEach { $0.isActive = true }
+        NSLayoutConstraint.activate(constraints)
     }
     
 }
