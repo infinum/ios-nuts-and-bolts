@@ -249,13 +249,15 @@
                         <viewLayoutGuide key="safeArea" id="ZsE-AT-jUF"/>
                     </view>
                     <connections>
-                        <outlet property="createUserButton" destination="Bew-ln-ik6" id="ZWj-cW-aXH"/>
-                        <outlet property="deleteUserButton" destination="u01-Fc-MdI" id="Tgn-Ev-Fc3"/>
-                        <outlet property="emailTextField" destination="2o1-zy-glW" id="6am-aC-U71"/>
-                        <outlet property="getUserButton" destination="uUM-Ii-fAg" id="6zz-dc-XQ5"/>
-                        <outlet property="passwordTextField" destination="Q0o-tn-PZX" id="6U0-bD-LcX"/>
-                        <outlet property="updateUserButton" destination="kvN-fV-yHf" id="gPN-X8-ibz"/>
-                        <outlet property="usernameTextField" destination="klz-Iz-mTI" id="G8m-y9-mu9"/>
+                        <outlet property="_bottomConstraint" destination="UOb-zH-BTQ" id="aCq-SJ-i89"/>
+                        <outlet property="_createUserButton" destination="Bew-ln-ik6" id="Wn9-5e-Vg5"/>
+                        <outlet property="_deleteUserButton" destination="u01-Fc-MdI" id="3EV-jA-vCi"/>
+                        <outlet property="_emailTextField" destination="2o1-zy-glW" id="irw-TV-rKG"/>
+                        <outlet property="_getUserButton" destination="uUM-Ii-fAg" id="n8K-t5-JU2"/>
+                        <outlet property="_passwordTextField" destination="Q0o-tn-PZX" id="5NQ-rM-SyX"/>
+                        <outlet property="_scrollView" destination="Cta-4e-gtc" id="i2o-Rc-69u"/>
+                        <outlet property="_updateUserButton" destination="kvN-fV-yHf" id="8v0-kK-SLr"/>
+                        <outlet property="_usernameTextField" destination="klz-Iz-mTI" id="ui7-Sr-82s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAd-Se-x9v" userLabel="First Responder" sceneMemberID="firstResponder"/>

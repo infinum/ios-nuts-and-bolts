@@ -27,7 +27,6 @@ final class NetworkingJapxInteractor {
 
 extension NetworkingJapxInteractor: NetworkingJapxInteractorInterface {
     
-    @discardableResult
     func createUser(email: String, username: String, password: String, passwordConfirmation: String, completion: @escaping (Result<PokedexUser>) -> Void) -> DataRequest {
         let router = PokedexRouter
             .createUser(
@@ -46,17 +45,8 @@ extension NetworkingJapxInteractor: NetworkingJapxInteractorInterface {
                 completion: completion
         )
         
-//        return sessionManager
-//            .request(router)
-//            .validate()
-//            .responseCodableJSONAPI(
-//                keyPath: "data",
-//                decoder: JapxDecoder(jsonDecoder: .init()),
-//                completionHandler: { completion($0.result) }
-//            )
     }
     
-    @discardableResult
     func getUser(id: String, completion: @escaping (Result<PokedexUser>) -> Void) -> DataRequest {
         let router = PokedexRouter.getUser(id: id)
         
@@ -69,17 +59,8 @@ extension NetworkingJapxInteractor: NetworkingJapxInteractorInterface {
                 completion: completion
         )
         
-//        return sessionManager
-//            .request(router)
-//            .validate()
-//            .responseCodableJSONAPI(
-//                keyPath: "data",
-//                decoder: JapxDecoder(jsonDecoder: .init()),
-//                completionHandler: { completion($0.result) }
-//        )
     }
     
-    @discardableResult
     func updateUser(id: String, email: String?, username: String?, completion: @escaping (Result<PokedexUser>) -> Void) -> DataRequest {
         let router = PokedexRouter.updateUser(id: id, email: email, username: username)
         
@@ -92,17 +73,8 @@ extension NetworkingJapxInteractor: NetworkingJapxInteractorInterface {
                 completion: completion
         )
         
-//        return sessionManager
-//            .request(router)
-//            .validate()
-//            .responseCodableJSONAPI(
-//                keyPath: "data",
-//                decoder: JapxDecoder(jsonDecoder: .init()),
-//                completionHandler: { completion($0.result) }
-//        )
     }
     
-    @discardableResult
     func deleteUser(id: String, completion: @escaping (Result<Void>) -> Void) -> DataRequest {
         let router = PokedexRouter.deleteUser(id: id)
         

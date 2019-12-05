@@ -41,7 +41,8 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
         }
         
         _view.showLoading()
-        let _ = _interactor
+        
+        _interactor
             .createUser(
                 email: email,
                 username: username,
@@ -49,7 +50,7 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
                 passwordConfirmation: password
             ) { [unowned _wireframe, unowned _interactor, unowned _view, weak self] (result) in
                     switch result {
-                    case .success(let user) :
+                    case .success(let user):
                         _view.hideLoading()
                         guard let authToken = user.authToken, let self = self else { return }
                         
@@ -61,7 +62,7 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
                         
                         _view.updateView(with: .UserExists)
                         _wireframe.displayInfoAlert(with: "Success", message: "Created user with id: \(user.id)")
-                    case .failure(_) :
+                    case .failure:
                         _view.hideLoading()
                         _wireframe.showFailure(with: "Error", message: "Create failed!")
                     }
@@ -75,13 +76,13 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
         }
         
         _view.showLoading()
-        let _ = _interactor
+        _interactor
             .getUser(id: userId) { [unowned _wireframe, unowned _view] (result) in
                 switch result {
-                case .success(_) :
+                case .success:
                     _view.hideLoading()
                     _wireframe.displayInfoAlert(with: "Success", message: "Got user with id: \(userId)")
-                case .failure(_) :
+                case .failure:
                     _view.hideLoading()
                     _wireframe.showFailure(with: "Error", message: "Couldn't find user")
                 }
@@ -95,14 +96,14 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
         }
         
         _view.showLoading()
-        let _ = _interactor
+        _interactor
             .updateUser(
                 id: userId,
                 email: email,
                 username: username
             ) { [weak self, unowned _wireframe, unowned _interactor, unowned _view] (result) in
                 switch result {
-                case .success(let responseUser) :
+                case .success(let responseUser):
                     _view.hideLoading()
                     guard let self = self, let authToken = self._authToken, let email = responseUser.email else { return }
                     
@@ -111,7 +112,7 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
                     _interactor.setAdapter(adapter)
                     
                     _wireframe.displayInfoAlert(with: "Success", message: "Updated user with id: \(userId)")
-                case .failure(_) :
+                case .failure:
                     _view.hideLoading()
                     _wireframe.showFailure(with: "Error", message: "Update failed!")
                 }
@@ -125,16 +126,16 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
         }
 
         _view.showLoading()
-        let _ = _interactor
+        _interactor
             .deleteUser(id: userId) { [unowned _wireframe, weak self, unowned _view] (result) in
                 switch result {
-                case .success(_) :
+                case .success:
                     _view.hideLoading()
                     self?._user = nil
                     
                     _view.updateView(with: .UserDoesNotExist)
                     _wireframe.displayInfoAlert(with: "Success", message: "Deleted user with id: \(userId)")
-                case .failure(_) :
+                case .failure:
                     _view.hideLoading()
                     _wireframe.showFailure(with: "Error", message: "Delete failed!")
                 }

@@ -13,18 +13,25 @@ import UIKit
 final class NetworkingJapxViewController: UIViewController {
 
     // MARK: - Public properties -
-
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
-    
-    @IBOutlet weak var createUserButton: UIButton!
-    @IBOutlet weak var getUserButton: UIButton!
-    @IBOutlet weak var updateUserButton: UIButton!
-    @IBOutlet weak var deleteUserButton: UIButton!
     
     var presenter: NetworkingJapxPresenterInterface!
-
+    
+    // MARK: - Private properties -
+    
+    @IBOutlet private weak var _emailTextField: UITextField!
+    @IBOutlet private weak var _usernameTextField: UITextField!
+    @IBOutlet private weak var _passwordTextField: UITextField!
+    
+    @IBOutlet private weak var _createUserButton: UIButton!
+    @IBOutlet private weak var _getUserButton: UIButton!
+    @IBOutlet private weak var _updateUserButton: UIButton!
+    @IBOutlet private weak var _deleteUserButton: UIButton!
+    
+    @IBOutlet private weak var _scrollView: UIScrollView!
+    @IBOutlet private weak var _bottomConstraint: NSLayoutConstraint!
+    
+    private var _bottomHeight: CGFloat = 20
+    
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
@@ -33,8 +40,43 @@ final class NetworkingJapxViewController: UIViewController {
         updateView(with: .UserDoesNotExist)
     }
 	
+    override func viewWillAppear(_ animated: Bool) {
+        _startObservingKeyboardEvents()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        _stopObservingKeyboardEvents()
+    }
+    
+    // MARK: - Keyboard notifications -
+    
+    private func _startObservingKeyboardEvents() {
+        NotificationCenter.default.addObserver(self,
+                                               selector:#selector(_keyboardWillChangeFrame(notification:)),
+                                               name:UIResponder.keyboardWillChangeFrameNotification,
+                                               object:nil)
+    }
+    
+    private func _stopObservingKeyboardEvents() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc private func _keyboardWillChangeFrame(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+        
+        let keyboardHeight = keyboardSize.origin.y < view.frame.size.height ? keyboardSize.height : 0
+        _bottomConstraint.constant = keyboardHeight + _bottomHeight
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    // MARK: - Button actions -
+    
     @IBAction func createUserActionHandler(_ sender: Any) {
-        presenter.didPressCreate(with: emailTextField.text, username: usernameTextField.text, password: passwordTextField.text)
+        presenter.didPressCreate(with: _emailTextField.text, username: _usernameTextField.text, password: _passwordTextField.text)
     }
     
     @IBAction func getUserActionHandler(_ sender: Any) {
@@ -42,7 +84,7 @@ final class NetworkingJapxViewController: UIViewController {
     }
     
     @IBAction func updateUserActionHandler(_ sender: Any) {
-        presenter.didPressUpdate(email: emailTextField.text, username: usernameTextField.text)
+        presenter.didPressUpdate(email: _emailTextField.text, username: _usernameTextField.text)
     }
     
     @IBAction func deleteUserActionHandler(_ sender: Any) {
@@ -57,10 +99,10 @@ final class NetworkingJapxViewController: UIViewController {
 extension NetworkingJapxViewController: NetworkingJapxViewInterface {
     
     func updateView(with state: NetworkingJapx.State) {
-        createUserButton.setEnabledAndAlpha(with: state == .UserDoesNotExist)
-        getUserButton.setEnabledAndAlpha(with: state == .UserExists)
-        updateUserButton.setEnabledAndAlpha(with: state == .UserExists)
-        deleteUserButton.setEnabledAndAlpha(with: state == .UserExists)
+        _createUserButton.setEnabledAndAlpha(with: state == .UserDoesNotExist)
+        _getUserButton.setEnabledAndAlpha(with: state == .UserExists)
+        _updateUserButton.setEnabledAndAlpha(with: state == .UserExists)
+        _deleteUserButton.setEnabledAndAlpha(with: state == .UserExists)
     }
 
 }
