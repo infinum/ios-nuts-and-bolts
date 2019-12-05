@@ -30,12 +30,10 @@ final class NetworkingJapxViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        shouldEnableCreateUserButtonAndDisableOthers(true)
+        updateView(with: .UserDoesNotExist)
     }
 	
     @IBAction func createUserActionHandler(_ sender: Any) {
-        
-        self.createUserButton.isEnabled = !self.createUserButton.isEnabled
         presenter.didPressCreate(with: emailTextField.text, username: usernameTextField.text, password: passwordTextField.text)
     }
     
@@ -50,27 +48,21 @@ final class NetworkingJapxViewController: UIViewController {
     @IBAction func deleteUserActionHandler(_ sender: Any) {
         presenter.didPressDelete()
     }
+    
 }
+
 
 // MARK: - Extensions -
 
 extension NetworkingJapxViewController: NetworkingJapxViewInterface {
     
-    func shouldEnableCreateUserButtonAndDisableOthers(_ shouldEnable: Bool) {
-        self.createUserButton.isEnabled = shouldEnable
-        self.getUserButton.isEnabled = !shouldEnable
-        self.updateUserButton.isEnabled = !shouldEnable
-        self.deleteUserButton.isEnabled = !shouldEnable
-        
-        self.createUserButton.alpha = shouldEnable ? 1 : 0.3
-        
-        let alphaForOther: CGFloat = shouldEnable ? 0.3 : 1
-        
-        self.getUserButton.alpha = alphaForOther
-        self.updateUserButton.alpha = alphaForOther
-        self.deleteUserButton.alpha = alphaForOther
+    func updateView(with state: NetworkingJapx.State) {
+        createUserButton.setEnabledAndAlpha(with: state == .UserDoesNotExist)
+        getUserButton.setEnabledAndAlpha(with: state == .UserExists)
+        updateUserButton.setEnabledAndAlpha(with: state == .UserExists)
+        deleteUserButton.setEnabledAndAlpha(with: state == .UserExists)
     }
-    
+
 }
 
 extension NetworkingJapxViewController: Catalogizable {
@@ -83,4 +75,12 @@ extension NetworkingJapxViewController: Catalogizable {
         return NetworkingJapxWireframe().viewController
     }
     
+}
+
+private extension UIButton {
+    
+    func setEnabledAndAlpha(with shouldEnable: Bool) {
+        self.isEnabled = shouldEnable
+        self.alpha = shouldEnable ? 1 : 0.3
+    }
 }

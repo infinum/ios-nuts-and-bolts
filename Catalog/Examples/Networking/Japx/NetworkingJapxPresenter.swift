@@ -59,7 +59,7 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
                         
                         self._user = user
                         
-                        _view.shouldEnableCreateUserButtonAndDisableOthers(false)
+                        _view.updateView(with: .UserExists)
                         _wireframe.displayInfoAlert(with: "Success", message: "Created user with id: \(user.id)")
                     case .failure(_) :
                         _view.hideLoading()
@@ -132,7 +132,7 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
                     _view.hideLoading()
                     self?._user = nil
                     
-                    _view.shouldEnableCreateUserButtonAndDisableOthers(true)
+                    _view.updateView(with: .UserDoesNotExist)
                     _wireframe.displayInfoAlert(with: "Success", message: "Deleted user with id: \(userId)")
                 case .failure(_) :
                     _view.hideLoading()

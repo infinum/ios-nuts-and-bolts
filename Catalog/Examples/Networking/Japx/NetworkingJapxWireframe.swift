@@ -32,7 +32,24 @@ final class NetworkingJapxWireframe: BaseWireframe {
 // MARK: - Extensions -
 
 extension NetworkingJapxWireframe: NetworkingJapxWireframeInterface {
-
-    func navigate(to option: NetworkingJapxNavigationOption) {
+    
+    func displayInfoAlert(with title: String?, message: String?) {
+        displayInfoAlert(with: title, message: message, completion: nil)
+    }
+    
+    func displayInfoAlert(with title: String?, message: String?, completion: ((UIAlertAction) -> Void)?) {
+        displayAlert(
+            with: title,
+            message: message,
+            actions: [UIAlertAction.init(title: "OK", style: .cancel, handler: completion)],
+            style: .alert
+        )
+    }
+    
+    func displayAlert(with title: String?, message: String?, actions: [UIAlertAction], style: UIAlertController.Style) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        actions.forEach { alertController.addAction($0) }
+        
+        navigationController?.present(alertController, animated: true, completion: nil)
     }
 }

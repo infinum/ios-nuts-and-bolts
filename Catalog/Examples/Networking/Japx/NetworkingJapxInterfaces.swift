@@ -11,15 +11,23 @@
 import UIKit
 import Alamofire
 
-enum NetworkingJapxNavigationOption {
+enum NetworkingJapx {
+    
+    enum State {
+        case UserExists
+        case UserDoesNotExist
+    }
+    
 }
 
 protocol NetworkingJapxWireframeInterface: WireframeInterface, Progressable {
-    func navigate(to option: NetworkingJapxNavigationOption)
+    func displayInfoAlert(with title: String?, message: String?)
+    func displayInfoAlert(with title: String?, message: String?, completion: ((UIAlertAction) -> Void)?)
+    func displayAlert(with title: String?, message: String?, actions: [UIAlertAction], style: UIAlertController.Style)
 }
 
 protocol NetworkingJapxViewInterface: ViewInterface, Progressable {
-    func shouldEnableCreateUserButtonAndDisableOthers(_ shouldEnable: Bool)
+    func updateView(with state: NetworkingJapx.State)
 }
 
 protocol NetworkingJapxPresenterInterface: PresenterInterface {
