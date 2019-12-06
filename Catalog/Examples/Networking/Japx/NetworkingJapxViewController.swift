@@ -48,31 +48,6 @@ final class NetworkingJapxViewController: UIViewController {
         _stopObservingKeyboardEvents()
     }
     
-    // MARK: - Keyboard notifications -
-    
-    private func _startObservingKeyboardEvents() {
-        NotificationCenter.default.addObserver(self,
-                                               selector:#selector(_keyboardWillChangeFrame(notification:)),
-                                               name:UIResponder.keyboardWillChangeFrameNotification,
-                                               object:nil)
-    }
-    
-    private func _stopObservingKeyboardEvents() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    @objc private func _keyboardWillChangeFrame(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else { return }
-        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-        
-        let keyboardHeight = keyboardSize.origin.y < view.frame.size.height ? keyboardSize.height : 0
-        _bottomConstraint.constant = keyboardHeight + _bottomHeight
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-        })
-    }
-    
     // MARK: - Button actions -
     
     @IBAction func createUserActionHandler(_ sender: Any) {
@@ -92,7 +67,6 @@ final class NetworkingJapxViewController: UIViewController {
     }
     
 }
-
 
 // MARK: - Extensions -
 
@@ -125,4 +99,33 @@ private extension UIButton {
         self.isEnabled = shouldEnable
         self.alpha = shouldEnable ? 1 : 0.3
     }
+}
+
+// MARK: - Keyboard notifications -
+
+private extension NetworkingJapxViewController {
+    
+    private func _startObservingKeyboardEvents() {
+        NotificationCenter.default.addObserver(self,
+                                               selector:#selector(_keyboardWillChangeFrame(notification:)),
+                                               name:UIResponder.keyboardWillChangeFrameNotification,
+                                               object:nil)
+    }
+    
+    private func _stopObservingKeyboardEvents() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc private func _keyboardWillChangeFrame(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+        
+        let keyboardHeight = keyboardSize.origin.y < view.frame.size.height ? keyboardSize.height : 0
+        _bottomConstraint.constant = keyboardHeight + _bottomHeight
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
 }

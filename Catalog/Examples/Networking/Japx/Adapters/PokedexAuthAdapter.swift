@@ -9,17 +9,11 @@
 import Foundation
 import Alamofire
 
-/// Adapter used for Pokedex authentication
 public struct PokedexTokenAdapter: RequestAdapter {
     
     private let _authToken: String
     private let _email: String
 
-    /// Adapter used for Pokedex authentication
-    ///
-    /// - Parameters:
-    ///   - email: email
-    ///   - authToken: authorization token
     init(authToken: String, email: String) {
         _authToken = authToken
         _email = email

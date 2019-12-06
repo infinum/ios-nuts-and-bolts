@@ -59,4 +59,5 @@ class PokedexRouter: Router {
             encodableParams: [encodableParam]
         )
     }
+    
 }

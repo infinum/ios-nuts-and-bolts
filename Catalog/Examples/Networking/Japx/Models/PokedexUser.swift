@@ -10,6 +10,7 @@ import Foundation
 import Japx
 
 struct PokedexUser: JapxCodable {
+    
     let id: String
     let type: String = "users"
 
@@ -29,7 +30,7 @@ struct PokedexUser: JapxCodable {
         case authToken = "auth-token"
     }
     
-    init(id: String, email: String?, username: String? = nil, password: String? = nil, passwordConfirmation: String? = nil, authToken: String? = nil) {
+    init(id: String, email: String? = nil, username: String? = nil, password: String? = nil, passwordConfirmation: String? = nil, authToken: String? = nil) {
         self.id = id
         self.email = email
         self.username = username
@@ -37,4 +38,5 @@ struct PokedexUser: JapxCodable {
         self.passwordConfirmation = passwordConfirmation
         self.authToken = authToken
     }
+    
 }

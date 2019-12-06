@@ -171,7 +171,6 @@
 		C202328023954DB400DC3C42 /* NetworkingJapxWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C202327B23954DB400DC3C42 /* NetworkingJapxWireframe.swift */; };
 		C202328323954E6500DC3C42 /* PokedexUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C202328223954E6500DC3C42 /* PokedexUser.swift */; };
 		C2023285239555F000DC3C42 /* PokedexRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2023284239555F000DC3C42 /* PokedexRouter.swift */; };
-		C2023287239561D500DC3C42 /* PokedexLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2023286239561D500DC3C42 /* PokedexLogin.swift */; };
 		C2220318236AF76700C11B2E /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = C2220317236AF76700C11B2E /* NSDate+Addition.m */; };
 		C2220327236B1D7900C11B2E /* NSDate+AdditionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2220326236B1D7900C11B2E /* NSDate+AdditionTests.m */; };
 		C226BFFA2396718800B1E10A /* PokedexAuthAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226BFF92396718800B1E10A /* PokedexAuthAdapter.swift */; };
@@ -386,7 +385,6 @@
 		C202327B23954DB400DC3C42 /* NetworkingJapxWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingJapxWireframe.swift; sourceTree = "<group>"; };
 		C202328223954E6500DC3C42 /* PokedexUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUser.swift; sourceTree = "<group>"; };
 		C2023284239555F000DC3C42 /* PokedexRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexRouter.swift; sourceTree = "<group>"; };
-		C2023286239561D500DC3C42 /* PokedexLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexLogin.swift; sourceTree = "<group>"; };
 		C2220313236AF72F00C11B2E /* NSDate+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
 		C2220317236AF76700C11B2E /* NSDate+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Addition.m"; sourceTree = "<group>"; };
 		C2220326236B1D7900C11B2E /* NSDate+AdditionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+AdditionTests.m"; sourceTree = "<group>"; };
@@ -1429,7 +1427,6 @@
 			isa = PBXGroup;
 			children = (
 				C202328223954E6500DC3C42 /* PokedexUser.swift */,
-				C2023286239561D500DC3C42 /* PokedexLogin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1738,7 +1735,6 @@
 				0A603FDC2207841800F25622 /* Driver+Progressable.swift in Sources */,
 				064B18FB22DF47AD001D4489 /* UIView+LayerModifiers.swift in Sources */,
 				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
-				C2023287239561D500DC3C42 /* PokedexLogin.swift in Sources */,
 				0A54435A22718A8F00F26468 /* NetworkingWireframe.swift in Sources */,
 				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,
 				0A54436322718AB100F26468 /* RxNetworkingViewController.swift in Sources */,

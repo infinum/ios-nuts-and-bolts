@@ -61,7 +61,12 @@ extension NetworkingJapxInteractor: NetworkingJapxInteractorInterface {
         
     }
     
-    func updateUser(id: String, email: String?, username: String?, completion: @escaping (Result<PokedexUser>) -> Void) -> DataRequest {
+    func updateUser(
+        id: String,
+        email: String?,
+        username: String?,
+        completion: @escaping (Result<PokedexUser>) -> Void
+    ) -> DataRequest {
         let router = PokedexRouter.updateUser(id: id, email: email, username: username)
         
         return service
