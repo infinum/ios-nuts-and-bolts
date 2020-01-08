@@ -14,12 +14,12 @@ import Japx
 
 final class NetworkingJapxInteractor {
     
-    private let service: APIServiceable
-    private let sessionManager: SessionManager
+    private let _service: APIServiceable
+    private let _sessionManager: SessionManager
     
     init(service: APIServiceable = APIService.instance, sessionManager: SessionManager = .default) {
-        self.service = service
-        self.sessionManager = sessionManager
+        self._service = service
+        self._sessionManager = sessionManager
     }
 }
 
@@ -36,12 +36,12 @@ extension NetworkingJapxInteractor: NetworkingJapxInteractorInterface {
                 passwordConfirmation: passwordConfirmation
         )
         
-        return service
+        return _service
             .requestJSONAPI(
                 PokedexUser.self,
                 keyPath: "data",
                 router: router,
-                sessionManager: sessionManager,
+                sessionManager: _sessionManager,
                 completion: completion
         )
         
@@ -50,12 +50,12 @@ extension NetworkingJapxInteractor: NetworkingJapxInteractorInterface {
     func getUser(id: String, completion: @escaping (Result<PokedexUser>) -> Void) -> DataRequest {
         let router = PokedexRouter.getUser(id: id)
         
-        return service
+        return _service
             .requestJSONAPI(
                 PokedexUser.self,
                 keyPath: "data",
                 router: router,
-                sessionManager: sessionManager,
+                sessionManager: _sessionManager,
                 completion: completion
         )
         
@@ -69,12 +69,12 @@ extension NetworkingJapxInteractor: NetworkingJapxInteractorInterface {
     ) -> DataRequest {
         let router = PokedexRouter.updateUser(id: id, email: email, username: username)
         
-        return service
+        return _service
             .requestJSONAPI(
                 PokedexUser.self,
                 keyPath: "data",
                 router: router,
-                sessionManager: sessionManager,
+                sessionManager: _sessionManager,
                 completion: completion
         )
         
@@ -83,15 +83,15 @@ extension NetworkingJapxInteractor: NetworkingJapxInteractorInterface {
     func deleteUser(id: String, completion: @escaping (Result<Void>) -> Void) -> DataRequest {
         let router = PokedexRouter.deleteUser(id: id)
         
-        return service
+        return _service
             .requestCompletion(
                 router: router,
-                sessionManager: sessionManager,
+                sessionManager: _sessionManager,
                 completion: completion
         )
     }
     
     func setAdapter(_ adapter: PokedexTokenAdapter) {
-        sessionManager.adapter = adapter
+        _sessionManager.adapter = adapter
     }
 }

@@ -4,7 +4,7 @@
 
 ## Example
 
-This example will cover how to handle basic CRUD (Create, Read, Update, Delete) operations with Japx because API expects JSON:API format. 
+This example will cover how to handle basic CRUD (Create, Read, Update, Delete) operations with Japx and JSON:API format. 
 
 ### Model
 

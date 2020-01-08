@@ -48,23 +48,23 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
                 username: username,
                 password: password,
                 passwordConfirmation: password
-            ) { [unowned _wireframe, unowned _interactor, unowned _view, weak self] (result) in
+            ) { [weak _wireframe, weak _interactor, weak _view, weak self] (result) in
                     switch result {
                     case .success(let user):
-                        _view.hideLoading()
+                        _view?.hideLoading()
                         guard let authToken = user.authToken, let self = self else { return }
                         
                         self._authToken = authToken
                         let adapter = PokedexTokenAdapter(authToken: authToken, email: email)
-                        _interactor.setAdapter(adapter)
+                        _interactor?.setAdapter(adapter)
                         
                         self._user = user
                         
-                        _view.updateView(with: .UserExists)
-                        _wireframe.displayInfoAlert(with: "Success", message: "Created user with id: \(user.id)")
+                        _view?.updateView(with: .userExists)
+                        _wireframe?.displayInfoAlert(with: "Success", message: "Created user with id: \(user.id)")
                     case .failure:
-                        _view.hideLoading()
-                        _wireframe.showFailure(with: "Error", message: "Create failed!")
+                        _view?.hideLoading()
+                        _wireframe?.showFailure(with: "Error", message: "Create failed!")
                     }
         }
     }
@@ -77,14 +77,14 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
         
         _view.showLoading()
         _interactor
-            .getUser(id: userId) { [unowned _wireframe, unowned _view] (result) in
+            .getUser(id: userId) { [weak _wireframe, weak _view] (result) in
                 switch result {
                 case .success:
-                    _view.hideLoading()
-                    _wireframe.displayInfoAlert(with: "Success", message: "Got user with id: \(userId)")
+                    _view?.hideLoading()
+                    _wireframe?.displayInfoAlert(with: "Success", message: "Got user with id: \(userId)")
                 case .failure:
-                    _view.hideLoading()
-                    _wireframe.showFailure(with: "Error", message: "Couldn't find user")
+                    _view?.hideLoading()
+                    _wireframe?.showFailure(with: "Error", message: "Couldn't find user")
                 }
         }
     }
@@ -95,26 +95,28 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
             return
         }
         
+        let authToken = _authToken
+        
         _view.showLoading()
         _interactor
             .updateUser(
                 id: userId,
                 email: email,
                 username: username
-            ) { [weak self, unowned _wireframe, unowned _interactor, unowned _view] (result) in
+            ) { [weak self, weak _wireframe, weak _interactor, weak _view] (result) in
                 switch result {
                 case .success(let responseUser):
-                    _view.hideLoading()
-                    guard let self = self, let authToken = self._authToken, let email = responseUser.email else { return }
+                    _view?.hideLoading()
+                    guard let authToken = authToken, let email = responseUser.email else { return }
                     
-                    self._user = responseUser
+                    self?._user = responseUser
                     let adapter = PokedexTokenAdapter(authToken: authToken, email: email)
-                    _interactor.setAdapter(adapter)
+                    _interactor?.setAdapter(adapter)
                     
-                    _wireframe.displayInfoAlert(with: "Success", message: "Updated user with id: \(userId)")
+                    _wireframe?.displayInfoAlert(with: "Success", message: "Updated user with id: \(userId)")
                 case .failure:
-                    _view.hideLoading()
-                    _wireframe.showFailure(with: "Error", message: "Update failed!")
+                    _view?.hideLoading()
+                    _wireframe?.showFailure(with: "Error", message: "Update failed!")
                 }
         }
     }
@@ -127,17 +129,17 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
 
         _view.showLoading()
         _interactor
-            .deleteUser(id: userId) { [unowned _wireframe, weak self, unowned _view] (result) in
+            .deleteUser(id: userId) { [weak _wireframe, weak self, weak _view] (result) in
                 switch result {
                 case .success:
-                    _view.hideLoading()
+                    _view?.hideLoading()
                     self?._user = nil
                     
-                    _view.updateView(with: .UserDoesNotExist)
-                    _wireframe.displayInfoAlert(with: "Success", message: "Deleted user with id: \(userId)")
+                    _view?.updateView(with: .userDoesNotExist)
+                    _wireframe?.displayInfoAlert(with: "Success", message: "Deleted user with id: \(userId)")
                 case .failure:
-                    _view.hideLoading()
-                    _wireframe.showFailure(with: "Error", message: "Delete failed!")
+                    _view?.hideLoading()
+                    _wireframe?.showFailure(with: "Error", message: "Delete failed!")
                 }
         }
     }

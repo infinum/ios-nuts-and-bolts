@@ -21,14 +21,14 @@ public struct PokedexTokenAdapter: RequestAdapter {
     
     public func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         var urlRequest = urlRequest
-        urlRequest.setValue(self.authorizationHeader, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(_authorizationHeader, forHTTPHeaderField: "Authorization")
         return urlRequest
     }
 }
 
-extension PokedexTokenAdapter {
+private extension PokedexTokenAdapter {
     
-    var authorizationHeader: String {
+    var _authorizationHeader: String {
         return String(format: "Token token=%@, email=%@", _authToken, _email)
     }
 }

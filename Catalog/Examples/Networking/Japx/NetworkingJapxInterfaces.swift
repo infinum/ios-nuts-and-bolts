@@ -14,8 +14,8 @@ import Alamofire
 enum NetworkingJapx {
     
     enum State {
-        case UserExists
-        case UserDoesNotExist
+        case userExists
+        case userDoesNotExist
     }
     
 }

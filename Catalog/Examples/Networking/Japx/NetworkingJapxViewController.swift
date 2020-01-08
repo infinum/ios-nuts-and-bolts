@@ -30,40 +30,26 @@ final class NetworkingJapxViewController: UIViewController {
     @IBOutlet private weak var _scrollView: UIScrollView!
     @IBOutlet private weak var _bottomConstraint: NSLayoutConstraint!
     
-    private var _bottomHeight: CGFloat = 20
+    private let _bottomHeight: CGFloat = 20
     
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateView(with: .UserDoesNotExist)
+        updateView(with: .userDoesNotExist)
     }
 	
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         _startObservingKeyboardEvents()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         _stopObservingKeyboardEvents()
-    }
-    
-    // MARK: - Button actions -
-    
-    @IBAction func createUserActionHandler(_ sender: Any) {
-        presenter.didPressCreate(with: _emailTextField.text, username: _usernameTextField.text, password: _passwordTextField.text)
-    }
-    
-    @IBAction func getUserActionHandler(_ sender: Any) {
-        presenter.didPressGet()
-    }
-    
-    @IBAction func updateUserActionHandler(_ sender: Any) {
-        presenter.didPressUpdate(email: _emailTextField.text, username: _usernameTextField.text)
-    }
-    
-    @IBAction func deleteUserActionHandler(_ sender: Any) {
-        presenter.didPressDelete()
     }
     
 }
@@ -73,10 +59,10 @@ final class NetworkingJapxViewController: UIViewController {
 extension NetworkingJapxViewController: NetworkingJapxViewInterface {
     
     func updateView(with state: NetworkingJapx.State) {
-        _createUserButton.setEnabledAndAlpha(with: state == .UserDoesNotExist)
-        _getUserButton.setEnabledAndAlpha(with: state == .UserExists)
-        _updateUserButton.setEnabledAndAlpha(with: state == .UserExists)
-        _deleteUserButton.setEnabledAndAlpha(with: state == .UserExists)
+        _createUserButton._setEnabledModifyingAlpha(state == .userDoesNotExist)
+        _getUserButton._setEnabledModifyingAlpha(state == .userExists)
+        _updateUserButton._setEnabledModifyingAlpha(state == .userExists)
+        _deleteUserButton._setEnabledModifyingAlpha(state == .userExists)
     }
 
 }
@@ -95,28 +81,51 @@ extension NetworkingJapxViewController: Catalogizable {
 
 private extension UIButton {
     
-    func setEnabledAndAlpha(with shouldEnable: Bool) {
+    func _setEnabledModifyingAlpha(_ shouldEnable: Bool) {
         self.isEnabled = shouldEnable
         self.alpha = shouldEnable ? 1 : 0.3
     }
+    
+}
+
+// MARK: - IBActions -
+
+private extension NetworkingJapxViewController {
+    
+    @IBAction func _createUserActionHandler(_ sender: Any) {
+        presenter.didPressCreate(with: _emailTextField.text, username: _usernameTextField.text, password: _passwordTextField.text)
+    }
+    
+    @IBAction func _getUserActionHandler(_ sender: Any) {
+        presenter.didPressGet()
+    }
+    
+    @IBAction func _updateUserActionHandler(_ sender: Any) {
+        presenter.didPressUpdate(email: _emailTextField.text, username: _usernameTextField.text)
+    }
+    
+    @IBAction func _deleteUserActionHandler(_ sender: Any) {
+        presenter.didPressDelete()
+    }
+    
 }
 
 // MARK: - Keyboard notifications -
 
 private extension NetworkingJapxViewController {
     
-    private func _startObservingKeyboardEvents() {
+    func _startObservingKeyboardEvents() {
         NotificationCenter.default.addObserver(self,
                                                selector:#selector(_keyboardWillChangeFrame(notification:)),
                                                name:UIResponder.keyboardWillChangeFrameNotification,
                                                object:nil)
     }
     
-    private func _stopObservingKeyboardEvents() {
+    func _stopObservingKeyboardEvents() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
-    @objc private func _keyboardWillChangeFrame(notification: NSNotification) {
+    @objc func _keyboardWillChangeFrame(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
         
