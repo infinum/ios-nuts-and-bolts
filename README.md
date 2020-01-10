@@ -112,7 +112,7 @@ Interfaces used for building your application using the VIPER architecture patte
 
 You can find all the features inside the `Sources` folder. Each feature has its sample inside the catalog list or tests written for it, where you can find more info on feature usage.
 
-To explore features feel free to open the `Catalog.xcworkspace` and run Catalog app or go trough tests inside `Tests` folder.
+To explore features feel free to open the `Catalog.xcworkspace` and run Catalog app or go through tests inside `Tests` folder.
 
 ## Contributing
 

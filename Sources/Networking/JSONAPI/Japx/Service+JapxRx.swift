@@ -16,7 +16,7 @@ public extension APIServiceable {
         _: T.Type,
         includeList: String? = nil,
         keyPath: String? = nil,
-        decoder: JSONDecoder = JSONDecoder(),
+        decoder: JapxDecoder = JapxDecoder(jsonDecoder: .init()),
         router: Routable,
         sessionManager: SessionManager,
         completion: @escaping (Result<T>) -> ()
@@ -27,7 +27,7 @@ public extension APIServiceable {
             .responseCodableJSONAPI(
                 includeList: includeList,
                 keyPath: keyPath,
-                decoder: JapxDecoder(jsonDecoder: decoder),
+                decoder: decoder,
                 completionHandler: { completion($0.result) }
             )
     }
@@ -40,7 +40,7 @@ public extension Reactive where Base: APIServiceable {
         _: T.Type,
         includeList: String? = nil,
         keyPath: String? = nil,
-        decoder: JSONDecoder = JSONDecoder(),
+        decoder: JapxDecoder = JapxDecoder(jsonDecoder: .init()),
         router: Routable,
         sessionManager: SessionManager
     ) -> Single<T> {
