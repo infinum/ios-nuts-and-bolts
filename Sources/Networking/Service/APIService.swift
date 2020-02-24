@@ -49,7 +49,7 @@ open class APIService: APIServiceable {
         return sessionManager
             .request(router)
             .validate()
-            .responseDecodableObject { completion($0.result) }
+            .responseDecodableObject(keyPath: keyPath, decoder: decoder) { completion($0.result) }
     }
 
     @discardableResult
