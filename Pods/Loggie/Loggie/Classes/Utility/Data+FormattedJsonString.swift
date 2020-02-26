@@ -11,7 +11,7 @@ import UIKit
 extension Data {
 
     public var formattedJsonString: String? {
-        guard let jsonObject = try? JSONSerialization.jsonObject(with: self, options: .allowFragments) else {
+        guard let jsonObject = try? JSONSerialization.jsonObject(with: self, options: []) else {
             return nil
         }
         guard let formattedBody = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {

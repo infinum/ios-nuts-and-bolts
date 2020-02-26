@@ -7,10 +7,8 @@ def ui
 end
 
 def networking
-  pod 'Alamofire'
   pod 'Loggie'
-  pod 'CodableAlamofire'
-  pod 'Japx/RxCodableAlamofire'
+  pod 'Japx/RxCodableAlamofire', :git => 'https://github.com/infinum/Japx', :branch => 'feature/alamofire5'
 end
 
 def reactive

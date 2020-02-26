@@ -130,3 +130,69 @@ extension LogDetailsViewController: UITableViewDataSource {
         }
     }
 }
+
+extension LogDetailsViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(copyAction(for: indexPath))
+        actionSheet.addAction(shareAction(for: indexPath))
+        actionSheet.addAction(cancelAction(for: indexPath))
+
+        present(actionSheet, animated: true)
+    }
+}
+
+private extension LogDetailsViewController {
+
+    func copyAction(for indexPath: IndexPath) -> UIAlertAction {
+        return UIAlertAction(title: "Copy value", style: .default) { [weak self] (action) in
+            guard let self = self else { return }
+
+            let item = self.sections[indexPath.section].items[indexPath.row]
+            let pasteboard = UIPasteboard.general
+
+            switch item {
+            case .subtitle(_, let subtitle):
+                pasteboard.string = subtitle
+            case .text(let text):
+                pasteboard.string = text
+            case .image(let image):
+                pasteboard.image = image
+            }
+
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+
+    func shareAction(for indexPath: IndexPath) -> UIAlertAction {
+        return UIAlertAction(title: "Share value", style: .default) { [weak self] (action) in
+            guard let self = self else { return }
+
+            let item = self.sections[indexPath.section].items[indexPath.row]
+            let shareItem: Any?
+
+            switch item {
+            case .subtitle(_, let subtitle):
+                shareItem = subtitle
+            case .text(let text):
+                shareItem = text
+            case .image(let image):
+                shareItem = image
+            }
+
+            if let shareItem = shareItem {
+                let shareController = UIActivityViewController(activityItems: [shareItem], applicationActivities: nil)
+                self.present(shareController, animated: true)
+            }
+
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+
+    func cancelAction(for indexPath: IndexPath) -> UIAlertAction {
+        return UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak self] (action) in
+            self?.tableView.deselectRow(at: indexPath, animated: true)
+        })
+    }
+}

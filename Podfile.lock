@@ -1,37 +1,35 @@
 PODS:
-  - Alamofire (4.9.1)
-  - CodableAlamofire (1.1.2):
-    - Alamofire (~> 4.0)
-  - Japx/Alamofire (2.1.0):
-    - Alamofire (~> 4.8)
+  - Alamofire (5.0.2)
+  - Japx/Alamofire (3.0.0):
+    - Alamofire (~> 5.0)
     - Japx/Core
-  - Japx/Codable (2.1.0):
+  - Japx/Codable (3.0.0):
     - Japx/Core
-  - Japx/CodableAlamofire (2.1.0):
+  - Japx/CodableAlamofire (3.0.0):
     - Japx/Alamofire
     - Japx/Codable
-  - Japx/Core (2.1.0)
-  - Japx/RxAlamofire (2.1.0):
+  - Japx/Core (3.0.0)
+  - Japx/RxAlamofire (3.0.0):
     - Japx/Alamofire
     - RxSwift (~> 5.0)
-  - Japx/RxCodableAlamofire (2.1.0):
+  - Japx/RxCodableAlamofire (3.0.0):
     - Japx/CodableAlamofire
     - Japx/RxAlamofire
-  - Loggie (2.1.1)
-  - MBProgressHUD (1.1.0)
-  - Nimble (7.3.4)
+  - Loggie (2.2)
+  - MBProgressHUD (1.2.0)
+  - Nimble (8.0.5)
   - Quick (2.2.0)
   - RxBlocking (5.0.1):
     - RxSwift (~> 5)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxNimble (4.5.0):
-    - RxNimble/RxBlocking (= 4.5.0)
-  - RxNimble/Core (4.5.0):
-    - Nimble (~> 7.0)
+  - RxNimble (4.7.0):
+    - RxNimble/RxBlocking (= 4.7.0)
+  - RxNimble/Core (4.7.0):
+    - Nimble (~> 8.0)
     - RxSwift (~> 5.0)
-  - RxNimble/RxBlocking (4.5.0):
+  - RxNimble/RxBlocking (4.7.0):
     - RxBlocking
     - RxNimble/Core
   - RxRelay (5.0.1):
@@ -42,9 +40,7 @@ PODS:
   - "SwiftI18n/I18n+Case (1.2.1)"
 
 DEPENDENCIES:
-  - Alamofire
-  - CodableAlamofire
-  - Japx/RxCodableAlamofire
+  - Japx/RxCodableAlamofire (from `https://github.com/infinum/Japx`, branch `feature/alamofire5`)
   - Loggie
   - MBProgressHUD
   - Nimble
@@ -59,8 +55,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - CodableAlamofire
-    - Japx
     - Loggie
     - MBProgressHUD
     - Nimble
@@ -73,22 +67,31 @@ SPEC REPOS:
     - RxTest
     - SwiftI18n
 
+EXTERNAL SOURCES:
+  Japx:
+    :branch: feature/alamofire5
+    :git: https://github.com/infinum/Japx
+
+CHECKOUT OPTIONS:
+  Japx:
+    :commit: c2ca3860f708f4cd8b20cc755a951578c1460698
+    :git: https://github.com/infinum/Japx
+
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  CodableAlamofire: b7adfb2e5e980392014b4b3f3b8b62c01b9de4aa
-  Japx: 4fbfa9c85c0d89e93d011b7ef55625a3de6a445e
-  Loggie: 16c38a762113d93cbd499d49ba165118a6c9ce93
-  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  Japx: d1f7f3e4b94f2013538102e96cf96fd417005f76
+  Loggie: bb1d3b1164eb3b7a218155e7f513fec5041d1132
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   RxBlocking: c5e090f42d046df8b0e7752742510f349963710f
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
-  RxNimble: 7de04a30b74ac4c9298ae819edbfbddc34abe7fc
+  RxNimble: aced90abeb480864fc25da9aeeaefc0b595b8bee
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   RxTest: 0132f952a61da82d5233abedaa559df91e5330e5
   SwiftI18n: 67d3b531548924f5a562660e938d76f42e6493f7
 
-PODFILE CHECKSUM: 8c5bf964cac973268debaac7a9c48e720375432c
+PODFILE CHECKSUM: 4dbd50d721d3e26c4342d28e264ab70dd4e979a7
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.0
