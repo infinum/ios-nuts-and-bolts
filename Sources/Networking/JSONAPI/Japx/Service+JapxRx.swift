@@ -18,12 +18,10 @@ public extension APIServiceable {
         keyPath: String? = nil,
         decoder: JapxDecoder = JapxDecoder(jsonDecoder: .init()),
         router: Routable,
-        sessionManager: SessionManager,
-        completion: @escaping (Result<T>) -> ()
+        session: Session,
+        completion: @escaping (AFResult<T>) -> ()
     ) -> DataRequest {
-        return sessionManager
-            .request(router)
-            .validate()
+        return prepareRequest(for: router, session: session)
             .responseCodableJSONAPI(
                 includeList: includeList,
                 keyPath: keyPath,
@@ -42,25 +40,22 @@ public extension Reactive where Base: APIServiceable {
         keyPath: String? = nil,
         decoder: JapxDecoder = JapxDecoder(jsonDecoder: .init()),
         router: Routable,
-        sessionManager: SessionManager
+        session: Session
     ) -> Single<T> {
         return Single<T>
             .create { [weak base] single -> Disposable in
-                let processResult = { (result: Result<T>) in
-                    single(result.mapToRxSingleEvent())
+                let processResult = { (result: AFResult<T>) in
+                    single(result.toSingleEvent)
                 }
-                
-                let request = base?
-                    .requestJSONAPI(
-                        T.self,
-                        includeList: includeList,
-                        keyPath: keyPath,
-                        decoder: decoder,
-                        router: router,
-                        sessionManager: sessionManager,
-                        completion: processResult
-                    )
-                
+                let request = base?.requestJSONAPI(
+                    T.self,
+                    includeList: includeList,
+                    keyPath: keyPath,
+                    decoder: decoder,
+                    router: router,
+                    session: session,
+                    completion: processResult
+                )                
                 return Disposables.create { request?.cancel() }
         }
     }

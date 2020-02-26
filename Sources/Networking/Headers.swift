@@ -15,8 +15,6 @@ public enum Headers {
         public static let contentType = "Content-Type"
         /// Accept header key
         public static let accept = "Accept"
-        /// Authorization
-        public static let authorization = "Authorization"
     }
 
     public enum ApplicationType {

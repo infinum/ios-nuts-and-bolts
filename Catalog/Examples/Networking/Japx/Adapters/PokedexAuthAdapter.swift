@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-public struct PokedexTokenAdapter: RequestAdapter {
+public struct PokedexTokenAdapter: RequestInterceptor {
     
     private let _authToken: String
     private let _email: String
@@ -19,10 +19,10 @@ public struct PokedexTokenAdapter: RequestAdapter {
         _email = email
     }
     
-    public func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
+    public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var urlRequest = urlRequest
         urlRequest.setValue(_authorizationHeader, forHTTPHeaderField: "Authorization")
-        return urlRequest
+        completion(.success(urlRequest))
     }
 }
 

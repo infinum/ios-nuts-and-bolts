@@ -39,12 +39,12 @@ protocol NetworkingJapxPresenterInterface: PresenterInterface {
 
 protocol NetworkingJapxInteractorInterface: InteractorInterface {
     @discardableResult
-    func createUser(email: String, username: String, password: String, passwordConfirmation: String, completion: @escaping (Result<PokedexUser>) -> Void) -> DataRequest
+    func createUser(email: String, username: String, password: String, passwordConfirmation: String, completion: @escaping (AFResult<PokedexUser>) -> Void) -> DataRequest
     @discardableResult
-    func getUser(id: String, completion: @escaping (Result<PokedexUser>) -> Void) -> DataRequest
+    func getUser(id: String, completion: @escaping (AFResult<PokedexUser>) -> Void) -> DataRequest
     @discardableResult
-    func updateUser(id: String, email: String?, username: String?, completion: @escaping (Result<PokedexUser>) -> Void) -> DataRequest
+    func updateUser(id: String, email: String?, username: String?, completion: @escaping (AFResult<PokedexUser>) -> Void) -> DataRequest
     @discardableResult
-    func deleteUser(id: String, completion: @escaping (Result<Void>) -> Void) -> DataRequest
+    func deleteUser(id: String, completion: @escaping (AFResult<Void>) -> Void) -> DataRequest
     func setAdapter(_ adapter: PokedexTokenAdapter)
 }

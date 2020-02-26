@@ -25,13 +25,13 @@ final class NetworkingInteractor {
 
 extension NetworkingInteractor: NetworkingInteractorInterface {
 
-    func login(email: String, password: String, completion: @escaping (Result<Void>) -> Void) {
+    func login(email: String, password: String, completion: @escaping (AFResult<Void>) -> Void) {
         let router = LoginRouter.login(email: email, password: password)
 
         service
             .requestCompletion(
                 router: router,
-                sessionManager: sessionManager,
+                session: sessionManager.session,
                 completion: completion
             )
     }

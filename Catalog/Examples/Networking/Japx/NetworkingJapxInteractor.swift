@@ -27,71 +27,58 @@ final class NetworkingJapxInteractor {
 
 extension NetworkingJapxInteractor: NetworkingJapxInteractorInterface {
     
-    func createUser(email: String, username: String, password: String, passwordConfirmation: String, completion: @escaping (Result<PokedexUser>) -> Void) -> DataRequest {
-        let router = PokedexRouter
-            .createUser(
-                email: email,
-                username: username,
-                password: password,
-                passwordConfirmation: passwordConfirmation
+    func createUser(email: String, username: String, password: String, passwordConfirmation: String, completion: @escaping (AFResult<PokedexUser>) -> Void) -> DataRequest {
+        let router = PokedexRouter.createUser(
+            email: email,
+            username: username,
+            password: password,
+            passwordConfirmation: passwordConfirmation
         )
-        
-        return _service
-            .requestJSONAPI(
-                PokedexUser.self,
-                keyPath: "data",
-                router: router,
-                sessionManager: _sessionManager,
-                completion: completion
+        return _service.requestJSONAPI(
+            PokedexUser.self,
+            keyPath: "data",
+            router: router,
+            session: _sessionManager.session,
+            completion: completion
         )
-        
     }
     
-    func getUser(id: String, completion: @escaping (Result<PokedexUser>) -> Void) -> DataRequest {
-        let router = PokedexRouter.getUser(id: id)
-        
-        return _service
-            .requestJSONAPI(
-                PokedexUser.self,
-                keyPath: "data",
-                router: router,
-                sessionManager: _sessionManager,
-                completion: completion
+    func getUser(id: String, completion: @escaping (AFResult<PokedexUser>) -> Void) -> DataRequest {
+        return _service.requestJSONAPI(
+            PokedexUser.self,
+            keyPath: "data",
+            router: PokedexRouter.getUser(id: id),
+            session: _sessionManager.session,
+            completion: completion
         )
-        
     }
     
     func updateUser(
         id: String,
         email: String?,
         username: String?,
-        completion: @escaping (Result<PokedexUser>) -> Void
+        completion: @escaping (AFResult<PokedexUser>) -> Void
     ) -> DataRequest {
         let router = PokedexRouter.updateUser(id: id, email: email, username: username)
-        
-        return _service
-            .requestJSONAPI(
-                PokedexUser.self,
-                keyPath: "data",
-                router: router,
-                sessionManager: _sessionManager,
-                completion: completion
+        return _service.requestJSONAPI(
+            PokedexUser.self,
+            keyPath: "data",
+            router: router,
+            session: _sessionManager.session,
+            completion: completion
         )
-        
     }
     
-    func deleteUser(id: String, completion: @escaping (Result<Void>) -> Void) -> DataRequest {
+    func deleteUser(id: String, completion: @escaping (AFResult<Void>) -> Void) -> DataRequest {
         let router = PokedexRouter.deleteUser(id: id)
-        
-        return _service
-            .requestCompletion(
-                router: router,
-                sessionManager: _sessionManager,
-                completion: completion
+        return _service.requestCompletion(
+            router: router,
+            session: _sessionManager.session,
+            completion: completion
         )
     }
     
     func setAdapter(_ adapter: PokedexTokenAdapter) {
-        _sessionManager.adapter = adapter
+        _sessionManager.authorizationAdapter = adapter
     }
 }
