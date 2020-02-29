@@ -21,23 +21,31 @@ class RequestAdapterTests: QuickSpec {
                 let token = "1234567889"
                 let adapter = TokenAdapter(token: token)
                 let request = try! URLRequest(url: "www.api.com", method: .get)
-
-                let adaptedRequest = try! adapter.adapt(request)
-                let authHeader = adaptedRequest.allHTTPHeaderFields?["Authorization"]
-                expect(authHeader).to(equal(token))
+                
+                waitUntil { done in
+                    adapter.adapt(request, for: Session.default) { result in
+                        let authHeader = try? result.get().allHTTPHeaderFields?["Authorization"]
+                        expect(authHeader).to(equal(token))
+                        done()
+                    }
+                }
             }
-
+            
         }
-
+        
         describe("Basic auth request adapter") {
-
+            
             it("should append Authorization header with token") {
                 let adapter = BasicAuthAdapter(username: "infinum", password: "catalog")
                 let request = try! URLRequest(url: "www.api.com", method: .get)
-
-                let adaptedRequest = try! adapter.adapt(request)
-                let authHeader = adaptedRequest.allHTTPHeaderFields?["Authorization"]
-                expect(authHeader).to(equal("Basic aW5maW51bTpjYXRhbG9n"))
+                
+                waitUntil { done in
+                    adapter.adapt(request, for: Session.default) { result in
+                        let authHeader = try? result.get().allHTTPHeaderFields?["Authorization"]
+                        expect(authHeader).to(equal("Basic aW5maW51bTpjYXRhbG9n"))
+                        done()
+                    }
+                }
             }
 
         }
