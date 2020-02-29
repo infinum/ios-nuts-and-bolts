@@ -40,7 +40,7 @@ PODS:
   - "SwiftI18n/I18n+Case (1.2.1)"
 
 DEPENDENCIES:
-  - Japx/RxCodableAlamofire (from `https://github.com/infinum/Japx`, branch `feature/alamofire5`)
+  - Japx/RxCodableAlamofire
   - Loggie
   - MBProgressHUD
   - Nimble
@@ -55,6 +55,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Japx
     - Loggie
     - MBProgressHUD
     - Nimble
@@ -66,16 +67,6 @@ SPEC REPOS:
     - RxSwift
     - RxTest
     - SwiftI18n
-
-EXTERNAL SOURCES:
-  Japx:
-    :branch: feature/alamofire5
-    :git: https://github.com/infinum/Japx
-
-CHECKOUT OPTIONS:
-  Japx:
-    :commit: c2ca3860f708f4cd8b20cc755a951578c1460698
-    :git: https://github.com/infinum/Japx
 
 SPEC CHECKSUMS:
   Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
@@ -92,6 +83,6 @@ SPEC CHECKSUMS:
   RxTest: 0132f952a61da82d5233abedaa559df91e5330e5
   SwiftI18n: 67d3b531548924f5a562660e938d76f42e6493f7
 
-PODFILE CHECKSUM: 4dbd50d721d3e26c4342d28e264ab70dd4e979a7
+PODFILE CHECKSUM: 97e4aba19d6468fc2986a4f313cd8fce4d8dc31f
 
 COCOAPODS: 1.9.0
