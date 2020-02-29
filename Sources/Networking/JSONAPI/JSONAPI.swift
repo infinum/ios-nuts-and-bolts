@@ -21,19 +21,19 @@ public extension Headers.ApplicationType {
 }
 
 public extension Headers {
-
+    
     static var jsonApiRequestHeaders: [HTTPHeader] {
         return [
-            .init(name: Key.contentType, value: ApplicationType.jsonApi),
-            .init(name: Key.accept, value: ApplicationType.jsonApi)
+            .contentType(ApplicationType.jsonApi),
+            .accept(ApplicationType.jsonApi)
         ]
     }
     
     static var combinedJsonApiRequestHeaders: [HTTPHeader] {
         return [
-              .init(name: Key.contentType, value: ApplicationType.jsonApi),
-              .init(name: Key.accept, value: "\(ApplicationType.jsonApi), \(ApplicationType.json)")
-          ]
+            .contentType(ApplicationType.jsonApi),
+            .accept("\(ApplicationType.jsonApi), \(ApplicationType.json)")
+        ]
     }
 
 }
