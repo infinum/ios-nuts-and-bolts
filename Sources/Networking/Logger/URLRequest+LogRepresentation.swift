@@ -115,6 +115,7 @@ private extension URLRequest {
         if let body = httpBody {
             return body
         } else if let stream = httpBodyStream {
+            // https://stackoverflow.com/questions/236861/how-do-you-determine-the-ideal-buffer-size-when-using-fileinputstream
             let bufferCount = 4096
             let body = NSMutableData()
             var buffer = [UInt8](repeating: 0, count: bufferCount)

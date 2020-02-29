@@ -21,13 +21,7 @@ public class SessionManager {
     public var authorizationAdapter: RequestInterceptor?
     
     /// Alamofire Session storage
-    public var session: Session { _session }
-    
-    // MARK: - Private storage
-    
-    // Avoid possibility of someone changing session outside of manager scope.
-    // We have to use `lazy var` because of configuration extraction
-    private lazy var _session: Session = {
+    public private(set) lazy var session: Session = {
         return Session(
             configuration: defaultConfiguration,
             interceptor: interceptor,

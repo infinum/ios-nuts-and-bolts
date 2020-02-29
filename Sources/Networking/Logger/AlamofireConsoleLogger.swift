@@ -39,8 +39,7 @@ extension AlamofireConsoleLogger: EventMonitor {
     // Log each start of request and print them only in case if logs aren't joined
     public func requestDidResume(_ request: Request) {
         guard !joinLogs, let urlRequest = request.request else { return }
-        let requestLogLevel = self.requestLogLevel
-        queue.async { print(urlRequest.log(requestLogLevel)) }
+        queue.async { [requestLogLevel] in print(urlRequest.log(requestLogLevel)) }
     }
     
     // Log response in case client didn't expect any kind of object to decode
@@ -59,10 +58,7 @@ extension AlamofireConsoleLogger: EventMonitor {
 private extension AlamofireConsoleLogger {
     
     private func didParseResponse(_ response: DataResponse<Void, AFError>, request: DataRequest) {
-        let joinLogs = self.joinLogs
-        let requestLogLevel = self.requestLogLevel
-        let responseLogLevel = self.responseLogLevel
-        queue.async {
+        queue.async { [joinLogs, requestLogLevel, responseLogLevel] in
             if joinLogs, let urlRequest = request.request {
                 print(urlRequest.log(requestLogLevel))
             }

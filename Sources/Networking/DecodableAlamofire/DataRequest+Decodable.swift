@@ -7,7 +7,9 @@ import Foundation
 import Alamofire
 
 public extension DataRequest {
-
+    
+    /// Be aware it does double encoding/decoding which can lead to poor performance.
+    /// In case of bigger JSON responses (e.g. paginated response) consider using container object.
     @discardableResult
     func responseDecodable<T: Decodable>(
         queue: DispatchQueue = .main,
