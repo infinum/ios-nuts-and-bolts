@@ -1,6 +1,5 @@
 //
 //  URLResponse+LogRepresentation.swift
-//  Networking
 //
 //  Created by Filip Gulan on 26/02/2020.
 //  Copyright © 2020 Infinum. All rights reserved.
@@ -8,17 +7,20 @@
 
 import Foundation
 
-extension HTTPURLResponse {
+public extension HTTPURLResponse {
     
     struct LogLevel: OptionSet {
-        let rawValue: Int
+        public let rawValue: Int
+        public init(rawValue: Int) { self.rawValue = rawValue }
         
-        static let headers = LogLevel(rawValue: 1 << 0)
-        static let body = LogLevel(rawValue: 1 << 2)
+        public static let headers = LogLevel(rawValue: 1 << 0)
+        public static let body = LogLevel(rawValue: 1 << 1)
         
-        static let all: LogLevel = [.headers, .body]
+        public static let all: LogLevel = [.headers, .body]
     }
     
+    /// Logs response info into console with specifed level. Body will be serialized as JSON.
+    /// - Parameter level: Parts of response to log
     func log(_ level: LogLevel, data: Data? = nil) -> String {
         let separatorLine = "---------------------"
         var output: String = [separatorLine, "🟢 Response", separatorLine].joined(separator: "\n")

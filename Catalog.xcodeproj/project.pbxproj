@@ -627,14 +627,6 @@
 			path = SessionManager;
 			sourceTree = "<group>";
 		};
-		0A1FAFFA2406BDA9000F72D6 /* URLRequest */ = {
-			isa = PBXGroup;
-			children = (
-				0A1FAFFB2406BDB6000F72D6 /* URLRequest+Alamofire.swift */,
-			);
-			path = URLRequest;
-			sourceTree = "<group>";
-		};
 		0A1FAFFD2406BFE9000F72D6 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,6 +814,7 @@
 		0AB524092210ACB400F35F52 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				0AB6223C240A458E0027E6F4 /* Helpers */,
 				0A1FAFFD2406BFE9000F72D6 /* Logger */,
 				0A1FAFF72406BB5D000F72D6 /* SessionManager */,
 				0A1FAFF22406B6F2000F72D6 /* DecodableAlamofire */,
@@ -856,6 +849,14 @@
 				0AB524212210B3CB00F35F52 /* URL+Append.swift */,
 			);
 			path = URL;
+			sourceTree = "<group>";
+		};
+		0AB6223C240A458E0027E6F4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0A1FAFFB2406BDB6000F72D6 /* URLRequest+Alamofire.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		0AD9EA872204218600FF3F2C = {
@@ -1087,7 +1088,6 @@
 		0AE0B7722204772B0033A476 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				0A1FAFFA2406BDA9000F72D6 /* URLRequest */,
 				0A1FAFEF2406B6A0000F72D6 /* Result */,
 				C2220311236AE7EF00C11B2E /* NSDate */,
 				4F286F982291E60E00935FD3 /* NSSequence */,

@@ -1,6 +1,5 @@
 //
 //  URLRequest+LogRepresentation.swift
-//  Networking
 //
 //  Created by Filip Gulan on 26/02/2020.
 //  Copyright © 2020 Infinum. All rights reserved.
@@ -8,18 +7,21 @@
 
 import Foundation
 
-extension URLRequest {
+public extension URLRequest {
     
     struct LogLevel: OptionSet {
-        let rawValue: Int
+        public let rawValue: Int
+        public init(rawValue: Int) { self.rawValue = rawValue }
         
-        static let headers = LogLevel(rawValue: 1 << 0)
-        static let queryParams = LogLevel(rawValue: 1 << 1)
-        static let body = LogLevel(rawValue: 1 << 2)
+        public static let headers = LogLevel(rawValue: 1 << 0)
+        public static let queryParams = LogLevel(rawValue: 1 << 1)
+        public static let body = LogLevel(rawValue: 1 << 2)
         
-        static let all: LogLevel = [.headers, .queryParams, .body]
+        public static let all: LogLevel = [.headers, .queryParams, .body]
     }
     
+    /// Logs request info into console with specifed level.
+    /// - Parameter level: Parts of request to log
     func log(_ level: LogLevel) -> String {
         let separatorLine = "---------------------"
         var output: String = [separatorLine, "🔵 Request", separatorLine].joined(separator: "\n")
@@ -72,7 +74,7 @@ private extension URLRequest {
         }
         
         return overviewItems
-            .map { String(format: "%@: %@", $0.0, $0.1) }
+            .map { "\($0): \($1)" }
             .joined(separator: "\n")
     }
     
@@ -113,11 +115,12 @@ private extension URLRequest {
         if let body = httpBody {
             return body
         } else if let stream = httpBodyStream {
+            let bufferCount = 4096
             let body = NSMutableData()
-            var buffer = [UInt8](repeating: 0, count: 4096)
+            var buffer = [UInt8](repeating: 0, count: bufferCount)
             stream.open()
             while stream.hasBytesAvailable {
-                let length = stream.read(&buffer, maxLength: 4096)
+                let length = stream.read(&buffer, maxLength: bufferCount)
                 if length == 0 {
                     break
                 } else {

@@ -14,8 +14,8 @@ public struct EncodableParams {
 
     /// MARK: - Private properties -
 
-    private let _encoding: ParameterEncoding
-    private let _parameters: Parameters?
+    private let encoding: ParameterEncoding
+    private let parameters: Parameters?
 
     /// MARK: - Init -
 
@@ -23,12 +23,12 @@ public struct EncodableParams {
         encoding: ParameterEncoding = URLEncoding.default,
         parameters: Parameters?
     ) {
-        _encoding = encoding
-        _parameters = parameters
+        self.encoding = encoding
+        self.parameters = parameters
     }
 
     func encode(_ request: URLRequest) throws -> URLRequest {
-        return try _encoding.encode(request, with: _parameters)
+        return try encoding.encode(request, with: parameters)
     }
 
 }

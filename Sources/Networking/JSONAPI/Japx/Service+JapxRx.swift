@@ -42,21 +42,17 @@ public extension Reactive where Base: APIServiceable {
         router: Routable,
         session: Session
     ) -> Single<T> {
-        return Single<T>
-            .create { [weak base] single -> Disposable in
-                let processResult = { (result: AFResult<T>) in
-                    single(result.toSingleEvent)
-                }
-                let request = base?.requestJSONAPI(
-                    T.self,
-                    includeList: includeList,
-                    keyPath: keyPath,
-                    decoder: decoder,
-                    router: router,
-                    session: session,
-                    completion: processResult
-                )                
-                return Disposables.create { request?.cancel() }
+        return Single<T>.create { [weak base] single -> Disposable in
+            let request = base?.requestJSONAPI(
+                T.self,
+                includeList: includeList,
+                keyPath: keyPath,
+                decoder: decoder,
+                router: router,
+                session: session,
+                completion: { single($0.toSingleEvent) }
+            )
+            return Disposables.create { request?.cancel() }
         }
     }
 

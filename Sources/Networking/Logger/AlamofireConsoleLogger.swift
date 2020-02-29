@@ -1,6 +1,5 @@
 //
 //  AlamofireConsoleLogger.swift
-//  Networking
 //
 //  Created by Filip Gulan on 26/02/2020.
 //  Copyright © 2020 Infinum. All rights reserved.
@@ -9,9 +8,10 @@
 import Foundation
 import Alamofire
 
-final class AlamofireConsoleLogger: EventMonitor {
+/// Alamofire EventMonitor conformance for logging requests and responses
+public final class AlamofireConsoleLogger {
     
-    let queue: DispatchQueue = DispatchQueue(label: "com.infinum.networking.logger")
+    public let queue: DispatchQueue = DispatchQueue(label: "com.infinum.networking.logger")
     private let joinLogs: Bool
     private let requestLogLevel: URLRequest.LogLevel
     private let responseLogLevel: HTTPURLResponse.LogLevel
@@ -30,20 +30,33 @@ final class AlamofireConsoleLogger: EventMonitor {
         self.requestLogLevel = requestLogLevel
         self.responseLogLevel = responseLogLevel
     }
+}
+
+// MARK: - EventMonitor interface
+
+extension AlamofireConsoleLogger: EventMonitor {
     
-    func requestDidResume(_ request: Request) {
+    // Log each start of request and print them only in case if logs aren't joined
+    public func requestDidResume(_ request: Request) {
         guard !joinLogs, let urlRequest = request.request else { return }
         let requestLogLevel = self.requestLogLevel
         queue.async { print(urlRequest.log(requestLogLevel)) }
     }
     
-    func request(_ request: DataRequest, didParseResponse response: DataResponse<Data?, AFError>) {
+    // Log response in case client didn't expect any kind of object to decode
+    public func request(_ request: DataRequest, didParseResponse response: DataResponse<Data?, AFError>) {
         didParseResponse(response.map { _ in () }, request: request)
     }
     
-    func request<Value>(_ request: DataRequest, didParseResponse response: DataResponse<Value, AFError>) {
+    // Log response in case client did expect some kind of object to decode
+    public func request<Value>(_ request: DataRequest, didParseResponse response: DataResponse<Value, AFError>) {
         didParseResponse(response.map { _ in () }, request: request)
     }
+}
+
+// MARK: - Private helpers
+
+private extension AlamofireConsoleLogger {
     
     private func didParseResponse(_ response: DataResponse<Void, AFError>, request: DataRequest) {
         let joinLogs = self.joinLogs
@@ -58,5 +71,4 @@ final class AlamofireConsoleLogger: EventMonitor {
             }
         }
     }
-    
 }
