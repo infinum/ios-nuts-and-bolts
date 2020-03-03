@@ -11,5 +11,5 @@ import UIKit
 class LogDetailsTextTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textView: UITextView!
-    
+
 }

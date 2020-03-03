@@ -31,7 +31,7 @@ extension RxNetworkingInteractor: RxNetworkingInteractorInterface {
         return service.rx
             .requestCompletion(
                 router: LoginRouter.login(email: email, password: password),
-                sessionManager: sessionManager
+                session: sessionManager.session
             )
             .andThen(Single.just(()))
     }

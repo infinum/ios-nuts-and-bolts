@@ -9,20 +9,20 @@ import Foundation
 import Alamofire
 
 /// Adapter used for token-based authentication
-public struct TokenAdapter: RequestAdapter {
+public struct TokenAdapter: RequestInterceptor {
 
-    private let _token: String
+    private let token: String
 
     /// Adapter used for token-based authentication
     ///
     /// - Parameter token: Authorization token
     public init(token: String) {
-        _token = token
+        self.token = token
     }
-
-    public func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
+    
+    public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var urlRequest = urlRequest
-        urlRequest.setValue(_token, forHTTPHeaderField: Headers.Key.authorization)
-        return urlRequest
+        urlRequest.setHeader(.authorization(token))
+        completion(.success(urlRequest))
     }
 }

@@ -19,18 +19,11 @@ class JSONDataDecoder: NSObject, DataDecoder {
         if contentType == "application/json" {
             return true
         }
-        if jsonObject(with: data) != nil {
-            return true
-        }
-        return false
+        return data.formattedJsonString != nil
     }
 
     func decode(_ data: Data, contentType: String?) -> LogDetailsItem {
         return .text(data.formattedJsonString)
-    }
-
-    private func jsonObject(with data: Data) -> Any? {
-        return (try? JSONSerialization.jsonObject(with: data, options: [.allowFragments]))
     }
 }
 
@@ -64,5 +57,16 @@ class ImageDataDecoder: NSObject, DataDecoder {
     func decode(_ data: Data, contentType: String?) -> LogDetailsItem {
         let image = UIImage(data: data)
         return .image(image)
+    }
+}
+
+class DefaultDecoder: NSObject, DataDecoder {
+
+    func canDecode(_ data: Data, contentType: String?) -> Bool {
+        return true
+    }
+
+    func decode(_ data: Data, contentType: String?) -> LogDetailsItem {
+        return .text(String(data: data, encoding: .utf8))
     }
 }

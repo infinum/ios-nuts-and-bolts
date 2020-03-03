@@ -21,18 +21,18 @@ public extension Headers.ApplicationType {
 }
 
 public extension Headers {
-
-    static var jsonApiRequestHeaders: HTTPHeaders {
+    
+    static var jsonApiRequestHeaders: [HTTPHeader] {
         return [
-            Key.contentType: ApplicationType.jsonApi,
-            Key.accept: ApplicationType.jsonApi
+            .contentType(ApplicationType.jsonApi),
+            .accept(ApplicationType.jsonApi)
         ]
     }
     
-    static var combinedJsonApiRequestHeaders: HTTPHeaders {
+    static var combinedJsonApiRequestHeaders: [HTTPHeader] {
         return [
-            Key.contentType: ApplicationType.jsonApi,
-            Key.accept: "\(ApplicationType.jsonApi), \(ApplicationType.json)"
+            .contentType(ApplicationType.jsonApi),
+            .accept("\(ApplicationType.jsonApi), \(ApplicationType.json)")
         ]
     }
 

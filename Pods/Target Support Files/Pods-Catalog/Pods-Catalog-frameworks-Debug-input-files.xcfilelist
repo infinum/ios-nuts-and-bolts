@@ -1,6 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-Catalog/Pods-Catalog-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${BUILT_PRODUCTS_DIR}/CodableAlamofire/CodableAlamofire.framework
 ${BUILT_PRODUCTS_DIR}/Japx/Japx.framework
 ${BUILT_PRODUCTS_DIR}/Loggie/Loggie.framework
 ${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework

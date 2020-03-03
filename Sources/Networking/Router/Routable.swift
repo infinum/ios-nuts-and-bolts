@@ -11,7 +11,7 @@ import Alamofire
 /// Defines all data needed for making an API request
 public protocol Routable: URLRequestConvertible {
 
-    /// Base API url, e.g.: *https://www.google.com*
+    /// Base API url, e.g.:  https://www.google.com
     var baseUrl: String { get }
 
     /// Path to requested resource, e.g.: /text
@@ -31,7 +31,7 @@ public protocol Routable: URLRequestConvertible {
 public extension Routable {
 
     func asURLRequest() throws -> URLRequest {
-        let url = try _pathUrl()
+        let url = try pathUrl()
         var request = try URLRequest(url: url, method: method, headers: headers)
         try encodableParams.forEach { request = try $0.encode(request) }
         return request
@@ -41,7 +41,7 @@ public extension Routable {
 
 private extension Routable {
 
-    func _pathUrl() throws -> URL {
+    func pathUrl() throws -> URL {
         /// Fully specified path wih base URL
         if path.starts(with: "http") {
             return try path.asURL()

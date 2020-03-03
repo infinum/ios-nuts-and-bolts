@@ -13,7 +13,8 @@ public class Log: NSObject {
     static let dataDecoders: [DataDecoder] = [
         JSONDataDecoder(),
         PlainTextDataDecoder(),
-        ImageDataDecoder()
+        ImageDataDecoder(),
+        DefaultDecoder()
     ]
 
     public var request: URLRequest

@@ -73,8 +73,8 @@ func requestJSONAPI<T: Decodable>(
     keyPath: String? = nil,
     decoder: JapxDecoder = JapxDecoder(jsonDecoder: .init()),
     router: Routable,
-    sessionManager: SessionManager,
-    completion: @escaping (Result<T>) -> ()
+    session: Session,
+    completion: @escaping (AFResult<T>) -> ()
     ) -> DataRequest {
         return sessionManager
         .request(router)
@@ -96,7 +96,7 @@ func updateUser(
     id: String, 
     email: String?, 
     username: String?, 
-    completion: @escaping (Result<PokedexUser>) -> Void
+    completion: @escaping (AFResult<PokedexUser>) -> Void
 ) -> DataRequest {
     let router = PokedexRouter.updateUser(id: id, email: email, username: username)
 
@@ -105,7 +105,7 @@ func updateUser(
             PokedexUser.self,
             keyPath: "data",
             router: router,
-            sessionManager: sessionManager,
+            session: session,
             completion: completion
     )
 }
