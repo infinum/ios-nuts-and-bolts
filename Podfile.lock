@@ -19,9 +19,9 @@ PODS:
   - MBProgressHUD (1.2.0)
   - Nimble (8.0.5)
   - Quick (2.2.0)
-  - RxBlocking (5.0.1):
+  - RxBlocking (5.1.0):
     - RxSwift (~> 5)
-  - RxCocoa (5.0.1):
+  - RxCocoa (5.1.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
   - RxNimble (4.7.0):
@@ -32,10 +32,10 @@ PODS:
   - RxNimble/RxBlocking (4.7.0):
     - RxBlocking
     - RxNimble/Core
-  - RxRelay (5.0.1):
+  - RxRelay (5.1.0):
     - RxSwift (~> 5)
-  - RxSwift (5.0.1)
-  - RxTest (5.0.1):
+  - RxSwift (5.1.0)
+  - RxTest (5.1.0):
     - RxSwift (~> 5)
   - "SwiftI18n/I18n+Case (1.2.1)"
 
@@ -75,12 +75,12 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
-  RxBlocking: c5e090f42d046df8b0e7752742510f349963710f
-  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxBlocking: 5ef131267220f92ef68531dd6afeaf407cd6b41a
+  RxCocoa: 13d2a4d7546a34b8ececae8c281e4ea1dbb94f2b
   RxNimble: aced90abeb480864fc25da9aeeaefc0b595b8bee
-  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
-  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
-  RxTest: 0132f952a61da82d5233abedaa559df91e5330e5
+  RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
+  RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
+  RxTest: d5e1c9c1880de2751041fa485d476ce006967b31
   SwiftI18n: 67d3b531548924f5a562660e938d76f42e6493f7
 
 PODFILE CHECKSUM: 97e4aba19d6468fc2986a4f313cd8fce4d8dc31f
