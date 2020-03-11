@@ -133,4 +133,18 @@ extension TableDataSourceDelegate: UITableViewDelegate {
         sections?[indexPath].didSelect(at: indexPath)
     }
     
+    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return (sections?[indexPath].canDelete ?? false) ? .delete : .none
+    }
+    
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard
+            editingStyle == .delete,
+            let item = sections?[indexPath],
+            item.canDelete
+            else { return }
+        
+        item.didDelete(at: indexPath)
+    }
+    
 }
