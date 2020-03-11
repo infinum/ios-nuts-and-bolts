@@ -36,7 +36,7 @@ public protocol TableCellItem: CellItem {
     /// `UITableView.automaticDimension` in order to use estimated height
     var estimatedHeight: CGFloat { get }
     
-    /// Tells the table cell whether this item can be deleted by swiping.
+    /// Tells the table view whether this item can be deleted by swiping.
     var canDelete: Bool { get }
 
     /// Notifies cell item when user selects table view cell.
