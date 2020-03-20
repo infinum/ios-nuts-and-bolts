@@ -16,18 +16,16 @@ public extension APIServiceable {
         _: T.Type,
         includeList: String? = nil,
         keyPath: String? = nil,
-        decoder: JSONDecoder = JSONDecoder(),
+        decoder: JapxDecoder = JapxDecoder(jsonDecoder: .init()),
         router: Routable,
-        sessionManager: SessionManager,
-        completion: @escaping (Result<T>) -> ()
+        session: Session,
+        completion: @escaping (AFResult<T>) -> ()
     ) -> DataRequest {
-        return sessionManager
-            .request(router)
-            .validate()
+        return prepareRequest(for: router, session: session)
             .responseCodableJSONAPI(
                 includeList: includeList,
                 keyPath: keyPath,
-                decoder: JapxDecoder(jsonDecoder: decoder),
+                decoder: decoder,
                 completionHandler: { completion($0.result) }
             )
     }
@@ -40,28 +38,21 @@ public extension Reactive where Base: APIServiceable {
         _: T.Type,
         includeList: String? = nil,
         keyPath: String? = nil,
-        decoder: JSONDecoder = JSONDecoder(),
+        decoder: JapxDecoder = JapxDecoder(jsonDecoder: .init()),
         router: Routable,
-        sessionManager: SessionManager
+        session: Session
     ) -> Single<T> {
-        return Single<T>
-            .create { [weak base] single -> Disposable in
-                let processResult = { (result: Result<T>) in
-                    single(result.mapToRxSingleEvent())
-                }
-                
-                let request = base?
-                    .requestJSONAPI(
-                        T.self,
-                        includeList: includeList,
-                        keyPath: keyPath,
-                        decoder: decoder,
-                        router: router,
-                        sessionManager: sessionManager,
-                        completion: processResult
-                    )
-                
-                return Disposables.create { request?.cancel() }
+        return Single<T>.create { [weak base] single -> Disposable in
+            let request = base?.requestJSONAPI(
+                T.self,
+                includeList: includeList,
+                keyPath: keyPath,
+                decoder: decoder,
+                router: router,
+                session: session,
+                completion: { single($0.toSingleEvent) }
+            )
+            return Disposables.create { request?.cancel() }
         }
     }
 

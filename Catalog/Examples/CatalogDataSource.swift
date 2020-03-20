@@ -62,7 +62,8 @@ private extension CatalogDataSource {
     func _networkingItems() -> [Catalogizable.Type] {
         return [
             NetworkingViewController.self,
-            RxNetworkingViewController.self
+            RxNetworkingViewController.self,
+            NetworkingJapxViewController.self
         ]
     }
 

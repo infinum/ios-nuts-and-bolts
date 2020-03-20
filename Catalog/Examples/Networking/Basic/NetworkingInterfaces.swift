@@ -20,5 +20,5 @@ protocol NetworkingPresenterInterface: PresenterInterface {
 }
 
 protocol NetworkingInteractorInterface: InteractorInterface {
-    func login(email: String, password: String, completion: @escaping (Result<Void>) -> Void)
+    func login(email: String, password: String, completion: @escaping (AFResult<Void>) -> Void)
 }

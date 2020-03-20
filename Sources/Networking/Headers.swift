@@ -10,15 +10,6 @@ import Alamofire
 
 public enum Headers {
 
-    public enum Key {
-        /// Content-Type header key
-        public static let contentType = "Content-Type"
-        /// Accept header key
-        public static let accept = "Accept"
-        /// Authorization
-        public static let authorization = "Authorization"
-    }
-
     public enum ApplicationType {
         /// JSON application type value
         public static let json = "application/json"
@@ -30,10 +21,10 @@ public enum Headers {
 
 public extension Headers {
 
-    static var jsonRequestHeaders: HTTPHeaders {
+    static var jsonRequestHeaders: [HTTPHeader] {
         return [
-            Key.contentType: ApplicationType.json,
-            Key.accept: ApplicationType.json
+            .contentType(ApplicationType.json),
+            .accept(ApplicationType.json)
         ]
     }
 

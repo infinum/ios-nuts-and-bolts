@@ -7,9 +7,7 @@ def ui
 end
 
 def networking
-  pod 'Alamofire'
   pod 'Loggie'
-  pod 'CodableAlamofire'
   pod 'Japx/RxCodableAlamofire'
 end
 

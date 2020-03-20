@@ -114,7 +114,7 @@ private extension RxPagingViewController {
                 .rx.request(
                     PokemonsPage.self,
                     router: router,
-                    sessionManager: SessionManager.default
+                    session: Session.default
                 )
         }
 
