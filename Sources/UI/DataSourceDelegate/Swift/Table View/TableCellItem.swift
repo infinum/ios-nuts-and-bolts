@@ -36,11 +36,18 @@ public protocol TableCellItem: CellItem {
     /// `UITableView.automaticDimension` in order to use estimated height
     var estimatedHeight: CGFloat { get }
     
-    
+    /// Tells the table view whether this item can be deleted by swiping.
+    var canDelete: Bool { get }
+
     /// Notifies cell item when user selects table view cell.
     ///
     /// - Parameter indexPath: index path of a selected cell
     func didSelect(at indexPath: IndexPath)
+    
+    /// Notifies cell item when user deletes the table view cell.
+    ///
+    /// - Parameter indexPath: index path of a deleted cell
+    func didDelete(at indexPath: IndexPath)
     
 }
 
@@ -54,7 +61,13 @@ public extension TableCellItem {
         return 44
     }
     
+    var canDelete: Bool { false }
+    
     func didSelect(at indexPath: IndexPath) {
+        // Empty implementation
+    }
+    
+    func didDelete(at indexPath: IndexPath) {
         // Empty implementation
     }
     
