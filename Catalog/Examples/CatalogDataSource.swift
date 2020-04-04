@@ -40,7 +40,8 @@ private extension CatalogDataSource {
             RoundCornersViewController.self,
             UIViewModifiersViewController.self,
             ImageFromColorViewController.self,
-            CatalogNavigationController.self
+            CatalogNavigationController.self,
+            ToggleViewController.self
         ]
     }
 
