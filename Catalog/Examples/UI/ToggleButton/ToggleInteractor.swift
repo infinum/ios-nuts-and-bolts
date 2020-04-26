@@ -15,7 +15,9 @@ final class ToggleInteractor {}
 extension ToggleInteractor: ToggleInteractorInterface {
 
     func changeFollowStatus(from toggleState: ToggleState) -> Single<ToggleState> {
-        Single.just(toggleState.toggleActivity()).delay(.seconds(1), scheduler: MainScheduler.instance)
+        Single
+            .just(toggleState.toggleActivity())
+            .delay(.seconds(1), scheduler: MainScheduler.instance)
 
     }
 }

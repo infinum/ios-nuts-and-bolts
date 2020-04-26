@@ -41,7 +41,9 @@ private extension ToggleViewController {
         let output = Toggle.ViewOutput(currentState: followButton.tap)
         let input = presenter.configure(with: output)
 
-        followButton.setup(with: input.newState).disposed(by: disposeBag)
+        followButton
+            .setup(with: input.newState)
+            .disposed(by: disposeBag)
     }
 }
 

@@ -16,12 +16,19 @@ import UIKit
 
     // MARK: - Private properties -
 
-    private var activityIndicator: UIActivityIndicatorView!
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .white)
+        addSubview(activityIndicator)
+        return activityIndicator
+    }()
 
     // MARK: - Lifecycle -
 
-    override func awakeFromNib() {
-        configureActivityIndicator()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let buttonHeight = bounds.size.height
+        let buttonWidth = bounds.size.width
+        activityIndicator.center = CGPoint(x: buttonWidth / 2, y: buttonHeight / 2)
     }
 }
 
@@ -46,16 +53,5 @@ extension FollowButton: Togglable {
             setTitle("", for: .normal)
             activityIndicator.startAnimating()
         }
-    }
-}
-
-private extension FollowButton {
-
-    func configureActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(style: .white)
-        let buttonHeight = bounds.size.height
-        let buttonWidth = bounds.size.width
-        activityIndicator.center = CGPoint(x: buttonWidth / 2, y: buttonHeight / 2)
-        addSubview(activityIndicator)
     }
 }

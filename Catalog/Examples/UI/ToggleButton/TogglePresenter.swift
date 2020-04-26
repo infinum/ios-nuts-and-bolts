@@ -32,16 +32,18 @@ final class TogglePresenter {
 extension TogglePresenter: TogglePresenterInterface {
 
     func configure(with output: Toggle.ViewOutput) -> Toggle.ViewInput {
-        let relay = PublishRelay<ToggleState>()
+        let progressRelay = PublishRelay<ToggleState>()
 
         let tap = output.currentState
             .filter { $0 != .inProgress }
-            .do(onNext: { _ in relay.accept(.inProgress) })
+            .do(onNext: { _ in progressRelay.accept(.inProgress) })
             .flatMapLatest { [unowned interactor] in
-                interactor.changeFollowStatus(from: $0).asDriver(onErrorJustReturn: $0)
+                interactor
+                    .changeFollowStatus(from: $0)
+                    .asDriver(onErrorJustReturn: $0)
             }
 
-        let newState = Driver.merge(relay.asDriver(onErrorDriveWith: .empty()), tap)
+        let newState = Driver.merge(progressRelay.asDriver(onErrorDriveWith: .empty()), tap)
         return Toggle.ViewInput(newState: newState)
     }
 }
