@@ -183,6 +183,14 @@
 		C2220327236B1D7900C11B2E /* NSDate+AdditionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2220326236B1D7900C11B2E /* NSDate+AdditionTests.m */; };
 		C226BFFA2396718800B1E10A /* PokedexAuthAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226BFF92396718800B1E10A /* PokedexAuthAdapter.swift */; };
 		C226C0022396A8C400B1E10A /* NetworkingJapx.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C226C0012396A8C400B1E10A /* NetworkingJapx.storyboard */; };
+		CC80F7182438B51A00A3F276 /* UIButton+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80F7172438B51A00A3F276 /* UIButton+Toggle.swift */; };
+		CC80F71B2438C53400A3F276 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80F71A2438C53400A3F276 /* FollowButton.swift */; };
+		CC80F71D2438C7C700A3F276 /* ToggleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80F71C2438C7C700A3F276 /* ToggleViewController.swift */; };
+		CC80F71F2438C7DC00A3F276 /* TogglePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80F71E2438C7DC00A3F276 /* TogglePresenter.swift */; };
+		CC80F7212438CABF00A3F276 /* ToggleInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80F7202438CABF00A3F276 /* ToggleInterfaces.swift */; };
+		CC80F7232438DAEC00A3F276 /* ToggleWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80F7222438DAEC00A3F276 /* ToggleWireframe.swift */; };
+		CC80F7252438DB4B00A3F276 /* ToggleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80F7242438DB4B00A3F276 /* ToggleInteractor.swift */; };
+		CC80F72A2438E3EB00A3F276 /* ToggleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC80F7292438E3EB00A3F276 /* ToggleViewController.storyboard */; };
 		D70CF64A22D7757E00A267C8 /* NSArrayTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D70CF64922D7757E00A267C8 /* NSArrayTestModel.m */; };
 		D737030D2316A06000D7A986 /* UIColor+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737030C2316A06000D7A986 /* UIColor+UIImage.swift */; };
 		D73703102316A34800D7A986 /* ImageFromColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737030F2316A34800D7A986 /* ImageFromColorViewController.swift */; };
@@ -406,6 +414,14 @@
 		C2220326236B1D7900C11B2E /* NSDate+AdditionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+AdditionTests.m"; sourceTree = "<group>"; };
 		C226BFF92396718800B1E10A /* PokedexAuthAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexAuthAdapter.swift; sourceTree = "<group>"; };
 		C226C0012396A8C400B1E10A /* NetworkingJapx.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NetworkingJapx.storyboard; sourceTree = "<group>"; };
+		CC80F7172438B51A00A3F276 /* UIButton+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Toggle.swift"; sourceTree = "<group>"; };
+		CC80F71A2438C53400A3F276 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
+		CC80F71C2438C7C700A3F276 /* ToggleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleViewController.swift; sourceTree = "<group>"; };
+		CC80F71E2438C7DC00A3F276 /* TogglePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglePresenter.swift; sourceTree = "<group>"; };
+		CC80F7202438CABF00A3F276 /* ToggleInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleInterfaces.swift; sourceTree = "<group>"; };
+		CC80F7222438DAEC00A3F276 /* ToggleWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleWireframe.swift; sourceTree = "<group>"; };
+		CC80F7242438DB4B00A3F276 /* ToggleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleInteractor.swift; sourceTree = "<group>"; };
+		CC80F7292438E3EB00A3F276 /* ToggleViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ToggleViewController.storyboard; sourceTree = "<group>"; };
 		D70CF64822D7757E00A267C8 /* NSArrayTestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSArrayTestModel.h; sourceTree = "<group>"; };
 		D70CF64922D7757E00A267C8 /* NSArrayTestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSArrayTestModel.m; sourceTree = "<group>"; };
 		D737030C2316A06000D7A986 /* UIColor+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+UIImage.swift"; sourceTree = "<group>"; };
@@ -489,6 +505,7 @@
 		0A0ECF562207022200C1853E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CC80F7192438C45200A3F276 /* ToggleButton */,
 				063B5A982317F622003A7B84 /* Interactive UINavigationController */,
 				D737030E2316A30300D7A986 /* Image From Color */,
 				0612E33A22D32A360081BCF6 /* UIView Modifiers */,
@@ -972,6 +989,7 @@
 		0AD9EAC22204274300FF3F2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CC80F7162438B4F900A3F276 /* UIButton */,
 				0A1DFE62236EFA3D000F2538 /* UIScrollView */,
 				06B602AF2317C42F001A295B /* UINavigationController */,
 				0A0ECF64220773CD00C1853E /* UIAlertController */,
@@ -1528,6 +1546,28 @@
 			path = Adapters;
 			sourceTree = "<group>";
 		};
+		CC80F7162438B4F900A3F276 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				CC80F7172438B51A00A3F276 /* UIButton+Toggle.swift */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		CC80F7192438C45200A3F276 /* ToggleButton */ = {
+			isa = PBXGroup;
+			children = (
+				CC80F71A2438C53400A3F276 /* FollowButton.swift */,
+				CC80F7242438DB4B00A3F276 /* ToggleInteractor.swift */,
+				CC80F71C2438C7C700A3F276 /* ToggleViewController.swift */,
+				CC80F7222438DAEC00A3F276 /* ToggleWireframe.swift */,
+				CC80F71E2438C7DC00A3F276 /* TogglePresenter.swift */,
+				CC80F7202438CABF00A3F276 /* ToggleInterfaces.swift */,
+				CC80F7292438E3EB00A3F276 /* ToggleViewController.storyboard */,
+			);
+			path = ToggleButton;
+			sourceTree = "<group>";
+		};
 		D70CF64B22D7758500A267C8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1640,6 +1680,7 @@
 				0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */,
 				0612E33C22D32A540081BCF6 /* UIViewModifiers.storyboard in Resources */,
 				C2023276239546F900DC3C42 /* README.MD in Resources */,
+				CC80F72A2438E3EB00A3F276 /* ToggleViewController.storyboard in Resources */,
 				C226C0022396A8C400B1E10A /* NetworkingJapx.storyboard in Resources */,
 				0AD9EA9B2204218800FF3F2C /* Assets.xcassets in Resources */,
 			);
@@ -1744,6 +1785,7 @@
 				0A1FAFFC2406BDB6000F72D6 /* URLRequest+Alamofire.swift in Sources */,
 				063B5AA62317F64D003A7B84 /* BasicViewController.swift in Sources */,
 				0A1FB0022406C015000F72D6 /* HTTPURLResponse+LogRepresentation.swift in Sources */,
+				CC80F71D2438C7C700A3F276 /* ToggleViewController.swift in Sources */,
 				0AA45E7F22188A80009CF93E /* TokenAdapter.swift in Sources */,
 				0A1DFE5E236EF5B4000F2538 /* PokemonTableViewCell.swift in Sources */,
 				D73703102316A34800D7A986 /* ImageFromColorViewController.swift in Sources */,
@@ -1755,16 +1797,19 @@
 				0AB524122210AECB00F35F52 /* Parameters+Include.swift in Sources */,
 				0A1DFE52236EE90B000F2538 /* Paging.swift in Sources */,
 				0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */,
+				CC80F71F2438C7DC00A3F276 /* TogglePresenter.swift in Sources */,
 				063B5AA82317F64D003A7B84 /* WithoutBackViewController.swift in Sources */,
 				0A1DFE64236EFA78000F2538 /* UIScrollView+BottomDetection.swift in Sources */,
 				0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */,
 				A8FD60EB2292AE2C00FB50CE /* BaseTableSection.m in Sources */,
+				CC80F71B2438C53400A3F276 /* FollowButton.swift in Sources */,
 				0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */,
 				0AB524182210AF9A00F35F52 /* Parameters+Filter.swift in Sources */,
 				0612E33F22D32A750081BCF6 /* UIViewModifiersViewController.swift in Sources */,
 				0A1FAFF92406BB6F000F72D6 /* SessionManager.swift in Sources */,
 				0AB524222210B3CB00F35F52 /* URL+Append.swift in Sources */,
 				0A1DFE4F236EE8C5000F2538 /* Signal+Utility.swift in Sources */,
+				CC80F7182438B51A00A3F276 /* UIButton+Toggle.swift in Sources */,
 				0A0F24492247D9DC0005CF41 /* APIService+Rx.swift in Sources */,
 				0A603FEB220798D800F25622 /* Observable+Progressable.swift in Sources */,
 				C202327D23954DB400DC3C42 /* NetworkingJapxPresenter.swift in Sources */,
@@ -1780,6 +1825,7 @@
 				C202327F23954DB400DC3C42 /* NetworkingJapxInteractor.swift in Sources */,
 				0AA45E772218880A009CF93E /* JapxResponse.swift in Sources */,
 				C202328023954DB400DC3C42 /* NetworkingJapxWireframe.swift in Sources */,
+				CC80F7232438DAEC00A3F276 /* ToggleWireframe.swift in Sources */,
 				0A54435522718A8F00F26468 /* NetworkingInterfaces.swift in Sources */,
 				0AB5240D2210AE4E00F35F52 /* Headers.swift in Sources */,
 				0AB524082210A45400F35F52 /* CollectionViewReloader.swift in Sources */,
@@ -1827,6 +1873,7 @@
 				0A1DFE5C236EF5B4000F2538 /* Pokemon.swift in Sources */,
 				0AE0B76E220467F80033A476 /* CatalogItemTableViewCell.swift in Sources */,
 				063B5AA52317F64D003A7B84 /* CatalogNavigationController.swift in Sources */,
+				CC80F7212438CABF00A3F276 /* ToggleInterfaces.swift in Sources */,
 				0A1FB0032406C015000F72D6 /* URLRequest+LogRepresentation.swift in Sources */,
 				0A40C5C42212EC29007AFC6C /* URLQueryItemsEncoding.swift in Sources */,
 				0AD9EAC62204274300FF3F2C /* PresenterInterface.swift in Sources */,
@@ -1864,6 +1911,7 @@
 				06B602B12317C45A001A295B /* InteractiveNavigationController.swift in Sources */,
 				0A0ECF602207720100C1853E /* Refreshable.swift in Sources */,
 				0AD9EAC92204274300FF3F2C /* UIStoryboard+Instantiate.swift in Sources */,
+				CC80F7252438DB4B00A3F276 /* ToggleInteractor.swift in Sources */,
 				60471281222679BC00809454 /* UIColor+InitHelper.swift in Sources */,
 				0AE0B759220435FA0033A476 /* TableDataSourceDelegate.swift in Sources */,
 				0AE0B77D2204803D0033A476 /* String+Blank.swift in Sources */,
