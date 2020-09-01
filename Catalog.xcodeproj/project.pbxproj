@@ -14,6 +14,8 @@
 		063B5AA72317F64D003A7B84 /* InteractiveNavigationExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 063B5AA32317F64D003A7B84 /* InteractiveNavigationExample.storyboard */; };
 		063B5AA82317F64D003A7B84 /* WithoutBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063B5AA42317F64D003A7B84 /* WithoutBackViewController.swift */; };
 		064B18FB22DF47AD001D4489 /* UIView+LayerModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064B18FA22DF47AD001D4489 /* UIView+LayerModifiers.swift */; };
+		066C78A824FE6BC6000AC617 /* UserDefaults+PropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066C78A724FE6BC6000AC617 /* UserDefaults+PropertyWrapper.swift */; };
+		066C78AB24FE6C39000AC617 /* UserDefaults+PropertyWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066C78AA24FE6C39000AC617 /* UserDefaults+PropertyWrapperTests.swift */; };
 		06B602B12317C45A001A295B /* InteractiveNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B602B02317C45A001A295B /* InteractiveNavigationController.swift */; };
 		0A0C8CFE22492E2C0071011F /* EncodableParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C8CFD22492E2C0071011F /* EncodableParams.swift */; };
 		0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0ECF502206FED800C1853E /* RatioPresentationController.swift */; };
@@ -214,6 +216,8 @@
 		063B5AA32317F64D003A7B84 /* InteractiveNavigationExample.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InteractiveNavigationExample.storyboard; sourceTree = "<group>"; };
 		063B5AA42317F64D003A7B84 /* WithoutBackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithoutBackViewController.swift; sourceTree = "<group>"; };
 		064B18FA22DF47AD001D4489 /* UIView+LayerModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayerModifiers.swift"; sourceTree = "<group>"; };
+		066C78A724FE6BC6000AC617 /* UserDefaults+PropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PropertyWrapper.swift"; sourceTree = "<group>"; };
+		066C78AA24FE6C39000AC617 /* UserDefaults+PropertyWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PropertyWrapperTests.swift"; sourceTree = "<group>"; };
 		06B602B02317C45A001A295B /* InteractiveNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveNavigationController.swift; sourceTree = "<group>"; };
 		0A0C8CFD22492E2C0071011F /* EncodableParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableParams.swift; sourceTree = "<group>"; };
 		0A0ECF502206FED800C1853E /* RatioPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatioPresentationController.swift; sourceTree = "<group>"; };
@@ -475,6 +479,22 @@
 				063B5AA42317F64D003A7B84 /* WithoutBackViewController.swift */,
 			);
 			path = "Interactive UINavigationController";
+			sourceTree = "<group>";
+		};
+		066C78A624FE6BA7000AC617 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				066C78A724FE6BC6000AC617 /* UserDefaults+PropertyWrapper.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		066C78A924FE6BF7000AC617 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				066C78AA24FE6C39000AC617 /* UserDefaults+PropertyWrapperTests.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		06B602AF2317C42F001A295B /* UINavigationController */ = {
@@ -1106,6 +1126,7 @@
 		0AE0B7722204772B0033A476 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				066C78A624FE6BA7000AC617 /* UserDefaults */,
 				0A1FAFEF2406B6A0000F72D6 /* Result */,
 				C2220311236AE7EF00C11B2E /* NSDate */,
 				4F286F982291E60E00935FD3 /* NSSequence */,
@@ -1146,6 +1167,7 @@
 		0AE0B77A220478500033A476 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				066C78A924FE6BF7000AC617 /* UserDefaults */,
 				C2220323236B1C9200C11B2E /* NSDate */,
 				4F14006E228A00DC0005F37A /* NSArray */,
 				4F286F822291DFEE00935FD3 /* NSMutableArray */,
@@ -1912,6 +1934,7 @@
 				0A0ECF602207720100C1853E /* Refreshable.swift in Sources */,
 				0AD9EAC92204274300FF3F2C /* UIStoryboard+Instantiate.swift in Sources */,
 				CC80F7252438DB4B00A3F276 /* ToggleInteractor.swift in Sources */,
+				066C78A824FE6BC6000AC617 /* UserDefaults+PropertyWrapper.swift in Sources */,
 				60471281222679BC00809454 /* UIColor+InitHelper.swift in Sources */,
 				0AE0B759220435FA0033A476 /* TableDataSourceDelegate.swift in Sources */,
 				0AE0B77D2204803D0033A476 /* String+Blank.swift in Sources */,
@@ -1956,6 +1979,7 @@
 				536E5AE3225F387F00EF01A6 /* Collection+GroupingTests.swift in Sources */,
 				536E5AD9225F311600EF01A6 /* String+SubstringTests.swift in Sources */,
 				0A1DFE55236EEA0B000F2538 /* PagingTests.swift in Sources */,
+				066C78AB24FE6C39000AC617 /* UserDefaults+PropertyWrapperTests.swift in Sources */,
 				60B4BDF22243AC7000849B8D /* Array+SafeGetTests.swift in Sources */,
 				0AE0B78722049CBD0033A476 /* ClosedRange+ScalableTests.swift in Sources */,
 				0AE0B77F220481C50033A476 /* String+BlankTests.swift in Sources */,
