@@ -35,10 +35,9 @@ struct Storage<Value, StoredValue> {
         set (newValue) {
             let toStore = set(newValue)
             switch toStore as Any {
-                case Swift.Optional<Any>.none:
+                case Optional<Any>.none:
                     userDefaults.removeObject(forKey: key)
-                // swiftlint:disable:next syntactic_sugar
-                case Swift.Optional<Any>.some(let value):
+                case Optional<Any>.some(let value):
                     userDefaults.set(value, forKey: key)
                 default:
                     userDefaults.set(toStore, forKey: key)
@@ -49,13 +48,12 @@ struct Storage<Value, StoredValue> {
 
 extension Storage where Value: RawRepresentable, Value.RawValue == StoredValue {
 
-    init(_ key: String, defaultValue: Value, userDefaults: UserDefaults = .standard) {
+    init(rawRepresentable key: String, defaultValue: Value, userDefaults: UserDefaults = .standard) {
         self.init(
             key,
             defaultValue: defaultValue,
-            get: { return Value.init(rawValue: $0) ?? defaultValue },
-            set: { return $0.rawValue }
-        )
+            get: { return Value(rawValue: $0) ?? defaultValue },
+            set: { return $0.rawValue })
     }
 }
 
@@ -92,7 +90,7 @@ extension Storage where Value: Codable, StoredValue == Data? {
                     return defaultValue
                 }
                 return (try? decoder.decode(Value.self, from: storedData)) ?? defaultValue
-        },
+            },
             set: { return try? encoder.encode($0) }
         )
     }
@@ -105,7 +103,7 @@ extension Storage where Value: Codable, StoredValue == Data? {
             get: {
                 guard let storedData = $0 else { return nil }
                 return try? decoder.decode(Value.self, from: storedData)
-        },
+            },
             set: { return try? encoder.encode($0) }
         )
     }

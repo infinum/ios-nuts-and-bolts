@@ -56,18 +56,18 @@ class UserDefaults_PropertyWrapperTests: QuickSpec {
                 expect(StoreTest.optionalIntValue).to(beNil())
             }
 
-            it("should return int for default non optional") {
+            it("should return int for default non-optional") {
                 expect(StoreTest.nonOptionalDefaultIntValue).to(equal(100))
             }
 
             it("should return int for stored in optional") {
-                StoreTest.nonOptionalIntValue = 2
-                expect(StoreTest.nonOptionalIntValue).to(equal(2))
+                StoreTest.optionalIntValue = 2
+                expect(StoreTest.optionalIntValue).to(equal(2))
             }
 
             it("should return int for stored in non-optional") {
-                StoreTest.optionalIntValue = 2
-                expect(StoreTest.optionalIntValue).to(equal(2))
+                StoreTest.nonOptionalIntValue = 2
+                expect(StoreTest.nonOptionalIntValue).to(equal(2))
             }
 
             it("should return nil for removed value") {
@@ -83,18 +83,18 @@ class UserDefaults_PropertyWrapperTests: QuickSpec {
                 expect(StoreTest.optionalFloatValue).to(beNil())
             }
 
-            it("should return float for default non optional") {
+            it("should return float for default non-optional") {
                 expect(StoreTest.nonOptionalDefaultFloatValue).to(equal(10.0))
             }
 
             it("should return float for stored in optional") {
-                StoreTest.nonOptionalFloatValue = 15.0
-                expect(StoreTest.nonOptionalFloatValue).to(equal(15.0))
+                StoreTest.optionalFloatValue = 15.0
+                expect(StoreTest.optionalFloatValue).to(equal(15.0))
             }
 
             it("should return float for stored in non-optional") {
-                StoreTest.optionalFloatValue = 20.0
-                expect(StoreTest.optionalFloatValue).to(equal(20.0))
+                StoreTest.nonOptionalFloatValue = 20.0
+                expect(StoreTest.nonOptionalFloatValue).to(equal(20.0))
             }
 
             it("should return nil for removed value") {
@@ -110,18 +110,18 @@ class UserDefaults_PropertyWrapperTests: QuickSpec {
                 expect(StoreTest.optionalDoubleValue).to(beNil())
             }
 
-            it("should return double for default non optional") {
+            it("should return double for default non-optional") {
                 expect(StoreTest.nonOptionalDefaultDoubleValue).to(equal(10.0))
             }
 
             it("should return double for stored in optional") {
-                StoreTest.nonOptionalDoubleValue = 15.0
-                expect(StoreTest.nonOptionalDoubleValue).to(equal(15.0))
+                StoreTest.optionalDoubleValue = 15.0
+                expect(StoreTest.optionalDoubleValue).to(equal(15.0))
             }
 
             it("should return double for stored in non-optional") {
-                StoreTest.optionalDoubleValue = 20.0
-                expect(StoreTest.optionalDoubleValue).to(equal(20.0))
+                StoreTest.nonOptionalDoubleValue = 20.0
+                expect(StoreTest.nonOptionalDoubleValue).to(equal(20.0))
             }
 
             it("should return nil for removed value") {
@@ -137,18 +137,18 @@ class UserDefaults_PropertyWrapperTests: QuickSpec {
                 expect(StoreTest.optionalStringValue).to(beNil())
             }
 
-            it("should return string for default non optional") {
+            it("should return string for default non-optional") {
                 expect(StoreTest.nonOptionalDefaultStringValue).to(equal("Default value"))
             }
 
             it("should return string for stored in optional") {
-                StoreTest.nonOptionalStringValue = "123ABC"
-                expect(StoreTest.nonOptionalStringValue).to(equal("123ABC"))
+                StoreTest.optionalStringValue = "123ABC"
+                expect(StoreTest.optionalStringValue).to(equal("123ABC"))
             }
 
             it("should return string for stored in non-optional") {
-                StoreTest.optionalStringValue = "ABC123"
-                expect(StoreTest.optionalStringValue).to(equal("ABC123"))
+                StoreTest.nonOptionalStringValue = "ABC123"
+                expect(StoreTest.nonOptionalStringValue).to(equal("ABC123"))
             }
 
             it("should return nil for removed value") {
@@ -158,10 +158,96 @@ class UserDefaults_PropertyWrapperTests: QuickSpec {
             }
         }
 
+        describe("testing codable value storing") {
+
+            it("should return nil for default option") {
+                expect(StoreTest.optionalCodableValue).to(beNil())
+            }
+
+            it("should return stored data for default non-optional") {
+                expect(StoreTest.nonOptionalDefaultCodableValue.testValue).to(equal("default data"))
+            }
+
+            it("should return stored data for stored in optional") {
+                StoreTest.optionalCodableValue = TestData(testValue: "Test data")
+                expect(StoreTest.optionalCodableValue?.testValue).to(equal("Test data"))
+            }
+
+            it("should return stored data for stored in non-optional") {
+                StoreTest.nonOptionalCodableValue = TestData(testValue: "Test data 2")
+                expect(StoreTest.nonOptionalCodableValue.testValue).to(equal("Test data 2"))
+            }
+
+            it("should return nil for removed value") {
+                StoreTest.optionalCodableValue = TestData(testValue: "")
+                StoreTest.optionalCodableValue = nil
+                expect(StoreTest.optionalCodableValue).to(beNil())
+            }
+        }
+
+        describe("testing codable value storing") {
+
+            it("should return nil for default option") {
+                expect(StoreTest.optionalCodableValue).to(beNil())
+            }
+
+            it("should return stored data for default non-optional") {
+                expect(StoreTest.nonOptionalDefaultCodableValue.testValue).to(equal("default data"))
+            }
+
+            it("should return stored data for stored in optional") {
+                StoreTest.optionalCodableValue = TestData(testValue: "Test data")
+                expect(StoreTest.optionalCodableValue?.testValue).to(equal("Test data"))
+            }
+
+            it("should return stored data for stored in non-optional") {
+                StoreTest.nonOptionalCodableValue = TestData(testValue: "Test data 2")
+                expect(StoreTest.nonOptionalCodableValue.testValue).to(equal("Test data 2"))
+            }
+
+            it("should return nil for removed value") {
+                StoreTest.optionalCodableValue = TestData(testValue: "")
+                StoreTest.optionalCodableValue = nil
+                expect(StoreTest.optionalCodableValue).to(beNil())
+            }
+        }
+
+        describe("testing raw representable value storing") {
+
+            it("should return stored data for default non-optional") {
+                expect(StoreTest.nonOptionalEnumDefaultValue.rawValue).to(equal(-1))
+            }
+
+            it("should return stored data for stored in non-optional") {
+                StoreTest.nonOptionalEnumValue = .one
+                expect(StoreTest.nonOptionalEnumValue.rawValue).to(equal(1))
+            }
+        }
     }
 }
 
 private extension UserDefaults_PropertyWrapperTests {
+
+    // Codable test data
+
+    struct TestData: Codable {
+        let testValue: String
+
+        static var `default`: TestData {
+            return TestData(testValue: "default data")
+        }
+    }
+
+    // RawRepresentable test data
+
+    enum Number {
+        case zero
+        case one
+        case two
+        case unknown
+    }
+
+    // Storage
 
     enum StoreTest {
 
@@ -199,6 +285,18 @@ private extension UserDefaults_PropertyWrapperTests {
         static var nonOptionalDefaultStringValue: String
         @Storage("optionalStringValue")
         static var optionalStringValue: String?
+
+        @Storage(codable: "nonOptionalCodableValue", defaultValue: TestData.default)
+        static var nonOptionalCodableValue: TestData
+        @Storage(codable: "nonOptionalDefaultCodableValue", defaultValue: TestData.default)
+        static var nonOptionalDefaultCodableValue: TestData
+        @Storage(codable: "optionalCodableValue")
+        static var optionalCodableValue: TestData?
+
+        @Storage(rawRepresentable: "nonOptionalEnumValue", defaultValue: Number.unknown)
+        static var nonOptionalEnumValue: Number
+        @Storage(rawRepresentable: "nonOptionalEnumDefaultValue", defaultValue: Number.unknown)
+        static var nonOptionalEnumDefaultValue: Number
     }
 
     static func clearStorage() {
@@ -207,5 +305,27 @@ private extension UserDefaults_PropertyWrapperTests {
         StoreTest.optionalFloatValue = nil
         StoreTest.optionalDoubleValue = nil
         StoreTest.optionalStringValue = nil
+        StoreTest.optionalCodableValue = nil
+    }
+}
+
+extension UserDefaults_PropertyWrapperTests.Number: RawRepresentable {
+
+    init(rawValue: Int) {
+        switch rawValue {
+            case 0: self = .zero
+            case 1: self = .one
+            case 2: self = .two
+            default: self = .unknown
+        }
+    }
+
+    var rawValue: Int {
+        switch self {
+            case .zero: return 0
+            case .one: return 1
+            case .two: return 2
+            case .unknown: return -1
+        }
     }
 }
