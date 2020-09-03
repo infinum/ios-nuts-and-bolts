@@ -293,9 +293,9 @@ private extension UserDefaults_PropertyWrapperTests {
         @Storage(codable: "optionalCodableValue")
         static var optionalCodableValue: TestData?
 
-        @Storage(rawRepresentable: "nonOptionalEnumValue", defaultValue: Number.unknown)
+        @Storage(rawRepresentable: "nonOptionalEnumValue", defaultValue: .unknown)
         static var nonOptionalEnumValue: Number
-        @Storage(rawRepresentable: "nonOptionalEnumDefaultValue", defaultValue: Number.unknown)
+        @Storage(rawRepresentable: "nonOptionalEnumDefaultValue", defaultValue: .unknown)
         static var nonOptionalEnumDefaultValue: Number
     }
 
