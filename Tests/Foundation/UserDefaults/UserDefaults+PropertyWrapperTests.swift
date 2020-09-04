@@ -185,33 +185,6 @@ class UserDefaults_PropertyWrapperTests: QuickSpec {
             }
         }
 
-        describe("testing codable value storing") {
-
-            it("should return nil for default option") {
-                expect(StoreTest.optionalCodableValue).to(beNil())
-            }
-
-            it("should return stored data for default non-optional") {
-                expect(StoreTest.nonOptionalDefaultCodableValue.testValue).to(equal("default data"))
-            }
-
-            it("should return stored data for stored in optional") {
-                StoreTest.optionalCodableValue = TestData(testValue: "Test data")
-                expect(StoreTest.optionalCodableValue?.testValue).to(equal("Test data"))
-            }
-
-            it("should return stored data for stored in non-optional") {
-                StoreTest.nonOptionalCodableValue = TestData(testValue: "Test data 2")
-                expect(StoreTest.nonOptionalCodableValue.testValue).to(equal("Test data 2"))
-            }
-
-            it("should return nil for removed value") {
-                StoreTest.optionalCodableValue = TestData(testValue: "")
-                StoreTest.optionalCodableValue = nil
-                expect(StoreTest.optionalCodableValue).to(beNil())
-            }
-        }
-
         describe("testing raw representable value storing") {
 
             it("should return stored data for default non-optional") {
