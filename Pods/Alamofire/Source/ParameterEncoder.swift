@@ -43,7 +43,7 @@ public protocol ParameterEncoder {
 /// If no `Content-Type` header is already set on the provided `URLRequest`s, it's set to `application/json`.
 open class JSONParameterEncoder: ParameterEncoder {
     /// Returns an encoder with default parameters.
-    public static var `default`: JSONParameterEncoder { return JSONParameterEncoder() }
+    public static var `default`: JSONParameterEncoder { JSONParameterEncoder() }
 
     /// Returns an encoder with `JSONEncoder.outputFormatting` set to `.prettyPrinted`.
     public static var prettyPrinted: JSONParameterEncoder {
@@ -125,7 +125,7 @@ open class URLEncodedFormParameterEncoder: ParameterEncoder {
     }
 
     /// Returns an encoder with default parameters.
-    public static var `default`: URLEncodedFormParameterEncoder { return URLEncodedFormParameterEncoder() }
+    public static var `default`: URLEncodedFormParameterEncoder { URLEncodedFormParameterEncoder() }
 
     /// The `URLEncodedFormEncoder` to use.
     public let encoder: URLEncodedFormEncoder
@@ -159,7 +159,7 @@ open class URLEncodedFormParameterEncoder: ParameterEncoder {
         }
 
         if destination.encodesParametersInURL(for: method),
-            var components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+           var components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
             let query: String = try Result<String, Error> { try encoder.encode(parameters) }
                 .mapError { AFError.parameterEncoderFailed(reason: .encoderFailed(error: $0)) }.get()
             let newQueryString = [components.percentEncodedQuery, query].compactMap { $0 }.joinedWithAmpersands()
