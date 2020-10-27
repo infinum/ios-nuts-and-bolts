@@ -67,6 +67,7 @@ final class MultipartUpload {
             } catch {
                 // Cleanup after attempted write if it fails.
                 try? fileManager.removeItem(at: fileURL)
+                throw error
             }
 
             uploadable = .file(fileURL, shouldRemove: true)
@@ -78,10 +79,10 @@ final class MultipartUpload {
 
 extension MultipartUpload: UploadConvertible {
     func asURLRequest() throws -> URLRequest {
-        return try result.get().request
+        try result.get().request
     }
 
     func createUploadable() throws -> UploadRequest.Uploadable {
-        return try result.get().uploadable
+        try result.get().uploadable
     }
 }

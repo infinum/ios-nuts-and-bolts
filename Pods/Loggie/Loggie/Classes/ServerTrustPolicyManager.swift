@@ -231,7 +231,7 @@ open class ServerTrustPolicyManager: NSObject {
         self.policies = policies
     }
 
-    public func serverTrustPolicy(forHost host: String) -> ServerTrustPolicy? {
+    open func serverTrustPolicy(forHost host: String) -> ServerTrustPolicy? {
         return policies[host]
     }
 }

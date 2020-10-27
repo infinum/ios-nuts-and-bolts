@@ -42,9 +42,7 @@ public class LoggieManager: NSObject {
 
     public private(set) var logs = [Log]() {
         didSet {
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: .LoggieDidUpdateLogs, object: self.logs)
-            }
+            NotificationCenter.default.post(name: .LoggieDidUpdateLogs, object: logs)
         }
     }
 
@@ -63,7 +61,10 @@ public class LoggieManager: NSObject {
     }
 
     func add(_ log: Log) {
-        logs.append(log)
+        // Avoid changing logs array from multiple threads (race condition)
+        DispatchQueue.main.async { [weak self] in
+            self?.logs.append(log)
+        }
     }
 }
 
