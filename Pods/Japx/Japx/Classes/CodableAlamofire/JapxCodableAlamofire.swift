@@ -73,7 +73,7 @@ public final class DecodableJSONAPIResponseSerializer<T: Decodable>: ResponseSer
     /// - Parameters:
     ///   - includeList:    The include list for deserializing JSON:API relationships.
     ///   - keyPath:        The keyPath where object decoding on parsed JSON should be performed.
-    ///   - decoder:        The `DataDecoder`. `JSONDecoder()` by default.
+    ///   - decoder:        The `DataDecoder`. `JapxDecoder()` by default.
     public init(
         includeList: String?,
         keyPath: String?,
