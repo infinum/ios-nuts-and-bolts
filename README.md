@@ -2,7 +2,7 @@
 
 [![Build Status](https://app.bitrise.io/app/fb7e6e08b49676bc/status.svg?token=NQnTFTVDwqpKM6QgA0Mn7g)](https://app.bitrise.io/app/fb7e6e08b49676bc)
 [![Swift Version](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://www.swift.org)
-[![iOS Version](https://img.shields.io/badge/iOS-10.0-green.svg)](https://www.apple.com/ios/)
+[![iOS Version](https://img.shields.io/badge/iOS-11.0-green.svg)](https://www.apple.com/ios/)
 [![License](https://img.shields.io/cocoapods/l/SemanticVersioning.svg)](https://github.com/infinum/iOS-Nuts-And-Bolts/blob/master/LICENSE.md)
 
 
