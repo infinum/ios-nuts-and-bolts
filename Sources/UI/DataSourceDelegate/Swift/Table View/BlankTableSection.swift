@@ -27,19 +27,11 @@ public class BlankTableSection: TableSectionItem {
     }
     
     public var headerHeight: CGFloat {
-        if #available(iOS 11.0, *) {
-            return .leastNonzeroMagnitude
-        } else {
-            return 0
-        }
+        return .leastNonzeroMagnitude
     }
 
     public var footerHeight: CGFloat {
-        if #available(iOS 11.0, *) {
-            return .leastNonzeroMagnitude
-        } else {
-            return 0
-        }
+        return .leastNonzeroMagnitude
     }
     
     public var estimatedHeaderHeight: CGFloat {
