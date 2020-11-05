@@ -33,11 +33,7 @@ final class RxPagingViewController: UIViewController, Refreshable {
         didSet {
             _tableView.tableFooterView = UIView(frame: .zero)
             _tableView.registerClass(cellOfType: PokemonTableViewCell.self)
-            if #available(iOS 11.0, *) {
-                _tableView.contentInsetAdjustmentBehavior = .never
-            } else {
-                automaticallyAdjustsScrollViewInsets = false
-            }
+            _tableView.contentInsetAdjustmentBehavior = .never
         }
     }
 

@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.3.0)
+  - Alamofire (5.4.0)
   - Japx/Alamofire (3.0.0):
     - Alamofire (~> 5.0)
     - Japx/Core
@@ -69,7 +69,7 @@ SPEC REPOS:
     - SwiftI18n
 
 SPEC CHECKSUMS:
-  Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
+  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   Japx: d1f7f3e4b94f2013538102e96cf96fd417005f76
   Loggie: 580029d1d140df6ee380e7541e901f3d2db734af
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
@@ -83,6 +83,6 @@ SPEC CHECKSUMS:
   RxTest: 711632d5644dffbeb62c936a521b5b008a1e1faa
   SwiftI18n: 67d3b531548924f5a562660e938d76f42e6493f7
 
-PODFILE CHECKSUM: eec8607bcb3be756334b3c6a0e9807da5051e271
+PODFILE CHECKSUM: c1bd3c6635241eddbc27b561b9958b59ee1c5e23
 
 COCOAPODS: 1.10.0.beta.2
