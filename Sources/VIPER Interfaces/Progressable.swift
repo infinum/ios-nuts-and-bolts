@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol Progressable: class {
+public protocol Progressable: AnyObject {
     func showLoading()
     func hideLoading()
     

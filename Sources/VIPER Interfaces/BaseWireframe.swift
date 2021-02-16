@@ -3,7 +3,7 @@ import RxSwift
 import RxCocoa
 import SafariServices
 
-protocol WireframeInterface: class {
+protocol WireframeInterface: AnyObject {
     func openAlert<T>(
         title: String?,
         message: String?,

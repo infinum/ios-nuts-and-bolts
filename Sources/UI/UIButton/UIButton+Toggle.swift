@@ -25,7 +25,7 @@ public enum ToggleState: Equatable {
     }
 }
 
-public protocol Togglable: class {
+public protocol Togglable: AnyObject {
 
     /// Current state
     var toggleState: ToggleState { get }
