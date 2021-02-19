@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 /// Base protocol for API networking communication.
-public protocol APIServiceable: class {
+public protocol APIServiceable: AnyObject {
 
     @discardableResult
     func request<T: Decodable>(
