@@ -18,11 +18,8 @@ public protocol AssociableTableCellItem: TableCellItem {
 
 extension AssociableTableCellItem where Self == AssociatedCell.ConfigurationItem {
 
-    /// Dequeue and configure reusable cell at given index path
+    /// Dequeues and configures reusable cell at given index path
     /// from given table view
-    ///
-    /// Dequeued cell should be configured with current item before
-    /// returning it.
     ///
     /// - Parameters:
     ///   - tableView: parent table view
