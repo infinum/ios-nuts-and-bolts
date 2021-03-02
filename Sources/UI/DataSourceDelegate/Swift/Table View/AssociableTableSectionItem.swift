@@ -10,7 +10,7 @@ import UIKit
 
 
 /// Extended interface for all table view cell items
-/// - removes bolierplate arround creating cells
+/// - helps to remove bolierplate when creating cell items
 /// - used in conjuction with `TableDataSourceDelegate`
 public protocol AssociableTableCellItem: TableCellItem {
     associatedtype AssociatedCell: UITableViewCell, ItemConfigurable
