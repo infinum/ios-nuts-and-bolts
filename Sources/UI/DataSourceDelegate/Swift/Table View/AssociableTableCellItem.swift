@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 /// Extended interface for all table view cell items
 /// - helps to remove bolierplate when creating cell items
 /// - used in conjuction with `TableDataSourceDelegate`
