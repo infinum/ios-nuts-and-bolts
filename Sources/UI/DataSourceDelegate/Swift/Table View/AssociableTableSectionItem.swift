@@ -16,7 +16,7 @@ public protocol AssociableTableCellItem: TableCellItem {
     associatedtype AssociatedCell: UITableViewCell, ItemConfigurable
 }
 
-extension AssociableTableCellItem where Self == AssociatedCell.ConfigurationItem {
+extension AssociableTableCellItem where Self == Self.AssociatedCell.ConfigurationItem {
 
     /// Dequeues and configures reusable cell at given index path
     /// from given table view
