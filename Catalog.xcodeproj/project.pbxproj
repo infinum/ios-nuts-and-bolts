@@ -163,6 +163,8 @@
 		60B4BDF52243B78A00849B8D /* UIColor+InitHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B4BDF42243B78A00849B8D /* UIColor+InitHelperTests.swift */; };
 		60B4BDF82243B8AF00849B8D /* UIColor+HexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B4BDF72243B8AF00849B8D /* UIColor+HexTests.swift */; };
 		66590488F0F41C2907C1E2B5 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3403687E4148D0617354B048 /* Pods_Tests.framework */; };
+		81B01C6725EE7FEC0058D8E0 /* ItemConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B01C6625EE7FEC0058D8E0 /* ItemConfigurable.swift */; };
+		81B01C6B25EE80000058D8E0 /* AssociableTableSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B01C6A25EE80000058D8E0 /* AssociableTableSectionItem.swift */; };
 		A079BE7DB48B4893DCFF0655 /* Pods_Catalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3591F78E371C1F705EDDB1C6 /* Pods_Catalog.framework */; };
 		A8FD60E52292ADC000FB50CE /* BaseTableCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60E42292ADC000FB50CE /* BaseTableCellItem.m */; };
 		A8FD60EB2292AE2C00FB50CE /* BaseTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60EA2292AE2C00FB50CE /* BaseTableSection.m */; };
@@ -382,6 +384,8 @@
 		60B4BDF72243B8AF00849B8D /* UIColor+HexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexTests.swift"; sourceTree = "<group>"; };
 		6474D603B25009AC4CCD5FFD /* Pods-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.release.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.release.xcconfig"; sourceTree = "<group>"; };
 		7A1223013248DD9B26BCD764 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		81B01C6625EE7FEC0058D8E0 /* ItemConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemConfigurable.swift; sourceTree = "<group>"; };
+		81B01C6A25EE80000058D8E0 /* AssociableTableSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociableTableSectionItem.swift; sourceTree = "<group>"; };
 		A8FD60DC2292AD4600FB50CE /* CellItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellItem.h; sourceTree = "<group>"; };
 		A8FD60DD2292AD6C00FB50CE /* SectionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionItem.h; sourceTree = "<group>"; };
 		A8FD60E32292ADC000FB50CE /* BaseTableCellItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableCellItem.h; sourceTree = "<group>"; };
@@ -697,6 +701,7 @@
 			children = (
 				0AE0B756220430770033A476 /* CellItem.swift */,
 				0AE0B75C2204365C0033A476 /* SectionItem.swift */,
+				81B01C6625EE7FEC0058D8E0 /* ItemConfigurable.swift */,
 				0AE0B75122042F970033A476 /* Table View */,
 				0AE0B75222042F9D0033A476 /* Collection View */,
 				0A1DFE60236EF9CF000F2538 /* Rx+DataSourceDelegate.swift */,
@@ -1070,6 +1075,7 @@
 				0AE0B75E220436B10033A476 /* TableSectionItem.swift */,
 				0AE0B763220439650033A476 /* BlankTableSection.swift */,
 				0AE0B758220435FA0033A476 /* TableDataSourceDelegate.swift */,
+				81B01C6A25EE80000058D8E0 /* AssociableTableSectionItem.swift */,
 			);
 			path = "Table View";
 			sourceTree = "<group>";
@@ -1839,6 +1845,7 @@
 				0A1DFE5D236EF5B4000F2538 /* RxPagingViewController.swift in Sources */,
 				0A0F24472247D5D80005CF41 /* APIService.swift in Sources */,
 				0A54436622718AB100F26468 /* RxNetworkingWireframe.swift in Sources */,
+				81B01C6725EE7FEC0058D8E0 /* ItemConfigurable.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
 				0A0F244A2247DCC70005CF41 /* Service+JapxRx.swift in Sources */,
 				0AB524102210AEA000F35F52 /* Parameters+Pagination.swift in Sources */,
@@ -1892,6 +1899,7 @@
 				0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */,
 				C2220318236AF76700C11B2E /* NSDate+Addition.m in Sources */,
 				0AA45E7922188833009CF93E /* JapxPagination.swift in Sources */,
+				81B01C6B25EE80000058D8E0 /* AssociableTableSectionItem.swift in Sources */,
 				0A1DFE5C236EF5B4000F2538 /* Pokemon.swift in Sources */,
 				0AE0B76E220467F80033A476 /* CatalogItemTableViewCell.swift in Sources */,
 				063B5AA52317F64D003A7B84 /* CatalogNavigationController.swift in Sources */,
