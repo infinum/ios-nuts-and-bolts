@@ -6,7 +6,11 @@
 //  Copyright © 2021 Infinum. All rights reserved.
 //
 
-protocol ItemConfigurable {
+/// Protocol intended for use with `UITableViewCell` or `UITableViewCell`
+/// along with `TableCellItem` or `CollectionCellItem`
+///
+/// Can be used to add shared behaviour for anything which can be configured with an Item
+public protocol ItemConfigurable {
     associatedtype ConfigurationItem
 
     func configure(with item: ConfigurationItem)
