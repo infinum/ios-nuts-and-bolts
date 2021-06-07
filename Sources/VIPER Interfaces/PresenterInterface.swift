@@ -1,3 +1,5 @@
+// swiftlint:disable unavailable_function
+
 protocol PresenterInterface: AnyObject {
     func viewDidLoad()
     func viewWillAppear(animated: Bool)
