@@ -19,7 +19,7 @@ public extension APIServiceable {
         decoder: JapxDecoder = JapxDecoder(jsonDecoder: .init()),
         router: Routable,
         session: Session,
-        completion: @escaping (AFResult<T>) -> ()
+        completion: @escaping (AFResult<T>) -> Void
     ) -> DataRequest {
         return prepareRequest(for: router, session: session)
             .responseCodableJSONAPI(

@@ -52,7 +52,6 @@ public extension Date {
         return afterStart && beforeEnd
     }
     
-    
     /// `true` if `self` is today, false otherwise
     var isToday: Bool {
         return Calendar.current.isDateInToday(self)

@@ -25,7 +25,7 @@ class CatalogNavigationController: InteractiveNavigationController {
 extension CatalogNavigationController {
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        let shouldAddBackButton = viewControllers.count > 0 && viewController.navigationItem.leftBarButtonItem == nil
+        let shouldAddBackButton = !viewControllers.isEmpty && viewController.navigationItem.leftBarButtonItem == nil
         if shouldAddBackButton {
             viewController.navigationItem.leftBarButtonItem = _createAndHandleNavigationBackButton()
         }
@@ -46,7 +46,8 @@ private extension CatalogNavigationController {
         )
     }
 
-    @objc func _navigateBackAnimated() {
+    @objc 
+    func _navigateBackAnimated() {
         self.popViewController(animated: true)
     }
 }

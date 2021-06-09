@@ -8,14 +8,14 @@
 import Foundation
 import Alamofire
 
-extension URL {
+public extension URL {
     
     /// Appends given params as query items to the URL. If appending fails or
     /// query params are invalid, current url is returned.
     ///
     /// - Parameter newQueryParameters: Params to add
     /// - Returns: URL with given query items
-    public func appendingQueryParameters(_ newQueryParameters: Parameters) -> URL {
+    func appendingQueryParameters(_ newQueryParameters: Parameters) -> URL {
         let newQueryItems = newQueryParameters
             .map { URLQueryItem(name: $0, value: $1 as? String) }
         return appendingQueryItems(newQueryItems)
@@ -26,7 +26,7 @@ extension URL {
     ///
     /// - Parameter newQueryItems: Items to add
     /// - Returns: URL with given query items
-    public func appendingQueryItems(_ newQueryItems: [URLQueryItem]) -> URL {
+    func appendingQueryItems(_ newQueryItems: [URLQueryItem]) -> URL {
         guard var urlComponents = URLComponents(string: absoluteString) else {
             return self
         }

@@ -20,11 +20,11 @@ class WithoutBackViewController: UIViewController {
         navigationItem.hidesBackButton = true
     }
 
-    @IBAction func navigateNext() {
+    @IBAction private func navigateNext() {
         _navigate(to: .next)
     }
 
-    @IBAction func navigateBack() {
+    @IBAction private func navigateBack() {
         _navigate(to: .back)
     }
 

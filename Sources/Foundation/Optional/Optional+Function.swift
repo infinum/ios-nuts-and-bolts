@@ -12,7 +12,7 @@ public extension Optional {
     /// Executes `function` if optional is .some, otherwise nothing happens.
     ///
     /// - Parameter function: Function to be executed.
-    func forValue(do function: (Wrapped) -> ()) {
+    func forValue(do function: (Wrapped) -> Void) {
         if let value = self {
             function(value)
         }

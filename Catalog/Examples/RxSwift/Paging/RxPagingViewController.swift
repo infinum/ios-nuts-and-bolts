@@ -23,7 +23,7 @@ final class RxPagingViewController: UIViewController, Refreshable {
 
     private let _disposeBag = DisposeBag()
 
-    private lazy var _dataSourceDelegate: TableDataSourceDelegate = {
+    private lazy var _tableDataSource: TableDataSourceDelegate = {
         return TableDataSourceDelegate(tableView: _tableView)
     }()
 
@@ -50,14 +50,13 @@ final class RxPagingViewController: UIViewController, Refreshable {
 
 private extension RxPagingViewController {
 
-
     func _setupPagination() {
         let item = UIBarButtonItem(title: "Sort", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = item
         
         let sort = item.rx.tap
             .asDriver()
-            .scan(false) { (state, _) in !state }
+            .scan(false) { state, _ in !state }
         
         let pullToRefresh = refreshControl.rx
             .controlEvent(.valueChanged)
@@ -76,7 +75,7 @@ private extension RxPagingViewController {
         pokemons
             .map { $0.map(PokemonTableCellItem.init) }
             .do(onNext: { [unowned self] _ in self.endRefreshing() })
-            .bind(to: _dataSourceDelegate.rx.items)
+            .bind(to: _tableDataSource.rx.items)
             .disposed(by: _disposeBag)
     }
 

@@ -27,7 +27,6 @@ public protocol Routable: URLRequestConvertible {
     var encodableParams: [EncodableParams] { get }
 }
 
-
 public extension Routable {
 
     func asURLRequest() throws -> URLRequest {

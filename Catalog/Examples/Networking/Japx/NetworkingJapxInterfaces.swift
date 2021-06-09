@@ -39,7 +39,13 @@ protocol NetworkingJapxPresenterInterface: PresenterInterface {
 
 protocol NetworkingJapxInteractorInterface: InteractorInterface {
     @discardableResult
-    func createUser(email: String, username: String, password: String, passwordConfirmation: String, completion: @escaping (AFResult<PokedexUser>) -> Void) -> DataRequest
+    func createUser(
+        email: String,
+        username: String,
+        password: String,
+        passwordConfirmation: String,
+        completion: @escaping (AFResult<PokedexUser>) -> Void
+    ) -> DataRequest
     @discardableResult
     func getUser(id: String, completion: @escaping (AFResult<PokedexUser>) -> Void) -> DataRequest
     @discardableResult

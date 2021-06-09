@@ -15,17 +15,17 @@ final class CatalogPresenter {
 
     // MARK: - Private properties -
 
-    private unowned let _view: CatalogViewInterface
-    private let _wireframe: CatalogWireframeInterface
-    private let _disposeBag = DisposeBag()
-    private let _dataSource: CatalogDataSource
+    private unowned let view: CatalogViewInterface
+    private let wireframe: CatalogWireframeInterface
+    private let disposeBag = DisposeBag()
+    private let dataSource: CatalogDataSource
 
     // MARK: - Lifecycle -
 
     init(view: CatalogViewInterface, wireframe: CatalogWireframeInterface, dataSource: CatalogDataSource = .init()) {
-        _view = view
-        _wireframe = wireframe
-        _dataSource = dataSource
+        self.view = view
+        self.wireframe = wireframe
+        self.dataSource = dataSource
     }
 }
 
@@ -35,27 +35,27 @@ extension CatalogPresenter: CatalogPresenterInterface {
     
     func sections() -> [TableSectionItem] {
         let didSelectRelay = PublishRelay<CatalogItem>()
-        _handle(didSelect: didSelectRelay)
+        handle(didSelect: didSelectRelay)
 
-        return _createSections(didSelect: didSelectRelay)
+        return createSections(didSelect: didSelectRelay)
     }
     
 }
 
 private extension CatalogPresenter {
 
-    func _createSections(didSelect: PublishRelay<CatalogItem>) -> [TableSectionItem] {
-        return _dataSource
+    func createSections(didSelect: PublishRelay<CatalogItem>) -> [TableSectionItem] {
+        return dataSource
             .sections
             .map { $0.toCatalogSectionItem(didSelect: didSelect) }
     }
 
-    func _handle(didSelect: PublishRelay<CatalogItem>) {
+    func handle(didSelect: PublishRelay<CatalogItem>) {
         didSelect
-            .subscribe(onNext: { [unowned _wireframe] in
-                _wireframe.show($0.model)
+            .subscribe(onNext: { [unowned wireframe] in
+                wireframe.show($0.model)
             })
-            .disposed(by: _disposeBag)
+            .disposed(by: disposeBag)
     }
 }
 

@@ -39,13 +39,12 @@ public extension ClosedRange where Bound: Scalable {
 }
 
 public protocol Scalable: ExpressibleByFloatLiteral {
-    static func +(lhs: Self, rhs: Self) -> Self
-    static func -(lhs: Self, rhs: Self) -> Self
-    static func *(lhs: Self, rhs: Self) -> Self
-    static func /(lhs: Self, rhs: Self) -> Self
+    static func + (lhs: Self, rhs: Self) -> Self
+    static func - (lhs: Self, rhs: Self) -> Self
+    static func * (lhs: Self, rhs: Self) -> Self
+    static func / (lhs: Self, rhs: Self) -> Self
 }
 
 extension Double: Scalable {}
 extension Float: Scalable {}
 extension CGFloat: Scalable {}
-

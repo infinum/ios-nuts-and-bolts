@@ -19,7 +19,7 @@ final class CatalogViewController: UIViewController {
     
     private lazy var _tableView: UITableView = _createTableView()
     
-    private lazy var _dataSourceDelegate: TableDataSourceDelegate = {
+    private lazy var _tableDataSource: TableDataSourceDelegate = {
         return TableDataSourceDelegate(tableView: _tableView)
     }()
 
@@ -46,7 +46,7 @@ private extension CatalogViewController {
     
     func _configure() {
         _tableView.registerClass(cellOfType: CatalogItemTableViewCell.self)
-        _dataSourceDelegate.sections = presenter.sections()
+        _tableDataSource.sections = presenter.sections()
     }
     
     func _createTableView() -> UITableView {

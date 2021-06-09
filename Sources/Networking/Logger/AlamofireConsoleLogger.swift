@@ -11,7 +11,7 @@ import Alamofire
 /// Alamofire EventMonitor conformance for logging requests and responses
 public final class AlamofireConsoleLogger {
     
-    public let queue: DispatchQueue = DispatchQueue(label: "com.infinum.networking.logger")
+    public let queue = DispatchQueue(label: "com.infinum.networking.logger")
     private let joinLogs: Bool
     private let requestLogLevel: URLRequest.LogLevel
     private let responseLogLevel: HTTPURLResponse.LogLevel

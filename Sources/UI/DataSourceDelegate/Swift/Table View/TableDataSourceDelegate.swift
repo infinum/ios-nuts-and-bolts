@@ -31,8 +31,8 @@ public class TableDataSourceDelegate: NSObject {
     public var items: [TableCellItem]? {
         get {
             return sections?
-                .map { $0.items }
-                .reduce([TableCellItem](), +)
+                .map(\.items)
+                .reduce(into: [TableCellItem]()) { $0 = $0 + $1 }
         }
         set {
             let section: TableSectionItem? = BlankTableSection(items: newValue)

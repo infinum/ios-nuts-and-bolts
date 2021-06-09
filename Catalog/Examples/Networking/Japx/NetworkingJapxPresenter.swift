@@ -14,19 +14,19 @@ final class NetworkingJapxPresenter {
 
     // MARK: - Private properties -
 
-    private unowned let _view: NetworkingJapxViewInterface
-    private let _wireframe: NetworkingJapxWireframeInterface
-    private let _interactor: NetworkingJapxInteractorInterface
+    private unowned let view: NetworkingJapxViewInterface
+    private let wireframe: NetworkingJapxWireframeInterface
+    private let interactor: NetworkingJapxInteractorInterface
 
-    private var _user: PokedexUser?
-    private var _authToken: String?
+    private var user: PokedexUser?
+    private var authToken: String?
     
     // MARK: - Lifecycle -
 
     init(wireframe: NetworkingJapxWireframeInterface, view: NetworkingJapxViewInterface, interactor: NetworkingJapxInteractorInterface) {
-        _wireframe = wireframe
-        _view = view
-        _interactor = interactor
+        self.wireframe = wireframe
+        self.view = view
+        self.interactor = interactor
     }
 }
 
@@ -36,112 +36,112 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
     
     func didPressCreate(with email: String?, username: String?, password: String?) {
         guard let email = email, let username = username, let password = password else {
-            _wireframe.showFailure(with: "Error", message: "Invalid credentials!")
+            wireframe.showFailure(with: "Error", message: "Invalid credentials!")
             return
         }
         
-        _view.showLoading()
+        view.showLoading()
         
-        _interactor
+        interactor
             .createUser(
                 email: email,
                 username: username,
                 password: password,
                 passwordConfirmation: password
-            ) { [weak _wireframe, weak _interactor, weak _view, weak self] (result) in
+            ) { [weak wireframe, weak interactor, weak view, weak self] result in
                     switch result {
                     case .success(let user):
-                        _view?.hideLoading()
+                        view?.hideLoading()
                         guard let authToken = user.authToken, let self = self else { return }
                         
-                        self._authToken = authToken
+                        self.authToken = authToken
                         let adapter = PokedexTokenAdapter(authToken: authToken, email: email)
-                        _interactor?.setAdapter(adapter)
+                        interactor?.setAdapter(adapter)
                         
-                        self._user = user
+                        self.user = user
                         
-                        _view?.updateView(with: .userExists)
-                        _wireframe?.displayInfoAlert(with: "Success", message: "Created user with id: \(user.id)")
+                        view?.updateView(with: .userExists)
+                        wireframe?.displayInfoAlert(with: "Success", message: "Created user with id: \(user.id)")
                     case .failure:
-                        _view?.hideLoading()
-                        _wireframe?.showFailure(with: "Error", message: "Create failed!")
+                        view?.hideLoading()
+                        wireframe?.showFailure(with: "Error", message: "Create failed!")
                     }
-        }
+            }
     }
     
     func didPressGet() {
-        guard let userId = _user?.id else {
-            _wireframe.showFailure(with: "Error", message: "Couldn't find user")
+        guard let userId = user?.id else {
+            wireframe.showFailure(with: "Error", message: "Couldn't find user")
             return
         }
         
-        _view.showLoading()
-        _interactor
-            .getUser(id: userId) { [weak _wireframe, weak _view] (result) in
+        view.showLoading()
+        interactor
+            .getUser(id: userId) { [weak wireframe, weak view] result in
                 switch result {
                 case .success:
-                    _view?.hideLoading()
-                    _wireframe?.displayInfoAlert(with: "Success", message: "Got user with id: \(userId)")
+                    view?.hideLoading()
+                    wireframe?.displayInfoAlert(with: "Success", message: "Got user with id: \(userId)")
                 case .failure:
-                    _view?.hideLoading()
-                    _wireframe?.showFailure(with: "Error", message: "Couldn't find user")
+                    view?.hideLoading()
+                    wireframe?.showFailure(with: "Error", message: "Couldn't find user")
                 }
-        }
+            }
     }
     
     func didPressUpdate(email: String?, username: String?) {
-        guard let userId = _user?.id else {
-            _wireframe.showFailure(with: "Error", message: "Couldn't find user")
+        guard let userId = user?.id else {
+            wireframe.showFailure(with: "Error", message: "Couldn't find user")
             return
         }
         
-        let authToken = _authToken
+        let authToken = authToken
         
-        _view.showLoading()
-        _interactor
+        view.showLoading()
+        interactor
             .updateUser(
                 id: userId,
                 email: email,
                 username: username
-            ) { [weak self, weak _wireframe, weak _interactor, weak _view] (result) in
+            ) { [weak self, weak wireframe, weak interactor, weak view] result in
                 switch result {
                 case .success(let responseUser):
-                    _view?.hideLoading()
+                    view?.hideLoading()
                     guard let authToken = authToken, let email = responseUser.email else { return }
                     
-                    self?._user = responseUser
+                    self?.user = responseUser
                     let adapter = PokedexTokenAdapter(authToken: authToken, email: email)
-                    _interactor?.setAdapter(adapter)
+                    interactor?.setAdapter(adapter)
                     
-                    _wireframe?.displayInfoAlert(with: "Success", message: "Updated user with id: \(userId)")
+                    wireframe?.displayInfoAlert(with: "Success", message: "Updated user with id: \(userId)")
                 case .failure:
-                    _view?.hideLoading()
-                    _wireframe?.showFailure(with: "Error", message: "Update failed!")
+                    view?.hideLoading()
+                    wireframe?.showFailure(with: "Error", message: "Update failed!")
                 }
-        }
+            }
     }
 
     func didPressDelete() {
-        guard let userId = _user?.id else {
-            _wireframe.showFailure(with: "Error", message: "User already deleted!")
+        guard let userId = user?.id else {
+            wireframe.showFailure(with: "Error", message: "User already deleted!")
             return
         }
 
-        _view.showLoading()
-        _interactor
-            .deleteUser(id: userId) { [weak _wireframe, weak self, weak _view] (result) in
+        view.showLoading()
+        interactor
+            .deleteUser(id: userId) { [weak wireframe, weak self, weak view] result in
                 switch result {
                 case .success:
-                    _view?.hideLoading()
-                    self?._user = nil
+                    view?.hideLoading()
+                    self?.user = nil
                     
-                    _view?.updateView(with: .userDoesNotExist)
-                    _wireframe?.displayInfoAlert(with: "Success", message: "Deleted user with id: \(userId)")
+                    view?.updateView(with: .userDoesNotExist)
+                    wireframe?.displayInfoAlert(with: "Success", message: "Deleted user with id: \(userId)")
                 case .failure:
-                    _view?.hideLoading()
-                    _wireframe?.showFailure(with: "Error", message: "Delete failed!")
+                    view?.hideLoading()
+                    wireframe?.showFailure(with: "Error", message: "Delete failed!")
                 }
-        }
+            }
     }
     
 }

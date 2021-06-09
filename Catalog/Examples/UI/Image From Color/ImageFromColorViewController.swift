@@ -39,9 +39,10 @@ private extension ImageFromColorViewController {
 
         _sampleView = sampleView
     }
-    
-    @objc func action(sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+
+    @objc
+    func action(sender: UIButton) {
+        sender.isSelected.toggle()
     }
 }
 
@@ -55,4 +56,3 @@ extension ImageFromColorViewController: Catalogizable {
         return ImageFromColorViewController()
     }
 }
-

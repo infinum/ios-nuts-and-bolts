@@ -32,4 +32,3 @@ private extension PokedexTokenAdapter {
         return String(format: "Token token=%@, email=%@", _authToken, _email)
     }
 }
-

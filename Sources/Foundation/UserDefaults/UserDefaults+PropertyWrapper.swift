@@ -17,7 +17,13 @@ struct Storage<Value, StoredValue> {
     private let get: (StoredValue) -> Value
     private let set: (Value) -> StoredValue
 
-    private init(_ key: String, defaultValue: Value, userDefaults: UserDefaults = UserDefaults.standard, get: @escaping (StoredValue) -> Value, set: @escaping (Value) -> StoredValue) {
+    private init(
+        _ key: String,
+        defaultValue: Value,
+        userDefaults: UserDefaults = UserDefaults.standard,
+        get: @escaping (StoredValue) -> Value,
+        set: @escaping (Value) -> StoredValue
+    ) {
         self.key = key
         self.defaultValue = defaultValue
         self.userDefaults = userDefaults
@@ -25,7 +31,7 @@ struct Storage<Value, StoredValue> {
         self.set = set
     }
 
-    public var wrappedValue: Value {
+    var wrappedValue: Value {
         get {
             if let stored = userDefaults.object(forKey: key) as? StoredValue {
                 return get(stored)
@@ -35,12 +41,14 @@ struct Storage<Value, StoredValue> {
         set (newValue) {
             let toStore = set(newValue)
             switch toStore as Any {
-                case Optional<Any>.none:
-                    userDefaults.removeObject(forKey: key)
-                case Optional<Any>.some(let value):
-                    userDefaults.set(value, forKey: key)
-                default:
-                    userDefaults.set(toStore, forKey: key)
+            case Optional<Any>.none:
+                userDefaults.removeObject(forKey: key)
+            // Disabling a false positive.
+            // swiftlint:disable:next syntactic_sugar
+            case Optional<Any>.some(let value):
+                userDefaults.set(value, forKey: key)
+            default:
+                userDefaults.set(toStore, forKey: key)
             }
         }
     }
@@ -57,7 +65,6 @@ extension Storage where Value: RawRepresentable, Value.RawValue == StoredValue {
         )
     }
 }
-
 
 extension Storage where Value == StoredValue {
 
@@ -83,7 +90,13 @@ extension Storage where Value == StoredValue {
 
 extension Storage where Value: Codable, StoredValue == Data? {
 
-    init(codable key: String, defaultValue: Value, userDefaults: UserDefaults = .standard, encoder: JSONEncoder = JSONEncoder(), decoder: JSONDecoder = JSONDecoder()) {
+    init(
+        codable key: String,
+        defaultValue: Value,
+        userDefaults: UserDefaults = .standard,
+        encoder: JSONEncoder = JSONEncoder(),
+        decoder: JSONDecoder = JSONDecoder()
+    ) {
         self.init(
             key,
             defaultValue: defaultValue,
@@ -92,7 +105,12 @@ extension Storage where Value: Codable, StoredValue == Data? {
         )
     }
 
-    init<T>(codable key: String, userDefaults: UserDefaults = .standard, encoder: JSONEncoder = JSONEncoder(), decoder: JSONDecoder = JSONDecoder()) where Value == T? {
+    init<T>(
+        codable key: String,
+        userDefaults: UserDefaults = .standard,
+        encoder: JSONEncoder = JSONEncoder(),
+        decoder: JSONDecoder = JSONDecoder()
+    ) where Value == T? {
         self.init(
             key,
             defaultValue: nil,

@@ -17,7 +17,7 @@ public enum Headers {
 
 }
 
-/// MARK: - JSON Request headers
+// MARK: - JSON Request headers -
 
 public extension Headers {
 

@@ -41,7 +41,7 @@ extension NetworkingJapxWireframe: NetworkingJapxWireframeInterface {
         displayAlert(
             with: title,
             message: message,
-            actions: [UIAlertAction.init(title: "OK", style: .cancel, handler: completion)],
+            actions: [UIAlertAction(title: "OK", style: .cancel, handler: completion)],
             style: .alert
         )
     }

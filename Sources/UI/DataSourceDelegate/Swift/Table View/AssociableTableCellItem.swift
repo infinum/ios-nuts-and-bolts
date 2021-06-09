@@ -31,4 +31,3 @@ extension AssociableTableCellItem where Self == Self.AssociatedCell.Configuratio
     }
 
 }
-

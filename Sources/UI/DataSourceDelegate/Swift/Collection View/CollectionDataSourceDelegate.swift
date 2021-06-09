@@ -31,8 +31,8 @@ public class CollectionDataSourceDelegate: NSObject {
     public var items: [CollectionCellItem]? {
         get {
             return sections?
-                .map { $0.items }
-                .reduce([CollectionCellItem](), +)
+                .map(\.items)
+                .reduce(into: [CollectionCellItem]()) { $0 = $0 + $1 }
         }
         set {
             let section: CollectionSectionItem? = BlankCollectionSection(items: newValue)

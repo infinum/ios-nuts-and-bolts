@@ -12,14 +12,14 @@ public extension Bool {
     /// Executes the provided function if self is `true`.
     ///
     /// - Parameter function: Function to execute
-    func forTrue(do function: () -> ()) {
+    func forTrue(do function: () -> Void) {
         if self { function() }
     }
     
     /// Executes the provided function if self is `false`.
     ///
     /// - Parameter function: Function to execute
-    func forFalse(do function: () -> ()) {
+    func forFalse(do function: () -> Void) {
         if !self { function() }
     }
     

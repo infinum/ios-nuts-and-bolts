@@ -30,4 +30,3 @@ public struct BasicAuthAdapter: RequestInterceptor {
         completion(.success(urlRequest))
     }
 }
-

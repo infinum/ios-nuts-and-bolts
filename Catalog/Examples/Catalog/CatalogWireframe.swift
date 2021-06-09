@@ -40,4 +40,3 @@ extension CatalogWireframe: CatalogWireframeInterface {
         }
     }
 }
-

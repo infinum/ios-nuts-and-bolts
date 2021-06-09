@@ -27,7 +27,13 @@ final class NetworkingJapxInteractor {
 
 extension NetworkingJapxInteractor: NetworkingJapxInteractorInterface {
     
-    func createUser(email: String, username: String, password: String, passwordConfirmation: String, completion: @escaping (AFResult<PokedexUser>) -> Void) -> DataRequest {
+    func createUser(
+        email: String,
+        username: String,
+        password: String,
+        passwordConfirmation: String,
+        completion: @escaping (AFResult<PokedexUser>) -> Void
+    ) -> DataRequest {
         let router = PokedexRouter.createUser(
             email: email,
             username: username,

@@ -22,7 +22,6 @@ final class RxNetworkingInteractor {
     }
 }
 
-
 // MARK: - Extensions -
 
 extension RxNetworkingInteractor: RxNetworkingInteractorInterface {

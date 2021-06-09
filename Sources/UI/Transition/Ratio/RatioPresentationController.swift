@@ -24,7 +24,7 @@ public final class RatioPresentationController: UIPresentationController {
     // MARK: - Public properties -
     
     /// Background color used for non-filled part of screen
-    public var backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.3) {
+    public var backgroundColor = UIColor.black.withAlphaComponent(0.3) {
         didSet {
             _dimmingView.backgroundColor = backgroundColor
         }
@@ -34,18 +34,18 @@ public final class RatioPresentationController: UIPresentationController {
     public var ratio: CGFloat = 0.5
     
     /// Dismiss view controller when user taps on non-filled part
-    public var shouldDismissOnTap: Bool = true
+    public var shouldDismissOnTap = true
     
     /// Ability to customize animations on `presentedView` in
     /// present and dismiss transition
     /// **Please, use weak reference to self inside animation**
-    public var animations: ((_ presentedView: UIView?, _ transition: TransitionType) -> ())?
+    public var animations: ((_ presentedView: UIView?, _ transition: TransitionType) -> Void)?
     
     // MARK: - Private properties -
     
     private lazy var _dimmingView: UIView = _createDimmingView()
     
-    // MARK - Overrides -
+    // MARK: - Overrides -
     
     override public var adaptivePresentationStyle: UIModalPresentationStyle {
         return .none
@@ -86,7 +86,7 @@ public final class RatioPresentationController: UIPresentationController {
         }
         
         if let transitionCoordinator = presentingViewController.transitionCoordinator {
-            transitionCoordinator.animate(alongsideTransition: { (context) in
+            transitionCoordinator.animate(alongsideTransition: { _ in
                 animations()
             })
         } else {
@@ -103,9 +103,12 @@ public final class RatioPresentationController: UIPresentationController {
         }
         
         if let transitionCoordinator = presentingViewController.transitionCoordinator {
-            transitionCoordinator.animate(alongsideTransition: { (context) in
-                animations()
-            }, completion: nil)
+            transitionCoordinator.animate(
+                alongsideTransition: { _ in
+                    animations()
+                },
+                completion: nil
+            )
         } else {
             animations()
         }
@@ -141,8 +144,10 @@ private extension RatioPresentationController {
         view.backgroundColor = backgroundColor
         view.alpha = 0.0
         
-        let tap = UITapGestureRecognizer(target: self,
-                                         action: #selector(RatioPresentationController._dimmingViewTapped(_:)))
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(RatioPresentationController._dimmingViewTapped(_:))
+        )
         view.addGestureRecognizer(tap)
         
         return view

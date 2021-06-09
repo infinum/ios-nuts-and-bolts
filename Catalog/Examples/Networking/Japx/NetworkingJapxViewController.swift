@@ -115,17 +115,24 @@ private extension NetworkingJapxViewController {
 private extension NetworkingJapxViewController {
     
     func _startObservingKeyboardEvents() {
-        NotificationCenter.default.addObserver(self,
-                                               selector:#selector(_keyboardWillChangeFrame(notification:)),
-                                               name:UIResponder.keyboardWillChangeFrameNotification,
-                                               object:nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(_keyboardWillChangeFrame(notification:)),
+            name: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil
+        )
     }
     
     func _stopObservingKeyboardEvents() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil
+        )
     }
-    
-    @objc func _keyboardWillChangeFrame(notification: NSNotification) {
+
+    @objc
+    func _keyboardWillChangeFrame(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
         

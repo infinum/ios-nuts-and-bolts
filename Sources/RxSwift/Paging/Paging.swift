@@ -64,7 +64,7 @@ public enum Paging {
         let eventDriverState = Observable.zip(filteredEvents, stateEvent)
 
         let newState = eventDriverState
-            .filter { (event, state) -> Bool in
+            .filter { event, state -> Bool in
                 // If current event is next page, and there are no next pages
                 // just ignore current event and prepare stateRelay to accpet
                 // new items. stateRelay is inside zip, so it is very important to
@@ -205,15 +205,20 @@ private extension Paging {
         // If event is not .reload or .nextPage then don't invoke an API
         // call and just modify container and last page if needed
         guard event._shouldPerformApiCall else {
-            let container = event._modifiedContainer(from: state.container,
-                                                     containerCreator: pager.containerCreator)
-            let lastPage = event._modifiedLastPage(from: state.lastPage)
-            return Observable
-                .just(State(
-                    container: container, lastPage: lastPage,
-                    hasNext: state.hasNext, event: event
-                )
+            let container = event._modifiedContainer(
+                from: state.container,
+                containerCreator: pager.containerCreator
             )
+
+            let lastPage = event._modifiedLastPage(from: state.lastPage)
+            
+            return Observable
+                .just(
+                    State(
+                        container: container, lastPage: lastPage,
+                        hasNext: state.hasNext, event: event
+                    )
+                )
         }
 
         // If this is the last page and event is not reload
