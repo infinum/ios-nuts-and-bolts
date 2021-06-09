@@ -53,6 +53,13 @@ public class Log: NSObject {
         section.items.append(item)
         return section
     }
+
+    var searchKeywords: [String] {
+        return [
+            request.url?.absoluteString,
+            response.flatMap { String($0.statusCode) }
+        ].compactMap { $0 }
+    }
 }
 
 extension Log {

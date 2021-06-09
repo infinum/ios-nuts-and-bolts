@@ -22,13 +22,17 @@ public class LoggieAuthentication: NSObject {
     }
 }
 
-@objc public protocol LoggieClientCertificateDelegate: class {
+@objc public protocol LoggieClientCertificateDelegate: AnyObject {
     func clientCertificate(forChallenge challenge: URLAuthenticationChallenge, inSession session: URLSession) -> URLCredential?
 }
 
 public typealias AuthenticationBlock = (() -> (LoggieAuthentication?))
 
-public class LoggieManager: NSObject {
+internal protocol LogsDataSourceDelegate: AnyObject {
+    func clearLogs()
+}
+
+public class LoggieManager: NSObject, LogsDataSourceDelegate {
 
     @objc(sharedManager)
     public static let shared = LoggieManager()
@@ -51,8 +55,11 @@ public class LoggieManager: NSObject {
     @discardableResult
     @objc(showLogsFromViewController:filter:)
     public func showLogs(from viewController: UIViewController, filter: ((Log) -> Bool)? = nil) -> UINavigationController {
-        let vc = LogListTableViewController()
+        let vc: LogListTableViewController = UIStoryboard(name: "LogListTableViewController", bundle: .loggie)
+            .instantiateViewController(withIdentifier: "LogListTableViewController")
+            as! LogListTableViewController
         vc.filter = filter
+        vc.logsDataSourceDelegate = self
 
         let navigationController = UINavigationController(rootViewController: vc)
         navigationController.navigationBar.isTranslucent = false
@@ -64,6 +71,13 @@ public class LoggieManager: NSObject {
         // Avoid changing logs array from multiple threads (race condition)
         DispatchQueue.main.async { [weak self] in
             self?.logs.append(log)
+        }
+    }
+
+    func clearLogs() {
+        // Avoid changing logs array from multiple threads (race condition)
+        DispatchQueue.main.async { [weak self] in
+            self?.logs = []
         }
     }
 }
