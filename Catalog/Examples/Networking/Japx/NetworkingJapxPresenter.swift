@@ -95,7 +95,7 @@ extension NetworkingJapxPresenter: NetworkingJapxPresenterInterface {
             return
         }
         
-        let authToken = authToken
+        let authToken = self.authToken
         
         view.showLoading()
         interactor

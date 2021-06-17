@@ -66,7 +66,7 @@ private extension RxPagingViewController {
         let willDisplayLastCell = tableView.rx
             .reachedBottomOnceWith(restart: pullToRefresh)
 
-        let pokemons = pokemons(
+        let pokemons = pokemonsPaging(
             loadNextPage: willDisplayLastCell,
             reload: pullToRefresh,
             sort: sort
@@ -87,7 +87,7 @@ private extension RxPagingViewController {
     typealias Page = PokemonsPage
     typealias PagingEvent = Paging.Event<Container>
 
-    func pokemons(loadNextPage: Driver<Void>, reload: Driver<Void>, sort: Driver<Bool>) -> Observable<[Pokemon]> {
+    func pokemonsPaging(loadNextPage: Driver<Void>, reload: Driver<Void>, sort: Driver<Bool>) -> Observable<[Pokemon]> {
         let sortItems = sort.map { ascending in
             return PagingEvent.update { ascending ? $0.sorted() : $0.sorted().reversed() }
         }
