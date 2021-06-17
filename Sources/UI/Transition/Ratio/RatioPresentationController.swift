@@ -26,7 +26,7 @@ public final class RatioPresentationController: UIPresentationController {
     /// Background color used for non-filled part of screen
     public var backgroundColor = UIColor.black.withAlphaComponent(0.3) {
         didSet {
-            _dimmingView.backgroundColor = backgroundColor
+            dimmingView.backgroundColor = backgroundColor
         }
     }
     
@@ -43,7 +43,7 @@ public final class RatioPresentationController: UIPresentationController {
     
     // MARK: - Private properties -
     
-    private lazy var _dimmingView: UIView = _createDimmingView()
+    private lazy var dimmingView: UIView = createDimmingView()
     
     // MARK: - Overrides -
     
@@ -58,10 +58,10 @@ public final class RatioPresentationController: UIPresentationController {
     override public var frameOfPresentedViewInContainerView: CGRect {
         let size = self.size(
             forChildContentContainer: presentedViewController,
-            withParentContainerSize: _containerBounds.size
+            withParentContainerSize: containerBounds.size
         )
 
-        let yPos = _containerFrame.maxY - size.height
+        let yPos = containerFrame.maxY - size.height
         let origin = CGPoint(x: 0.0, y: yPos)
         return CGRect(origin: origin, size: size)
     }
@@ -75,13 +75,13 @@ public final class RatioPresentationController: UIPresentationController {
 
     override public func presentationTransitionWillBegin() {
         super.presentationTransitionWillBegin()
-        _dimmingView.frame = _containerBounds
-        _dimmingView.alpha = 0.0
-        containerView?.insertSubview(_dimmingView, at: 0)
+        dimmingView.frame = containerBounds
+        dimmingView.alpha = 0.0
+        containerView?.insertSubview(dimmingView, at: 0)
         
         let animations = { [weak self] in
             guard let self = self else { return }
-            self._dimmingView.alpha = 1.0
+            self.dimmingView.alpha = 1.0
             self.animations?(self.presentedView, .present)
         }
         
@@ -98,7 +98,7 @@ public final class RatioPresentationController: UIPresentationController {
         super.dismissalTransitionWillBegin()
         let animations = { [weak self] in
             guard let self = self else { return }
-            self._dimmingView.alpha = 0.0
+            self.dimmingView.alpha = 0.0
             self.animations?(self.presentedView, .dismiss)
         }
         
@@ -116,7 +116,7 @@ public final class RatioPresentationController: UIPresentationController {
     
     override public func containerViewWillLayoutSubviews() {
         super.containerViewWillLayoutSubviews()
-        _dimmingView.frame = _containerBounds
+        dimmingView.frame = containerBounds
         presentedView?.frame = frameOfPresentedViewInContainerView
     }
 
@@ -124,21 +124,21 @@ public final class RatioPresentationController: UIPresentationController {
 
 private extension RatioPresentationController {
     
-    var _containerBounds: CGRect {
+    var containerBounds: CGRect {
         guard let containerView = containerView else {
             return presentingViewController.view.bounds
         }
         return containerView.bounds
     }
     
-    var _containerFrame: CGRect {
+    var containerFrame: CGRect {
         guard let containerView = containerView else {
             return presentingViewController.view.frame
         }
         return containerView.frame
     }
     
-    func _createDimmingView() -> UIView {
+    func createDimmingView() -> UIView {
         let view = UIView()
         
         view.backgroundColor = backgroundColor
@@ -146,7 +146,7 @@ private extension RatioPresentationController {
         
         let tap = UITapGestureRecognizer(
             target: self,
-            action: #selector(RatioPresentationController._dimmingViewTapped(_:))
+            action: #selector(RatioPresentationController.dimmingViewTapped(_:))
         )
         view.addGestureRecognizer(tap)
         
@@ -154,7 +154,7 @@ private extension RatioPresentationController {
     }
     
     @objc
-    func _dimmingViewTapped(_ tap: UITapGestureRecognizer) {
+    func dimmingViewTapped(_ tap: UITapGestureRecognizer) {
         guard shouldDismissOnTap else {
             return
         }

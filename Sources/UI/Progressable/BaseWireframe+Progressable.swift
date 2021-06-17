@@ -10,7 +10,7 @@ import MBProgressHUD
 
 public extension Progressable where Self: BaseWireframe {
     
-    private var _hudParentView: UIView {
+    private var hudParentView: UIView {
         return viewController.view
     }
     
@@ -31,14 +31,14 @@ public extension Progressable where Self: BaseWireframe {
     func showLoading(blocking: Bool) {
         // Remove previously added so we don't need to take care about
         // multiple async calls to show loading
-        MBProgressHUD.hide(for: _hudParentView, animated: true)
-        let hud = MBProgressHUD.showAdded(to: _hudParentView, animated: true)
+        MBProgressHUD.hide(for: hudParentView, animated: true)
+        let hud = MBProgressHUD.showAdded(to: hudParentView, animated: true)
         hud.isUserInteractionEnabled = blocking
     }
     
     func hideLoading(blocking: Bool) {
-        _stopRefreshingIfNeeded()
-        MBProgressHUD.hide(for: _hudParentView, animated: true)
+        stopRefreshingIfNeeded()
+        MBProgressHUD.hide(for: hudParentView, animated: true)
     }
 
     // MARK: - Failure handling
@@ -55,7 +55,7 @@ public extension Progressable where Self: BaseWireframe {
     
     // MARK: - Private methods
     
-    private func _stopRefreshingIfNeeded() {
+    private func stopRefreshingIfNeeded() {
         (viewController as? Refreshable)?.endRefreshing()
     }
     

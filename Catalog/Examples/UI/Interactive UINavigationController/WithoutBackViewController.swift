@@ -21,11 +21,11 @@ class WithoutBackViewController: UIViewController {
     }
 
     @IBAction private func navigateNext() {
-        _navigate(to: .next)
+        navigate(to: .next)
     }
 
     @IBAction private func navigateBack() {
-        _navigate(to: .back)
+        navigate(to: .back)
     }
 
 }
@@ -36,7 +36,7 @@ private extension WithoutBackViewController {
         case next, back
     }
 
-    func _navigate(to options: NavigationOptions) {
+    func navigate(to options: NavigationOptions) {
         switch options {
         case .next:
             let interactiveStoryboard = UIStoryboard(name: "InteractiveNavigationExample", bundle: nil)

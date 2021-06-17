@@ -9,18 +9,18 @@ import UIKit
 
 class RatioTransitionViewController: UIViewController {
 
-    private lazy var _presentationManager = RatioPresentationManager()
+    private lazy var presentationManager = RatioPresentationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _setupUI()
+        setupUI()
     }
 
 }
 
 private extension RatioTransitionViewController {
     
-    func _setupUI() {
+    func setupUI() {
         view.backgroundColor = .white
         
         // Button logic
@@ -31,21 +31,21 @@ private extension RatioTransitionViewController {
         
         showButton.addTarget(
             self,
-            action: #selector(_showRatioPresentation),
+            action: #selector(showRatioPresentation),
             for: .touchUpInside
         )
     }
     
     @objc
-    func _showRatioPresentation() {
+    func showRatioPresentation() {
         let dummyViewController = UIViewController()
         dummyViewController.view.backgroundColor = .green
         
         // Config
-        _presentationManager.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        _presentationManager.shouldDismissOnTap = true
-        _presentationManager.ratio = 0.4
-        _presentationManager.animations = { presentedView, transition in
+        presentationManager.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        presentationManager.shouldDismissOnTap = true
+        presentationManager.ratio = 0.4
+        presentationManager.animations = { presentedView, transition in
             presentedView?.layer.masksToBounds = true
 
             let radius: CGFloat
@@ -59,7 +59,7 @@ private extension RatioTransitionViewController {
         }
         
         dummyViewController.modalPresentationStyle = .custom
-        dummyViewController.transitioningDelegate = _presentationManager
+        dummyViewController.transitioningDelegate = presentationManager
         
         present(dummyViewController, animated: true)
     }

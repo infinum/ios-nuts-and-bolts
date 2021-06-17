@@ -12,12 +12,12 @@ final class ToggleWireframe: BaseWireframe {
 
     // MARK: - Private properties -
 
-    private let _storyboard = UIStoryboard(name: "ToggleViewController", bundle: nil)
+    private let storyboard = UIStoryboard(name: "ToggleViewController", bundle: nil)
 
     // MARK: - Module setup -
 
     init() {
-        let moduleViewController = _storyboard.instantiateViewController(ofType: ToggleViewController.self)
+        let moduleViewController = storyboard.instantiateViewController(ofType: ToggleViewController.self)
         super.init(viewController: moduleViewController)
 
         let interactor = ToggleInteractor()

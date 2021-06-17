@@ -9,22 +9,22 @@ import UIKit
 
 class RoundCornersViewController: UIViewController {
 
-    private var _sampleView: UIView!
+    private var sampleView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _createSampleView()
+        createSampleView()
     }
  
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        _sampleView.roundCorners(corners: [.topLeft, .topRight], radius: 16)
+        sampleView.roundCorners(corners: [.topLeft, .topRight], radius: 16)
     }
 }
 
 private extension RoundCornersViewController {
     
-    func _createSampleView() {
+    func createSampleView() {
         view.backgroundColor = .white
         
         let sampleView = UIView(frame: .zero)
@@ -38,7 +38,7 @@ private extension RoundCornersViewController {
         
         sampleView.layer.masksToBounds = true
         sampleView.roundCorners(corners: [.topLeft, .topRight], radius: 16)
-        _sampleView = sampleView
+        self.sampleView = sampleView
     }
     
 }

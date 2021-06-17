@@ -18,19 +18,19 @@ final class NetworkingJapxViewController: UIViewController {
     
     // MARK: - Private properties -
     
-    @IBOutlet private weak var _emailTextField: UITextField!
-    @IBOutlet private weak var _usernameTextField: UITextField!
-    @IBOutlet private weak var _passwordTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var usernameTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     
-    @IBOutlet private weak var _createUserButton: UIButton!
-    @IBOutlet private weak var _getUserButton: UIButton!
-    @IBOutlet private weak var _updateUserButton: UIButton!
-    @IBOutlet private weak var _deleteUserButton: UIButton!
+    @IBOutlet private weak var createUserButton: UIButton!
+    @IBOutlet private weak var getUserButton: UIButton!
+    @IBOutlet private weak var updateUserButton: UIButton!
+    @IBOutlet private weak var deleteUserButton: UIButton!
     
-    @IBOutlet private weak var _scrollView: UIScrollView!
-    @IBOutlet private weak var _bottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
     
-    private let _bottomHeight: CGFloat = 20
+    private let bottomHeight: CGFloat = 20
     
     // MARK: - Lifecycle -
 
@@ -43,13 +43,13 @@ final class NetworkingJapxViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        _startObservingKeyboardEvents()
+        startObservingKeyboardEvents()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        _stopObservingKeyboardEvents()
+        stopObservingKeyboardEvents()
     }
     
 }
@@ -59,10 +59,10 @@ final class NetworkingJapxViewController: UIViewController {
 extension NetworkingJapxViewController: NetworkingJapxViewInterface {
     
     func updateView(with state: NetworkingJapx.State) {
-        _createUserButton._setEnabledModifyingAlpha(state == .userDoesNotExist)
-        _getUserButton._setEnabledModifyingAlpha(state == .userExists)
-        _updateUserButton._setEnabledModifyingAlpha(state == .userExists)
-        _deleteUserButton._setEnabledModifyingAlpha(state == .userExists)
+        createUserButton.setEnabledModifyingAlpha(state == .userDoesNotExist)
+        getUserButton.setEnabledModifyingAlpha(state == .userExists)
+        updateUserButton.setEnabledModifyingAlpha(state == .userExists)
+        deleteUserButton.setEnabledModifyingAlpha(state == .userExists)
     }
 
 }
@@ -81,7 +81,7 @@ extension NetworkingJapxViewController: Catalogizable {
 
 private extension UIButton {
     
-    func _setEnabledModifyingAlpha(_ shouldEnable: Bool) {
+    func setEnabledModifyingAlpha(_ shouldEnable: Bool) {
         self.isEnabled = shouldEnable
         self.alpha = shouldEnable ? 1 : 0.3
     }
@@ -92,19 +92,19 @@ private extension UIButton {
 
 private extension NetworkingJapxViewController {
     
-    @IBAction func _createUserActionHandler(_ sender: Any) {
-        presenter.didPressCreate(with: _emailTextField.text, username: _usernameTextField.text, password: _passwordTextField.text)
+    @IBAction func createUserActionHandler(_ sender: Any) {
+        presenter.didPressCreate(with: emailTextField.text, username: usernameTextField.text, password: passwordTextField.text)
     }
     
-    @IBAction func _getUserActionHandler(_ sender: Any) {
+    @IBAction func getUserActionHandler(_ sender: Any) {
         presenter.didPressGet()
     }
     
-    @IBAction func _updateUserActionHandler(_ sender: Any) {
-        presenter.didPressUpdate(email: _emailTextField.text, username: _usernameTextField.text)
+    @IBAction func updateUserActionHandler(_ sender: Any) {
+        presenter.didPressUpdate(email: emailTextField.text, username: usernameTextField.text)
     }
     
-    @IBAction func _deleteUserActionHandler(_ sender: Any) {
+    @IBAction func deleteUserActionHandler(_ sender: Any) {
         presenter.didPressDelete()
     }
     
@@ -114,16 +114,16 @@ private extension NetworkingJapxViewController {
 
 private extension NetworkingJapxViewController {
     
-    func _startObservingKeyboardEvents() {
+    func startObservingKeyboardEvents() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(_keyboardWillChangeFrame(notification:)),
+            selector: #selector(keyboardWillChangeFrame(notification:)),
             name: UIResponder.keyboardWillChangeFrameNotification,
             object: nil
         )
     }
     
-    func _stopObservingKeyboardEvents() {
+    func stopObservingKeyboardEvents() {
         NotificationCenter.default.removeObserver(
             self,
             name: UIResponder.keyboardWillChangeFrameNotification,
@@ -132,12 +132,12 @@ private extension NetworkingJapxViewController {
     }
 
     @objc
-    func _keyboardWillChangeFrame(notification: NSNotification) {
+    func keyboardWillChangeFrame(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
         
         let keyboardHeight = keyboardSize.origin.y < view.frame.size.height ? keyboardSize.height : 0
-        _bottomConstraint.constant = keyboardHeight + _bottomHeight
+        bottomConstraint.constant = keyboardHeight + bottomHeight
         
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
