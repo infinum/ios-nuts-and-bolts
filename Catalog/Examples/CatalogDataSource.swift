@@ -15,18 +15,18 @@ struct CatalogSectionModel {
 class CatalogDataSource {
 
     var sections: [CatalogSectionModel] {
-        return _sections()
+        return createSections()
     }
 
 }
 
 private extension CatalogDataSource {
 
-    func _sections() -> [CatalogSectionModel] {
+    func createSections() -> [CatalogSectionModel] {
         return [
-            CatalogSectionModel(title: "UI", items: _uiItems()),
-            CatalogSectionModel(title: "Rx", items: _rxItems()),
-            CatalogSectionModel(title: "Networking", items: _networkingItems())
+            CatalogSectionModel(title: "UI", items: createUIItems()),
+            CatalogSectionModel(title: "Rx", items: createRxItems()),
+            CatalogSectionModel(title: "Networking", items: createNetworkingItems())
         ]
     }
 
@@ -34,7 +34,7 @@ private extension CatalogDataSource {
 
 private extension CatalogDataSource {
 
-    func _uiItems() -> [Catalogizable.Type] {
+    func createUIItems() -> [Catalogizable.Type] {
         return [
             RatioTransitionViewController.self,
             RoundCornersViewController.self,
@@ -49,7 +49,7 @@ private extension CatalogDataSource {
 
 private extension CatalogDataSource {
 
-    func _rxItems() -> [Catalogizable.Type] {
+    func createRxItems() -> [Catalogizable.Type] {
         return [
             RxAlertExampleViewController.self,
             RxPagingViewController.self
@@ -60,7 +60,7 @@ private extension CatalogDataSource {
 
 private extension CatalogDataSource {
 
-    func _networkingItems() -> [Catalogizable.Type] {
+    func createNetworkingItems() -> [Catalogizable.Type] {
         return [
             NetworkingViewController.self,
             RxNetworkingViewController.self,

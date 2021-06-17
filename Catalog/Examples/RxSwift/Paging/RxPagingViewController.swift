@@ -15,25 +15,25 @@ final class RxPagingViewController: UIViewController, Refreshable {
 
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        _tableView.refreshControl = refreshControl
+        tableView.refreshControl = refreshControl
         return refreshControl
     }()
 
     // MARK: - Private properties
 
-    private let _disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
 
-    private lazy var _tableDataSource: TableDataSourceDelegate = {
-        return TableDataSourceDelegate(tableView: _tableView)
+    private lazy var tableDataSource: TableDataSourceDelegate = {
+        return TableDataSourceDelegate(tableView: tableView)
     }()
 
     // MARK: - IBOutlets
 
-    @IBOutlet private weak var _tableView: UITableView! {
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            _tableView.tableFooterView = UIView(frame: .zero)
-            _tableView.registerClass(cellOfType: PokemonTableViewCell.self)
-            _tableView.contentInsetAdjustmentBehavior = .never
+            tableView.tableFooterView = UIView(frame: .zero)
+            tableView.registerClass(cellOfType: PokemonTableViewCell.self)
+            tableView.contentInsetAdjustmentBehavior = .never
         }
     }
 
@@ -41,7 +41,7 @@ final class RxPagingViewController: UIViewController, Refreshable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        _setupPagination()
+        setupPagination()
     }
 	
 }
@@ -50,7 +50,7 @@ final class RxPagingViewController: UIViewController, Refreshable {
 
 private extension RxPagingViewController {
 
-    func _setupPagination() {
+    func setupPagination() {
         let item = UIBarButtonItem(title: "Sort", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = item
         
@@ -63,10 +63,10 @@ private extension RxPagingViewController {
             .asDriver()
             .mapToVoid()
 
-        let willDisplayLastCell = _tableView.rx
+        let willDisplayLastCell = tableView.rx
             .reachedBottomOnceWith(restart: pullToRefresh)
 
-        let pokemons = _pokemons(
+        let pokemons = pokemons(
             loadNextPage: willDisplayLastCell,
             reload: pullToRefresh,
             sort: sort
@@ -75,8 +75,8 @@ private extension RxPagingViewController {
         pokemons
             .map { $0.map(PokemonTableCellItem.init) }
             .do(onNext: { [unowned self] _ in self.endRefreshing() })
-            .bind(to: _tableDataSource.rx.items)
-            .disposed(by: _disposeBag)
+            .bind(to: tableDataSource.rx.items)
+            .disposed(by: disposeBag)
     }
 
 }
@@ -87,7 +87,7 @@ private extension RxPagingViewController {
     typealias Page = PokemonsPage
     typealias PagingEvent = Paging.Event<Container>
 
-    func _pokemons(loadNextPage: Driver<Void>, reload: Driver<Void>, sort: Driver<Bool>) -> Observable<[Pokemon]> {
+    func pokemons(loadNextPage: Driver<Void>, reload: Driver<Void>, sort: Driver<Bool>) -> Observable<[Pokemon]> {
         let sortItems = sort.map { ascending in
             return PagingEvent.update { ascending ? $0.sorted() : $0.sorted().reversed() }
         }

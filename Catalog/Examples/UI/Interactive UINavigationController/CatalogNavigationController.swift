@@ -27,7 +27,7 @@ extension CatalogNavigationController {
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         let shouldAddBackButton = !viewControllers.isEmpty && viewController.navigationItem.leftBarButtonItem == nil
         if shouldAddBackButton {
-            viewController.navigationItem.leftBarButtonItem = _createAndHandleNavigationBackButton()
+            viewController.navigationItem.leftBarButtonItem = createAndHandleNavigationBackButton()
         }
         super.pushViewController(viewController, animated: animated)
     }
@@ -37,17 +37,17 @@ extension CatalogNavigationController {
 
 private extension CatalogNavigationController {
 
-    func _createAndHandleNavigationBackButton() -> UIBarButtonItem {
+    func createAndHandleNavigationBackButton() -> UIBarButtonItem {
         return UIBarButtonItem(
             image: UIImage(named: "back-arrow"),
             style: .plain,
             target: self,
-            action: #selector(_navigateBackAnimated)
+            action: #selector(navigateBackAnimated)
         )
     }
 
     @objc 
-    func _navigateBackAnimated() {
+    func navigateBackAnimated() {
         self.popViewController(animated: true)
     }
 }
