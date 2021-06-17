@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.0)
+  - Alamofire (5.4.3)
   - Japx/Alamofire (3.0.0):
     - Alamofire (~> 5.0)
     - Japx/Core
@@ -15,10 +15,10 @@ PODS:
   - Japx/RxCodableAlamofire (3.0.0):
     - Japx/CodableAlamofire
     - Japx/RxAlamofire
-  - Loggie (2.2.2)
+  - Loggie (2.3.0)
   - MBProgressHUD (1.2.0)
-  - Nimble (9.0.0)
-  - Quick (3.0.0)
+  - Nimble (9.2.0)
+  - Quick (4.0.0)
   - RxBlocking (5.1.1):
     - RxSwift (~> 5)
   - RxCocoa (5.1.1):
@@ -34,8 +34,8 @@ PODS:
     - RxNimble/Core
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.1.1)
-  - RxTest (5.1.1):
+  - RxSwift (5.1.2)
+  - RxTest (5.1.2):
     - RxSwift (~> 5)
   - "SwiftI18n/I18n+Case (1.2.1)"
 
@@ -69,20 +69,20 @@ SPEC REPOS:
     - SwiftI18n
 
 SPEC CHECKSUMS:
-  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Japx: d1f7f3e4b94f2013538102e96cf96fd417005f76
-  Loggie: 580029d1d140df6ee380e7541e901f3d2db734af
+  Loggie: 12ed0ea1f90590b627bb2f4b8aeb983c112a7c8d
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
-  Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
+  Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
+  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxNimble: 3b757b0f8fb4dc487c3f9a383bc61a6f5bd72d28
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  RxTest: 711632d5644dffbeb62c936a521b5b008a1e1faa
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  RxTest: 274549b747dca56f47c52c8991ec5cf797ecfe40
   SwiftI18n: 67d3b531548924f5a562660e938d76f42e6493f7
 
 PODFILE CHECKSUM: c1bd3c6635241eddbc27b561b9958b59ee1c5e23
 
-COCOAPODS: 1.10.0.beta.2
+COCOAPODS: 1.10.0
