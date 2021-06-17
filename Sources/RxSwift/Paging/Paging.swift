@@ -49,7 +49,7 @@ public enum Paging {
         let stateRelay = BehaviorRelay(value: initialState)
         // Forbid loading next page while current page is not loaded
         let loadingRelay = BehaviorRelay(value: false)
-        let filteredEvents = _prepareEvent(event, stateRelay: stateRelay, loadingRelay: loadingRelay)
+        let filteredEvents = prepareEvent(event, stateRelay: stateRelay, loadingRelay: loadingRelay)
 
         // We need observeOn for:
         // 1. Supporting feedback loop to avoid reentrancy issue, so scheduler must
@@ -64,7 +64,7 @@ public enum Paging {
         let eventDriverState = Observable.zip(filteredEvents, stateEvent)
 
         let newState = eventDriverState
-            .filter { (event, state) -> Bool in
+            .filter { event, state -> Bool in
                 // If current event is next page, and there are no next pages
                 // just ignore current event and prepare stateRelay to accpet
                 // new items. stateRelay is inside zip, so it is very important to
@@ -77,12 +77,12 @@ public enum Paging {
             }
             .do(onNext: { _ in loadingRelay.accept(true) })
             .map { ($0.0, $0.1, pager) }
-            .flatMapLatest(_loadNextPage)
+            .flatMapLatest(loadNextPage)
             .do(onNext: {
                 stateRelay.accept($0)
                 loadingRelay.accept(false)
             })
-            .filter { $0.event?._shouldPropagateNextEvent ?? true }
+            .filter { $0.event?.shouldPropagateNextEvent ?? true }
 
         return newState.map { $0.response }
     }
@@ -176,7 +176,7 @@ private extension Paging {
         }
     }
     
-    static func _prepareEvent<Page, Container>(
+    static func prepareEvent<Page, Container>(
         _ event: Observable<Event<Container>>,
         stateRelay: BehaviorRelay<Paging.State<Container, Page>>,
         loadingRelay: BehaviorRelay<Bool>
@@ -197,23 +197,28 @@ private extension Paging {
             )
     }
     
-    static func _loadNextPage<Container, Page>(
+    static func loadNextPage<Container, Page>(
         event: Event<Container>,
         state: State<Container, Page>,
         pager: Pager<Container, Page>
     ) -> Observable<State<Container, Page>> {
         // If event is not .reload or .nextPage then don't invoke an API
         // call and just modify container and last page if needed
-        guard event._shouldPerformApiCall else {
-            let container = event._modifiedContainer(from: state.container,
-                                                     containerCreator: pager.containerCreator)
-            let lastPage = event._modifiedLastPage(from: state.lastPage)
-            return Observable
-                .just(State(
-                    container: container, lastPage: lastPage,
-                    hasNext: state.hasNext, event: event
-                )
+        guard event.shouldPerformApiCall else {
+            let container = event.modifiedContainer(
+                from: state.container,
+                containerCreator: pager.containerCreator
             )
+
+            let lastPage = event.modifiedLastPage(from: state.lastPage)
+            
+            return Observable
+                .just(
+                    State(
+                        container: container, lastPage: lastPage,
+                        hasNext: state.hasNext, event: event
+                    )
+                )
         }
 
         // If this is the last page and event is not reload
@@ -223,11 +228,11 @@ private extension Paging {
         }
 
         // Depending on event create new container or append page to current container
-        let container = event._modifiedContainer(
+        let container = event.modifiedContainer(
             from: state.container,
             containerCreator: pager.containerCreator
         )
-        let lastPage = event._modifiedLastPage(from: state.lastPage)
+        let lastPage = event.modifiedLastPage(from: state.lastPage)
 
         // Load next page
         let next = pager.nextPage(container, lastPage).asObservable()
@@ -254,7 +259,7 @@ private struct Pager<Container, Page> {
 
 private extension Paging.Event {
 
-    func _modifiedContainer(from container: Container, containerCreator: () -> Container) -> Container {
+    func modifiedContainer(from container: Container, containerCreator: () -> Container) -> Container {
         switch self {
         case .nextPage: return container
         case .reload: return containerCreator()
@@ -263,21 +268,21 @@ private extension Paging.Event {
         }
     }
 
-    func _modifiedLastPage<Model>(from lastPage: Model?) -> Model? {
+    func modifiedLastPage<Model>(from lastPage: Model?) -> Model? {
         switch self {
         case .reload: return nil
         case .nextPage, .update, .updateWithoutEvent: return lastPage
         }
     }
 
-    var _shouldPerformApiCall: Bool {
+    var shouldPerformApiCall: Bool {
         switch self {
         case .nextPage, .reload: return true
         case .update, .updateWithoutEvent: return false
         }
     }
 
-    var _shouldPropagateNextEvent: Bool {
+    var shouldPropagateNextEvent: Bool {
         switch self {
         case .nextPage, .reload, .update: return true
         case .updateWithoutEvent: return false

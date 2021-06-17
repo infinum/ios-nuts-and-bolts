@@ -41,7 +41,6 @@ public extension Array {
         effectiveRotations += length
         effectiveRotations %= length
         
-        
         let wholeReversed: Array = reversed()
         let leftPart: Array = wholeReversed[0..<effectiveRotations].reversed()
         let rightPart: Array = wholeReversed[effectiveRotations..<length].reversed()

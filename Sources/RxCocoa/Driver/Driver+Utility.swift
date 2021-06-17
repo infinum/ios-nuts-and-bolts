@@ -16,11 +16,11 @@ public extension SharedSequenceConvertibleType where SharingStrategy == DriverSh
     /// - Parameter relay: PublishRelay instance
     /// - Returns: Disposable for current subscription
     func drive(_ relay: PublishRelay<Element>) -> Disposable {
-        return drive(onNext: { e in relay.accept(e) })
+        return drive(onNext: { element in relay.accept(element) })
     }
     
     /// Safely unwraps optional value from chain
-    func compactMap<T>() -> Driver<T> where Element == Optional<T> {
+    func compactMap<T>() -> Driver<T> where Element == T? {
         return compactMap { $0 }
     }
     

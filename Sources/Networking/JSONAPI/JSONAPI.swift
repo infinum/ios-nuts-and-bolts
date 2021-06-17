@@ -13,7 +13,7 @@ public enum JSONAPI {
     
 }
 
-/// MARK: - JSONAPI Request headers
+// MARK: - JSONAPI Request headers -
 
 public extension Headers.ApplicationType {
     /// JSONAPI application type value

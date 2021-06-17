@@ -15,12 +15,12 @@ final class NetworkingJapxWireframe: BaseWireframe {
 
     // MARK: - Private properties -
     
-    private let _storyboard = UIStoryboard(name: "NetworkingJapx", bundle: nil)
+    private let storyboard = UIStoryboard(name: "NetworkingJapx", bundle: nil)
     
     // MARK: - Module setup -
     
     init() {
-        let moduleViewController = _storyboard.instantiateViewController(ofType: NetworkingJapxViewController.self)
+        let moduleViewController = storyboard.instantiateViewController(ofType: NetworkingJapxViewController.self)
         super.init(viewController: moduleViewController)
         
         let interactor = NetworkingJapxInteractor(sessionManager: SessionManager.default)
@@ -41,7 +41,7 @@ extension NetworkingJapxWireframe: NetworkingJapxWireframeInterface {
         displayAlert(
             with: title,
             message: message,
-            actions: [UIAlertAction.init(title: "OK", style: .cancel, handler: completion)],
+            actions: [UIAlertAction(title: "OK", style: .cancel, handler: completion)],
             style: .alert
         )
     }

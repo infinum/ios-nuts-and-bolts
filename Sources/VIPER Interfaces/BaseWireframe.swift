@@ -15,14 +15,16 @@ protocol WireframeInterface: AnyObject {
 open class BaseWireframe {
     
     let disposeBag = DisposeBag()
-    
+
+    // Needs to have an underscore to diferentiate it from the
+    // computed one.
     private unowned var _viewController: UIViewController
     
     // To retain view controller reference upon first access
-    private var _temporaryStoredViewController: UIViewController?
+    private var temporaryStoredViewController: UIViewController?
     
     public init(viewController: UIViewController) {
-        _temporaryStoredViewController = viewController
+        temporaryStoredViewController = viewController
         _viewController = viewController
     }
     
@@ -62,7 +64,7 @@ extension BaseWireframe: WireframeInterface {
 extension BaseWireframe {
     
     var viewController: UIViewController {
-        defer { _temporaryStoredViewController = nil }
+        defer { temporaryStoredViewController = nil }
         return _viewController
     }
     

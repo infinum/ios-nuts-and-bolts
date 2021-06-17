@@ -23,28 +23,28 @@ public extension UIColor {
         var color: UInt32 = 0
         Scanner(string: hexSanitized).scanHexInt32(&color)
         
-        let r: CGFloat
-        let g: CGFloat
-        let b: CGFloat
-        let a: CGFloat
+        let red: CGFloat
+        let green: CGFloat
+        let blue: CGFloat
+        let alpha: CGFloat
         
         if hexSanitized.count == 6 {
-            r = CGFloat((color & 0xFF0000) >> 16) / 255.0
-            g = CGFloat((color & 0x00FF00) >> 8) / 255.0
-            b = CGFloat(color & 0x0000FF) / 255.0
-            a = 1
+            red = CGFloat((color & 0xFF0000) >> 16) / 255.0
+            green = CGFloat((color & 0x00FF00) >> 8) / 255.0
+            blue = CGFloat(color & 0x0000FF) / 255.0
+            alpha = 1
         } else if hexSanitized.count == 8 {
-            r = CGFloat((color & 0xFF000000) >> 24) / 255.0
-            g = CGFloat((color & 0x00FF0000) >> 16) / 255.0
-            b = CGFloat((color & 0x0000FF00) >> 8) / 255.0
-            a = CGFloat(color & 0x000000FF) / 255.0
+            red = CGFloat((color & 0xFF000000) >> 24) / 255.0
+            green = CGFloat((color & 0x00FF0000) >> 16) / 255.0
+            blue = CGFloat((color & 0x0000FF00) >> 8) / 255.0
+            alpha = CGFloat(color & 0x000000FF) / 255.0
         } else {
-            assert(false, "You have eneted the non-valid hex color string. Please, check your input.")
+            assertionFailure("You have entered a non-valid hex color string. Please, check your input.")
             self.init(r: 0, g: 0, b: 0)
             return
         }
         
-        self.init(red: r, green: g, blue: b, alpha: a)
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
     
     /// Generates a Hex string, from a current color value.
@@ -56,15 +56,15 @@ public extension UIColor {
             return nil
         }
         
-        let r = Float(components[0])
-        let g = Float(components[1])
-        let b = Float(components[2])
-        let a = Float(components.count >= 4 ? components[3] : 1)
+        let red = Float(components[0])
+        let green = Float(components[1])
+        let blue = Float(components[2])
+        let alpha = Float(components.count >= 4 ? components[3] : 1)
         
         if includeAlpha {
-            return String(format: "#%02lX%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255), lroundf(a * 255))
+            return String(format: "#%02lX%02lX%02lX%02lX", lroundf(red * 255), lroundf(green * 255), lroundf(blue * 255), lroundf(alpha * 255))
         } else {
-            return String(format: "#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255))
+            return String(format: "#%02lX%02lX%02lX", lroundf(red * 255), lroundf(green * 255), lroundf(blue * 255))
         }
     }
 }

@@ -21,15 +21,15 @@ public final class RatioPresentationManager: NSObject {
     public var ratio: CGFloat = 0.5
     
     /// Background color used for non-filled part of screen
-    public var backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.3)
+    public var backgroundColor = UIColor.black.withAlphaComponent(0.3)
 
     /// Dismiss view controller when user taps on non-filled part
-    public var shouldDismissOnTap: Bool = true
+    public var shouldDismissOnTap = true
     
     /// Ability to customize animations on `presentedView` in
     /// present and dismiss transition
     /// **Please, use weak reference to self inside animation**
-    public var animations: ((_ presentedView: UIView?, _ transition: RatioPresentationController.TransitionType) -> ())?
+    public var animations: ((_ presentedView: UIView?, _ transition: RatioPresentationController.TransitionType) -> Void)?
 }
 
 // MARK: - UIViewControllerTransitioningDelegate

@@ -17,18 +17,18 @@ final class CatalogViewController: UIViewController {
     
     // MARK: - Private properties -
     
-    private lazy var _tableView: UITableView = _createTableView()
+    private lazy var tableView: UITableView = createTableView()
     
-    private lazy var _dataSourceDelegate: TableDataSourceDelegate = {
-        return TableDataSourceDelegate(tableView: _tableView)
+    private lazy var tableDataSource: TableDataSourceDelegate = {
+        return TableDataSourceDelegate(tableView: tableView)
     }()
 
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        _setupUI()
-        _configure()
+        setupUI()
+        configure()
     }
 	
 }
@@ -40,16 +40,16 @@ extension CatalogViewController: CatalogViewInterface {
 
 private extension CatalogViewController {
     
-    func _setupUI() {
+    func setupUI() {
         title = "Catalog"
     }
     
-    func _configure() {
-        _tableView.registerClass(cellOfType: CatalogItemTableViewCell.self)
-        _dataSourceDelegate.sections = presenter.sections()
+    func configure() {
+        tableView.registerClass(cellOfType: CatalogItemTableViewCell.self)
+        tableDataSource.sections = presenter.sections()
     }
     
-    func _createTableView() -> UITableView {
+    func createTableView() -> UITableView {
         let tableView = UITableView(frame: .zero, style: .grouped)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false

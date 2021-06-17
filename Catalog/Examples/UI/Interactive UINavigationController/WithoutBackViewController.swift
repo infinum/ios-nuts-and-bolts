@@ -20,12 +20,12 @@ class WithoutBackViewController: UIViewController {
         navigationItem.hidesBackButton = true
     }
 
-    @IBAction func navigateNext() {
-        _navigate(to: .next)
+    @IBAction private func navigateNext() {
+        navigate(to: .next)
     }
 
-    @IBAction func navigateBack() {
-        _navigate(to: .back)
+    @IBAction private func navigateBack() {
+        navigate(to: .back)
     }
 
 }
@@ -36,7 +36,7 @@ private extension WithoutBackViewController {
         case next, back
     }
 
-    func _navigate(to options: NavigationOptions) {
+    func navigate(to options: NavigationOptions) {
         switch options {
         case .next:
             let interactiveStoryboard = UIStoryboard(name: "InteractiveNavigationExample", bundle: nil)

@@ -48,7 +48,7 @@ private extension SessionManager {
     // In that case we create authorization adapter on session manager which will
     // be passed when user logs in.
     var interceptor: Adapter {
-        return Adapter { [weak self] (request, session, completion) in
+        return Adapter { [weak self] request, session, completion in
             guard let authorizationAdapter = self?.authorizationAdapter else {
                 completion(.success(request))
                 return

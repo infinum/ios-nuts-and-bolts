@@ -10,17 +10,17 @@ import UIKit
 
 class ImageFromColorViewController: UIViewController {
     
-    private var _sampleView: UIButton!
+    private var sampleView: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _createSampleView()
+        createSampleView()
     }
 }
 
 private extension ImageFromColorViewController {
     
-    func _createSampleView() {
+    func createSampleView() {
         view.backgroundColor = .white
         
         let sampleView = UIButton(frame: .zero)
@@ -37,11 +37,12 @@ private extension ImageFromColorViewController {
 
         sampleView.addTarget(self, action: #selector(action(sender:)), for: .touchUpInside)
 
-        _sampleView = sampleView
+        self.sampleView = sampleView
     }
-    
-    @objc func action(sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+
+    @objc
+    func action(sender: UIButton) {
+        sender.isSelected.toggle()
     }
 }
 
@@ -55,4 +56,3 @@ extension ImageFromColorViewController: Catalogizable {
         return ImageFromColorViewController()
     }
 }
-

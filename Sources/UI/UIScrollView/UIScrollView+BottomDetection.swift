@@ -60,4 +60,3 @@ public extension Reactive where Base: UIScrollView {
             .flatMap { $0 ? .just(()) : .empty() }
     }
 }
-

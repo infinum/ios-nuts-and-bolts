@@ -28,12 +28,18 @@ public struct SimpleAnimationTableViewReloader: TableViewReloader {
         let indexPathsToDelete: [IndexPath] = zip(oldSections, newSections)
             .enumerated()
             .filter { $1.0.items.count > $1.1.items.count }
-            .flatMap { e in (e.element.1.items.count..<e.element.0.items.count).map { IndexPath(item: $0, section: e.offset) } }
+            .flatMap { element in
+                (element.element.1.items.count ..< element.element.0.items.count)
+                    .map { IndexPath(item: $0, section: element.offset) }
+            }
         
         let indexPathsToInsert: [IndexPath] = zip(oldSections, newSections)
             .enumerated()
             .filter { $1.0.items.count < $1.1.items.count }
-            .flatMap { e in (e.element.0.items.count..<e.element.1.items.count).map { IndexPath(item: $0, section: e.offset) } }
+            .flatMap { element in
+                (element.element.0.items.count ..< element.element.1.items.count)
+                    .map { IndexPath(item: $0, section: element.offset) }
+            }
         
         tableView.beginUpdates()
         tableView.deleteRows(at: indexPathsToDelete, with: animation)

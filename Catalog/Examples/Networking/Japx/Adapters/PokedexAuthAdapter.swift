@@ -11,25 +11,24 @@ import Alamofire
 
 public struct PokedexTokenAdapter: RequestInterceptor {
     
-    private let _authToken: String
-    private let _email: String
+    private let authToken: String
+    private let email: String
 
     init(authToken: String, email: String) {
-        _authToken = authToken
-        _email = email
+        self.authToken = authToken
+        self.email = email
     }
     
     public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var urlRequest = urlRequest
-        urlRequest.setValue(_authorizationHeader, forHTTPHeaderField: "Authorization")
+        urlRequest.setValue(authorizationHeader, forHTTPHeaderField: "Authorization")
         completion(.success(urlRequest))
     }
 }
 
 private extension PokedexTokenAdapter {
     
-    var _authorizationHeader: String {
-        return String(format: "Token token=%@, email=%@", _authToken, _email)
+    var authorizationHeader: String {
+        return String(format: "Token token=%@, email=%@", authToken, email)
     }
 }
-

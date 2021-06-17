@@ -17,11 +17,11 @@ public extension SharedSequenceConvertibleType where SharingStrategy == SignalSh
     /// - Parameter relay: PublishRelay instance
     /// - Returns: Disposable for current subscription
     func emit(_ relay: PublishRelay<Element>) -> Disposable {
-        return emit(onNext: { e in relay.accept(e) })
+        return emit(onNext: { element in relay.accept(element) })
     }
     
     /// Safely unwraps optional value from chain
-    func compactMap<T>() -> Signal<T> where Element == Optional<T> {
+    func compactMap<T>() -> Signal<T> where Element == T? {
         return compactMap { $0 }
     }
 

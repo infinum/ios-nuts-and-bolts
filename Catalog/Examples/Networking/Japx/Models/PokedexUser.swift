@@ -30,7 +30,14 @@ struct PokedexUser: JapxCodable {
         case authToken = "auth-token"
     }
     
-    init(id: String, email: String? = nil, username: String? = nil, password: String? = nil, passwordConfirmation: String? = nil, authToken: String? = nil) {
+    init(
+        id: String,
+        email: String? = nil,
+        username: String? = nil,
+        password: String? = nil,
+        passwordConfirmation: String? = nil,
+        authToken: String? = nil
+    ) {
         self.id = id
         self.email = email
         self.username = username

@@ -11,29 +11,29 @@ import RxCocoa
 
 class RxAlertExampleViewController: UIViewController {
 
-    @IBOutlet private weak var _button: UIButton!
-    @IBOutlet private weak var _label: UILabel!
-    private let _disposeBag = DisposeBag()
+    @IBOutlet private weak var button: UIButton!
+    @IBOutlet private weak var label: UILabel!
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _configure()
+        configure()
     }
 
 }
 
 private extension RxAlertExampleViewController {
     
-    func _configure() {
-        _button.rx
+    func configure() {
+        button.rx
             .tap
             .subscribe(onNext: { [weak self] in
-                self?._handleShowAlert()
+                self?.handleShowAlert()
             })
-            .disposed(by: _disposeBag)
+            .disposed(by: disposeBag)
     }
     
-    func _handleShowAlert() {
+    func handleShowAlert() {
         let okAction = AlertAction(title: "Ok", style: .default, value: "Ok")
         let cancelAction = AlertAction(title: "Cancel", style: .cancel, value: "Cancel")
         let deleteAction = AlertAction(title: "Delete", style: .destructive, value: "Delete")
@@ -49,8 +49,8 @@ private extension RxAlertExampleViewController {
         selectedAction
             .map { "Selected action: \($0)" }
             .asDriver(onErrorJustReturn: "Error")
-            .drive(_label.rx.text)
-            .disposed(by: _disposeBag)
+            .drive(label.rx.text)
+            .disposed(by: disposeBag)
     }
 
 }

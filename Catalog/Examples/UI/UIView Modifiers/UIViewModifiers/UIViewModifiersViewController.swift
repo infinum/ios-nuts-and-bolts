@@ -10,7 +10,7 @@ import UIKit
 
 class UIViewModifiersViewController: UIViewController {
 
-    @IBOutlet weak private var modifiedView: UIView!
+    @IBOutlet private weak var modifiedView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

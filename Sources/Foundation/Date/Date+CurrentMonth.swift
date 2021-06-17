@@ -16,7 +16,6 @@ public extension Date {
         return calendar.date(from: components)
     }
     
-    
     /// Returns the end of current month.
     var endOfCurrentMonth: Date? {
         let calendar = Calendar.current

@@ -12,12 +12,12 @@ import Alamofire
 /// networking router
 public struct EncodableParams {
 
-    /// MARK: - Private properties -
+    // MARK: - Private properties -
 
     private let encoding: ParameterEncoding
     private let parameters: Parameters?
 
-    /// MARK: - Init -
+    // MARK: - Init -
 
     public init(
         encoding: ParameterEncoding = URLEncoding.default,

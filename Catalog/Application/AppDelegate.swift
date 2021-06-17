@@ -15,9 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-    ) -> Bool
-    {
-        window = _createInitialWindow()
+    ) -> Bool {
+        window = createInitialWindow()
         return true
     }
 
@@ -25,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 private extension AppDelegate {
     
-    func _createInitialWindow() -> UIWindow {
+    func createInitialWindow() -> UIWindow {
         let window = UIWindow(frame: UIScreen.main.bounds)
         let viewController = CatalogWireframe().viewController
         window.rootViewController = UINavigationController(rootViewController: viewController)

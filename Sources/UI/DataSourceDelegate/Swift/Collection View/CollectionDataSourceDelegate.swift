@@ -21,7 +21,7 @@ public class CollectionDataSourceDelegate: NSObject {
     /// Setting a sections will invoke internal reloader causing table view to refresh.
     public var sections: [CollectionSectionItem]? {
         didSet(oldValue) {
-            _reloader.reload(_collectionView, oldSections: oldValue, newSections: sections)
+            reloader.reload(collectionView, oldSections: oldValue, newSections: sections)
         }
     }
     
@@ -31,8 +31,8 @@ public class CollectionDataSourceDelegate: NSObject {
     public var items: [CollectionCellItem]? {
         get {
             return sections?
-                .map { $0.items }
-                .reduce([CollectionCellItem](), +)
+                .map(\.items)
+                .reduce(into: [CollectionCellItem]()) { $0 = $0 + $1 }
         }
         set {
             let section: CollectionSectionItem? = BlankCollectionSection(items: newValue)
@@ -42,9 +42,9 @@ public class CollectionDataSourceDelegate: NSObject {
     
     // MARK: - Private properties
 
-    private let _collectionView: UICollectionView
-    private let _reloader: CollectionViewReloader
-    private let _disposeBag = DisposeBag()
+    private let collectionView: UICollectionView
+    private let reloader: CollectionViewReloader
+    private let disposeBag = DisposeBag()
     
     /// Creates a new data source delegate object responsible for handling
     /// collection view's data source and delegate logic.
@@ -59,13 +59,14 @@ public class CollectionDataSourceDelegate: NSObject {
     ///   - collectionView: Collection view to control
     ///   - reloader: Data reloader
     public init(collectionView: UICollectionView, reloader: CollectionViewReloader = DefaultCollectionViewReloader()) {
-        _collectionView = collectionView
-        _reloader = reloader
+        self.collectionView = collectionView
+        self.reloader = reloader
         super.init()
+        
         collectionView.dataSource = self
         collectionView.rx
             .setDelegate(self)
-            .disposed(by: _disposeBag)
+            .disposed(by: disposeBag)
     }
     
 }

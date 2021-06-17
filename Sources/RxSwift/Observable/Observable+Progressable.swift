@@ -45,5 +45,3 @@ public extension ObservableType {
     }
     
 }
-
-

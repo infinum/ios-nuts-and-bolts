@@ -24,7 +24,7 @@ public struct AlertAction<T> {
         self.value = value
     }
     
-    func asUIAlertAction(with maybe: @escaping (MaybeEvent<T>) -> ()) -> UIAlertAction {
+    func asUIAlertAction(with maybe: @escaping (MaybeEvent<T>) -> Void) -> UIAlertAction {
         return UIAlertAction(title: title, style: style) { _ in
             guard let value = self.value else {
                 maybe(.completed)
@@ -54,7 +54,7 @@ public extension UIAlertController {
         actions: [AlertAction<T>] = [],
         style: UIAlertController.Style
     ) -> Maybe<T> {
-        return Maybe.create(subscribe: { [weak viewController] (maybe) -> Disposable in
+        return Maybe.create(subscribe: { [weak viewController] maybe -> Disposable in
             guard let viewController = viewController else { return Disposables.create() }
             
             let alert = UIAlertController(title: title, message: message, preferredStyle: style)

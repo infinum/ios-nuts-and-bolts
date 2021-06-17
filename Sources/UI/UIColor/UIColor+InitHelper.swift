@@ -19,6 +19,11 @@ public extension UIColor {
     ///   - b: Blue value.
     ///   - alpha: Alpha value of the color.
     convenience init(r: CGFloat, g: CGFloat, b: CGFloat, alpha: CGFloat = 1) {
-        self.init(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: alpha)
+        self.init(
+            red: r / 255.0,
+            green: g / 255.0,
+            blue: b / 255.0,
+            alpha: alpha
+        )
     }
 }

@@ -8,7 +8,8 @@
 
 import UIKit
 
-@IBDesignable final class FollowButton: UIButton {
+@IBDesignable
+final class FollowButton: UIButton {
 
     // MARK: - Public properties -
 
