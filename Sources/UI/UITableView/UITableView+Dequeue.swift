@@ -25,6 +25,7 @@ public extension UITableView {
         for indexPath: IndexPath
     ) -> T {
         let identifier = identifier ?? String(describing: type)
+        // swiftlint:disable:next force_cast
         return dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! T
     }
     
@@ -39,6 +40,7 @@ public extension UITableView {
         withReuseIdentifier identifier: String? = nil
     ) -> T {
         let identifier = identifier ?? String(describing: type)
+        // swiftlint:disable:next force_cast
         return dequeueReusableHeaderFooterView(withIdentifier: identifier) as! T
     }
     

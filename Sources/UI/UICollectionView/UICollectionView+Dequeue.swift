@@ -26,6 +26,7 @@ public extension UICollectionView {
         for indexPath: IndexPath
     ) -> T {
         let identifier = identifier ?? String(describing: type)
+        // swiftlint:disable:next force_cast
         return dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! T
     }
     
