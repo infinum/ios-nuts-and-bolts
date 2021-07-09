@@ -39,7 +39,7 @@ enum LoggingFormatter {
         category: OSLog? = nil
     ) {
 
-        let configurator = Log.configurator!
+        guard let configurator = Log.configurator else { return }
 
         let function = stripParams(function: function)
         let message = formatMessage(
@@ -165,7 +165,7 @@ private extension LoggingFormatter {
     /// optionally in a given abbreviated timezone like "UTC"
     static func formatDate(_ dateFormat: String, timeZone: String = "") -> String {
 
-        let configurator = Log.configurator!
+        guard let configurator = Log.configurator else { return "" }
 
         if !timeZone.isEmpty {
             configurator.formatter.timeZone = TimeZone(abbreviation: timeZone)

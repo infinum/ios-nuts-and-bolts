@@ -37,7 +37,7 @@ class Log: NSObject {
         Log.formatAndLog(level: .verbose, message(), file, function, line: line, context: context, category: category)
     }
 
-    /// Log something which help during debugging (low priority).
+    /// Log something which helps during debugging (low priority).
     class func debug(
         _ message: @autoclosure () -> Any,
         _ file: String = #file,
@@ -49,7 +49,7 @@ class Log: NSObject {
         Log.formatAndLog(level: .debug, message(), file, function, line: line, context: context, category: category)
     }
 
-    /// Log something which you are really interested but which is not an issue or error (normal priority).
+    /// Log something which you are really interested in but which is not an issue or error (normal priority).
     class func info(
         _ message: @autoclosure () -> Any,
         _ file: String = #file,
