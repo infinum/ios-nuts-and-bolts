@@ -169,6 +169,14 @@
 		81B01CAE25EE8C7E0058D8E0 /* UICollectionView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B01CAD25EE8C7E0058D8E0 /* UICollectionView+Register.swift */; };
 		81B01CB425EE8CB30058D8E0 /* UICollectionView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B01CB325EE8CB30058D8E0 /* UICollectionView+Dequeue.swift */; };
 		A079BE7DB48B4893DCFF0655 /* Pods_Catalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3591F78E371C1F705EDDB1C6 /* Pods_Catalog.framework */; };
+		A83B221C269D84EA005A4A91 /* LoggingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B221B269D84EA005A4A91 /* LoggingBridge.swift */; };
+		A8D4BE842689A023002D8202 /* LoggingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BE7D2689A023002D8202 /* LoggingOptions.swift */; };
+		A8D4BE852689A023002D8202 /* LogSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BE7E2689A023002D8202 /* LogSettings.swift */; };
+		A8D4BE862689A023002D8202 /* LogCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BE7F2689A023002D8202 /* LogCategory.swift */; };
+		A8D4BE872689A023002D8202 /* LoggingObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BE802689A023002D8202 /* LoggingObjC.swift */; };
+		A8D4BE882689A023002D8202 /* LoggingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BE812689A023002D8202 /* LoggingConfigurator.swift */; };
+		A8D4BE892689A023002D8202 /* LoggingFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BE822689A023002D8202 /* LoggingFormatter.swift */; };
+		A8D4BE8A2689A023002D8202 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BE832689A023002D8202 /* Logging.swift */; };
 		A8FD60E52292ADC000FB50CE /* BaseTableCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60E42292ADC000FB50CE /* BaseTableCellItem.m */; };
 		A8FD60EB2292AE2C00FB50CE /* BaseTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60EA2292AE2C00FB50CE /* BaseTableSection.m */; };
 		A8FD60EE2292AE5400FB50CE /* TableViewReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FD60ED2292AE5400FB50CE /* TableViewReloader.m */; };
@@ -392,6 +400,15 @@
 		81B01CA825EE8B190058D8E0 /* AssociableCollectionCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociableCollectionCellItem.swift; sourceTree = "<group>"; };
 		81B01CAD25EE8C7E0058D8E0 /* UICollectionView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Register.swift"; sourceTree = "<group>"; };
 		81B01CB325EE8CB30058D8E0 /* UICollectionView+Dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Dequeue.swift"; sourceTree = "<group>"; };
+		A83B221B269D84EA005A4A91 /* LoggingBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingBridge.swift; sourceTree = "<group>"; };
+		A8D4BE7C2689A023002D8202 /* LoggingObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingObjC.h; sourceTree = "<group>"; };
+		A8D4BE7D2689A023002D8202 /* LoggingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingOptions.swift; sourceTree = "<group>"; };
+		A8D4BE7E2689A023002D8202 /* LogSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSettings.swift; sourceTree = "<group>"; };
+		A8D4BE7F2689A023002D8202 /* LogCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogCategory.swift; sourceTree = "<group>"; };
+		A8D4BE802689A023002D8202 /* LoggingObjC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingObjC.swift; sourceTree = "<group>"; };
+		A8D4BE812689A023002D8202 /* LoggingConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingConfigurator.swift; sourceTree = "<group>"; };
+		A8D4BE822689A023002D8202 /* LoggingFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingFormatter.swift; sourceTree = "<group>"; };
+		A8D4BE832689A023002D8202 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		A8FD60DC2292AD4600FB50CE /* CellItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellItem.h; sourceTree = "<group>"; };
 		A8FD60DD2292AD6C00FB50CE /* SectionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionItem.h; sourceTree = "<group>"; };
 		A8FD60E32292ADC000FB50CE /* BaseTableCellItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableCellItem.h; sourceTree = "<group>"; };
@@ -994,11 +1011,12 @@
 		0AD9EABC2204274300FF3F2C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0AE0B7722204772B0033A476 /* Foundation */,
 				0AB524092210ACB400F35F52 /* Networking */,
 				0A0ECF5C2207718500C1853E /* RxCocoa */,
 				0A0ECF5B2207717D00C1853E /* RxSwift */,
-				0AE0B7722204772B0033A476 /* Foundation */,
 				0AD9EAC22204274300FF3F2C /* UI */,
+				A83B221A269D84C4005A4A91 /* Utilities */,
 				0AD9EABD2204274300FF3F2C /* VIPER Interfaces */,
 			);
 			path = Sources;
@@ -1435,6 +1453,38 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A83B221A269D84C4005A4A91 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A8D4BE6626899F38002D8202 /* Logging */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A8D4BE6626899F38002D8202 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				A8D4BE832689A023002D8202 /* Logging.swift */,
+				A8D4BE812689A023002D8202 /* LoggingConfigurator.swift */,
+				A8D4BE822689A023002D8202 /* LoggingFormatter.swift */,
+				A8D4BE7B2689A023002D8202 /* ObjC */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		A8D4BE7B2689A023002D8202 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				A8D4BE7F2689A023002D8202 /* LogCategory.swift */,
+				A83B221B269D84EA005A4A91 /* LoggingBridge.swift */,
+				A8D4BE7C2689A023002D8202 /* LoggingObjC.h */,
+				A8D4BE802689A023002D8202 /* LoggingObjC.swift */,
+				A8D4BE7D2689A023002D8202 /* LoggingOptions.swift */,
+				A8D4BE7E2689A023002D8202 /* LogSettings.swift */,
+			);
+			path = ObjC;
+			sourceTree = "<group>";
+		};
 		A8FD60DE2292AD7B00FB50CE /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1863,6 +1913,7 @@
 				0A1DFE52236EE90B000F2538 /* Paging.swift in Sources */,
 				0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */,
 				CC80F71F2438C7DC00A3F276 /* TogglePresenter.swift in Sources */,
+				A8D4BE842689A023002D8202 /* LoggingOptions.swift in Sources */,
 				063B5AA82317F64D003A7B84 /* WithoutBackViewController.swift in Sources */,
 				0A1DFE64236EFA78000F2538 /* UIScrollView+BottomDetection.swift in Sources */,
 				0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */,
@@ -1880,6 +1931,7 @@
 				C202327D23954DB400DC3C42 /* NetworkingJapxPresenter.swift in Sources */,
 				6047127E222678EA00809454 /* UITextView+ZeroInsets.swift in Sources */,
 				0A1DFE5D236EF5B4000F2538 /* RxPagingViewController.swift in Sources */,
+				A8D4BE872689A023002D8202 /* LoggingObjC.swift in Sources */,
 				0A0F24472247D5D80005CF41 /* APIService.swift in Sources */,
 				0A54436622718AB100F26468 /* RxNetworkingWireframe.swift in Sources */,
 				81B01C6725EE7FEC0058D8E0 /* ItemConfigurable.swift in Sources */,
@@ -1889,6 +1941,7 @@
 				0AB524052210A11500F35F52 /* CollectionDataSourceDelegate.swift in Sources */,
 				4F14006D2289FF9D0005F37A /* NSArray+FunctionalOperators.m in Sources */,
 				C202327F23954DB400DC3C42 /* NetworkingJapxInteractor.swift in Sources */,
+				A8D4BE882689A023002D8202 /* LoggingConfigurator.swift in Sources */,
 				0AA45E772218880A009CF93E /* JapxResponse.swift in Sources */,
 				C202328023954DB400DC3C42 /* NetworkingJapxWireframe.swift in Sources */,
 				CC80F7232438DAEC00A3F276 /* ToggleWireframe.swift in Sources */,
@@ -1903,6 +1956,7 @@
 				0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */,
 				4F286F942291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m in Sources */,
 				0AE0B75D2204365C0033A476 /* SectionItem.swift in Sources */,
+				A8D4BE8A2689A023002D8202 /* Logging.swift in Sources */,
 				0AD9EAC52204274300FF3F2C /* BaseWireframe.swift in Sources */,
 				0A0ECF592207024800C1853E /* RatioTransitionViewController.swift in Sources */,
 				0AE0B757220430770033A476 /* CellItem.swift in Sources */,
@@ -1926,6 +1980,7 @@
 				0A54435822718A8F00F26468 /* NetworkingInteractor.swift in Sources */,
 				0A603FE622078D0200F25622 /* Single+Progressable.swift in Sources */,
 				C202328323954E6500DC3C42 /* PokedexUser.swift in Sources */,
+				A8D4BE862689A023002D8202 /* LogCategory.swift in Sources */,
 				0A54436222718AB100F26468 /* RxNetworkingPresenter.swift in Sources */,
 				0A1FAFF12406B6AA000F72D6 /* Result+Rx.swift in Sources */,
 				0AB524012210A0FB00F35F52 /* CollectionSectionItem.swift in Sources */,
@@ -1933,6 +1988,7 @@
 				0AB524162210AF3400F35F52 /* JSONAPI.swift in Sources */,
 				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
 				0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */,
+				A8D4BE852689A023002D8202 /* LogSettings.swift in Sources */,
 				0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */,
 				C2220318236AF76700C11B2E /* NSDate+Addition.m in Sources */,
 				0AA45E7922188833009CF93E /* JapxPagination.swift in Sources */,
@@ -1957,6 +2013,7 @@
 				0A3C090B220AD44F00DEBECC /* UIView+Corners.swift in Sources */,
 				0AB524032210A10800F35F52 /* BlankCollectionSection.swift in Sources */,
 				A8FD60F52292AF1A00FB50CE /* CollectionDataSourceDelegate.m in Sources */,
+				A83B221C269D84EA005A4A91 /* LoggingBridge.swift in Sources */,
 				0AE0B75F220436B10033A476 /* TableSectionItem.swift in Sources */,
 				0ADB25AD2270806A00288054 /* BasicAuthAdapter.swift in Sources */,
 				0AE0B76722045BB00033A476 /* CatalogItem.swift in Sources */,
@@ -1965,6 +2022,7 @@
 				0A603FDA2207814A00F25622 /* UIViewController+Progressable.swift in Sources */,
 				0AE0B76C220461620033A476 /* UITableView+Dequeue.swift in Sources */,
 				0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */,
+				A8D4BE892689A023002D8202 /* LoggingFormatter.swift in Sources */,
 				81B01CAE25EE8C7E0058D8E0 /* UICollectionView+Register.swift in Sources */,
 				0AB524142210AF1000F35F52 /* Parameters+Sorting.swift in Sources */,
 				0A0C8CFE22492E2C0071011F /* EncodableParams.swift in Sources */,
