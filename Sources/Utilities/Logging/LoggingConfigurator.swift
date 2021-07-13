@@ -85,22 +85,6 @@ class LogConfigurator: NSObject {
     /// By default, if value is not set, everything will be logged
     var logLevels: Level = []
     var formatter = DateFormatter()
-
-    override init() { }
-
-    @available(swift, obsoleted: 1.0)
-    init(settings: __ObjCLogSettings) {
-        if let format = settings.format { self.format = format }
-        if let isLoggingEnabled = settings.isLoggingEnabled {
-            self.isLoggingEnabled = isLoggingEnabled
-        }
-        if let formatter = settings.formatter { self.formatter = formatter }
-        if settings.shouldLogInfo { logLevels.insert(.info) }
-        if settings.shouldLogWarning { logLevels.insert(.warning) }
-        if settings.shouldLogError { logLevels.insert(.error) }
-        if settings.shouldLogVerbose { logLevels.insert(.verbose) }
-        if settings.shouldLogDebug { logLevels.insert(.debug) }
-    }
 }
 
 extension OSLog {

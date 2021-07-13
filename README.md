@@ -12,7 +12,7 @@
 
 Collection of commonly shared and reused code throughout the Infinum iOS team.
 
-## Features 
+## Features
 
 <details>
 <summary><big><b>Networking</b></big></summary>
@@ -68,6 +68,17 @@ Interfaces used for building your application using the VIPER architecture patte
 <br/><br/>
 </details>
 
+<details>
+<summary><big><b>Utilities</b></big></summary>
+<hr />
+
+Useful classes and methods which help you achieve your goals.
+
+* **Logging** - Used for lightweight logging during development process.
+
+<br/><br/>
+</details>
+
 ## Framework manager
 
 [CocoaPods](https://cocoapods.org) - a Ruby-built dependency manager for Swift and Objective-C Cocoa projects. It has over 65 thousand libraries and is used in over 3 million apps.
@@ -85,7 +96,7 @@ Interfaces used for building your application using the VIPER architecture patte
 
 * **[Alamofire](https://cocoapods.org/pods/Alamofire)** - an HTTP networking library written in Swift.
 * **[CodableAlamofire](https://cocoapods.org/pods/CodableAlamofire)** - an extension for Alamofire that converts JSON data into Decodable object.
-* **[Japx/RxCodableAlamofire]()** - Lightweight JSON:API parser that flattens complex JSON:API structure and turns it into simple JSON and vice versa. 
+* **[Japx/RxCodableAlamofire]()** - Lightweight JSON:API parser that flattens complex JSON:API structure and turns it into simple JSON and vice versa.
 * **[Loggie]()** - in-app network logging library.
 
 ### Reactive

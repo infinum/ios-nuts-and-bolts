@@ -169,6 +169,7 @@
 		81B01CAE25EE8C7E0058D8E0 /* UICollectionView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B01CAD25EE8C7E0058D8E0 /* UICollectionView+Register.swift */; };
 		81B01CB425EE8CB30058D8E0 /* UICollectionView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B01CB325EE8CB30058D8E0 /* UICollectionView+Dequeue.swift */; };
 		A079BE7DB48B4893DCFF0655 /* Pods_Catalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3591F78E371C1F705EDDB1C6 /* Pods_Catalog.framework */; };
+		A83B221C269D84EA005A4A91 /* LoggingBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B221B269D84EA005A4A91 /* LoggingBridge.swift */; };
 		A8D4BE842689A023002D8202 /* LoggingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BE7D2689A023002D8202 /* LoggingOptions.swift */; };
 		A8D4BE852689A023002D8202 /* LogSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BE7E2689A023002D8202 /* LogSettings.swift */; };
 		A8D4BE862689A023002D8202 /* LogCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BE7F2689A023002D8202 /* LogCategory.swift */; };
@@ -399,6 +400,7 @@
 		81B01CA825EE8B190058D8E0 /* AssociableCollectionCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociableCollectionCellItem.swift; sourceTree = "<group>"; };
 		81B01CAD25EE8C7E0058D8E0 /* UICollectionView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Register.swift"; sourceTree = "<group>"; };
 		81B01CB325EE8CB30058D8E0 /* UICollectionView+Dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Dequeue.swift"; sourceTree = "<group>"; };
+		A83B221B269D84EA005A4A91 /* LoggingBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingBridge.swift; sourceTree = "<group>"; };
 		A8D4BE7C2689A023002D8202 /* LoggingObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingObjC.h; sourceTree = "<group>"; };
 		A8D4BE7D2689A023002D8202 /* LoggingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingOptions.swift; sourceTree = "<group>"; };
 		A8D4BE7E2689A023002D8202 /* LogSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSettings.swift; sourceTree = "<group>"; };
@@ -1010,11 +1012,11 @@
 			isa = PBXGroup;
 			children = (
 				0AE0B7722204772B0033A476 /* Foundation */,
-				A8D4BE6626899F38002D8202 /* Logging */,
 				0AB524092210ACB400F35F52 /* Networking */,
 				0A0ECF5C2207718500C1853E /* RxCocoa */,
 				0A0ECF5B2207717D00C1853E /* RxSwift */,
 				0AD9EAC22204274300FF3F2C /* UI */,
+				A83B221A269D84C4005A4A91 /* Utilities */,
 				0AD9EABD2204274300FF3F2C /* VIPER Interfaces */,
 			);
 			path = Sources;
@@ -1451,6 +1453,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A83B221A269D84C4005A4A91 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A8D4BE6626899F38002D8202 /* Logging */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		A8D4BE6626899F38002D8202 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
@@ -1465,11 +1475,12 @@
 		A8D4BE7B2689A023002D8202 /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
+				A8D4BE7F2689A023002D8202 /* LogCategory.swift */,
+				A83B221B269D84EA005A4A91 /* LoggingBridge.swift */,
 				A8D4BE7C2689A023002D8202 /* LoggingObjC.h */,
+				A8D4BE802689A023002D8202 /* LoggingObjC.swift */,
 				A8D4BE7D2689A023002D8202 /* LoggingOptions.swift */,
 				A8D4BE7E2689A023002D8202 /* LogSettings.swift */,
-				A8D4BE7F2689A023002D8202 /* LogCategory.swift */,
-				A8D4BE802689A023002D8202 /* LoggingObjC.swift */,
 			);
 			path = ObjC;
 			sourceTree = "<group>";
@@ -2002,6 +2013,7 @@
 				0A3C090B220AD44F00DEBECC /* UIView+Corners.swift in Sources */,
 				0AB524032210A10800F35F52 /* BlankCollectionSection.swift in Sources */,
 				A8FD60F52292AF1A00FB50CE /* CollectionDataSourceDelegate.m in Sources */,
+				A83B221C269D84EA005A4A91 /* LoggingBridge.swift in Sources */,
 				0AE0B75F220436B10033A476 /* TableSectionItem.swift in Sources */,
 				0ADB25AD2270806A00288054 /* BasicAuthAdapter.swift in Sources */,
 				0AE0B76722045BB00033A476 /* CatalogItem.swift in Sources */,
