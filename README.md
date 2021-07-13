@@ -74,7 +74,7 @@ Interfaces used for building your application using the VIPER architecture patte
 
 Useful classes and methods which help you achieve your goals.
 
-* **Logging** - Used for lightweight logging during development process.
+* **Logging** - Used for lightweight logging and debugging during development process.
 
 <br/><br/>
 </details>
