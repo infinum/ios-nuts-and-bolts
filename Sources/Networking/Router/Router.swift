@@ -17,7 +17,7 @@ open class Router: Routable {
     open var path: String
     open var method: HTTPMethod
     open var headers: HTTPHeaders?
-    open var encodableParams: [EncodableParams]
+    open var encodableParams: [RequestEncodableParams]
 
     /// Creates Routable item with given parameters.
     ///
@@ -35,7 +35,7 @@ open class Router: Routable {
         path: String,
         method: HTTPMethod = .get,
         headers: HTTPHeaders? = nil,
-        encodableParams: [EncodableParams]
+        encodableParams: [RequestEncodableParams]
     ) {
         self.baseUrl = baseUrl
         self.path = path
@@ -68,6 +68,20 @@ open class Router: Routable {
         self.encodableParams = [EncodableParams(encoding: encoding, parameters: parameters)]
     }
 
+    public init<Model: Encodable>(
+        baseUrl: String,
+        path: String,
+        method: HTTPMethod = .get,
+        headers: HTTPHeaders? = nil,
+        parameters: Model? = nil,
+        encoding: ParameterEncoder = URLEncodedFormParameterEncoder.default
+    ) {
+        self.baseUrl = baseUrl
+        self.path = path
+        self.method = method
+        self.headers = headers
+        self.encodableParams = [EncodableParamsCoder(encoding: encoding, parameters: parameters)]
+    }
 }
 
 /// Convenience initializers which can be used if you have a base URL.

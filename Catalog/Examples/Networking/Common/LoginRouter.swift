@@ -22,7 +22,8 @@ class LoginRouter: Router {
 //            parameters: params,
 //            encoding: JSONEncoding.default
 //        )
-        /// Or with custom encoding for each set of params
+
+        // Or with custom encoding for each set of params
         let encodedParams = EncodableParams(encoding: JSONEncoding.default, parameters: params)
         return LoginRouter(
             baseUrl: "https://api.infinum.academy/api",
@@ -30,6 +31,32 @@ class LoginRouter: Router {
             method: .post,
             encodableParams: [encodedParams]
         )
+
+        // Or with custom encoding for encodable model
+//        let user = User(email: email, password: password)
+//        let encodableParams = EncodableParamsCoder(encoding: JSONParameterEncoder.default, parameters: user)
+//        return LoginRouter(
+//            baseUrl: "https://api.infinum.academy/api",
+//            path: "/users/sessions",
+//            method: .post,
+//            encodableParams: [encodableParams]
+//        )
+
+        // Or with encodable model
+//        let user = User(email: email, password: password)
+//        return LoginRouter(
+//            baseUrl: "https://api.infinum.academy/api",
+//            path: "/users/sessions",
+//            method: .post,
+//            parameters: user,
+//            encoding: JSONParameterEncoder.default
+//        )
     }
 
+}
+
+/// Encodable model
+private struct User: Encodable {
+    let email: String
+    let password: String
 }

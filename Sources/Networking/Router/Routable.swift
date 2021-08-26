@@ -24,7 +24,7 @@ public protocol Routable: URLRequestConvertible {
     var headers: HTTPHeaders? { get }
 
     /// Request parameters with associated encoding
-    var encodableParams: [EncodableParams] { get }
+    var encodableParams: [RequestEncodableParams] { get }
 }
 
 public extension Routable {
