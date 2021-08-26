@@ -36,12 +36,7 @@ public extension Bool {
     ///   - rhs: Second bool value
     /// - Returns: result of applying `XOR` operation to the provided params.
     static func xor(lhs: Bool, rhs: Bool) -> Bool {
-        switch (lhs, rhs) {
-        case (false, false): return false
-        case (false, true): return true
-        case (true, false): return true
-        case (true, true): return false
-        }
+        return lhs != rhs
     }
     
 }
