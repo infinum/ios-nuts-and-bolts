@@ -56,7 +56,7 @@ public enum Paging {
         // be MainScheduler.asyncInstance
         // 2. Tests, where we inject TestScheduler since testing with async scheduler
         // is not possible
-        let stateEvent = stateRelay.observeOn(scheduler.instance)
+        let stateEvent = stateRelay.observe(on: scheduler.instance)
 
         // Wait for action before to finish and then go the next action
         // Simple use case is when user reloads list and while old list is visible
@@ -100,7 +100,7 @@ public enum Paging {
         let nextPageRelay = PublishRelay<Void>()
         let nextPageEvent = nextPageRelay
             .mapTo(Paging.Event<Container>.nextPage)
-            .observeOn(scheduler.instance)
+            .observe(on: scheduler.instance)
 
         return Paging
             .page(
@@ -111,7 +111,7 @@ public enum Paging {
                 on: Observable.merge(event, nextPageEvent),
                 scheduler: scheduler
             )
-            .takeUntil(.inclusive) { !$0.hasNext }
+            .take(until: { !$0.hasNext }, behavior: .inclusive)
             .do(onNext: {
                 if $0.hasNext {
                     nextPageRelay.accept(())
