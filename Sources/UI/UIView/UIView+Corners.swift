@@ -21,15 +21,13 @@ public extension UIView {
     ///   - corners: Corners where to place round edge
     ///   - radius: Corner radius
     func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(
-            roundedRect: bounds,
-            byRoundingCorners: corners,
-            cornerRadii: CGSize(width: radius, height: radius)
-        )
-        let mask = CAShapeLayer()
-        mask.frame = bounds
-        mask.path = path.cgPath
-        layer.mask = mask
+        var maskedCorners: CACornerMask = []
+        if corners.contains(.topLeft) { maskedCorners.insert(.layerMinXMinYCorner) }
+        if corners.contains(.topRight) { maskedCorners.insert(.layerMaxXMinYCorner) }
+        if corners.contains(.bottomLeft) { maskedCorners.insert(.layerMinXMaxYCorner) }
+        if corners.contains(.bottomRight) { maskedCorners.insert(.layerMaxXMaxYCorner) }
+        layer.cornerRadius = radius
+        layer.maskedCorners = maskedCorners
     }
     
 }
