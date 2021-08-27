@@ -70,7 +70,7 @@ public extension UIAlertController {
                 }
             }
         })
-        .subscribeOn(MainScheduler.instance)
+        .subscribe(on: MainScheduler.instance)
     }
     
 }

@@ -17,7 +17,7 @@ public extension Result {
         case .success(let value):
             return .success(value)
         case .failure(let error):
-            return .error(error)
+            return .failure(error)
         }
     }
     
