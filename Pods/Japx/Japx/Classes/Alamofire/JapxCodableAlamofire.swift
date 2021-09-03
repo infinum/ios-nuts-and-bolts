@@ -5,8 +5,14 @@
 //  Created by Vlaho Poluta on 25/01/2018.
 //
 
-import Alamofire
+#if canImport(Alamofire)
+
 import Foundation
+import Alamofire
+
+#if !COCOAPODS
+import Japx
+#endif
 
 extension DataRequest {
     
@@ -96,7 +102,7 @@ public final class DecodableJSONAPIResponseSerializer<T: Decodable>: ResponseSer
                 return try decoder.decode(T.self, from: validData, includeList: includeList)
             }
             
-            let json = try Japx.Decoder.jsonObject(with: validData, includeList: includeList, options: decoder.options)
+            let json = try JapxKit.Decoder.jsonObject(with: validData, includeList: includeList, options: decoder.options)
             guard let jsonForKeyPath = (json as AnyObject).value(forKeyPath: keyPath) else {
                 throw JapxAlamofireError.invalidKeyPath(keyPath: keyPath)
             }
@@ -108,3 +114,5 @@ public final class DecodableJSONAPIResponseSerializer<T: Decodable>: ResponseSer
         }
     }
 }
+
+#endif

@@ -1,23 +1,15 @@
 PODS:
   - Alamofire (5.4.3)
-  - Japx/Alamofire (3.0.1):
-    - Alamofire (~> 5.0)
+  - Japx/Alamofire (4.0.0):
+    - Alamofire
     - Japx/Core
-  - Japx/Codable (3.0.1):
-    - Japx/Core
-  - Japx/CodableAlamofire (3.0.1):
+  - Japx/Core (4.0.0)
+  - Japx/RxAlamofire (4.0.0):
     - Japx/Alamofire
-    - Japx/Codable
-  - Japx/Core (3.0.1)
-  - Japx/RxAlamofire (3.0.1):
-    - Japx/Alamofire
-    - RxSwift (~> 6.0)
-  - Japx/RxCodableAlamofire (3.0.1):
-    - Japx/CodableAlamofire
-    - Japx/RxAlamofire
+    - RxSwift
   - Loggie (2.3.0)
   - MBProgressHUD (1.2.0)
-  - Nimble (9.2.0)
+  - Nimble (9.2.1)
   - Quick (4.0.0)
   - RxBlocking (6.2.0):
     - RxSwift (= 6.2.0)
@@ -40,7 +32,7 @@ PODS:
   - "SwiftI18n/I18n+Case (1.2.1)"
 
 DEPENDENCIES:
-  - Japx/RxCodableAlamofire (from `https://github.com/infinum/Japx.git`, branch `feature/RxSwift-6`)
+  - Japx/RxAlamofire
   - Loggie
   - MBProgressHUD
   - Nimble
@@ -55,6 +47,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Japx
     - Loggie
     - MBProgressHUD
     - Nimble
@@ -67,22 +60,12 @@ SPEC REPOS:
     - RxTest
     - SwiftI18n
 
-EXTERNAL SOURCES:
-  Japx:
-    :branch: feature/RxSwift-6
-    :git: https://github.com/infinum/Japx.git
-
-CHECKOUT OPTIONS:
-  Japx:
-    :commit: 883a6d98d66af5c4aa602b604cc92616487ed29d
-    :git: https://github.com/infinum/Japx.git
-
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  Japx: 1192a1c5258015809d2c57e64036a050b36aeb80
+  Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
   Loggie: 12ed0ea1f90590b627bb2f4b8aeb983c112a7c8d
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
+  Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   RxBlocking: 0b29f7d2079109a8de49c411381bed7c33ef1eeb
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
@@ -92,6 +75,6 @@ SPEC CHECKSUMS:
   RxTest: 0c692fa672b694373ba86d2b00033595297a2831
   SwiftI18n: 67d3b531548924f5a562660e938d76f42e6493f7
 
-PODFILE CHECKSUM: 27c99fd87afd5c29e94cdb7bfd0860929557a89c
+PODFILE CHECKSUM: ae3b001509f1b4daddcf9415bb09f5645b61b121
 
-COCOAPODS: 1.11.0.rc.1
+COCOAPODS: 1.11.0

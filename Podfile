@@ -8,7 +8,7 @@ end
 
 def networking
   pod 'Loggie'
-  pod 'Japx/RxCodableAlamofire', :git => 'https://github.com/infinum/Japx.git', :branch => 'feature/RxSwift-6'
+  pod 'Japx/RxAlamofire'
 end
 
 def reactive
