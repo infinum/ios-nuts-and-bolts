@@ -50,7 +50,7 @@ private struct TypeIdPair {
 }
 
 /// A class for converting (parsing) JSON:API object to simple JSON object and vice versa.
-public struct Japx {
+public struct JapxKit {
     
     /// Defines a list of methods for converting JSON:API object structure to simple JSON by flattening attributes and relationships.
     public enum Decoder {}
@@ -59,9 +59,9 @@ public struct Japx {
     public enum Encoder {}
 }
 
-public extension Japx.Decoder {
+public extension JapxKit.Decoder {
     
-    /// `Japx.Decoder.Options` is a set of options affecting the decoding of JSON:API into JSON you request from `Japx.Decoder`.
+    /// `JapxKit.Decoder.Options` is a set of options affecting the decoding of JSON:API into JSON you request from `JapxKit.Decoder`.
     struct Options {
         
         /// Defines if a relationship that doesn't have related object stored in `included`
@@ -77,22 +77,22 @@ public extension Japx.Decoder {
         ///
         /// - parameter parseNotIncludedRelationships: Read more [here](parseNotIncludedRelationships)
         ///
-        /// - returns: The new `Japx.Decoder.Options` instance.
+        /// - returns: The new `JapxKit.Decoder.Options` instance.
         public init(parseNotIncludedRelationships: Bool = false) {
             self.parseNotIncludedRelationships = parseNotIncludedRelationships
         }
     }
 }
 
-public extension Japx.Decoder.Options {
+public extension JapxKit.Decoder.Options {
     
-    /// Default JSON:API to JSON decoding options for `Japx.Decoder`
-    static var `default`: Japx.Decoder.Options { .init() }
+    /// Default JSON:API to JSON decoding options for `JapxKit.Decoder`
+    static var `default`: JapxKit.Decoder.Options { .init() }
 }
 
-public extension Japx.Encoder {
+public extension JapxKit.Encoder {
     
-    /// `Japx.Encoder.Options` is a set of options affecting the encoding of JSON into JSON:API you requested from `Japx.Encoder`.
+    /// `JapxKit.Encoder.Options` is a set of options affecting the encoding of JSON into JSON:API you requested from `JapxKit.Encoder`.
     struct Options {
         
         /// Common namespace is a set of all attribute names, relationship names, keyword `type` and keyword `id`.
@@ -107,37 +107,50 @@ public extension Japx.Encoder {
         /// - Tag: includeMetaToCommonNamespce
         public var includeMetaToCommonNamespce: Bool = false
         
+        /// Sometimes it's not that clear if something should be encoded as a relationship or as an attribute.
+        /// Empty array is an example of that case.
+        /// Use this property to disable the auto-inference of relationships/attributes and provide an explicit list of relationships
+        /// It should be a list of relationship names, divided by commas, similar to `includeList` in `JapxKit.Decoder`.
+        ///
+        ///
+        /// Defaults to nil. (using auto-inference)
+        ///
+        /// - Tag: relationshipList
+        public var relationshipList: String?
+        
         /// Creates an instance with the specified properties.
         ///
         /// - parameter includeMetaToCommonNamespce: Read more [here](includeMetaToCommonNamespce)
+        /// - parameter relationshipList: Read more [here](relationshipList)
         ///
-        /// - returns: The new `Japx.Decoder.Options` instance.
-        public init(includeMetaToCommonNamespce: Bool = false) {
+        /// - returns: The new `JapxKit.Decoder.Options` instance.
+        public init(includeMetaToCommonNamespce: Bool = false, relationshipList: String? = nil) {
             self.includeMetaToCommonNamespce = includeMetaToCommonNamespce
+            self.relationshipList = relationshipList
         }
     }
 }
 
-public extension Japx.Encoder.Options {
+public extension JapxKit.Encoder.Options {
     
-    /// Default JSON to JSON:API decoding options for `Japx.Encoder`
-    static var `default`: Japx.Encoder.Options { .init() }
+    /// Default JSON to JSON:API decoding options for `JapxKit.Encoder`
+    static var `default`: JapxKit.Encoder.Options { .init() }
 }
 
 // MARK: - Public interface -
 
 // MARK: - Decoding
 
-public extension Japx.Decoder {
+public extension JapxKit.Decoder {
     
     /// Converts JSON:API object to simple flat JSON object
     ///
     /// - parameter object:            JSON:API object.
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
-    /// - parameter options:           Options specifying how `Japx.Decoder` should decode JSON:API into JSON.
+    /// - parameter options:           Options specifying how `JapxKit.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object.
-    static func jsonObject(withJSONAPIObject object: Parameters, includeList: String? = nil, options: Japx.Decoder.Options = .default) throws -> Parameters {
+    static func jsonObject(withJSONAPIObject object: Parameters, includeList: String? = nil, options: JapxKit.Decoder.Options = .default) throws -> Parameters {
         // First check if JSON API object has `include` list since
         // parsing objects with include list is done using native
         // Swift dictionary, while objects without it use `NSDictionary`
@@ -157,10 +170,10 @@ public extension Japx.Decoder {
     ///
     /// - parameter object:            JSON:API object.
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
-    /// - parameter options:           Options specifying how `Japx.Decoder` should decode JSON:API into JSON.
+    /// - parameter options:           Options specifying how `JapxKit.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object as Data.
-    static func data(withJSONAPIObject object: Parameters, includeList: String? = nil, options: Japx.Decoder.Options = .default) throws -> Data {
+    static func data(withJSONAPIObject object: Parameters, includeList: String? = nil, options: JapxKit.Decoder.Options = .default) throws -> Data {
         let decoded = try jsonObject(withJSONAPIObject: object, includeList: includeList, options: options)
         return try JSONSerialization.data(withJSONObject: decoded)
     }
@@ -169,10 +182,10 @@ public extension Japx.Decoder {
     ///
     /// - parameter data:              JSON:API object as Data.
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
-    /// - parameter options:           Options specifying how `Japx.Decoder` should decode JSON:API into JSON.
+    /// - parameter options:           Options specifying how `JapxKit.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object.
-    static func jsonObject(with data: Data, includeList: String? = nil, options: Japx.Decoder.Options = .default) throws -> Parameters {
+    static func jsonObject(with data: Data, includeList: String? = nil, options: JapxKit.Decoder.Options = .default) throws -> Parameters {
         let jsonApiObject = try JSONSerialization.jsonObject(with: data)
         
         // With include list
@@ -199,10 +212,10 @@ public extension Japx.Decoder {
     ///
     /// - parameter data:              JSON:API object as Data.
     /// - parameter includeList:       The include list for deserializing JSON:API relationships.
-    /// - parameter options:           Options specifying how `Japx.Decoder` should decode JSON:API into JSON.
+    /// - parameter options:           Options specifying how `JapxKit.Decoder` should decode JSON:API into JSON.
     ///
     /// - returns: JSON object as Data.
-    static func data(with data: Data, includeList: String? = nil, options: Japx.Decoder.Options = .default) throws -> Data {
+    static func data(with data: Data, includeList: String? = nil, options: JapxKit.Decoder.Options = .default) throws -> Data {
         let decoded = try jsonObject(with: data, includeList: includeList, options: options)
         return try JSONSerialization.data(withJSONObject: decoded)
     }
@@ -210,16 +223,16 @@ public extension Japx.Decoder {
 
 // MARK: - Encoding
 
-public extension Japx.Encoder {
+public extension JapxKit.Encoder {
     
     /// Converts simple flat JSON object to JSON:API object.
     ///
     /// - parameter data:              JSON object as Data.
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
-    /// - parameter options:           Options specifying how `Japx.Encoder` should encode JSON into JSON:API.
+    /// - parameter options:           Options specifying how `JapxKit.Encoder` should encode JSON into JSON:API.
     ///
     /// - returns: JSON:API object.
-    static func encode(data: Data, additionalParams: Parameters? = nil, options: Japx.Encoder.Options = .default) throws -> Parameters {
+    static func encode(data: Data, additionalParams: Parameters? = nil, options: JapxKit.Encoder.Options = .default) throws -> Parameters {
         let json = try JSONSerialization.jsonObject(with: data)
         if let jsonObject = json as? Parameters {
             return try encode(json: jsonObject, additionalParams: additionalParams, options: options)
@@ -234,10 +247,10 @@ public extension Japx.Encoder {
     ///
     /// - parameter json:              JSON object.
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
-    /// - parameter options:           Options specifying how `Japx.Encoder` should encode JSON into JSON:API.
+    /// - parameter options:           Options specifying how `JapxKit.Encoder` should encode JSON into JSON:API.
     ///
     /// - returns: JSON:API object.
-    static func encode(json: Parameters, additionalParams: Parameters? = nil, options: Japx.Encoder.Options = .default) throws -> Parameters {
+    static func encode(json: Parameters, additionalParams: Parameters? = nil, options: JapxKit.Encoder.Options = .default) throws -> Parameters {
         var params = additionalParams ?? [:]
         params[Consts.APIKeys.data] = try encodeAttributesAndRelationships(on: json, options: options)
         return params
@@ -247,10 +260,10 @@ public extension Japx.Encoder {
     ///
     /// - parameter json:              JSON objects represented as Array.
     /// - parameter additionalParams:  Additional [String: Any] to add with `data` to JSON:API object.
-    /// - parameter options:           Options specifying how `Japx.Encoder` should encode JSON into JSON:API.
+    /// - parameter options:           Options specifying how `JapxKit.Encoder` should encode JSON into JSON:API.
     ///
     /// - returns: JSON:API object.
-    static func encode(json: [Parameters], additionalParams: Parameters? = nil, options: Japx.Encoder.Options = .default) throws -> Parameters {
+    static func encode(json: [Parameters], additionalParams: Parameters? = nil, options: JapxKit.Encoder.Options = .default) throws -> Parameters {
         var params = additionalParams ?? [:]
         params[Consts.APIKeys.data] = try json.compactMap { try encodeAttributesAndRelationships(on: $0, options: options) as AnyObject }
         return params
@@ -261,9 +274,9 @@ public extension Japx.Encoder {
 
 // MARK: - Decoding
 
-private extension Japx.Decoder {
+private extension JapxKit.Decoder {
     
-    static func decode(jsonApiInput: Parameters, include: String, options: Japx.Decoder.Options) throws -> Parameters {
+    static func decode(jsonApiInput: Parameters, include: String, options: JapxKit.Decoder.Options) throws -> Parameters {
         let params = include
             .split(separator: ",")
             .map { $0.split(separator: ".") }
@@ -300,7 +313,7 @@ private extension Japx.Decoder {
         return jsonApi
     }
     
-    static func decode(jsonApiInput: NSDictionary, options: Japx.Decoder.Options) throws -> NSDictionary {
+    static func decode(jsonApiInput: NSDictionary, options: JapxKit.Decoder.Options) throws -> NSDictionary {
         let jsonApi = jsonApiInput.mutable
         
         let dataObjectsArray = try jsonApi.array(from: Consts.APIKeys.data) ?? []
@@ -337,9 +350,9 @@ private extension Japx.Decoder {
 
 // MARK: - Decoding helper functions
 
-private extension Japx.Decoder {
+private extension JapxKit.Decoder {
  
-    static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: NSDictionary, options: Japx.Decoder.Options) throws -> Parameters {
+    static func resolve(object: Parameters, allObjects: [TypeIdPair: Parameters], paramsDict: NSDictionary, options: JapxKit.Decoder.Options) throws -> Parameters {
         var attributes = (try? object.dictionary(for: Consts.APIKeys.attributes)) ?? Parameters()
         attributes[Consts.APIKeys.type] = object[Consts.APIKeys.type]
         attributes[Consts.APIKeys.id] = object[Consts.APIKeys.id]
@@ -402,7 +415,7 @@ private extension Japx.Decoder {
         }
     }
     
-    static func resolveRelationships(from objects: [TypeIdPair: NSMutableDictionary], options: Japx.Decoder.Options) throws {
+    static func resolveRelationships(from objects: [TypeIdPair: NSMutableDictionary], options: JapxKit.Decoder.Options) throws {
         
         let extractRelationship = resolveRelationship(
             from: objects,
@@ -471,9 +484,9 @@ private extension Japx.Decoder {
 
 // MARK: - Encoding
 
-private extension Japx.Encoder {
+private extension JapxKit.Encoder {
     
-    static func encodeAttributesAndRelationships(on jsonObject: Parameters, options: Japx.Encoder.Options) throws -> Parameters {
+    static func encodeAttributesAndRelationships(on jsonObject: Parameters, options: JapxKit.Encoder.Options) throws -> Parameters {
         var object = jsonObject
         var attributes = Parameters()
         var relationships = Parameters()
@@ -483,6 +496,8 @@ private extension Japx.Encoder {
             includeMetaToCommonNamespce: options.includeMetaToCommonNamespce
         )
         
+        let isRelationship = testIsRelationship(relationshipList: options.relationshipList)
+        
         for key in objectKeys where key != Consts.APIKeys.type && key != Consts.APIKeys.id {
             
             if options.includeMetaToCommonNamespce && key == Consts.APIKeys.meta {
@@ -490,7 +505,8 @@ private extension Japx.Encoder {
             }
             
             if let array = object.asArray(from: key) {
-                let isArrayOfRelationships = array.first?.containsTypeAndId() ?? false
+                
+                let isArrayOfRelationships = try isRelationship((key: key, object: array.first))
                 if !isArrayOfRelationships {
                     // Handle attributes array
                     attributes[key] = array
@@ -504,7 +520,7 @@ private extension Japx.Encoder {
                 continue
             }
             if let obj = object.asDictionary(from: key) {
-                if !obj.containsTypeAndId() {
+                if try !isRelationship((key: key, object: obj)) {
                     // Handle attributes object
                     attributes[key] = obj
                     object.removeValue(forKey: key)
@@ -522,6 +538,25 @@ private extension Japx.Encoder {
         object[Consts.APIKeys.attributes] = attributes
         object[Consts.APIKeys.relationships] = relationships
         return object
+    }
+    
+    typealias KeyObjectPair = (key: String, object: Parameters?)
+    static func testIsRelationship(relationshipList: String?) -> (KeyObjectPair) throws -> Bool {
+        guard let relationshipList = relationshipList else {
+            return { $0.object?.containsTypeAndId() ?? false }
+        }
+        let list = relationshipList
+            .components(separatedBy: ",")
+            .compactMap { $0.components(separatedBy: ".").first }
+        return {
+            switch (list.contains($0.key), $0.object?.containsTypeAndId()) {
+            case (let containsInList, nil):
+                return containsInList
+            case (true, true?): return true
+            case (true, false?): throw JapxError.notFoundTypeOrId(data: $0.object!)
+            case (false, _?): return false
+            }
+        }
     }
     
     static func extractRelationshipData(includeMetaToCommonNamespce: Bool) -> (Parameters) throws -> (Any) {

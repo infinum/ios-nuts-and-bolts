@@ -5,9 +5,16 @@
 //  Created by Vlaho Poluta on 25/01/2018.
 //
 
+#if canImport(Alamofire) && canImport(RxSwift)
+
+import Foundation
 import RxSwift
 import Alamofire
-import Foundation
+
+#if !COCOAPODS
+import Japx
+import JapxAlamofire
+#endif
 
 extension Reactive where Base: DataRequest {
     
@@ -73,3 +80,5 @@ extension Reactive where Base: DownloadRequest {
         }
     }
 }
+
+#endif

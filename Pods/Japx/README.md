@@ -6,24 +6,29 @@
 [![Platform](https://img.shields.io/cocoapods/p/Japx.svg?style=flat)](http://cocoapods.org/pods/Japx)
 
 <p align="center">
-    <img src="japx-logo-new.png" width="300" max-width="50%" alt="Japx"/>
+    <img src="img/japx-logo.png" width="300" max-width="50%" alt="Japx"/>
 </p>
 
 Lightweight [JSON:API][1] parser that flattens complex [JSON:API][1] structure and turns it into simple JSON and vice versa.
 It works by transferring `Dictionary` to `Dictionary`, so you can use [Codable][2], [Unbox][3], [Wrap][4], [ObjectMapper][5] or any other object mapping tool that you prefer.
 
-- [Basic example](#basic-example)
-- [Advanced examples](#advanced-examples)
+- [Japx - JSON:API Decoder/Encoder](#japx---jsonapi-decoderencoder)
+  - [Basic example](#basic-example)
+  - [Advanced examples](#advanced-examples)
     - [Parsing relationships](#parsing-relationships)
     - [Parsing additional information](#parsing-additional-information)
     - [Parsing with include list](#parsing-with-include-list)
-- [Usage](#usage)
+  - [Usage](#usage)
     - [Codable](#codable)
     - [Codable and Alamofire](#codable-and-alamofire)
     - [Codable, Alamofire and RxSwift](#codable-alamofire-and-rxswift)
-- [Example project](#example-project)
-- [Authors](#authors)
-- [License](#license)
+  - [Installation](#installation)
+    - [Cocoapods](#cocoapods)
+    - [Swift Package Manager](#swift-package-manager)
+    - [Carthage](#carthage)
+  - [Example project](#example-project)
+  - [Authors](#authors)
+  - [License](#license)
 
 ## Basic example
 
@@ -49,7 +54,7 @@ let jsonApiObject: [String: Any] = ...
 let simpleObject: [String: Any]
 
 do {
-    simpleObject = try Japx.Decoder.jsonObject(withJSONAPIObject: jsonApiObject)
+    simpleObject = try JapxKit.Decoder.jsonObject(withJSONAPIObject: jsonApiObject)
 } catch {
     print(error)
 }
@@ -249,7 +254,7 @@ For defining which nested object you want to parse, you can use `includeList` pa
 ```swift
 let includeList: String = "author.article.author"
 let jsonApiObject: [String: Any] = ...
-let recursiveObject: [String: Any] = try Japx.Decoder.jsonObject(with: jsonApiObject, includeList: includeList)
+let recursiveObject: [String: Any] = try JapxKit.Decoder.jsonObject(with: jsonApiObject, includeList: includeList)
 ```
 
 Parsed JSON:
@@ -293,7 +298,7 @@ Parsed JSON:
 
 ### Codable
 
-Japx comes with wrapper for _Swift 4_ [Codable][7] which can be installed as described in [installation](#installation) chapter.
+Japx comes with wrapper for _Swift_ [Codable][7].
 
 Since JSON:API object can have multiple additional fields like meta, links or pagination info, its real model needs to be wrapped inside `data` object. For easier parsing, also depending on your API specification, you should create wrapping native object which will contain your generic JSON model:
 
@@ -310,8 +315,7 @@ struct User: JapxCodable {
     let username: String
 }
 
-let userResponse: JapxResponse<User> = try JapxDecoder()
-                                                    .decode(JapxResponse<User>.self, from: data)
+let userResponse: JapxResponse<User> = try JapxDecoder().decode(JapxResponse<User>.self, from: data)
 let user: User = userResponse.data
 ```
 
@@ -379,37 +383,134 @@ return Single.just(loginModel)
 
 ## Installation
 
+### Cocoapods
+
 Japx is available through [CocoaPods][8]. To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'Japx'
 ```
 
-We've added some more functionalites by conforming to Codable for object mapping or Alamofre for networking.
-You can find those convinience extansions here: 
+We've also added some more functionalites like Alamofre or Moya for networking, Rx for reactive programming approach, Objective-C support:
 
 ```ruby
-# Codable
-pod 'Japx/Codable'
-
 # Alamofire
 pod 'Japx/Alamofire'
 
 # Alamofire and RxSwift
 pod 'Japx/RxAlamofire'
 
-# Alamofire and Codable
-pod 'Japx/CodableAlamofire'
+# Moya
+pod 'Japx/Moya'
 
-# Alamofire, Codable and RxSwift
-pod 'Japx/RxCodableAlamofire'
+# Moya and RxSwift
+pod 'Japx/RxMoya'
+
+# Objective-C
+pod 'Japx/ObjC'
 ```
+
+Unlike with other dependency managers below, you should always use:
+
+```swift
+import Japx
+```
+
+regardless of which custom integration you've picked.
+
+**NOTE: Version 4.0.0 of Japx points to Moya `development` branch due to Rx support issues. If you need stable Moya support, please use version 3.0.0. Otherwise point your Podfile to development Moya:**
+
+```ruby
+platform :ios, '10.0'
+use_frameworks!
+
+target 'MyApp' do
+
+  pod 'Moya', :git => "https://github.com/Moya/Moya.git", :branch => "development"
+  pod 'Japx/RxMoya'
+end
+```
+
+### Swift Package Manager
+
+Add the dependency to your `Package.swift` and use in your target
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/infinum/Japx.git", .upToNextMajor(from: "4.0.0"))
+]
+```
+
+Sample `Package.swift`
+
+```swift
+let package = Package(
+    name: "YourDependency",
+    products: [
+        .library(name: "YourDependency", targets: ["YourDependency"])
+    ],
+    dependencies: [
+        .package(url: "https://github.com/infinum/Japx.git", .upToNextMajor(from: "4.0.0")),
+    ],
+    targets: [
+        .target(
+            name: "YourDependency",
+            dependencies: [.product(name: "Japx", package: "Japx")]
+        )
+    ]
+)
+```
+
+We've also added some more functionalites like Alamofre or Moya for networking, Rx for reactive programming approach:
+
+``` swift
+// Alamofire
+.product(name: "JapxAlamofire", package: "Japx")
+
+// Alamofire and RxSwift
+.product(name: "JapxRxAlamofire", package: "Japx")
+
+// Moya
+.product(name: "JapxMoya", package: "Japx")
+
+// Moya and RxSwift
+.product(name: "JapxRxMoya", package: "Japx")
+```
+
+Depending on which product you've picked, you'll have to import different modules:
+
+```swift
+// Pure Japx
+import Japx
+
+// Alamofire
+import JapxAlamofire
+
+// Alamofire and RxSwift
+import JapxRxAlamofire
+
+// Moya
+import JapxMoya
+
+// Moya and RxSwift
+import JapxRxMoya
+```
+
+### Carthage
+
+Run `carthage update --use-xcframeworks` and import desired integration. Pure `Japx` doesn't have any dependencies.
+
+Imports work same as for Swift Package Manager, depending on which integration you've picked.
+
+**NOTE: Moya integration is currently not supported via Carthage since latest Moya build won't build with Carthage. More info [here](https://github.com/Moya/Moya/issues/2165).**
 
 ## Example project
 
 Example project of Japx networking using Codable and Alamofire can be found in [Nuts And Bolts repository][12] with commonly used code. [Example][13] will cover how to handle basic CRUD (Create, Read, Update, Delete) operations with Japx and JSON:API format. To run the example, clone the [repository][12], open the `Catalog.xcworkspace`, run Catalog app and navigate to the Japx Networking section.
 
-In this repository there is also simple example project, to run it clone the repository, and run `pod install` from the Example directory first.
+In this repository there is also a simple example project, to run it open `Japx.xcodeproj` and inspect `Example` directory and Japx_Example scheme. 
+
+Basic integrations with Cocoapods (run `pod install`), Swift Package Manager and Carthage can be found inside `Examples` directory.
 
 ## Authors
 
@@ -419,7 +520,7 @@ In this repository there is also simple example project, to run it clone the rep
 Maintained by [Infinum][9]
 
 <p align="center">
-    <img src="infinum-logo.png" width="300" max-width="70%" alt="Infinum"/>
+    <img src="img/infinum-logo.png" width="300" max-width="70%" alt="Infinum"/>
 </p>
 
 ## License
