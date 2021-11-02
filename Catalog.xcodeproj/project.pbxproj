@@ -127,6 +127,15 @@
 		0AE0B77F220481C50033A476 /* String+BlankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B77E220481C50033A476 /* String+BlankTests.swift */; };
 		0AE0B78722049CBD0033A476 /* ClosedRange+ScalableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B78622049CBD0033A476 /* ClosedRange+ScalableTests.swift */; };
 		0AE0B78922049DC50033A476 /* TableDataSourceDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B78822049DC50033A476 /* TableDataSourceDelegateTests.swift */; };
+		3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893227316B32004E6BE3 /* Result+Combine.swift */; };
+		3781893627316B67004E6BE3 /* APIService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893527316B67004E6BE3 /* APIService+Combine.swift */; };
+		3781893E27316BCB004E6BE3 /* CombineNetworking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3781893827316BCB004E6BE3 /* CombineNetworking.storyboard */; };
+		3781893F27316BCB004E6BE3 /* CombineNetworkingInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893927316BCB004E6BE3 /* CombineNetworkingInterfaces.swift */; };
+		3781894027316BCB004E6BE3 /* CombineNetworkingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893A27316BCB004E6BE3 /* CombineNetworkingPresenter.swift */; };
+		3781894127316BCB004E6BE3 /* CombineNetworkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893B27316BCB004E6BE3 /* CombineNetworkingViewController.swift */; };
+		3781894227316BCB004E6BE3 /* CombineNetworkingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893C27316BCB004E6BE3 /* CombineNetworkingInteractor.swift */; };
+		3781894327316BCB004E6BE3 /* CombineNetworkingWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893D27316BCB004E6BE3 /* CombineNetworkingWireframe.swift */; };
+		37818947273176CE004E6BE3 /* Publisher+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37818946273176CE004E6BE3 /* Publisher+Utility.swift */; };
 		4F14006D2289FF9D0005F37A /* NSArray+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */; };
 		4F140071228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F140070228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m */; };
 		4F286F812291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F286F802291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m */; };
@@ -349,6 +358,15 @@
 		0AE0B78622049CBD0033A476 /* ClosedRange+ScalableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+ScalableTests.swift"; sourceTree = "<group>"; };
 		0AE0B78822049DC50033A476 /* TableDataSourceDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataSourceDelegateTests.swift; sourceTree = "<group>"; };
 		1CEC07CD539DA68AEFFC6A9A /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3781893227316B32004E6BE3 /* Result+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Combine.swift"; sourceTree = "<group>"; };
+		3781893527316B67004E6BE3 /* APIService+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Combine.swift"; sourceTree = "<group>"; };
+		3781893827316BCB004E6BE3 /* CombineNetworking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineNetworking.storyboard; sourceTree = "<group>"; };
+		3781893927316BCB004E6BE3 /* CombineNetworkingInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineNetworkingInterfaces.swift; sourceTree = "<group>"; };
+		3781893A27316BCB004E6BE3 /* CombineNetworkingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineNetworkingPresenter.swift; sourceTree = "<group>"; };
+		3781893B27316BCB004E6BE3 /* CombineNetworkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineNetworkingViewController.swift; sourceTree = "<group>"; };
+		3781893C27316BCB004E6BE3 /* CombineNetworkingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineNetworkingInteractor.swift; sourceTree = "<group>"; };
+		3781893D27316BCB004E6BE3 /* CombineNetworkingWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineNetworkingWireframe.swift; sourceTree = "<group>"; };
+		37818946273176CE004E6BE3 /* Publisher+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Utility.swift"; sourceTree = "<group>"; };
 		4F14006A2289FF9C0005F37A /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FunctionalOperators.m"; sourceTree = "<group>"; };
 		4F14006C2289FF9C0005F37A /* NSArray+FunctionalOperators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FunctionalOperators.h"; sourceTree = "<group>"; };
@@ -671,6 +689,7 @@
 			children = (
 				0A1FAFF02406B6AA000F72D6 /* Result+Rx.swift */,
 				0A1FAFF52406B87B000F72D6 /* Result+Map.swift */,
+				3781893227316B32004E6BE3 /* Result+Combine.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -834,6 +853,7 @@
 		0AA45E8A22197AAD009CF93E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3781893727316BB8004E6BE3 /* Combine */,
 				0A54436722718DE100F26468 /* Common */,
 				0AA45E8B22197ACB009CF93E /* Basic */,
 				C2023274239546D700DC3C42 /* Japx */,
@@ -879,6 +899,7 @@
 		0AB524092210ACB400F35F52 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3781893427316B59004E6BE3 /* Combine */,
 				0AB6223C240A458E0027E6F4 /* Helpers */,
 				0A1FAFFD2406BFE9000F72D6 /* Logger */,
 				0A1FAFF72406BB5D000F72D6 /* SessionManager */,
@@ -1011,6 +1032,7 @@
 		0AD9EABC2204274300FF3F2C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				37818944273176A0004E6BE3 /* Combine */,
 				0AE0B7722204772B0033A476 /* Foundation */,
 				0AB524092210ACB400F35F52 /* Networking */,
 				0A0ECF5C2207718500C1853E /* RxCocoa */,
@@ -1243,6 +1265,43 @@
 				0AE0B784220485920033A476 /* ClosedRange+Scalable.swift */,
 			);
 			path = Range;
+			sourceTree = "<group>";
+		};
+		3781893427316B59004E6BE3 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				3781893527316B67004E6BE3 /* APIService+Combine.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
+		3781893727316BB8004E6BE3 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				3781893827316BCB004E6BE3 /* CombineNetworking.storyboard */,
+				3781893927316BCB004E6BE3 /* CombineNetworkingInterfaces.swift */,
+				3781893A27316BCB004E6BE3 /* CombineNetworkingPresenter.swift */,
+				3781893B27316BCB004E6BE3 /* CombineNetworkingViewController.swift */,
+				3781893C27316BCB004E6BE3 /* CombineNetworkingInteractor.swift */,
+				3781893D27316BCB004E6BE3 /* CombineNetworkingWireframe.swift */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
+		37818944273176A0004E6BE3 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				37818945273176C0004E6BE3 /* Extensions */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
+		37818945273176C0004E6BE3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				37818946273176CE004E6BE3 /* Publisher+Utility.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4F1400692289FF890005F37A /* NSArray */ = {
@@ -1768,6 +1827,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3781893E27316BCB004E6BE3 /* CombineNetworking.storyboard in Resources */,
 				0A54436522718AB100F26468 /* RxNetworkingViewController.xib in Resources */,
 				0A54435922718A8F00F26468 /* NetworkingViewController.xib in Resources */,
 				0A1DFE5F236EF5B4000F2538 /* RxPagingViewController.xib in Resources */,
@@ -1948,6 +2008,7 @@
 				0A54435522718A8F00F26468 /* NetworkingInterfaces.swift in Sources */,
 				0AB5240D2210AE4E00F35F52 /* Headers.swift in Sources */,
 				0AB524082210A45400F35F52 /* CollectionViewReloader.swift in Sources */,
+				3781894227316BCB004E6BE3 /* CombineNetworkingInteractor.swift in Sources */,
 				0AB5241A2210AFFB00F35F52 /* Parameters+Fields.swift in Sources */,
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
 				A8FD60FD2292AFCC00FB50CE /* BaseCollectionSection.m in Sources */,
@@ -1970,6 +2031,7 @@
 				064B18FB22DF47AD001D4489 /* UIView+LayerModifiers.swift in Sources */,
 				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
 				0A54435A22718A8F00F26468 /* NetworkingWireframe.swift in Sources */,
+				3781894327316BCB004E6BE3 /* CombineNetworkingWireframe.swift in Sources */,
 				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,
 				0A54436322718AB100F26468 /* RxNetworkingViewController.swift in Sources */,
 				604712852226812100809454 /* Array+SafeGet.swift in Sources */,
@@ -1989,6 +2051,7 @@
 				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
 				0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */,
 				A8D4BE852689A023002D8202 /* LogSettings.swift in Sources */,
+				3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */,
 				0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */,
 				C2220318236AF76700C11B2E /* NSDate+Addition.m in Sources */,
 				0AA45E7922188833009CF93E /* JapxPagination.swift in Sources */,
@@ -2020,10 +2083,14 @@
 				C2023285239555F000DC3C42 /* PokedexRouter.swift in Sources */,
 				0AE0B77122046A190033A476 /* UIView+Constraints.swift in Sources */,
 				0A603FDA2207814A00F25622 /* UIViewController+Progressable.swift in Sources */,
+				37818947273176CE004E6BE3 /* Publisher+Utility.swift in Sources */,
 				0AE0B76C220461620033A476 /* UITableView+Dequeue.swift in Sources */,
+				3781893F27316BCB004E6BE3 /* CombineNetworkingInterfaces.swift in Sources */,
 				0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */,
+				3781894027316BCB004E6BE3 /* CombineNetworkingPresenter.swift in Sources */,
 				A8D4BE892689A023002D8202 /* LoggingFormatter.swift in Sources */,
 				81B01CAE25EE8C7E0058D8E0 /* UICollectionView+Register.swift in Sources */,
+				3781894127316BCB004E6BE3 /* CombineNetworkingViewController.swift in Sources */,
 				0AB524142210AF1000F35F52 /* Parameters+Sorting.swift in Sources */,
 				0A0C8CFE22492E2C0071011F /* EncodableParams.swift in Sources */,
 				0A54436422718AB100F26468 /* RxNetworkingInteractor.swift in Sources */,
@@ -2036,6 +2103,7 @@
 				0A54436922718DF100F26468 /* LoginRouter.swift in Sources */,
 				06B602B12317C45A001A295B /* InteractiveNavigationController.swift in Sources */,
 				0A0ECF602207720100C1853E /* Refreshable.swift in Sources */,
+				3781893627316B67004E6BE3 /* APIService+Combine.swift in Sources */,
 				0AD9EAC92204274300FF3F2C /* UIStoryboard+Instantiate.swift in Sources */,
 				CC80F7252438DB4B00A3F276 /* ToggleInteractor.swift in Sources */,
 				066C78A824FE6BC6000AC617 /* UserDefaults+PropertyWrapper.swift in Sources */,

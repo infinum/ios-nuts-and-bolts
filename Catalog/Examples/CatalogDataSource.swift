@@ -61,11 +61,20 @@ private extension CatalogDataSource {
 private extension CatalogDataSource {
 
     func createNetworkingItems() -> [Catalogizable.Type] {
-        return [
-            NetworkingViewController.self,
-            RxNetworkingViewController.self,
-            NetworkingJapxViewController.self
-        ]
+        if #available(iOS 13, *) {
+            return [
+                NetworkingViewController.self,
+                RxNetworkingViewController.self,
+                NetworkingJapxViewController.self,
+                CombineNetworkingViewController.self
+            ]
+        } else {
+            return [
+                NetworkingViewController.self,
+                RxNetworkingViewController.self,
+                NetworkingJapxViewController.self
+            ]
+        }
     }
 
 }
