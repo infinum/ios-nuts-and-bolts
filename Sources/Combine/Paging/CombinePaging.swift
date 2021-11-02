@@ -8,7 +8,6 @@
 
 import Foundation
 import Combine
-import RxSwift
 
 public enum PagingError: Error {
     case network
@@ -16,14 +15,14 @@ public enum PagingError: Error {
 @available(iOS 13.0, *)
 public enum CombinePaging {
 
-    /// Simple pagination implementation in RxSwift. It defines how next page is loaded, how page is
+    /// Simple pagination implementation in Combine. It defines how next page is loaded, how page is
     /// appended to last page, what is inital state and how events, like reload, next page are processed.
     ///
     /// Method defines two generic types: `Page` and `Container` where `Container` represents
     /// inital state where value from last `Page` is appened through `accumulator`, and `Page`
     /// represents single page, mostly response from the API. In most cases `Page` and `Container` will be
     /// of the same type, for examle `[SomeModel]`.
-    /// - Parameter nextPage: Next page creator, here you can return API call observable
+    /// - Parameter nextPage: Next page creator, here you can return API call publisher
     /// - Parameter containerCreator: Inital state for creator, common case empty array
     /// - Parameter accumulator: Define how page is appended to current state
     /// - Parameter hasNext: Decide when to stop querying for next page
@@ -141,7 +140,7 @@ public extension CombinePaging {
         // Update current container without invoking API call
         case update((Container) -> (Container))
         // Update current container without sending next
-        // event through observable pipe. It is useful when
+        // event through publisher pipe. It is useful when
         // you have some kind of direct UI update like favorite
         // which you need to store in model but you'll handle
         // UI update manually
