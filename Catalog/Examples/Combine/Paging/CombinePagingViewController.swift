@@ -10,6 +10,7 @@
 
 import UIKit
 import Combine
+import CombineCocoa
 
 @available(iOS 13, *)
 final class CombinePagingViewController: UIViewController, Refreshable {
@@ -54,7 +55,7 @@ final class CombinePagingViewController: UIViewController, Refreshable {
 extension CombinePagingViewController: CombinePagingViewInterface {
 
     func configure() {
-        let pullToRefresh = Publishers.ControlProperty(control: refreshControl, events: .defaultValueEvents, keyPath: \.isRefreshing)
+        let pullToRefresh = refreshControl.isRefreshingPublisher
             .mapToVoid()
             .eraseToAnyPublisher()
 

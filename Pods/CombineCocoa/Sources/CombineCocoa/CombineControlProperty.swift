@@ -1,15 +1,16 @@
 //
-//  UIControl+Combine.swift
-//  Catalog
+//  CombineControlProperty.swift
+//  CombineCocoa
 //
-//  Created by Zvonimir Medak on 29.10.2021..
-//  Copyright © 2021 Infinum. All rights reserved.
+//  Created by Shai Mishali on 01/08/2019.
+//  Copyright © 2020 Combine Community. All rights reserved.
 //
 
-import UIKit
+#if !(os(iOS) && (arch(i386) || arch(arm)))
 import Combine
+import Foundation
+import UIKit.UIControl
 
-// https://github.com/CombineCommunity/CombineCocoa/blob/main/Sources/CombineCocoa/CombineControlProperty.swift
 // MARK: - Publisher
 @available(iOS 13.0, *)
 public extension Combine.Publishers {
@@ -30,23 +31,19 @@ public extension Combine.Publishers {
         /// - parameter control: UI Control.
         /// - parameter events: Control Events.
         /// - parameter keyPath: A Key Path from the UI Control to the requested value.
-        public init(
-            control: Control,
-            events: Control.Event,
-            keyPath: KeyPath<Control, Value>
-        ) {
+        public init(control: Control,
+                    events: Control.Event,
+                    keyPath: KeyPath<Control, Value>) {
             self.control = control
             self.controlEvents = events
             self.keyPath = keyPath
         }
 
         public func receive<S: Subscriber>(subscriber: S) where S.Failure == Failure, S.Input == Output {
-            let subscription = Subscription(
-                subscriber: subscriber,
-                control: control,
-                event: controlEvents,
-                keyPath: keyPath
-            )
+            let subscription = Subscription(subscriber: subscriber,
+                                            control: control,
+                                            event: controlEvents,
+                                            keyPath: keyPath)
 
             subscriber.receive(subscription: subscription)
         }
@@ -58,7 +55,7 @@ public extension Combine.Publishers {
 extension Combine.Publishers.ControlProperty {
     private final class Subscription<S: Subscriber, Control: UIControl, Value>: Combine.Subscription where S.Input == Value {
         private var subscriber: S?
-        private weak var control: Control?
+        weak private var control: Control?
         let keyPath: KeyPath<Control, Value>
         private var didEmitInitial = false
         private let event: Control.Event
@@ -90,8 +87,7 @@ extension Combine.Publishers.ControlProperty {
             subscriber = nil
         }
 
-        @objc
-        private func handleEvent() {
+        @objc private func handleEvent() {
             guard let control = control else { return }
             _ = subscriber?.receive(control[keyPath: keyPath])
         }
@@ -103,3 +99,4 @@ extension UIControl.Event {
         return [.allEditingEvents, .valueChanged]
     }
 }
+#endif

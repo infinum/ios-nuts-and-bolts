@@ -34,6 +34,7 @@ final class CombinePagingPresenter {
 }
 
 // MARK: - Extensions -
+
 @available(iOS 13, *)
 extension CombinePagingPresenter: CombinePagingPresenterInterface {
     func configure(with output: CombinePagingExample.ViewOutput) -> CombinePagingExample.ViewInput {
