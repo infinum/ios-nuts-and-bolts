@@ -38,6 +38,6 @@ enum CombineNetworking {
     }
 
     struct ViewInput {
-        let didLogin: AnyPublisher<Bool, AFError>
+        let didLogin: AnyPublisher<Bool, Never>
     }
 }

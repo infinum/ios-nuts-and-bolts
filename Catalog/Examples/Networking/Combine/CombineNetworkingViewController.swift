@@ -47,7 +47,7 @@ extension CombineNetworkingViewController: CombineNetworkingViewInterface {
 
         input
             .didLogin
-            .sink(receiveCompletion: { print($0) }, receiveValue: { print("Login: \($0)") })
+            .sink(receiveValue: { print("Login: \($0)") })
             .store(in: &subscriptions)
 
     }

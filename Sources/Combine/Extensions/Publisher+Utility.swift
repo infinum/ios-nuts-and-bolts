@@ -12,7 +12,7 @@ import Combine
 @available(iOS 13, *)
 public extension Publisher {
 
-    /// Maps each sequence elements to given value.
+    /// Maps each sequence element to given value.
     ///
     /// - Parameter value: Value to map
     /// - Returns: Sequence where all elements are given value.

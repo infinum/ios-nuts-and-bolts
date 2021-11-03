@@ -14,6 +14,7 @@ end
 def reactive
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'CombineExt'
 end
 
 def localization
