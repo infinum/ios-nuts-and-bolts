@@ -11,6 +11,7 @@
 import Foundation
 import Combine
 import Alamofire
+import CombineExt
 
 @available(iOS 13, *)
 final class CombineNetworkingPresenter {
@@ -43,15 +44,16 @@ extension CombineNetworkingPresenter: CombineNetworkingPresenterInterface {
 
         let didLogin = output
             .login
-            .combineLatest(userInfo)
-            .map { $0.1 }
+            .withLatestFrom(userInfo)
             .setFailureType(to: AFError.self)
-            .flatMap { [unowned self] email, password in
+            .flatMap { [unowned interactor] email, password in
                 return interactor
                     .login(email, password)
                     .mapTo(true)
             }
+            .replaceError(with: false)
             .eraseToAnyPublisher()
+        
         return CombineNetworking.ViewInput(didLogin: didLogin)
     }
 
