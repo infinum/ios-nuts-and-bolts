@@ -16,7 +16,7 @@ public extension UIScrollView {
     /// - Parameter offset: Offset from bottom to treat as bottom edge. Value is sign agnostic.
     func reachedBottomOnceWith(restart: AnyPublisher<Void, Never>, offset: CGFloat = 200.0) -> AnyPublisher<Void, Never> {
         return restart
-            .flatMap { _ in return self.reachedBottomPublisher(offset: offset) }
+            .flatMap { [unowned self] _ in return reachedBottomPublisher(offset: offset) }
             .eraseToAnyPublisher()
     }
 }

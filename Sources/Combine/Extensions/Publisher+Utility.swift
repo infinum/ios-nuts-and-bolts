@@ -26,4 +26,18 @@ public extension Publisher {
     func mapToVoid() -> Publishers.Map<Self, Void> {
         return mapTo(())
     }
+
+    func inclusivePrefix(while predicate: @escaping (Self.Output) -> Bool) -> Publishers.HandleEvents<Publishers.PrefixWhile<Self>> {
+        var previousValue: Output?
+        return self
+            .prefix(while: { output in
+                guard let previousValue = previousValue else {
+                    return predicate(output)
+                }
+                return predicate(previousValue)
+            })
+            .handleEvents(receiveOutput: {
+                previousValue = $0
+            })
+    }
 }

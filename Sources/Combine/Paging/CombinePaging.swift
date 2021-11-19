@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import CombineExt
 
 public enum PagingError: Error {
     case network
@@ -85,14 +86,14 @@ public enum CombinePaging {
             }
             .handleEvents(receiveOutput: { _ in loadingSubject.send(true) })
             .map { ($0.0, $0.1, pager) }
-            .flatMap(loadNextPage)
+            .flatMapLatest(loadNextPage)
             .handleEvents(receiveOutput: {
                 stateSubject.send($0)
                 loadingSubject.send(false)
             })
             .filter { $0.event?.shouldPropagateNextEvent ?? true }
 
-        return newState.map { $0.response }.eraseToAnyPublisher()
+        return newState.map(\.response).eraseToAnyPublisher()
     }
 
     /// Check `page` method for nore info, but what it does is load and accumulate all pages until
@@ -105,9 +106,9 @@ public enum CombinePaging {
         on event: AnyPublisher<Event<Container>, Never>,
         scheduler: CombinePaging.Scheduler = .normal
     ) -> AnyPublisher<Response<Container>, PagingError> {
-        let nextPageSubject = PassthroughSubject<Void, Never>()
-        let nextPageEvent = nextPageSubject
-            .map { CombinePaging.Event<Container>.nextPage }
+        let nextPageRelay = PassthroughRelay<CombinePaging.Event<Container>>()
+        let nextPageEvent = nextPageRelay
+            .mapTo(CombinePaging.Event<Container>.nextPage)
             .receive(on: scheduler.instance)
 
         return CombinePaging
@@ -116,13 +117,13 @@ public enum CombinePaging {
                 startingWith: containerCreator(),
                 joining: accumulator,
                 while: hasNext,
-                on: event.merge(with: nextPageEvent).eraseToAnyPublisher(),
+                on: Publishers.Merge(event, nextPageEvent).eraseToAnyPublisher(),
                 scheduler: scheduler
             )
-            .prefix(while: { !$0.hasNext })
+            .inclusivePrefix(while: { $0.hasNext })
             .handleEvents(receiveOutput: {
                 if $0.hasNext {
-                    nextPageSubject.send(())
+                    nextPageRelay.accept(.nextPage)
                 }
             })
             .eraseToAnyPublisher()
@@ -192,17 +193,16 @@ private extension CombinePaging {
         stateSubject: CurrentValueSubject<CombinePaging.State<Container, Page>, PagingError>,
         loadingSubject: CurrentValueSubject<Bool, PagingError>
     ) -> AnyPublisher<Event<Container>, PagingError> {
-        let sharedEvent = event.share()
         // Avoid loading next page if reload is still in progress, to avoid
         // possible inconsistencies with data source, for example you already
         // loaded three pages, and you decide to reload, but reload takes some time,
         // you scroll down and request fourth page - that's the case we want to avoid
-        let nextPageEvent = sharedEvent.filter {
+        let nextPageEvent = event.filter {
             return $0 == .nextPage && stateSubject.value.hasNext && !loadingSubject.value
         }
-        return  sharedEvent
+        return  event
             .filter { $0 == .reload }
-            .merge(with: nextPageEvent, sharedEvent.filter { $0.isUpdate })
+            .merge(with: nextPageEvent, event.filter { $0.isUpdate })
             .eraseToAnyPublisher()
     }
 
@@ -323,8 +323,8 @@ extension CombinePaging.Event: Equatable {
 @available(iOS 13.0, *)
 public extension CombinePaging.Response {
 
-    static func none<T>() -> Paging.Response<[T]> {
-        return Paging.Response(container: [], hasNext: false)
+    static func none<T>() -> CombinePaging.Response<[T]> {
+        return CombinePaging.Response(container: [], hasNext: false)
     }
 }
 
