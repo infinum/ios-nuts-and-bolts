@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.3)
+  - CombineCocoa (0.4.0)
   - CombineExt (1.5.1)
   - Japx/Alamofire (4.0.0):
     - Alamofire
@@ -33,6 +34,7 @@ PODS:
   - "SwiftI18n/I18n+Case (1.2.1)"
 
 DEPENDENCIES:
+  - CombineCocoa
   - CombineExt
   - Japx/RxAlamofire
   - Loggie
@@ -49,6 +51,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CombineCocoa
     - CombineExt
     - Japx
     - Loggie
@@ -65,6 +68,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  CombineCocoa: 68a050228ce7c53c1c5ac2c57cccf92a7f5c5085
   CombineExt: e081b93f38f507660550e001531a049a6825f63e
   Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
   Loggie: 12ed0ea1f90590b627bb2f4b8aeb983c112a7c8d
@@ -79,6 +83,6 @@ SPEC CHECKSUMS:
   RxTest: 0c692fa672b694373ba86d2b00033595297a2831
   SwiftI18n: 67d3b531548924f5a562660e938d76f42e6493f7
 
-PODFILE CHECKSUM: 24ba704b683ad6f44a31c99a35bf40553e737357
+PODFILE CHECKSUM: 51192e2daa4a32dc63d38690838b05a0e2cd4316
 
 COCOAPODS: 1.11.0

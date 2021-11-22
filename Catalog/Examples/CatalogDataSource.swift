@@ -23,11 +23,20 @@ class CatalogDataSource {
 private extension CatalogDataSource {
 
     func createSections() -> [CatalogSectionModel] {
-        return [
-            CatalogSectionModel(title: "UI", items: createUIItems()),
-            CatalogSectionModel(title: "Rx", items: createRxItems()),
-            CatalogSectionModel(title: "Networking", items: createNetworkingItems())
-        ]
+        if #available(iOS 13, *) {
+            return [
+                CatalogSectionModel(title: "UI", items: createUIItems()),
+                CatalogSectionModel(title: "Rx", items: createRxItems()),
+                CatalogSectionModel(title: "Networking", items: createNetworkingItems()),
+                CatalogSectionModel(title: "Combine", items: createCombineItems())
+            ]
+        } else {
+            return [
+                CatalogSectionModel(title: "UI", items: createUIItems()),
+                CatalogSectionModel(title: "Rx", items: createRxItems()),
+                CatalogSectionModel(title: "Networking", items: createNetworkingItems())
+            ]
+        }
     }
 
 }
@@ -77,4 +86,13 @@ private extension CatalogDataSource {
         }
     }
 
+}
+
+@available(iOS 13, *)
+private extension CatalogDataSource {
+    func createCombineItems() -> [Catalogizable.Type] {
+        return [
+            CombinePagingViewController.self
+        ]
+    }
 }
