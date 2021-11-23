@@ -127,6 +127,8 @@
 		0AE0B77F220481C50033A476 /* String+BlankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B77E220481C50033A476 /* String+BlankTests.swift */; };
 		0AE0B78722049CBD0033A476 /* ClosedRange+ScalableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B78622049CBD0033A476 /* ClosedRange+ScalableTests.swift */; };
 		0AE0B78922049DC50033A476 /* TableDataSourceDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0B78822049DC50033A476 /* TableDataSourceDelegateTests.swift */; };
+		3722CA95274D0E9E00EDC50D /* Publisher+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722CA94274D0E9E00EDC50D /* Publisher+Progressable.swift */; };
+		3722CA98274D0F3500EDC50D /* CombineProgressableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */; };
 		372448C8273289D400016144 /* CombinePagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372448C7273289D400016144 /* CombinePagingTests.swift */; };
 		3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893227316B32004E6BE3 /* Result+Combine.swift */; };
 		3781893627316B67004E6BE3 /* APIService+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893527316B67004E6BE3 /* APIService+Combine.swift */; };
@@ -367,6 +369,8 @@
 		0AE0B78622049CBD0033A476 /* ClosedRange+ScalableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClosedRange+ScalableTests.swift"; sourceTree = "<group>"; };
 		0AE0B78822049DC50033A476 /* TableDataSourceDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataSourceDelegateTests.swift; sourceTree = "<group>"; };
 		1CEC07CD539DA68AEFFC6A9A /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3722CA94274D0E9E00EDC50D /* Publisher+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Progressable.swift"; sourceTree = "<group>"; };
+		3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineProgressableViewController.swift; sourceTree = "<group>"; };
 		372448C7273289D400016144 /* CombinePagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingTests.swift; sourceTree = "<group>"; };
 		3781893227316B32004E6BE3 /* Result+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Combine.swift"; sourceTree = "<group>"; };
 		3781893527316B67004E6BE3 /* APIService+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Combine.swift"; sourceTree = "<group>"; };
@@ -1287,6 +1291,14 @@
 			path = Range;
 			sourceTree = "<group>";
 		};
+		3722CA96274D0F1A00EDC50D /* Progressable */ = {
+			isa = PBXGroup;
+			children = (
+				3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */,
+			);
+			path = Progressable;
+			sourceTree = "<group>";
+		};
 		372448C6273289CB00016144 /* Combine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1330,6 +1342,7 @@
 			children = (
 				37818946273176CE004E6BE3 /* Publisher+Utility.swift */,
 				3781895B27317D7F004E6BE3 /* UIScrollView+Combine.swift */,
+				3722CA94274D0E9E00EDC50D /* Publisher+Progressable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1345,6 +1358,7 @@
 		3781894D27317A3D004E6BE3 /* Combine */ = {
 			isa = PBXGroup;
 			children = (
+				3722CA96274D0F1A00EDC50D /* Progressable */,
 				3781894E27317A42004E6BE3 /* Paging */,
 			);
 			path = Combine;
@@ -2070,6 +2084,7 @@
 				0A54435522718A8F00F26468 /* NetworkingInterfaces.swift in Sources */,
 				0AB5240D2210AE4E00F35F52 /* Headers.swift in Sources */,
 				3781895A27317A54004E6BE3 /* CombinePagingWireframe.swift in Sources */,
+				3722CA95274D0E9E00EDC50D /* Publisher+Progressable.swift in Sources */,
 				0AB524082210A45400F35F52 /* CollectionViewReloader.swift in Sources */,
 				3781894227316BCB004E6BE3 /* CombineNetworkingInteractor.swift in Sources */,
 				0AB5241A2210AFFB00F35F52 /* Parameters+Fields.swift in Sources */,
@@ -2165,6 +2180,7 @@
 				0A0ECF66220773D800C1853E /* UIAlertController+Rx.swift in Sources */,
 				0A603FED22079A9800F25622 /* Observable+Utility.swift in Sources */,
 				4F286F8A2291E1DA00935FD3 /* NSSet+FunctionalOperators.m in Sources */,
+				3722CA98274D0F3500EDC50D /* CombineProgressableViewController.swift in Sources */,
 				A8FD60EE2292AE5400FB50CE /* TableViewReloader.m in Sources */,
 				604712832226800700809454 /* UIColor+Hex.swift in Sources */,
 				0A54436922718DF100F26468 /* LoginRouter.swift in Sources */,
