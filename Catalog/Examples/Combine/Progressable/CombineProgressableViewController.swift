@@ -14,8 +14,8 @@ import CombineExt
 @available(iOS 13, *)
 final class CombineProgressableViewController: UIViewController, Progressable {
 
-    var subscriptions: Set<AnyCancellable> = []
-    let inputSubject = ReplaySubject<String, ProgressableError>(bufferSize: 3)
+    private var subscriptions: Set<AnyCancellable> = []
+    private let inputSubject = ReplaySubject<String, ProgressableError>(bufferSize: 3)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +61,6 @@ extension CombineProgressableViewController: Catalogizable {
 
 }
 
-enum ProgressableError: Error {
+private enum ProgressableError: Error {
     case failed
 }
