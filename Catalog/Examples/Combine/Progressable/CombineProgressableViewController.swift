@@ -20,7 +20,7 @@ final class CombineProgressableViewController: UIViewController, Progressable {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        handle(inputSubject)
+        initializeLoadingSubject()
         handleProgressable()
     }
 
@@ -29,7 +29,7 @@ final class CombineProgressableViewController: UIViewController, Progressable {
 @available(iOS 13, *)
 private extension CombineProgressableViewController {
 
-    func handle(_ inputSubject: ReplaySubject<String, ProgressableError>) {
+    func initializeLoadingSubject() {
         inputSubject
             .handleLoadingAndError(with: self)
             .sink(
