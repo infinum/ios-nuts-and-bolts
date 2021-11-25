@@ -49,7 +49,7 @@ public extension UIAlertController {
     ///   - message: Alert message
     ///   - actions: Actions
     ///   - style: Alert style - sheet or alert
-    /// - Returns: `Optional.Publisher` type containing selected value
+    /// - Returns: `Future` type containing selected value
     static func present<T>(
         on viewController: UIViewController,
         title: String? = nil,
