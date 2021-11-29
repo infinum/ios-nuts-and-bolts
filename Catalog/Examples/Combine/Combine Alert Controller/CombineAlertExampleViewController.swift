@@ -49,7 +49,6 @@ private extension CombineAlertExampleViewController {
         )
 
         selectedAction
-            .print("Actions")
             .map { "Selected action: \($0)" }
             .receive(on: DispatchQueue.main)
             .assign(to: \.text, on: label)
@@ -66,7 +65,6 @@ extension CombineAlertExampleViewController: Catalogizable {
     }
 
     static var viewController: UIViewController {
-
         return UIStoryboard(name: "CombineAlertExample", bundle: nil)
             .instantiateViewController(ofType: CombineAlertExampleViewController.self)
     }

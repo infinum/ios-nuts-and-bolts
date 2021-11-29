@@ -28,10 +28,6 @@ public struct CombineAlertAction<T> {
 
     func asUIAlertAction(with completed: @escaping (Result<T?, Never>) -> Void) -> UIAlertAction {
         return UIAlertAction(title: title, style: style) { _ in
-            guard let value = self.value else {
-                completed(.success(nil))
-                return
-            }
             completed(.success(value))
         }
     }
