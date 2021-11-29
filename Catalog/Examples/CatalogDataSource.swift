@@ -93,7 +93,8 @@ private extension CatalogDataSource {
     func createCombineItems() -> [Catalogizable.Type] {
         return [
             CombinePagingViewController.self,
-            CombineProgressableViewController.self
+            CombineProgressableViewController.self,
+            CombineAlertExampleViewController.self
         ]
     }
 }
