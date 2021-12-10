@@ -10,15 +10,6 @@ import Foundation
 
 public extension Result {
 
-    var toCombineResult: Result<Success, Failure> {
-        switch self {
-        case .failure(let error):
-            return .failure(error)
-        case .success(let value):
-            return .success(value)
-        }
-    }
-
     var toCompletableResult: Result<Void, Failure> {
         switch self {
         case .failure(let error):
