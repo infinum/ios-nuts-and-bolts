@@ -27,7 +27,7 @@ public extension APIServiceable {
                 decoder: decoder,
                 router: router,
                 session: session,
-                completion: { promise($0) }
+                completion: promise
             )
         }.eraseToAnyPublisher()
     }
