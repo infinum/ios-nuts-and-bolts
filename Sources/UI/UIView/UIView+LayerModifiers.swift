@@ -44,4 +44,37 @@ public extension UIView {
         }
     }
 
+    /// Adds a rectangular drop shadow to a view.
+    ///
+    /// This method allows you to configure your shadow exactly as the
+    /// designer specified it in Figma or Sketch.
+    ///
+    /// - Parameters:
+    ///   - color: The base color of the shadow. If not defined black color is used as is most often the case.
+    ///   - opacity: The opacity of the shadow.
+    ///   - offset: The horizontal and vertical positioning of the shadow relative to the view.
+    ///   - blur: The blur parameter as defined in Figma/Sketch.
+    ///   - spread: The spread parameter as defined in Figma/Sketch.
+    func applyFigmaShadow(
+        color: UIColor = .black,
+        opacity: Float,
+        offset: CGSize = .zero,
+        blur: CGFloat,
+        spread: CGFloat = 0
+    ) {
+      layer.masksToBounds = false
+      layer.shadowColor = color.cgColor
+      layer.shadowOpacity = opacity
+      layer.shadowOffset = offset
+      layer.shadowRadius = blur / UIScreen.main.scale
+
+      if spread == 0 {
+        layer.shadowPath = nil
+      } else {
+        let dx = -spread
+        let rect = bounds.insetBy(dx: dx, dy: dx)
+        layer.shadowPath = UIBezierPath(rect: rect).cgPath
+      }
+    }
+
 }

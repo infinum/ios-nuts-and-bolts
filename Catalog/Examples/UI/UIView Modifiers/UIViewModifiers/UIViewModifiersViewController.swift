@@ -11,6 +11,7 @@ import UIKit
 class UIViewModifiersViewController: UIViewController {
 
     @IBOutlet private weak var modifiedView: UIView!
+    @IBOutlet private weak var shadowView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,12 @@ class UIViewModifiersViewController: UIViewController {
         modifiedView.borderColor = .yellow
         modifiedView.borderWidth = 2
         modifiedView.cornerRadius = 30
+
+        shadowView.applyFigmaShadow(
+            opacity: 0.5,
+            offset: CGSize(width: 0, height: 4),
+            blur: 8
+        )
     }
 }
 
