@@ -54,7 +54,7 @@ public extension UIView {
     ///   - opacity: The opacity of the shadow.
     ///   - offset: The horizontal and vertical positioning of the shadow relative to the view.
     ///   - blur: The blur parameter as defined in Figma/Sketch.
-    ///   - spread: The blur parameter as defined in Figma/Sketch.
+    ///   - spread: The spread parameter as defined in Figma/Sketch.
     func applyFigmaShadow(
         color: UIColor = .black,
         opacity: Float,
