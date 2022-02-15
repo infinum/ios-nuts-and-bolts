@@ -196,6 +196,33 @@ class UserDefaults_PropertyWrapperTests: QuickSpec {
                 expect(StoreTest.nonOptionalEnumValue.rawValue).to(equal(1))
             }
         }
+
+        describe("testing custom UserDefaults storing") {
+
+            it("should return stored data for stored optional") {
+                StoreTest.optionalCodableValueCustomUserDefaults = TestData(testValue: "Test data")
+                let storedOptionalCodable = try! JSONDecoder().decode(
+                    TestData.self,
+                    from: StoreTest.customUserDefaults.object(forKey: "optionalCodableValueCustomUserDefaults") as! Data
+                )
+                expect(storedOptionalCodable.testValue).to(equal("Test data"))
+                expect(StoreTest.optionalCodableValueCustomUserDefaults?.testValue).to(equal("Test data"))
+            }
+
+            it("should return stored data for default non-optional string") {
+                StoreTest.nonOptionalStringValueCustomUserDefaults = "123ABC"
+                let storedString = StoreTest.customUserDefaults.object(forKey: "nonOptionalStringValueCustomUserDefaults") as! String
+                expect(storedString).to(equal("123ABC"))
+                expect(StoreTest.nonOptionalStringValueCustomUserDefaults).to(equal("123ABC"))
+            }
+
+            it("should return stored data for default non-optional rawRepresentable") {
+                StoreTest.nonOptionalEnumValueCustomUserDefaults = .two
+                let storedEnum = StoreTest.customUserDefaults.object(forKey: "nonOptionalEnumValueCustomUserDefaults") as! Int
+                expect(storedEnum).to(equal(2))
+                expect(StoreTest.nonOptionalEnumValueCustomUserDefaults).to(equal(.two))
+            }
+        }
     }
 }
 
@@ -270,6 +297,17 @@ private extension UserDefaults_PropertyWrapperTests {
         static var nonOptionalEnumValue: Number
         @Storage(rawRepresentable: "nonOptionalEnumDefaultValue", defaultValue: .unknown)
         static var nonOptionalEnumDefaultValue: Number
+
+        static let customUserDefaults = UserDefaults(suiteName: "customUserDefaults")!
+
+        @Storage(codable: "optionalCodableValueCustomUserDefaults", defaultValue: nil, userDefaults: customUserDefaults)
+        static var optionalCodableValueCustomUserDefaults: TestData?
+
+        @Storage("nonOptionalStringValueCustomUserDefaults", defaultValue: "", userDefaults: customUserDefaults)
+        static var nonOptionalStringValueCustomUserDefaults: String
+
+        @Storage(rawRepresentable: "nonOptionalEnumValueCustomUserDefaults", defaultValue: .unknown, userDefaults: customUserDefaults)
+        static var nonOptionalEnumValueCustomUserDefaults: Number
     }
 
     static func clearStorage() {

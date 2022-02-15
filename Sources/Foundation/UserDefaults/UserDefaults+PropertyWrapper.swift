@@ -60,6 +60,7 @@ extension Storage where Value: RawRepresentable, Value.RawValue == StoredValue {
         self.init(
             key,
             defaultValue: defaultValue,
+            userDefaults: userDefaults,
             get: { return Value(rawValue: $0) ?? defaultValue },
             set: { return $0.rawValue }
         )
@@ -72,6 +73,7 @@ extension Storage where Value == StoredValue {
         self.init(
             key,
             defaultValue: defaultValue,
+            userDefaults: userDefaults,
             get: { $0 },
             set: { $0 }
         )
@@ -100,6 +102,7 @@ extension Storage where Value: Codable, StoredValue == Data? {
         self.init(
             key,
             defaultValue: defaultValue,
+            userDefaults: userDefaults,
             get: { return $0.flatMap { try? decoder.decode(Value.self, from: $0) } ?? defaultValue },
             set: { return try? encoder.encode($0) }
         )
