@@ -8,16 +8,16 @@
 
 import UIKit
 
-final class LineHeightLabel: UILabel {
+public final class LineHeightLabel: UILabel {
 
-    @IBInspectable var lineHeight: CGFloat = 0.0
+    @IBInspectable public var lineHeight: CGFloat = 0.0
 
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         setup(with: text)
     }
 
-    override var text: String? {
+    override public var text: String? {
         didSet { setup(with: text) }
     }
 
