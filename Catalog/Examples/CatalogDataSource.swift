@@ -50,7 +50,8 @@ private extension CatalogDataSource {
             UIViewModifiersViewController.self,
             ImageFromColorViewController.self,
             CatalogNavigationController.self,
-            ToggleViewController.self
+            ToggleViewController.self,
+            LineHeightViewController.self
         ]
     }
 
