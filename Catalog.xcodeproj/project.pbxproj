@@ -156,6 +156,7 @@
 		3781895927317A54004E6BE3 /* CombinePagingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781895327317A54004E6BE3 /* CombinePagingInteractor.swift */; };
 		3781895A27317A54004E6BE3 /* CombinePagingWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781895427317A54004E6BE3 /* CombinePagingWireframe.swift */; };
 		3781895C27317D7F004E6BE3 /* UIScrollView+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781895B27317D7F004E6BE3 /* UIScrollView+Combine.swift */; };
+		37BB458928D2FCD100567159 /* AnyPublisher+AsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB458828D2FCD100567159 /* AnyPublisher+AsyncAwait.swift */; };
 		4F14006D2289FF9D0005F37A /* NSArray+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */; };
 		4F140071228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F140070228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m */; };
 		4F286F812291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F286F802291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m */; };
@@ -407,6 +408,7 @@
 		3781895327317A54004E6BE3 /* CombinePagingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingInteractor.swift; sourceTree = "<group>"; };
 		3781895427317A54004E6BE3 /* CombinePagingWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingWireframe.swift; sourceTree = "<group>"; };
 		3781895B27317D7F004E6BE3 /* UIScrollView+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Combine.swift"; sourceTree = "<group>"; };
+		37BB458828D2FCD100567159 /* AnyPublisher+AsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+AsyncAwait.swift"; sourceTree = "<group>"; };
 		4F14006A2289FF9C0005F37A /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FunctionalOperators.m"; sourceTree = "<group>"; };
 		4F14006C2289FF9C0005F37A /* NSArray+FunctionalOperators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FunctionalOperators.h"; sourceTree = "<group>"; };
@@ -1393,6 +1395,7 @@
 				3781895B27317D7F004E6BE3 /* UIScrollView+Combine.swift */,
 				3722CA94274D0E9E00EDC50D /* Publisher+Progressable.swift */,
 				375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */,
+				37BB458828D2FCD100567159 /* AnyPublisher+AsyncAwait.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2143,6 +2146,7 @@
 				0AB5241A2210AFFB00F35F52 /* Parameters+Fields.swift in Sources */,
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
 				A8FD60FD2292AFCC00FB50CE /* BaseCollectionSection.m in Sources */,
+				37BB458928D2FCD100567159 /* AnyPublisher+AsyncAwait.swift in Sources */,
 				A8FD61012292BB6D00FB50CE /* CollectionViewReloader.m in Sources */,
 				0AB5240B2210ADA700F35F52 /* Router.swift in Sources */,
 				0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */,
