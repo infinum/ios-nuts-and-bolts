@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Combine Haptic Feedback View Controller-->
+        <scene sceneID="XJ1-QA-Nrj">
+            <objects>
+                <viewController storyboardIdentifier="CombineHapticFeedbackViewController" id="zIc-eW-6fX" customClass="CombineHapticFeedbackViewController" customModule="Catalog" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z2g-4m-atm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6qs-lG-7NZ">
+                                <rect key="frame" x="20" y="93.5" width="335" height="480"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGt-ZP-d5o">
+                                        <rect key="frame" x="101.5" y="0.0" width="132" height="105"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Selection feedback"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UgO-1l-0WP">
+                                        <rect key="frame" x="104.5" y="125" width="126" height="105"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Success feedback"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIH-rc-QDI">
+                                        <rect key="frame" x="111" y="250" width="113" height="105"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Failure feedback"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4n-f8-2kg">
+                                        <rect key="frame" x="110" y="375" width="115" height="105"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Impact feedback"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3pi-N7-nbV"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6qs-lG-7NZ" firstAttribute="top" secondItem="3pi-N7-nbV" secondAttribute="top" constant="93.5" id="39A-cE-eGh"/>
+                            <constraint firstItem="3pi-N7-nbV" firstAttribute="trailing" secondItem="6qs-lG-7NZ" secondAttribute="trailing" constant="20" id="FG7-Tx-3KP"/>
+                            <constraint firstItem="6qs-lG-7NZ" firstAttribute="leading" secondItem="3pi-N7-nbV" secondAttribute="leading" constant="20" id="J7R-cU-OLN"/>
+                            <constraint firstItem="6qs-lG-7NZ" firstAttribute="centerY" secondItem="3pi-N7-nbV" secondAttribute="centerY" id="duN-0y-xdW"/>
+                            <constraint firstItem="3pi-N7-nbV" firstAttribute="bottom" secondItem="6qs-lG-7NZ" secondAttribute="bottom" constant="93.5" id="eP0-Xc-nOz"/>
+                            <constraint firstItem="6qs-lG-7NZ" firstAttribute="centerX" secondItem="3pi-N7-nbV" secondAttribute="centerX" id="xpT-jw-SGt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="failureFeedbackButton" destination="QIH-rc-QDI" id="eVi-uy-aFb"/>
+                        <outlet property="impactFeedbackButton" destination="w4n-f8-2kg" id="IKs-hg-Cae"/>
+                        <outlet property="selectionFeedbackButton" destination="vGt-ZP-d5o" id="3BJ-bp-JLD"/>
+                        <outlet property="successFeedbackButton" destination="UgO-1l-0WP" id="3rI-zh-G2o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rle-ol-2Ax" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="306" y="303"/>
+        </scene>
+    </scenes>
+</document>

@@ -95,7 +95,8 @@ private extension CatalogDataSource {
         return [
             CombinePagingViewController.self,
             CombineProgressableViewController.self,
-            CombineAlertExampleViewController.self
+            CombineAlertExampleViewController.self,
+            CombineHapticFeedbackViewController.self
         ]
     }
 }
