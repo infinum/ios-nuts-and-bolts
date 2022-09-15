@@ -144,6 +144,7 @@
 		374937B128D313F400BDAC2F /* UIFeedbackGenerator+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937B028D313F400BDAC2F /* UIFeedbackGenerator+Utility.swift */; };
 		374937B728D3178500BDAC2F /* ASAuthorizationController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937B628D3178500BDAC2F /* ASAuthorizationController+Combine.swift */; };
 		374937BB28D319FE00BDAC2F /* Combine+Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937BA28D319FE00BDAC2F /* Combine+Traits.swift */; };
+		374937BD28D31B3B00BDAC2F /* CombineUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937BC28D31B3B00BDAC2F /* CombineUtilityTests.swift */; };
 		375C2CD9274E3BB500632EF2 /* UIAlertController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */; };
 		375C2CDC274E485C00632EF2 /* CombineAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */; };
 		3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893227316B32004E6BE3 /* Result+Combine.swift */; };
@@ -403,6 +404,7 @@
 		374937B028D313F400BDAC2F /* UIFeedbackGenerator+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFeedbackGenerator+Utility.swift"; sourceTree = "<group>"; };
 		374937B628D3178500BDAC2F /* ASAuthorizationController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASAuthorizationController+Combine.swift"; sourceTree = "<group>"; };
 		374937BA28D319FE00BDAC2F /* Combine+Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Traits.swift"; sourceTree = "<group>"; };
+		374937BC28D31B3B00BDAC2F /* CombineUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineUtilityTests.swift; sourceTree = "<group>"; };
 		375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Combine.swift"; sourceTree = "<group>"; };
 		375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineAlertExampleViewController.swift; sourceTree = "<group>"; };
 		3781893227316B32004E6BE3 /* Result+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Combine.swift"; sourceTree = "<group>"; };
@@ -1360,6 +1362,7 @@
 			isa = PBXGroup;
 			children = (
 				372448C7273289D400016144 /* CombinePagingTests.swift */,
+				374937BC28D31B3B00BDAC2F /* CombineUtilityTests.swift */,
 			);
 			path = Combine;
 			sourceTree = "<group>";
@@ -2328,6 +2331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374937BD28D31B3B00BDAC2F /* CombineUtilityTests.swift in Sources */,
 				4F286F8D2291E33600935FD3 /* NSSet+FunctionalOperatorsTests.m in Sources */,
 				536E5ADB225F334300EF01A6 /* String+Inserting.swift in Sources */,
 				536E5ACE225F2CF500EF01A6 /* Date+AdditionTests.swift in Sources */,
