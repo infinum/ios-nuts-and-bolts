@@ -75,7 +75,7 @@ class CombineUtilityTests: QuickSpec {
                     )
                     .store(in: &cancellables)
 
-                expect(error).toEventually(equal(nil), timeout: .seconds(3))
+                expect(error).toEventually(beNil(), timeout: .seconds(3))
             }
 
             it("should execute receiveValueClosure") {
@@ -99,7 +99,7 @@ class CombineUtilityTests: QuickSpec {
                     )
                     .store(in: &cancellables)
 
-                expect(value).toEventually(equal(nil), timeout: .seconds(3))
+                expect(value).toEventually(beNil(), timeout: .seconds(3))
             }
 
             it("should return integer value and not error out") {
