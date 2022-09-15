@@ -89,61 +89,61 @@ public class CombineTableDataSourceDelegate: NSObject {
     // ***************************************************************
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var didScroll = PassthroughRelay<UIScrollView>()
+    public var didScroll = PassthroughRelay<UIScrollView>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var willDisplayCell = PassthroughRelay<(cell: UITableViewCell, indexPath: IndexPath)>()
+    public var willDisplayCell = PassthroughRelay<(cell: UITableViewCell, indexPath: IndexPath)>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var willDisplayHeaderView = PassthroughRelay<UIView>()
+    public var willDisplayHeaderView = PassthroughRelay<UIView>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var willDisplayFooterView = PassthroughRelay<UIView>()
+    public var willDisplayFooterView = PassthroughRelay<UIView>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var didEndDisplaying = PassthroughRelay<UITableViewCell>()
+    public var didEndDisplaying = PassthroughRelay<UITableViewCell>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var didEndDisplayingHeaderView = PassthroughRelay<UIView>()
+    public var didEndDisplayingHeaderView = PassthroughRelay<UIView>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var didEndDisplayingFooterView = PassthroughRelay<UIView>()
+    public var didEndDisplayingFooterView = PassthroughRelay<UIView>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var accessoryButtonTappedForRowWith = PassthroughRelay<IndexPath>()
+    public var accessoryButtonTappedForRowWith = PassthroughRelay<IndexPath>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var didHighlightRowAt = PassthroughRelay<IndexPath>()
+    public var didHighlightRowAt = PassthroughRelay<IndexPath>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var didUnhighlightRowAt = PassthroughRelay<IndexPath>()
+    public var didUnhighlightRowAt = PassthroughRelay<IndexPath>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var didSelectRowAt = PassthroughRelay<IndexPath>()
+    public var didSelectRowAt = PassthroughRelay<IndexPath>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var didDeselectRowAt = PassthroughRelay<IndexPath>()
+    public var didDeselectRowAt = PassthroughRelay<IndexPath>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var willBeginEditingRowAt = PassthroughRelay<IndexPath>()
+    public var willBeginEditingRowAt = PassthroughRelay<IndexPath>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var didEndEditingRowAt = PassthroughRelay<IndexPath?>()
+    public var didEndEditingRowAt = PassthroughRelay<IndexPath?>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var didUpdateFocusIn = PassthroughRelay<UITableViewFocusUpdateContext>()
+    public var didUpdateFocusIn = PassthroughRelay<UITableViewFocusUpdateContext>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var didBeginMultipleSelectionInteractionAt = PassthroughRelay<IndexPath>()
+    public var didBeginMultipleSelectionInteractionAt = PassthroughRelay<IndexPath>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var willPerformPreviewActionForMenuWith = PassthroughRelay<UIContextMenuConfiguration>()
+    public var willPerformPreviewActionForMenuWith = PassthroughRelay<UIContextMenuConfiguration>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var willDisplayContextMenu = PassthroughRelay<(UIContextMenuConfiguration, UIContextMenuInteractionAnimating?)>()
+    public var willDisplayContextMenu = PassthroughRelay<(UIContextMenuConfiguration, UIContextMenuInteractionAnimating?)>()
 
     /// Forwarding publisher from `UITableViewDelegate`
-    var willEndContextMenuInteraction = PassthroughRelay<(UIContextMenuConfiguration, UIContextMenuInteractionAnimating?)>()
+    public var willEndContextMenuInteraction = PassthroughRelay<(UIContextMenuConfiguration, UIContextMenuInteractionAnimating?)>()
 
     // MARK: - UITableViewDelegate -
 
