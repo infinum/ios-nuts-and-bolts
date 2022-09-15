@@ -143,6 +143,7 @@
 		374937AE28D312CC00BDAC2F /* UIFeedbackGenerator+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937AD28D312CC00BDAC2F /* UIFeedbackGenerator+Combine.swift */; };
 		374937B128D313F400BDAC2F /* UIFeedbackGenerator+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937B028D313F400BDAC2F /* UIFeedbackGenerator+Utility.swift */; };
 		374937B728D3178500BDAC2F /* ASAuthorizationController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937B628D3178500BDAC2F /* ASAuthorizationController+Combine.swift */; };
+		374937BB28D319FE00BDAC2F /* Combine+Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937BA28D319FE00BDAC2F /* Combine+Traits.swift */; };
 		375C2CD9274E3BB500632EF2 /* UIAlertController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */; };
 		375C2CDC274E485C00632EF2 /* CombineAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */; };
 		3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893227316B32004E6BE3 /* Result+Combine.swift */; };
@@ -401,6 +402,7 @@
 		374937AD28D312CC00BDAC2F /* UIFeedbackGenerator+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFeedbackGenerator+Combine.swift"; sourceTree = "<group>"; };
 		374937B028D313F400BDAC2F /* UIFeedbackGenerator+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFeedbackGenerator+Utility.swift"; sourceTree = "<group>"; };
 		374937B628D3178500BDAC2F /* ASAuthorizationController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASAuthorizationController+Combine.swift"; sourceTree = "<group>"; };
+		374937BA28D319FE00BDAC2F /* Combine+Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Traits.swift"; sourceTree = "<group>"; };
 		375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Combine.swift"; sourceTree = "<group>"; };
 		375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineAlertExampleViewController.swift; sourceTree = "<group>"; };
 		3781893227316B32004E6BE3 /* Result+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Combine.swift"; sourceTree = "<group>"; };
@@ -1446,6 +1448,7 @@
 				375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */,
 				37BB458828D2FCD100567159 /* AnyPublisher+AsyncAwait.swift */,
 				374937A328D30D7300BDAC2F /* Publisher+Binding.swift */,
+				374937BA28D319FE00BDAC2F /* Combine+Traits.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2164,6 +2167,7 @@
 				0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */,
 				0AB524182210AF9A00F35F52 /* Parameters+Filter.swift in Sources */,
 				0612E33F22D32A750081BCF6 /* UIViewModifiersViewController.swift in Sources */,
+				374937BB28D319FE00BDAC2F /* Combine+Traits.swift in Sources */,
 				0A1FAFF92406BB6F000F72D6 /* SessionManager.swift in Sources */,
 				0AB524222210B3CB00F35F52 /* URL+Append.swift in Sources */,
 				0A1DFE4F236EE8C5000F2538 /* Signal+Utility.swift in Sources */,
