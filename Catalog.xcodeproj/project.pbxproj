@@ -137,6 +137,9 @@
 		3722CA98274D0F3500EDC50D /* CombineProgressableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */; };
 		372448C8273289D400016144 /* CombinePagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372448C7273289D400016144 /* CombinePagingTests.swift */; };
 		3738886B274F915E002CDF0D /* CombineAlertExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37388867274F915E002CDF0D /* CombineAlertExample.storyboard */; };
+		374937D128D3587F00BDAC2F /* TableDiffableDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937D028D3587F00BDAC2F /* TableDiffableDataSourceDelegate.swift */; };
+		374937D428D35BFD00BDAC2F /* TableCellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937D328D35BFD00BDAC2F /* TableCellAnimator.swift */; };
+		374937E128D361E200BDAC2F /* CombineTableDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937E028D361E200BDAC2F /* CombineTableDataSourceDelegate.swift */; };
 		375C2CD9274E3BB500632EF2 /* UIAlertController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */; };
 		375C2CDC274E485C00632EF2 /* CombineAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */; };
 		3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893227316B32004E6BE3 /* Result+Combine.swift */; };
@@ -388,6 +391,9 @@
 		3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineProgressableViewController.swift; sourceTree = "<group>"; };
 		372448C7273289D400016144 /* CombinePagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingTests.swift; sourceTree = "<group>"; };
 		37388867274F915E002CDF0D /* CombineAlertExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineAlertExample.storyboard; sourceTree = "<group>"; };
+		374937D028D3587F00BDAC2F /* TableDiffableDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDiffableDataSourceDelegate.swift; sourceTree = "<group>"; };
+		374937D328D35BFD00BDAC2F /* TableCellAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellAnimator.swift; sourceTree = "<group>"; };
+		374937E028D361E200BDAC2F /* CombineTableDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTableDataSourceDelegate.swift; sourceTree = "<group>"; };
 		375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Combine.swift"; sourceTree = "<group>"; };
 		375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineAlertExampleViewController.swift; sourceTree = "<group>"; };
 		3781893227316B32004E6BE3 /* Result+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Combine.swift"; sourceTree = "<group>"; };
@@ -1161,6 +1167,7 @@
 		0AE0B75122042F970033A476 /* Table View */ = {
 			isa = PBXGroup;
 			children = (
+				374937D228D35BF600BDAC2F /* Animator */,
 				0AE0B760220437410033A476 /* Reloader */,
 				0AE0B754220430070033A476 /* TableCellItem.swift */,
 				0AE0B75E220436B10033A476 /* TableSectionItem.swift */,
@@ -1347,6 +1354,23 @@
 			path = Combine;
 			sourceTree = "<group>";
 		};
+		374937CF28D3586E00BDAC2F /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				374937D028D3587F00BDAC2F /* TableDiffableDataSourceDelegate.swift */,
+				374937E028D361E200BDAC2F /* CombineTableDataSourceDelegate.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		374937D228D35BF600BDAC2F /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				374937D328D35BFD00BDAC2F /* TableCellAnimator.swift */,
+			);
+			path = Animator;
+			sourceTree = "<group>";
+		};
 		375C2CDA274E473E00632EF2 /* Combine Alert Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1380,6 +1404,7 @@
 		37818944273176A0004E6BE3 /* Combine */ = {
 			isa = PBXGroup;
 			children = (
+				374937CF28D3586E00BDAC2F /* DataSource */,
 				3781894A273179EF004E6BE3 /* Paging */,
 				37818945273176C0004E6BE3 /* Extensions */,
 			);
@@ -2174,6 +2199,7 @@
 				D737030D2316A06000D7A986 /* UIColor+UIImage.swift in Sources */,
 				0A0ECF552207012E00C1853E /* Catalogizable.swift in Sources */,
 				0A54435822718A8F00F26468 /* NetworkingInteractor.swift in Sources */,
+				374937D128D3587F00BDAC2F /* TableDiffableDataSourceDelegate.swift in Sources */,
 				0A603FE622078D0200F25622 /* Single+Progressable.swift in Sources */,
 				3781895C27317D7F004E6BE3 /* UIScrollView+Combine.swift in Sources */,
 				C202328323954E6500DC3C42 /* PokedexUser.swift in Sources */,
@@ -2249,9 +2275,11 @@
 				3781893627316B67004E6BE3 /* APIService+Combine.swift in Sources */,
 				0AD9EAC92204274300FF3F2C /* UIStoryboard+Instantiate.swift in Sources */,
 				CC80F7252438DB4B00A3F276 /* ToggleInteractor.swift in Sources */,
+				374937D428D35BFD00BDAC2F /* TableCellAnimator.swift in Sources */,
 				066C78A824FE6BC6000AC617 /* UserDefaults+PropertyWrapper.swift in Sources */,
 				60471281222679BC00809454 /* UIColor+InitHelper.swift in Sources */,
 				81B01CA925EE8B190058D8E0 /* AssociableCollectionCellItem.swift in Sources */,
+				374937E128D361E200BDAC2F /* CombineTableDataSourceDelegate.swift in Sources */,
 				0AE0B759220435FA0033A476 /* TableDataSourceDelegate.swift in Sources */,
 				0AE0B77D2204803D0033A476 /* String+Blank.swift in Sources */,
 				4F286F812291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m in Sources */,

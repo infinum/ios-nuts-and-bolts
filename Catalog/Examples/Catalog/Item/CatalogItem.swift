@@ -21,10 +21,9 @@ extension CatalogItem: TableCellItem {
         return cell
     }
     
-    func didSelect(at indexPath: IndexPath) {
+    func didSelect(at indexPath: IndexPath, tableView: UITableView) {
         didSelect.accept(self)
     }
-    
 }
 
 struct CatalogSection {
@@ -41,5 +40,4 @@ extension CatalogSection: TableSectionItem {
     func titleForHeader(from tableView: UITableView, at index: Int) -> String? {
         return title
     }
-    
 }

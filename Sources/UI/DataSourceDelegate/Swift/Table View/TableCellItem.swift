@@ -42,7 +42,8 @@ public protocol TableCellItem: CellItem {
     /// Notifies cell item when user selects table view cell.
     ///
     /// - Parameter indexPath: index path of a selected cell
-    func didSelect(at indexPath: IndexPath)
+    /// - Parameter tableView: parent tableview
+    func didSelect(at indexPath: IndexPath, tableView: UITableView)
     
     /// Notifies cell item when user deletes the table view cell.
     ///
@@ -63,7 +64,7 @@ public extension TableCellItem {
     
     var canDelete: Bool { false }
     
-    func didSelect(at indexPath: IndexPath) {
+    func didSelect(at indexPath: IndexPath, tableView: UITableView) {
         // Empty implementation
     }
     
