@@ -12,7 +12,7 @@ PODS:
   - Loggie (2.3.0)
   - MBProgressHUD (1.2.0)
   - Nimble (9.2.1)
-  - Quick (4.0.0)
+  - Quick (5.0.1)
   - RxBlocking (6.2.0):
     - RxSwift (= 6.2.0)
   - RxCocoa (6.2.0):
@@ -74,7 +74,7 @@ SPEC CHECKSUMS:
   Loggie: 12ed0ea1f90590b627bb2f4b8aeb983c112a7c8d
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
-  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
+  Quick: 749aa754fd1e7d984f2000fe051e18a3a9809179
   RxBlocking: 0b29f7d2079109a8de49c411381bed7c33ef1eeb
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxNimble: 60c8162b1518306a11d0c272a65ade133b209670
