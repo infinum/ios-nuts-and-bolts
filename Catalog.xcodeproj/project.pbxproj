@@ -137,6 +137,7 @@
 		3722CA98274D0F3500EDC50D /* CombineProgressableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */; };
 		372448C8273289D400016144 /* CombinePagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372448C7273289D400016144 /* CombinePagingTests.swift */; };
 		3738886B274F915E002CDF0D /* CombineAlertExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37388867274F915E002CDF0D /* CombineAlertExample.storyboard */; };
+		374937A428D30D7300BDAC2F /* Publisher+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A328D30D7300BDAC2F /* Publisher+Binding.swift */; };
 		375C2CD9274E3BB500632EF2 /* UIAlertController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */; };
 		375C2CDC274E485C00632EF2 /* CombineAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */; };
 		3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893227316B32004E6BE3 /* Result+Combine.swift */; };
@@ -389,6 +390,7 @@
 		3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineProgressableViewController.swift; sourceTree = "<group>"; };
 		372448C7273289D400016144 /* CombinePagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingTests.swift; sourceTree = "<group>"; };
 		37388867274F915E002CDF0D /* CombineAlertExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineAlertExample.storyboard; sourceTree = "<group>"; };
+		374937A328D30D7300BDAC2F /* Publisher+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Binding.swift"; sourceTree = "<group>"; };
 		375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Combine.swift"; sourceTree = "<group>"; };
 		375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineAlertExampleViewController.swift; sourceTree = "<group>"; };
 		3781893227316B32004E6BE3 /* Result+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Combine.swift"; sourceTree = "<group>"; };
@@ -1396,6 +1398,7 @@
 				3722CA94274D0E9E00EDC50D /* Publisher+Progressable.swift */,
 				375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */,
 				37BB458828D2FCD100567159 /* AnyPublisher+AsyncAwait.swift */,
+				374937A328D30D7300BDAC2F /* Publisher+Binding.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2218,6 +2221,7 @@
 				536E5AB5225F19D300EF01A6 /* Bool+Map.swift in Sources */,
 				0A3C090E220ADD3E00DEBECC /* RoundCornersViewController.swift in Sources */,
 				375C2CD9274E3BB500632EF2 /* UIAlertController+Combine.swift in Sources */,
+				374937A428D30D7300BDAC2F /* Publisher+Binding.swift in Sources */,
 				0A3C090B220AD44F00DEBECC /* UIView+Corners.swift in Sources */,
 				0AB524032210A10800F35F52 /* BlankCollectionSection.swift in Sources */,
 				A8FD60F52292AF1A00FB50CE /* CollectionDataSourceDelegate.m in Sources */,
