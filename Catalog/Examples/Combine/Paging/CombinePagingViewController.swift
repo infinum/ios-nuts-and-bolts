@@ -27,8 +27,9 @@ final class CombinePagingViewController: UIViewController, Refreshable {
 
     // MARK: - Private properties -
 
-    private lazy var tableDataSource: TableDataSourceDelegate = {
-        return TableDataSourceDelegate(tableView: tableView)
+    private lazy var tableDataSource: CombineTableDataSourceDelegate = {
+        let animation = TableCellAnimationFactory.makeSlideInWithFadeAnimation(duration: 0.5, delay: 0, from: .left)
+        return .init(tableView: tableView, animation: animation)
     }()
 
     @IBOutlet private var tableView: UITableView! {

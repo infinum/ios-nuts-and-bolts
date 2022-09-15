@@ -130,7 +130,7 @@ extension TableDataSourceDelegate: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        sections?[indexPath].didSelect(at: indexPath)
+        sections?[indexPath].didSelect(at: indexPath, tableView: tableView)
     }
     
     public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
