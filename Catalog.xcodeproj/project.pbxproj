@@ -146,6 +146,7 @@
 		374937BB28D319FE00BDAC2F /* Combine+Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937BA28D319FE00BDAC2F /* Combine+Traits.swift */; };
 		374937BD28D31B3B00BDAC2F /* CombineUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937BC28D31B3B00BDAC2F /* CombineUtilityTests.swift */; };
 		374937C128D32CF500BDAC2F /* CombineBindingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937C028D32CF500BDAC2F /* CombineBindingTests.swift */; };
+		374937C328D32F0500BDAC2F /* CombineAsyncAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937C228D32F0500BDAC2F /* CombineAsyncAwaitTests.swift */; };
 		375C2CD9274E3BB500632EF2 /* UIAlertController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */; };
 		375C2CDC274E485C00632EF2 /* CombineAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */; };
 		3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893227316B32004E6BE3 /* Result+Combine.swift */; };
@@ -407,6 +408,7 @@
 		374937BA28D319FE00BDAC2F /* Combine+Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Traits.swift"; sourceTree = "<group>"; };
 		374937BC28D31B3B00BDAC2F /* CombineUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineUtilityTests.swift; sourceTree = "<group>"; };
 		374937C028D32CF500BDAC2F /* CombineBindingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineBindingTests.swift; sourceTree = "<group>"; };
+		374937C228D32F0500BDAC2F /* CombineAsyncAwaitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineAsyncAwaitTests.swift; sourceTree = "<group>"; };
 		375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Combine.swift"; sourceTree = "<group>"; };
 		375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineAlertExampleViewController.swift; sourceTree = "<group>"; };
 		3781893227316B32004E6BE3 /* Result+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Combine.swift"; sourceTree = "<group>"; };
@@ -1366,6 +1368,7 @@
 				372448C7273289D400016144 /* CombinePagingTests.swift */,
 				374937BC28D31B3B00BDAC2F /* CombineUtilityTests.swift */,
 				374937C028D32CF500BDAC2F /* CombineBindingTests.swift */,
+				374937C228D32F0500BDAC2F /* CombineAsyncAwaitTests.swift */,
 			);
 			path = Combine;
 			sourceTree = "<group>";
@@ -2367,6 +2370,7 @@
 				536E5AE3225F387F00EF01A6 /* Collection+GroupingTests.swift in Sources */,
 				536E5AD9225F311600EF01A6 /* String+SubstringTests.swift in Sources */,
 				0A1DFE55236EEA0B000F2538 /* PagingTests.swift in Sources */,
+				374937C328D32F0500BDAC2F /* CombineAsyncAwaitTests.swift in Sources */,
 				066C78AB24FE6C39000AC617 /* UserDefaults+PropertyWrapperTests.swift in Sources */,
 				60B4BDF22243AC7000849B8D /* Array+SafeGetTests.swift in Sources */,
 				0AE0B78722049CBD0033A476 /* ClosedRange+ScalableTests.swift in Sources */,
