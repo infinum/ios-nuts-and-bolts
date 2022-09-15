@@ -12,32 +12,148 @@ import Combine
 @available(iOS 13, *)
 public extension Publisher {
 
-    /// Maps each sequence element to given value.
+    /// Erases the Publisher's error type
     ///
-    /// - Parameter value: Value to map
-    /// - Returns: Sequence where all elements are given value.
-    func mapTo<T>(_ value: T) -> Publishers.Map<Self, T> {
-        return map { _ in value }
+    /// - Returns: Publisher with a Failure type of Error
+    func eraseError() -> Publishers.MapError<Self, Error> {
+        return mapError { $0 as Error }
+    }
+
+    /// Catches the error converting it into the specified value
+    ///
+    /// - Returns: Publisher with the specified value
+    func catchErrorReturn<T>(_ value: T) -> Publishers.Catch<Self, Just<T>> {
+        return self.catch { _ in Just(value) }
+    }
+
+    /// Debounces the Publisher for a specified amount of time on the main queue
+    ///
+    /// - Returns: Publisher with debounce for a specified amount of time
+    func debounce(for dueTime: DispatchQueue.SchedulerTimeType.Stride) -> Publishers.Debounce<Self, DispatchQueue> {
+        return debounce(for: dueTime, scheduler: .main)
     }
 
     /// Maps each sequence element to Void type.
     ///
     /// - Returns: Sequence where all elements are of Void type.
     func mapToVoid() -> Publishers.Map<Self, Void> {
-        return mapTo(())
+        return mapToValue(())
     }
 
-    func inclusivePrefix(while predicate: @escaping (Self.Output) -> Bool) -> Publishers.HandleEvents<Publishers.PrefixWhile<Self>> {
-        var previousValue: Output?
-        return self
-            .prefix(while: { output in
-                guard let previousValue = previousValue else {
-                    return predicate(output)
-                }
-                return predicate(previousValue)
-            })
-            .handleEvents(receiveOutput: {
-                previousValue = $0
-            })
+    /// Prefixes elements of a sequence for the given `predicate` while also including the value at which the `prefix` operator stops.
+    func inclusivePrefix(while predicate: @escaping (Self.Output) -> Bool) -> AnyPublisher<Self.Output, Failure> {
+        let shared = share(replay: 1)
+        // In order to get a prefix that's inclusive, we need to make use of the `share(replay:)` operator
+        // First, we prefix as usual until we get all of the elements we want, for the given predicate.
+        // Next, we make use of the replayed sequence to get the first value which doesn't fulfill the predicate requirement.
+        return shared
+            .prefix(while: predicate)
+            .append(shared.first { !predicate($0) })
+            .eraseToAnyPublisher()
+    }
+}
+
+// MARK: Weak assign
+
+@available(iOS 13.0, *)
+public extension Publisher {
+
+    /// Executes specified receiveValue closure if the value has been received, otherwise, if the Publisher
+    /// error'd out, it executes the receiveError closure
+    ///
+    /// - Parameters:
+    ///   - receiveValue: Closure which specifies what should be done if a value has been received
+    ///   - receiveError: Closure which specifies what should be done if an error has been received
+    ///
+    /// - Returns: AnyCancellable
+    func sink(
+        receiveValue: @escaping ((Self.Output) -> Void),
+        receiveError: @escaping ((Self.Failure) -> Void)
+    ) -> AnyCancellable {
+        return sink(
+            receiveCompletion: { result in
+                guard case .failure(let error) = result else { return }
+                receiveError(error)
+            },
+            receiveValue: receiveValue
+        )
+    }
+
+    /// Weakly assigns the received value to the specified object at the specified key path, if the Publisher errors out
+    /// the error will be sent to the specified error handling subject
+    ///
+    /// - Parameters:
+    ///   - object: Object on which you want to assing the value
+    ///   - errorSubject: Subject which will handle the error if it happens
+    ///   - valueKeyPath: Key path on the specified object to which you want to assign the value
+    ///
+    /// - Returns: AnyCancellable
+    func assignWeakifed<T: AnyObject> (
+        on object: T,
+        errorAt errorSubject: PassthroughSubject<Error, Never>? = nil,
+        valueAt valueKeyPath: ReferenceWritableKeyPath<T, Self.Output?>? = nil
+    ) -> AnyCancellable {
+        return sink(
+            receiveValue: { [weak object] in
+                guard let keyPath = valueKeyPath else { return }
+                object?[keyPath: keyPath] = $0
+            },
+            receiveError: { errorSubject?.send($0) }
+        )
+    }
+}
+
+@available(iOS 13.0, *)
+public extension Publisher where Self.Failure == Never {
+
+    /// Assigns the received value to the specified object which is weakified at the specified key path
+    ///
+    /// - Parameters:
+    ///   - object: Object on which you want to assing the value
+    ///   - keyPath: Key path on the specified object to which you want to assign the value
+    ///
+    /// - Returns: AnyCancellable
+    func assignWeakified<T: AnyObject>(on object: T, at keyPath: ReferenceWritableKeyPath<T, Self.Output>) -> AnyCancellable {
+        return assign(to: keyPath, on: object, ownership: .weak)
+    }
+
+    /// Assigns the received value to the specified object which is unowned at the specified key path
+    ///
+    /// - Parameters:
+    ///   - object: Object on which you want to assing the value
+    ///   - keyPath: Key path on the specified object to which you want to assign the value
+    ///
+    /// - Returns: AnyCancellable
+    func assignUnowned<T: AnyObject>(on object: T, at keyPath: ReferenceWritableKeyPath<T, Self.Output>) -> AnyCancellable {
+        return assign(to: keyPath, on: object, ownership: .unowned)
+    }
+}
+
+// MARK: - Utility operators
+
+@available(iOS 13.0, *)
+public extension AnyPublisher {
+
+    /// Creates an instance of AnyPublisher which sends one value and completes
+    ///
+    /// - Parameters:
+    ///  - value: value which will be sent out when the publisher is subscribed to
+    ///
+    /// - Returns: AnyPublisher
+    static func just(_ value: Output) -> AnyPublisher<Output, Failure> {
+        return Just(value)
+            .setFailureType(to: Failure.self)
+            .eraseToAnyPublisher()
+    }
+
+    /// Creates an instance of AnyPublisher which sends one error and completes
+    ///
+    /// - Parameters:
+    ///  - error: error which will be sent out when the publisher is subscribed to
+    ///
+    /// - Returns: AnyPublisher
+    static func error(_ error: Failure) -> AnyPublisher<Output, Failure> {
+        return Fail(error: error)
+            .eraseToAnyPublisher()
     }
 }
