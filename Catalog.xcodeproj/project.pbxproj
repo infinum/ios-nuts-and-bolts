@@ -138,6 +138,8 @@
 		372448C8273289D400016144 /* CombinePagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372448C7273289D400016144 /* CombinePagingTests.swift */; };
 		3738886B274F915E002CDF0D /* CombineAlertExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37388867274F915E002CDF0D /* CombineAlertExample.storyboard */; };
 		374937A428D30D7300BDAC2F /* Publisher+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A328D30D7300BDAC2F /* Publisher+Binding.swift */; };
+		374937A628D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */; };
+		374937A928D30FE600BDAC2F /* NotificationCenter+Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A828D30FE600BDAC2F /* NotificationCenter+Publishers.swift */; };
 		375C2CD9274E3BB500632EF2 /* UIAlertController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */; };
 		375C2CDC274E485C00632EF2 /* CombineAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */; };
 		3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893227316B32004E6BE3 /* Result+Combine.swift */; };
@@ -391,6 +393,8 @@
 		372448C7273289D400016144 /* CombinePagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingTests.swift; sourceTree = "<group>"; };
 		37388867274F915E002CDF0D /* CombineAlertExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineAlertExample.storyboard; sourceTree = "<group>"; };
 		374937A328D30D7300BDAC2F /* Publisher+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Binding.swift"; sourceTree = "<group>"; };
+		374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenterPublisher+Unwrapping.swift"; sourceTree = "<group>"; };
+		374937A828D30FE600BDAC2F /* NotificationCenter+Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Publishers.swift"; sourceTree = "<group>"; };
 		375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Combine.swift"; sourceTree = "<group>"; };
 		375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineAlertExampleViewController.swift; sourceTree = "<group>"; };
 		3781893227316B32004E6BE3 /* Result+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Combine.swift"; sourceTree = "<group>"; };
@@ -1351,6 +1355,15 @@
 			path = Combine;
 			sourceTree = "<group>";
 		};
+		374937A728D30FCF00BDAC2F /* NotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */,
+				374937A828D30FE600BDAC2F /* NotificationCenter+Publishers.swift */,
+			);
+			path = NotificationCenter;
+			sourceTree = "<group>";
+		};
 		375C2CDA274E473E00632EF2 /* Combine Alert Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1393,6 +1406,7 @@
 		37818945273176C0004E6BE3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				374937A728D30FCF00BDAC2F /* NotificationCenter */,
 				37818946273176CE004E6BE3 /* Publisher+Utility.swift */,
 				3781895B27317D7F004E6BE3 /* UIScrollView+Combine.swift */,
 				3722CA94274D0E9E00EDC50D /* Publisher+Progressable.swift */,
@@ -2126,6 +2140,7 @@
 				6047127E222678EA00809454 /* UITextView+ZeroInsets.swift in Sources */,
 				3781895627317A54004E6BE3 /* CombinePagingInterfaces.swift in Sources */,
 				0A1DFE5D236EF5B4000F2538 /* RxPagingViewController.swift in Sources */,
+				374937A928D30FE600BDAC2F /* NotificationCenter+Publishers.swift in Sources */,
 				A8D4BE872689A023002D8202 /* LoggingObjC.swift in Sources */,
 				0A0F24472247D5D80005CF41 /* APIService.swift in Sources */,
 				0A54436622718AB100F26468 /* RxNetworkingWireframe.swift in Sources */,
@@ -2155,6 +2170,7 @@
 				0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */,
 				3781895927317A54004E6BE3 /* CombinePagingInteractor.swift in Sources */,
 				4F286F942291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m in Sources */,
+				374937A628D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift in Sources */,
 				0AE0B75D2204365C0033A476 /* SectionItem.swift in Sources */,
 				A8D4BE8A2689A023002D8202 /* Logging.swift in Sources */,
 				0AD9EAC52204274300FF3F2C /* BaseWireframe.swift in Sources */,
