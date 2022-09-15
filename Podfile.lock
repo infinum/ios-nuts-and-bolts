@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
   - CombineCocoa (0.4.0)
-  - CombineExt (1.5.1)
+  - CombineExt (1.8.0)
   - Japx/Alamofire (4.0.0):
     - Alamofire
     - Japx/Core
@@ -69,7 +69,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   CombineCocoa: 68a050228ce7c53c1c5ac2c57cccf92a7f5c5085
-  CombineExt: e081b93f38f507660550e001531a049a6825f63e
+  CombineExt: c4daa97ef75754d8ef319bd79edeef82652f3eea
   Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
   Loggie: 12ed0ea1f90590b627bb2f4b8aeb983c112a7c8d
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
@@ -85,4 +85,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 51192e2daa4a32dc63d38690838b05a0e2cd4316
 
-COCOAPODS: 1.11.0
+COCOAPODS: 1.11.3
