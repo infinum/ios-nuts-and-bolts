@@ -241,7 +241,11 @@ public final class TableDiffableDataSourceDelegate: UITableViewDiffableDataSourc
         didEndEditingRowAt.accept(indexPath)
     }
 
-    public func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+    public func tableView(
+        _ tableView: UITableView,
+        didUpdateFocusIn context: UITableViewFocusUpdateContext,
+        with coordinator: UIFocusAnimationCoordinator
+    ) {
         didUpdateFocusIn.accept(context)
     }
 

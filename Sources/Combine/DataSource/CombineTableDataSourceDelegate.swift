@@ -330,4 +330,3 @@ public extension CombineTableDataSourceDelegate {
         animator?.reset()
     }
 }
-
