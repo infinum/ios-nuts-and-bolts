@@ -61,7 +61,8 @@ public class CombineTableDataSourceDelegate: NSObject {
     /// - Parameters:
     ///   - tableView: Table view to control
     ///   - reloader: Data reloader
-    init(
+    ///   - animation: Custom animation from a TableCellAnimator
+    public init(
         tableView: UITableView,
         reloader: TableViewReloader = DefaultTableViewReloader(),
         animation: TableCellAnimator.Animation? = nil

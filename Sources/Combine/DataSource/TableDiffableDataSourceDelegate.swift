@@ -31,7 +31,7 @@ public final class TableDiffableDataSourceDelegate: UITableViewDiffableDataSourc
 
     /// Array of sections to be displayed.
     /// All sections must conform to `CellItemIdentifiable`
-    var sections: [TableSectionItem]? {
+    public var sections: [TableSectionItem]? {
         didSet {
             set(sections: sections, oldSections: oldValue)
         }
@@ -45,7 +45,7 @@ public final class TableDiffableDataSourceDelegate: UITableViewDiffableDataSourc
     ///
     /// - Parameters:
     ///   - tableView: Table view to control
-    init(tableView: UITableView, rowAnimation: UITableView.RowAnimation = .fade) {
+    public init(tableView: UITableView, rowAnimation: UITableView.RowAnimation = .fade) {
         self.tableView = tableView
 
         super.init(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
