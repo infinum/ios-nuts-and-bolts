@@ -76,7 +76,7 @@ public final class InputField: UIView {
         setupUI()
     }
 
-    public override func layoutSubviews() {
+    override public func layoutSubviews() {
         // Fixes an issue where left or right views are animated when a keyboard is shown and the textfield
         // has not yet finished it's initial layout phase.
         // This mainly happens when we want to animate keyboard appearance while textfield still might not be laid out
@@ -240,14 +240,14 @@ public final class TextField: UITextField {
 
     private let delegateProxy = TextFieldDelegateProxy()
 
-    public override weak var delegate: UITextFieldDelegate? {
+    override public weak var delegate: UITextFieldDelegate? {
         get { return delegateProxy.userDelegate }
         set { delegateProxy.userDelegate = newValue }
     }
 
     // MARK: - Overrides
 
-    public override var text: String? {
+    override public var text: String? {
         didSet { didUpdateText?(text) }
     }
 
@@ -265,12 +265,12 @@ public final class TextField: UITextField {
 
     // MARK: - Overriden methods
 
-    public override func textRect(forBounds bounds: CGRect) -> CGRect {
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
         let rect = super.textRect(forBounds: bounds)
         return rect.inset(by: textPadding)
     }
 
-    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
         let rect = super.editingRect(forBounds: bounds)
         return rect.inset(by: textPadding)
     }

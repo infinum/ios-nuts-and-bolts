@@ -164,6 +164,8 @@
 		372B1D1928D45DB6000066D2 /* RequiredValueValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D1828D45DB6000066D2 /* RequiredValueValidatorTests.swift */; };
 		372B1D1B28D4657F000066D2 /* MatchingValueValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D1A28D4657F000066D2 /* MatchingValueValidatorTests.swift */; };
 		3738886B274F915E002CDF0D /* CombineAlertExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37388867274F915E002CDF0D /* CombineAlertExample.storyboard */; };
+		3739D41328D4A2F5005DBD86 /* InputFieldViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739D41228D4A2F5005DBD86 /* InputFieldViewTests.swift */; };
+		3739D41728D4A3B0005DBD86 /* ComponentConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739D41528D4A362005DBD86 /* ComponentConfigurable.swift */; };
 		374937A428D30D7300BDAC2F /* Publisher+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A328D30D7300BDAC2F /* Publisher+Binding.swift */; };
 		374937A628D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */; };
 		374937A928D30FE600BDAC2F /* NotificationCenter+Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A828D30FE600BDAC2F /* NotificationCenter+Publishers.swift */; };
@@ -453,6 +455,8 @@
 		372B1D1A28D4657F000066D2 /* MatchingValueValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingValueValidatorTests.swift; sourceTree = "<group>"; };
 		372B1D1D28D469B9000066D2 /* BaseInputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldView.swift; sourceTree = "<group>"; };
 		37388867274F915E002CDF0D /* CombineAlertExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineAlertExample.storyboard; sourceTree = "<group>"; };
+		3739D41228D4A2F5005DBD86 /* InputFieldViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewTests.swift; sourceTree = "<group>"; };
+		3739D41528D4A362005DBD86 /* ComponentConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentConfigurable.swift; sourceTree = "<group>"; };
 		374937A328D30D7300BDAC2F /* Publisher+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Binding.swift"; sourceTree = "<group>"; };
 		374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenterPublisher+Unwrapping.swift"; sourceTree = "<group>"; };
 		374937A828D30FE600BDAC2F /* NotificationCenter+Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Publishers.swift"; sourceTree = "<group>"; };
@@ -1185,6 +1189,7 @@
 		0AD9EAC22204274300FF3F2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3739D41428D4A352005DBD86 /* ComponentConfigurable */,
 				3715698B28D47C350031802F /* UITextField */,
 				3715698328D47B660031802F /* Nib */,
 				372B1CFF28D45690000066D2 /* InputField */,
@@ -1385,6 +1390,7 @@
 		0AE0B780220483810033A476 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3739D41128D4A2EC005DBD86 /* InputField */,
 				60B4BDF32243B77E00849B8D /* UIColor */,
 				0AE0B78822049DC50033A476 /* TableDataSourceDelegateTests.swift */,
 				A8FD61042292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m */,
@@ -1549,6 +1555,22 @@
 				37E7990A28D46B4700112F8C /* BaseInputFieldConfiguratorInterface.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		3739D41128D4A2EC005DBD86 /* InputField */ = {
+			isa = PBXGroup;
+			children = (
+				3739D41228D4A2F5005DBD86 /* InputFieldViewTests.swift */,
+			);
+			path = InputField;
+			sourceTree = "<group>";
+		};
+		3739D41428D4A352005DBD86 /* ComponentConfigurable */ = {
+			isa = PBXGroup;
+			children = (
+				3739D41528D4A362005DBD86 /* ComponentConfigurable.swift */,
+			);
+			path = ComponentConfigurable;
 			sourceTree = "<group>";
 		};
 		374937A728D30FCF00BDAC2F /* NotificationCenter */ = {
@@ -2469,6 +2491,7 @@
 				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
 				0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */,
 				0D819A0A27BD7DDF007B66F8 /* LineHeightWireframe.swift in Sources */,
+				3739D41728D4A3B0005DBD86 /* ComponentConfigurable.swift in Sources */,
 				A8D4BE852689A023002D8202 /* LogSettings.swift in Sources */,
 				3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */,
 				0A40C5BF2212AA40007AFC6C /* CatalogDataSource.swift in Sources */,
@@ -2582,6 +2605,7 @@
 				4F286F972291E4E500935FD3 /* NSMutableSet+FunctionalOperatorsTests.m in Sources */,
 				60B4BDF52243B78A00849B8D /* UIColor+InitHelperTests.swift in Sources */,
 				0A40C5C62212F60A007AFC6C /* URL+AppendTests.swift in Sources */,
+				3739D41328D4A2F5005DBD86 /* InputFieldViewTests.swift in Sources */,
 				0A37C9AF2270882A00B50CEB /* Date+ComparisonTests.swift in Sources */,
 				0ADB25B0227081E000288054 /* RequestAdapterTests.swift in Sources */,
 				536E5ACA225F2B0600EF01A6 /* Date+CurrentMonthTests.swift in Sources */,

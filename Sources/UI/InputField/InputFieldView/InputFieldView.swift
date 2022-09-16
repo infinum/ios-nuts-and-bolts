@@ -20,7 +20,7 @@ public final class InputFieldView: BaseInputFieldView, NibOwnerLoadable {
 
     // MARK: - Public properties -
 
-    var tapPublisher: CombineSignal<InputFieldView> {
+    public var tapPublisher: CombineSignal<InputFieldView> {
         tapGestureRecognizer.tapPublisher
             .mapToVoid()
             .filter { [unowned self] in inputField.readOnly && isEnabled }
@@ -28,7 +28,7 @@ public final class InputFieldView: BaseInputFieldView, NibOwnerLoadable {
             .asSignal()
     }
 
-    var contentView: UIView?
+    public var contentView: UIView?
 
     // MARK: - Private properties -
 
@@ -43,7 +43,7 @@ public final class InputFieldView: BaseInputFieldView, NibOwnerLoadable {
 
     // MARK: - Lifecycle -
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
