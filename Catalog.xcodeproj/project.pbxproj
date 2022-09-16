@@ -136,6 +136,9 @@
 		3722CA95274D0E9E00EDC50D /* Publisher+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722CA94274D0E9E00EDC50D /* Publisher+Progressable.swift */; };
 		3722CA98274D0F3500EDC50D /* CombineProgressableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */; };
 		372448C8273289D400016144 /* CombinePagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372448C7273289D400016144 /* CombinePagingTests.swift */; };
+		372B1D0128D4569C000066D2 /* InputFieldValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0028D4569C000066D2 /* InputFieldValidation.swift */; };
+		372B1D0528D45705000066D2 /* StringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0428D45705000066D2 /* StringValidator.swift */; };
+		372B1D0728D45725000066D2 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0628D45725000066D2 /* Validator.swift */; };
 		3738886B274F915E002CDF0D /* CombineAlertExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37388867274F915E002CDF0D /* CombineAlertExample.storyboard */; };
 		374937A428D30D7300BDAC2F /* Publisher+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A328D30D7300BDAC2F /* Publisher+Binding.swift */; };
 		374937A628D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */; };
@@ -400,6 +403,9 @@
 		3722CA94274D0E9E00EDC50D /* Publisher+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Progressable.swift"; sourceTree = "<group>"; };
 		3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineProgressableViewController.swift; sourceTree = "<group>"; };
 		372448C7273289D400016144 /* CombinePagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingTests.swift; sourceTree = "<group>"; };
+		372B1D0028D4569C000066D2 /* InputFieldValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldValidation.swift; sourceTree = "<group>"; };
+		372B1D0428D45705000066D2 /* StringValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValidator.swift; sourceTree = "<group>"; };
+		372B1D0628D45725000066D2 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		37388867274F915E002CDF0D /* CombineAlertExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineAlertExample.storyboard; sourceTree = "<group>"; };
 		374937A328D30D7300BDAC2F /* Publisher+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Binding.swift"; sourceTree = "<group>"; };
 		374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenterPublisher+Unwrapping.swift"; sourceTree = "<group>"; };
@@ -1129,6 +1135,7 @@
 		0AD9EAC22204274300FF3F2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				372B1CFF28D45690000066D2 /* InputField */,
 				374937AF28D313D900BDAC2F /* UIFeedbackGenerator */,
 				0D2CE60927BC59A800F1F3CC /* UILabel */,
 				CC80F7162438B4F900A3F276 /* UIButton */,
@@ -1375,6 +1382,31 @@
 				374937C228D32F0500BDAC2F /* CombineAsyncAwaitTests.swift */,
 			);
 			path = Combine;
+			sourceTree = "<group>";
+		};
+		372B1CFF28D45690000066D2 /* InputField */ = {
+			isa = PBXGroup;
+			children = (
+				372B1D0028D4569C000066D2 /* InputFieldValidation.swift */,
+			);
+			path = InputField;
+			sourceTree = "<group>";
+		};
+		372B1D0228D456F6000066D2 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				372B1D0328D456FD000066D2 /* Base */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		372B1D0328D456FD000066D2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				372B1D0428D45705000066D2 /* StringValidator.swift */,
+				372B1D0628D45725000066D2 /* Validator.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		374937A728D30FCF00BDAC2F /* NotificationCenter */ = {
@@ -1709,6 +1741,7 @@
 		A83B221A269D84C4005A4A91 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				372B1D0228D456F6000066D2 /* Validators */,
 				A8D4BE6626899F38002D8202 /* Logging */,
 			);
 			path = Utilities;
@@ -2249,6 +2282,7 @@
 				0A1FB0012406C015000F72D6 /* AlamofireConsoleLogger.swift in Sources */,
 				0A603FDC2207841800F25622 /* Driver+Progressable.swift in Sources */,
 				064B18FB22DF47AD001D4489 /* UIView+LayerModifiers.swift in Sources */,
+				372B1D0528D45705000066D2 /* StringValidator.swift in Sources */,
 				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
 				0A54435A22718A8F00F26468 /* NetworkingWireframe.swift in Sources */,
 				3781894327316BCB004E6BE3 /* CombineNetworkingWireframe.swift in Sources */,
@@ -2281,6 +2315,7 @@
 				0AA45E7922188833009CF93E /* JapxPagination.swift in Sources */,
 				81B01C6B25EE80000058D8E0 /* AssociableTableCellItem.swift in Sources */,
 				0A1DFE5C236EF5B4000F2538 /* Pokemon.swift in Sources */,
+				372B1D0128D4569C000066D2 /* InputFieldValidation.swift in Sources */,
 				0AE0B76E220467F80033A476 /* CatalogItemTableViewCell.swift in Sources */,
 				0D819A0727BD7DDF007B66F8 /* LineHeightPresenter.swift in Sources */,
 				063B5AA52317F64D003A7B84 /* CatalogNavigationController.swift in Sources */,
@@ -2308,6 +2343,7 @@
 				0AE0B75F220436B10033A476 /* TableSectionItem.swift in Sources */,
 				0ADB25AD2270806A00288054 /* BasicAuthAdapter.swift in Sources */,
 				0AE0B76722045BB00033A476 /* CatalogItem.swift in Sources */,
+				372B1D0728D45725000066D2 /* Validator.swift in Sources */,
 				C2023285239555F000DC3C42 /* PokedexRouter.swift in Sources */,
 				0AE0B77122046A190033A476 /* UIView+Constraints.swift in Sources */,
 				0A603FDA2207814A00F25622 /* UIViewController+Progressable.swift in Sources */,

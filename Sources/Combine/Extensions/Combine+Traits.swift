@@ -10,7 +10,7 @@ import Combine
 import CombineExt
 
 @available(iOS 13.0, *)
-extension Publisher {
+public extension Publisher {
 
     /// Converts current Publisher sequence to `Driver`, completing on error event.
     ///
@@ -28,7 +28,7 @@ extension Publisher {
 }
 
 @available(iOS 13.0, *)
-extension Publisher where Failure == Never {
+public extension Publisher where Failure == Never {
 
     /// Converts current Publisher sequence to a `Driver`. Events are received on the `Main` queue, the sequence is `shared` and `replayed`.
     ///
@@ -50,7 +50,7 @@ extension Publisher where Failure == Never {
 }
 
 @available(iOS 13.0, *)
-extension ShareReplayPublisher {
+public extension ShareReplayPublisher {
 
     static func just(_ value: Output, replay: Bool = true) -> CombineDriver<Output> {
         guard replay else {
@@ -61,13 +61,13 @@ extension ShareReplayPublisher {
 }
 
 @available(iOS 13.0, *)
-typealias ShareReplayPublisher<Output> = Publishers.Autoconnect
+public typealias ShareReplayPublisher<Output> = Publishers.Autoconnect
 <Publishers.Multicast
 <Publishers.ReceiveOn
 <AnyPublisher<Output, Never>, DispatchQueue>, ReplaySubject<Output, Never>>>
 
 @available(iOS 13.0, *)
-typealias CombineDriver<Output> = ShareReplayPublisher<Output>
+public typealias CombineDriver<Output> = ShareReplayPublisher<Output>
 
 @available(iOS 13.0, *)
-typealias CombineSignal<Output> = ShareReplayPublisher<Output>
+public typealias CombineSignal<Output> = ShareReplayPublisher<Output>
