@@ -143,6 +143,10 @@
 		372B1D0D28D45B81000066D2 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0C28D45B81000066D2 /* EmailValidator.swift */; };
 		372B1D0F28D45BEC000066D2 /* MaxValueLengthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0E28D45BEC000066D2 /* MaxValueLengthValidator.swift */; };
 		372B1D1128D45C5C000066D2 /* MatchingValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D1028D45C5C000066D2 /* MatchingValueValidator.swift */; };
+		372B1D1528D45D93000066D2 /* EmailValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D1428D45D93000066D2 /* EmailValidatorTests.swift */; };
+		372B1D1728D45DA8000066D2 /* MaxValueLengthValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D1628D45DA8000066D2 /* MaxValueLengthValidatorTests.swift */; };
+		372B1D1928D45DB6000066D2 /* RequiredValueValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D1828D45DB6000066D2 /* RequiredValueValidatorTests.swift */; };
+		372B1D1B28D4657F000066D2 /* MatchingValueValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D1A28D4657F000066D2 /* MatchingValueValidatorTests.swift */; };
 		3738886B274F915E002CDF0D /* CombineAlertExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37388867274F915E002CDF0D /* CombineAlertExample.storyboard */; };
 		374937A428D30D7300BDAC2F /* Publisher+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A328D30D7300BDAC2F /* Publisher+Binding.swift */; };
 		374937A628D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */; };
@@ -414,6 +418,10 @@
 		372B1D0C28D45B81000066D2 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
 		372B1D0E28D45BEC000066D2 /* MaxValueLengthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxValueLengthValidator.swift; sourceTree = "<group>"; };
 		372B1D1028D45C5C000066D2 /* MatchingValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingValueValidator.swift; sourceTree = "<group>"; };
+		372B1D1428D45D93000066D2 /* EmailValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorTests.swift; sourceTree = "<group>"; };
+		372B1D1628D45DA8000066D2 /* MaxValueLengthValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxValueLengthValidatorTests.swift; sourceTree = "<group>"; };
+		372B1D1828D45DB6000066D2 /* RequiredValueValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredValueValidatorTests.swift; sourceTree = "<group>"; };
+		372B1D1A28D4657F000066D2 /* MatchingValueValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingValueValidatorTests.swift; sourceTree = "<group>"; };
 		37388867274F915E002CDF0D /* CombineAlertExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineAlertExample.storyboard; sourceTree = "<group>"; };
 		374937A328D30D7300BDAC2F /* Publisher+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Binding.swift"; sourceTree = "<group>"; };
 		374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenterPublisher+Unwrapping.swift"; sourceTree = "<group>"; };
@@ -1062,6 +1070,7 @@
 		0AD9EAA72204218800FF3F2C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				372B1D1228D45D84000066D2 /* Utility */,
 				372448C6273289CB00016144 /* Combine */,
 				0A1DFE53236EE9F6000F2538 /* Rx */,
 				0ADB25AE227081B800288054 /* Networking */,
@@ -1419,6 +1428,25 @@
 				372B1D0628D45725000066D2 /* Validator.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		372B1D1228D45D84000066D2 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				372B1D1328D45D89000066D2 /* Validators */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		372B1D1328D45D89000066D2 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				372B1D1428D45D93000066D2 /* EmailValidatorTests.swift */,
+				372B1D1628D45DA8000066D2 /* MaxValueLengthValidatorTests.swift */,
+				372B1D1828D45DB6000066D2 /* RequiredValueValidatorTests.swift */,
+				372B1D1A28D4657F000066D2 /* MatchingValueValidatorTests.swift */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 		374937A728D30FCF00BDAC2F /* NotificationCenter */ = {
@@ -2412,6 +2440,7 @@
 				372448C8273289D400016144 /* CombinePagingTests.swift in Sources */,
 				A8FD61052292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m in Sources */,
 				0AE0B778220478220033A476 /* Array+RotateTests.swift in Sources */,
+				372B1D1B28D4657F000066D2 /* MatchingValueValidatorTests.swift in Sources */,
 				60B4BDF82243B8AF00849B8D /* UIColor+HexTests.swift in Sources */,
 				536E5AB9225F1E5000EF01A6 /* Bool+Logic.swift in Sources */,
 				536E5AE7225F39D700EF01A6 /* RangeReplaceableCollection+MovingTests.swift in Sources */,
@@ -2427,6 +2456,7 @@
 				4F286F852291E01B00935FD3 /* NSMutableArray+FunctionalOperatorsTests.m in Sources */,
 				536E5AD6225F2FF000EF01A6 /* String+Substring.swift in Sources */,
 				536E5ABB225F1F7400EF01A6 /* Bool+LogicTests.swift in Sources */,
+				372B1D1928D45DB6000066D2 /* RequiredValueValidatorTests.swift in Sources */,
 				D70CF64A22D7757E00A267C8 /* NSArrayTestModel.m in Sources */,
 				0AE0B78922049DC50033A476 /* TableDataSourceDelegateTests.swift in Sources */,
 				4F286F972291E4E500935FD3 /* NSMutableSet+FunctionalOperatorsTests.m in Sources */,
@@ -2440,8 +2470,10 @@
 				0A1DFE55236EEA0B000F2538 /* PagingTests.swift in Sources */,
 				374937C328D32F0500BDAC2F /* CombineAsyncAwaitTests.swift in Sources */,
 				066C78AB24FE6C39000AC617 /* UserDefaults+PropertyWrapperTests.swift in Sources */,
+				372B1D1728D45DA8000066D2 /* MaxValueLengthValidatorTests.swift in Sources */,
 				60B4BDF22243AC7000849B8D /* Array+SafeGetTests.swift in Sources */,
 				0AE0B78722049CBD0033A476 /* ClosedRange+ScalableTests.swift in Sources */,
+				372B1D1528D45D93000066D2 /* EmailValidatorTests.swift in Sources */,
 				0AE0B77F220481C50033A476 /* String+BlankTests.swift in Sources */,
 				536E5AD4225F2EE900EF01A6 /* Optional+FunctionTests.swift in Sources */,
 				536E5AC8225F2A5300EF01A6 /* Date+CurrentMonth.swift in Sources */,
