@@ -9,6 +9,7 @@
 import Foundation
 
 public protocol StringValidator: Validator {
+    /// Validates the specified string against validator rules
     func validate(_ value: String) -> Bool
 }
 

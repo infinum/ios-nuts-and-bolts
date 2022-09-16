@@ -9,6 +9,8 @@
 import Foundation
 
 public protocol Validator {
+    /// Description to show if the input is invalid
     var invalidInputDescription: String { get }
+    /// Validates the specified input
     func validate(_ value: Any) -> Bool
 }
