@@ -11,7 +11,7 @@ import CombineCocoa
 import AuthenticationServices
 
 @available(iOS 13.0, *)
-extension ASAuthorizationController {
+public extension ASAuthorizationController {
 
     // MARK: - Public properties -
 

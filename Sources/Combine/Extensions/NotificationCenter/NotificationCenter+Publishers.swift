@@ -11,7 +11,7 @@ import Combine
 import UIKit
 
 @available(iOS 13.0, *)
-extension NotificationCenter {
+public extension NotificationCenter {
 
     // Example of makeNotificationCenterPublisher usage
     var applicationDidBecomeActivePublisher: AnyPublisher<Void, Never> {
