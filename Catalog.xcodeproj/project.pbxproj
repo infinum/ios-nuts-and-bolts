@@ -139,6 +139,10 @@
 		372B1D0128D4569C000066D2 /* InputFieldValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0028D4569C000066D2 /* InputFieldValidation.swift */; };
 		372B1D0528D45705000066D2 /* StringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0428D45705000066D2 /* StringValidator.swift */; };
 		372B1D0728D45725000066D2 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0628D45725000066D2 /* Validator.swift */; };
+		372B1D0928D459D6000066D2 /* RequiredValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0828D459D6000066D2 /* RequiredValueValidator.swift */; };
+		372B1D0D28D45B81000066D2 /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0C28D45B81000066D2 /* EmailValidator.swift */; };
+		372B1D0F28D45BEC000066D2 /* MaxValueLengthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0E28D45BEC000066D2 /* MaxValueLengthValidator.swift */; };
+		372B1D1128D45C5C000066D2 /* MatchingValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D1028D45C5C000066D2 /* MatchingValueValidator.swift */; };
 		3738886B274F915E002CDF0D /* CombineAlertExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37388867274F915E002CDF0D /* CombineAlertExample.storyboard */; };
 		374937A428D30D7300BDAC2F /* Publisher+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A328D30D7300BDAC2F /* Publisher+Binding.swift */; };
 		374937A628D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */; };
@@ -406,6 +410,10 @@
 		372B1D0028D4569C000066D2 /* InputFieldValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldValidation.swift; sourceTree = "<group>"; };
 		372B1D0428D45705000066D2 /* StringValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValidator.swift; sourceTree = "<group>"; };
 		372B1D0628D45725000066D2 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		372B1D0828D459D6000066D2 /* RequiredValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredValueValidator.swift; sourceTree = "<group>"; };
+		372B1D0C28D45B81000066D2 /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		372B1D0E28D45BEC000066D2 /* MaxValueLengthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxValueLengthValidator.swift; sourceTree = "<group>"; };
+		372B1D1028D45C5C000066D2 /* MatchingValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingValueValidator.swift; sourceTree = "<group>"; };
 		37388867274F915E002CDF0D /* CombineAlertExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineAlertExample.storyboard; sourceTree = "<group>"; };
 		374937A328D30D7300BDAC2F /* Publisher+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Binding.swift"; sourceTree = "<group>"; };
 		374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenterPublisher+Unwrapping.swift"; sourceTree = "<group>"; };
@@ -1396,6 +1404,10 @@
 			isa = PBXGroup;
 			children = (
 				372B1D0328D456FD000066D2 /* Base */,
+				372B1D0828D459D6000066D2 /* RequiredValueValidator.swift */,
+				372B1D0C28D45B81000066D2 /* EmailValidator.swift */,
+				372B1D0E28D45BEC000066D2 /* MaxValueLengthValidator.swift */,
+				372B1D1028D45C5C000066D2 /* MatchingValueValidator.swift */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
@@ -2224,6 +2236,7 @@
 				CC80F71B2438C53400A3F276 /* FollowButton.swift in Sources */,
 				0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */,
 				0AB524182210AF9A00F35F52 /* Parameters+Filter.swift in Sources */,
+				372B1D0F28D45BEC000066D2 /* MaxValueLengthValidator.swift in Sources */,
 				0612E33F22D32A750081BCF6 /* UIViewModifiersViewController.swift in Sources */,
 				374937BB28D319FE00BDAC2F /* Combine+Traits.swift in Sources */,
 				0A1FAFF92406BB6F000F72D6 /* SessionManager.swift in Sources */,
@@ -2237,11 +2250,13 @@
 				3781895627317A54004E6BE3 /* CombinePagingInterfaces.swift in Sources */,
 				0A1DFE5D236EF5B4000F2538 /* RxPagingViewController.swift in Sources */,
 				374937A928D30FE600BDAC2F /* NotificationCenter+Publishers.swift in Sources */,
+				372B1D1128D45C5C000066D2 /* MatchingValueValidator.swift in Sources */,
 				A8D4BE872689A023002D8202 /* LoggingObjC.swift in Sources */,
 				0A0F24472247D5D80005CF41 /* APIService.swift in Sources */,
 				0A54436622718AB100F26468 /* RxNetworkingWireframe.swift in Sources */,
 				81B01C6725EE7FEC0058D8E0 /* ItemConfigurable.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
+				372B1D0928D459D6000066D2 /* RequiredValueValidator.swift in Sources */,
 				0A0F244A2247DCC70005CF41 /* Service+JapxRx.swift in Sources */,
 				0AB524102210AEA000F35F52 /* Parameters+Pagination.swift in Sources */,
 				0AB524052210A11500F35F52 /* CollectionDataSourceDelegate.swift in Sources */,
@@ -2286,6 +2301,7 @@
 				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
 				0A54435A22718A8F00F26468 /* NetworkingWireframe.swift in Sources */,
 				3781894327316BCB004E6BE3 /* CombineNetworkingWireframe.swift in Sources */,
+				372B1D0D28D45B81000066D2 /* EmailValidator.swift in Sources */,
 				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,
 				0A54436322718AB100F26468 /* RxNetworkingViewController.swift in Sources */,
 				604712852226812100809454 /* Array+SafeGet.swift in Sources */,
