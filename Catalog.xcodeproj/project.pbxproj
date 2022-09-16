@@ -133,10 +133,26 @@
 		0D819A0827BD7DDF007B66F8 /* LineHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D819A0327BD7DDF007B66F8 /* LineHeightViewController.swift */; };
 		0D819A0A27BD7DDF007B66F8 /* LineHeightWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D819A0527BD7DDF007B66F8 /* LineHeightWireframe.swift */; };
 		0D819A0C27BD7E3D007B66F8 /* LineHeight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D819A0B27BD7E3D007B66F8 /* LineHeight.storyboard */; };
+		3715697028D46C940031802F /* UIView+HiddenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715696F28D46C940031802F /* UIView+HiddenExtensions.swift */; };
+		3715697328D46E060031802F /* Collection+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715697228D46E060031802F /* Collection+Utility.swift */; };
+		3715697528D46F120031802F /* UIView+BorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715697428D46F120031802F /* UIView+BorderColor.swift */; };
+		3715697728D46FD20031802F /* InputFieldValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715697628D46FD20031802F /* InputFieldValidation.swift */; };
+		3715697828D4707E0031802F /* BaseInputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D1D28D469B9000066D2 /* BaseInputFieldView.swift */; };
+		3715697928D470810031802F /* BaseInputFieldInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7990828D46A8000112F8C /* BaseInputFieldInterface.swift */; };
+		3715697A28D470840031802F /* BaseInputFieldConfiguratorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7990A28D46B4700112F8C /* BaseInputFieldConfiguratorInterface.swift */; };
+		3715697D28D473F80031802F /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715697C28D473F80031802F /* InputFieldView.swift */; };
+		3715698028D474320031802F /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715697F28D474320031802F /* InputField.swift */; };
+		3715698228D4759A0031802F /* UIButton+SetImageAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715698128D4759A0031802F /* UIButton+SetImageAnimated.swift */; };
+		3715698528D47B730031802F /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715698428D47B730031802F /* NibLoadable.swift */; };
+		3715698828D47B9F0031802F /* Bundle+NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715698728D47B9F0031802F /* Bundle+NibLoading.swift */; };
+		3715698A28D47BD30031802F /* InputFieldConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715698928D47BD30031802F /* InputFieldConfigurator.swift */; };
+		3715698D28D47C430031802F /* UITextField+UpdateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715698C28D47C430031802F /* UITextField+UpdateText.swift */; };
+		3715699628D47DA40031802F /* InputField.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3715699128D47DA40031802F /* InputField.storyboard */; };
+		3715699928D47DA40031802F /* InputFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715699428D47DA40031802F /* InputFieldViewController.swift */; };
+		3715699E28D492050031802F /* InputFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3715699D28D492050031802F /* InputFieldView.xib */; };
 		3722CA95274D0E9E00EDC50D /* Publisher+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722CA94274D0E9E00EDC50D /* Publisher+Progressable.swift */; };
 		3722CA98274D0F3500EDC50D /* CombineProgressableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */; };
 		372448C8273289D400016144 /* CombinePagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372448C7273289D400016144 /* CombinePagingTests.swift */; };
-		372B1D0128D4569C000066D2 /* InputFieldValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0028D4569C000066D2 /* InputFieldValidation.swift */; };
 		372B1D0528D45705000066D2 /* StringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0428D45705000066D2 /* StringValidator.swift */; };
 		372B1D0728D45725000066D2 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0628D45725000066D2 /* Validator.swift */; };
 		372B1D0928D459D6000066D2 /* RequiredValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372B1D0828D459D6000066D2 /* RequiredValueValidator.swift */; };
@@ -408,10 +424,23 @@
 		0D819A0527BD7DDF007B66F8 /* LineHeightWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineHeightWireframe.swift; sourceTree = "<group>"; };
 		0D819A0B27BD7E3D007B66F8 /* LineHeight.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LineHeight.storyboard; sourceTree = "<group>"; };
 		1CEC07CD539DA68AEFFC6A9A /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3715696F28D46C940031802F /* UIView+HiddenExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+HiddenExtensions.swift"; sourceTree = "<group>"; };
+		3715697228D46E060031802F /* Collection+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Utility.swift"; sourceTree = "<group>"; };
+		3715697428D46F120031802F /* UIView+BorderColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BorderColor.swift"; sourceTree = "<group>"; };
+		3715697628D46FD20031802F /* InputFieldValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldValidation.swift; sourceTree = "<group>"; };
+		3715697C28D473F80031802F /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
+		3715697F28D474320031802F /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		3715698128D4759A0031802F /* UIButton+SetImageAnimated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+SetImageAnimated.swift"; sourceTree = "<group>"; };
+		3715698428D47B730031802F /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		3715698728D47B9F0031802F /* Bundle+NibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+NibLoading.swift"; sourceTree = "<group>"; };
+		3715698928D47BD30031802F /* InputFieldConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldConfigurator.swift; sourceTree = "<group>"; };
+		3715698C28D47C430031802F /* UITextField+UpdateText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+UpdateText.swift"; sourceTree = "<group>"; };
+		3715699128D47DA40031802F /* InputField.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputField.storyboard; sourceTree = "<group>"; };
+		3715699428D47DA40031802F /* InputFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewController.swift; sourceTree = "<group>"; };
+		3715699D28D492050031802F /* InputFieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputFieldView.xib; sourceTree = "<group>"; };
 		3722CA94274D0E9E00EDC50D /* Publisher+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Progressable.swift"; sourceTree = "<group>"; };
 		3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineProgressableViewController.swift; sourceTree = "<group>"; };
 		372448C7273289D400016144 /* CombinePagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingTests.swift; sourceTree = "<group>"; };
-		372B1D0028D4569C000066D2 /* InputFieldValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldValidation.swift; sourceTree = "<group>"; };
 		372B1D0428D45705000066D2 /* StringValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValidator.swift; sourceTree = "<group>"; };
 		372B1D0628D45725000066D2 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		372B1D0828D459D6000066D2 /* RequiredValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredValueValidator.swift; sourceTree = "<group>"; };
@@ -422,6 +451,7 @@
 		372B1D1628D45DA8000066D2 /* MaxValueLengthValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxValueLengthValidatorTests.swift; sourceTree = "<group>"; };
 		372B1D1828D45DB6000066D2 /* RequiredValueValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredValueValidatorTests.swift; sourceTree = "<group>"; };
 		372B1D1A28D4657F000066D2 /* MatchingValueValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingValueValidatorTests.swift; sourceTree = "<group>"; };
+		372B1D1D28D469B9000066D2 /* BaseInputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldView.swift; sourceTree = "<group>"; };
 		37388867274F915E002CDF0D /* CombineAlertExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineAlertExample.storyboard; sourceTree = "<group>"; };
 		374937A328D30D7300BDAC2F /* Publisher+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Binding.swift"; sourceTree = "<group>"; };
 		374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenterPublisher+Unwrapping.swift"; sourceTree = "<group>"; };
@@ -455,6 +485,8 @@
 		3781895427317A54004E6BE3 /* CombinePagingWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingWireframe.swift; sourceTree = "<group>"; };
 		3781895B27317D7F004E6BE3 /* UIScrollView+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Combine.swift"; sourceTree = "<group>"; };
 		37BB458828D2FCD100567159 /* AnyPublisher+AsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+AsyncAwait.swift"; sourceTree = "<group>"; };
+		37E7990828D46A8000112F8C /* BaseInputFieldInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldInterface.swift; sourceTree = "<group>"; };
+		37E7990A28D46B4700112F8C /* BaseInputFieldConfiguratorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldConfiguratorInterface.swift; sourceTree = "<group>"; };
 		4F14006A2289FF9C0005F37A /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FunctionalOperators.m"; sourceTree = "<group>"; };
 		4F14006C2289FF9C0005F37A /* NSArray+FunctionalOperators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FunctionalOperators.h"; sourceTree = "<group>"; };
@@ -658,6 +690,7 @@
 		0A0ECF562207022200C1853E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3715699028D47D540031802F /* InputField */,
 				0D819A0027BD7D7F007B66F8 /* LineHeightLabel */,
 				CC80F7192438C45200A3F276 /* ToggleButton */,
 				063B5A982317F622003A7B84 /* Interactive UINavigationController */,
@@ -1152,6 +1185,8 @@
 		0AD9EAC22204274300FF3F2C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3715698B28D47C350031802F /* UITextField */,
+				3715698328D47B660031802F /* Nib */,
 				372B1CFF28D45690000066D2 /* InputField */,
 				374937AF28D313D900BDAC2F /* UIFeedbackGenerator */,
 				0D2CE60927BC59A800F1F3CC /* UILabel */,
@@ -1268,6 +1303,8 @@
 				0AE0B77022046A190033A476 /* UIView+Constraints.swift */,
 				0A3C090A220AD44F00DEBECC /* UIView+Corners.swift */,
 				064B18FA22DF47AD001D4489 /* UIView+LayerModifiers.swift */,
+				3715696F28D46C940031802F /* UIView+HiddenExtensions.swift */,
+				3715697428D46F120031802F /* UIView+BorderColor.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1275,6 +1312,7 @@
 		0AE0B7722204772B0033A476 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				3715698628D47B970031802F /* Bundle */,
 				066C78A624FE6BA7000AC617 /* UserDefaults */,
 				0A1FAFEF2406B6A0000F72D6 /* Result */,
 				C2220311236AE7EF00C11B2E /* NSDate */,
@@ -1382,6 +1420,57 @@
 			path = LineHeightLabel;
 			sourceTree = "<group>";
 		};
+		3715697B28D473EE0031802F /* InputFieldView */ = {
+			isa = PBXGroup;
+			children = (
+				3715697C28D473F80031802F /* InputFieldView.swift */,
+				3715698928D47BD30031802F /* InputFieldConfigurator.swift */,
+				3715699D28D492050031802F /* InputFieldView.xib */,
+			);
+			path = InputFieldView;
+			sourceTree = "<group>";
+		};
+		3715697E28D474290031802F /* InputFields */ = {
+			isa = PBXGroup;
+			children = (
+				3715697F28D474320031802F /* InputField.swift */,
+			);
+			path = InputFields;
+			sourceTree = "<group>";
+		};
+		3715698328D47B660031802F /* Nib */ = {
+			isa = PBXGroup;
+			children = (
+				3715698428D47B730031802F /* NibLoadable.swift */,
+			);
+			path = Nib;
+			sourceTree = "<group>";
+		};
+		3715698628D47B970031802F /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				3715698728D47B9F0031802F /* Bundle+NibLoading.swift */,
+			);
+			path = Bundle;
+			sourceTree = "<group>";
+		};
+		3715698B28D47C350031802F /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				3715698C28D47C430031802F /* UITextField+UpdateText.swift */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
+		3715699028D47D540031802F /* InputField */ = {
+			isa = PBXGroup;
+			children = (
+				3715699128D47DA40031802F /* InputField.storyboard */,
+				3715699428D47DA40031802F /* InputFieldViewController.swift */,
+			);
+			path = InputField;
+			sourceTree = "<group>";
+		};
 		3722CA96274D0F1A00EDC50D /* Progressable */ = {
 			isa = PBXGroup;
 			children = (
@@ -1404,7 +1493,9 @@
 		372B1CFF28D45690000066D2 /* InputField */ = {
 			isa = PBXGroup;
 			children = (
-				372B1D0028D4569C000066D2 /* InputFieldValidation.swift */,
+				3715697B28D473EE0031802F /* InputFieldView */,
+				372B1D1C28D469B1000066D2 /* Base */,
+				3715697628D46FD20031802F /* InputFieldValidation.swift */,
 			);
 			path = InputField;
 			sourceTree = "<group>";
@@ -1447,6 +1538,17 @@
 				372B1D1A28D4657F000066D2 /* MatchingValueValidatorTests.swift */,
 			);
 			path = Validators;
+			sourceTree = "<group>";
+		};
+		372B1D1C28D469B1000066D2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3715697E28D474290031802F /* InputFields */,
+				372B1D1D28D469B9000066D2 /* BaseInputFieldView.swift */,
+				37E7990828D46A8000112F8C /* BaseInputFieldInterface.swift */,
+				37E7990A28D46B4700112F8C /* BaseInputFieldConfiguratorInterface.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		374937A728D30FCF00BDAC2F /* NotificationCenter */ = {
@@ -1681,6 +1783,7 @@
 			children = (
 				536E5ADF225F36CF00EF01A6 /* Collection+Grouping.swift */,
 				536E5AE4225F397600EF01A6 /* RangeReplaceableCollection+Moving.swift */,
+				3715697228D46E060031802F /* Collection+Utility.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -1971,6 +2074,7 @@
 			isa = PBXGroup;
 			children = (
 				CC80F7172438B51A00A3F276 /* UIButton+Toggle.swift */,
+				3715698128D4759A0031802F /* UIButton+SetImageAnimated.swift */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -2117,7 +2221,9 @@
 				3781895527317A54004E6BE3 /* CombinePaging.storyboard in Resources */,
 				CC80F72A2438E3EB00A3F276 /* ToggleViewController.storyboard in Resources */,
 				0D819A0C27BD7E3D007B66F8 /* LineHeight.storyboard in Resources */,
+				3715699E28D492050031802F /* InputFieldView.xib in Resources */,
 				C226C0022396A8C400B1E10A /* NetworkingJapx.storyboard in Resources */,
+				3715699628D47DA40031802F /* InputField.storyboard in Resources */,
 				0AD9EA9B2204218800FF3F2C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2271,6 +2377,7 @@
 				0AB524222210B3CB00F35F52 /* URL+Append.swift in Sources */,
 				0A1DFE4F236EE8C5000F2538 /* Signal+Utility.swift in Sources */,
 				CC80F7182438B51A00A3F276 /* UIButton+Toggle.swift in Sources */,
+				3715698528D47B730031802F /* NibLoadable.swift in Sources */,
 				0A0F24492247D9DC0005CF41 /* APIService+Rx.swift in Sources */,
 				0A603FEB220798D800F25622 /* Observable+Progressable.swift in Sources */,
 				C202327D23954DB400DC3C42 /* NetworkingJapxPresenter.swift in Sources */,
@@ -2278,10 +2385,13 @@
 				3781895627317A54004E6BE3 /* CombinePagingInterfaces.swift in Sources */,
 				0A1DFE5D236EF5B4000F2538 /* RxPagingViewController.swift in Sources */,
 				374937A928D30FE600BDAC2F /* NotificationCenter+Publishers.swift in Sources */,
+				3715699928D47DA40031802F /* InputFieldViewController.swift in Sources */,
 				372B1D1128D45C5C000066D2 /* MatchingValueValidator.swift in Sources */,
+				3715697D28D473F80031802F /* InputFieldView.swift in Sources */,
 				A8D4BE872689A023002D8202 /* LoggingObjC.swift in Sources */,
 				0A0F24472247D5D80005CF41 /* APIService.swift in Sources */,
 				0A54436622718AB100F26468 /* RxNetworkingWireframe.swift in Sources */,
+				3715698D28D47C430031802F /* UITextField+UpdateText.swift in Sources */,
 				81B01C6725EE7FEC0058D8E0 /* ItemConfigurable.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
 				372B1D0928D459D6000066D2 /* RequiredValueValidator.swift in Sources */,
@@ -2293,6 +2403,7 @@
 				A8D4BE882689A023002D8202 /* LoggingConfigurator.swift in Sources */,
 				0AA45E772218880A009CF93E /* JapxResponse.swift in Sources */,
 				C202328023954DB400DC3C42 /* NetworkingJapxWireframe.swift in Sources */,
+				3715698828D47B9F0031802F /* Bundle+NibLoading.swift in Sources */,
 				CC80F7232438DAEC00A3F276 /* ToggleWireframe.swift in Sources */,
 				0A54435522718A8F00F26468 /* NetworkingInterfaces.swift in Sources */,
 				0AB5240D2210AE4E00F35F52 /* Headers.swift in Sources */,
@@ -2309,6 +2420,7 @@
 				0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */,
 				3781895927317A54004E6BE3 /* CombinePagingInteractor.swift in Sources */,
 				4F286F942291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m in Sources */,
+				3715698028D474320031802F /* InputField.swift in Sources */,
 				374937A628D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift in Sources */,
 				0AE0B75D2204365C0033A476 /* SectionItem.swift in Sources */,
 				A8D4BE8A2689A023002D8202 /* Logging.swift in Sources */,
@@ -2319,12 +2431,16 @@
 				0A54435722718A8F00F26468 /* NetworkingViewController.swift in Sources */,
 				0A603FE32207875D00F25622 /* Driver+Utility.swift in Sources */,
 				0D819A0627BD7DDF007B66F8 /* LineHeightInterfaces.swift in Sources */,
+				3715697728D46FD20031802F /* InputFieldValidation.swift in Sources */,
+				3715697A28D470840031802F /* BaseInputFieldConfiguratorInterface.swift in Sources */,
 				0AE0B74C22042D5E0033A476 /* CatalogPresenter.swift in Sources */,
 				0A1DFE61236EF9CF000F2538 /* Rx+DataSourceDelegate.swift in Sources */,
 				0A54436122718AB100F26468 /* RxNetworkingInterfaces.swift in Sources */,
 				0A1FB0012406C015000F72D6 /* AlamofireConsoleLogger.swift in Sources */,
+				3715697028D46C940031802F /* UIView+HiddenExtensions.swift in Sources */,
 				0A603FDC2207841800F25622 /* Driver+Progressable.swift in Sources */,
 				064B18FB22DF47AD001D4489 /* UIView+LayerModifiers.swift in Sources */,
+				3715697828D4707E0031802F /* BaseInputFieldView.swift in Sources */,
 				372B1D0528D45705000066D2 /* StringValidator.swift in Sources */,
 				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
 				0A54435A22718A8F00F26468 /* NetworkingWireframe.swift in Sources */,
@@ -2340,6 +2456,7 @@
 				0A54435822718A8F00F26468 /* NetworkingInteractor.swift in Sources */,
 				0A603FE622078D0200F25622 /* Single+Progressable.swift in Sources */,
 				3781895C27317D7F004E6BE3 /* UIScrollView+Combine.swift in Sources */,
+				3715697528D46F120031802F /* UIView+BorderColor.swift in Sources */,
 				C202328323954E6500DC3C42 /* PokedexUser.swift in Sources */,
 				A8D4BE862689A023002D8202 /* LogCategory.swift in Sources */,
 				0A54436222718AB100F26468 /* RxNetworkingPresenter.swift in Sources */,
@@ -2359,7 +2476,6 @@
 				0AA45E7922188833009CF93E /* JapxPagination.swift in Sources */,
 				81B01C6B25EE80000058D8E0 /* AssociableTableCellItem.swift in Sources */,
 				0A1DFE5C236EF5B4000F2538 /* Pokemon.swift in Sources */,
-				372B1D0128D4569C000066D2 /* InputFieldValidation.swift in Sources */,
 				0AE0B76E220467F80033A476 /* CatalogItemTableViewCell.swift in Sources */,
 				0D819A0727BD7DDF007B66F8 /* LineHeightPresenter.swift in Sources */,
 				063B5AA52317F64D003A7B84 /* CatalogNavigationController.swift in Sources */,
@@ -2388,6 +2504,7 @@
 				0ADB25AD2270806A00288054 /* BasicAuthAdapter.swift in Sources */,
 				0AE0B76722045BB00033A476 /* CatalogItem.swift in Sources */,
 				372B1D0728D45725000066D2 /* Validator.swift in Sources */,
+				3715697928D470810031802F /* BaseInputFieldInterface.swift in Sources */,
 				C2023285239555F000DC3C42 /* PokedexRouter.swift in Sources */,
 				0AE0B77122046A190033A476 /* UIView+Constraints.swift in Sources */,
 				0A603FDA2207814A00F25622 /* UIViewController+Progressable.swift in Sources */,
@@ -2396,6 +2513,8 @@
 				3781893F27316BCB004E6BE3 /* CombineNetworkingInterfaces.swift in Sources */,
 				0A603FD522077C4400F25622 /* RxAlertExampleViewController.swift in Sources */,
 				0D819A0827BD7DDF007B66F8 /* LineHeightViewController.swift in Sources */,
+				3715697328D46E060031802F /* Collection+Utility.swift in Sources */,
+				3715698228D4759A0031802F /* UIButton+SetImageAnimated.swift in Sources */,
 				3781894027316BCB004E6BE3 /* CombineNetworkingPresenter.swift in Sources */,
 				A8D4BE892689A023002D8202 /* LoggingFormatter.swift in Sources */,
 				81B01CAE25EE8C7E0058D8E0 /* UICollectionView+Register.swift in Sources */,
@@ -2426,6 +2545,7 @@
 				4F286F812291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m in Sources */,
 				0A0F24452247CE5D0005CF41 /* Routable.swift in Sources */,
 				0A1FAFF42406B705000F72D6 /* DataRequest+Decodable.swift in Sources */,
+				3715698A28D47BD30031802F /* InputFieldConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

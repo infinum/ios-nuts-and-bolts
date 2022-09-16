@@ -44,15 +44,28 @@ private extension CatalogDataSource {
 private extension CatalogDataSource {
 
     func createUIItems() -> [Catalogizable.Type] {
-        return [
-            RatioTransitionViewController.self,
-            RoundCornersViewController.self,
-            UIViewModifiersViewController.self,
-            ImageFromColorViewController.self,
-            CatalogNavigationController.self,
-            ToggleViewController.self,
-            LineHeightViewController.self
-        ]
+        if #available(iOS 14, *) {
+            return [
+                RatioTransitionViewController.self,
+                RoundCornersViewController.self,
+                UIViewModifiersViewController.self,
+                ImageFromColorViewController.self,
+                CatalogNavigationController.self,
+                ToggleViewController.self,
+                LineHeightViewController.self,
+                InputFieldViewController.self
+            ]
+        } else {
+            return [
+                RatioTransitionViewController.self,
+                RoundCornersViewController.self,
+                UIViewModifiersViewController.self,
+                ImageFromColorViewController.self,
+                CatalogNavigationController.self,
+                ToggleViewController.self,
+                LineHeightViewController.self
+            ]
+        }
     }
 
 }

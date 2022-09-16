@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Input Field View Controller-->
+        <scene sceneID="XJ1-QA-Nrj">
+            <objects>
+                <viewController storyboardIdentifier="InputFieldViewController" id="zIc-eW-6fX" customClass="InputFieldViewController" customModule="Catalog" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z2g-4m-atm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hYX-oR-Yhb">
+                                <rect key="frame" x="20" y="20" width="335" height="208"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hB-hi-MX8" customClass="InputFieldView" customModule="Catalog" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="56"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="3oi-G0-pjM"/>
+                                            <constraint firstAttribute="height" priority="750" constant="56" id="Eak-M4-9CX"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTj-k4-qCW" customClass="InputFieldView" customModule="Catalog" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="76" width="335" height="56"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="flr-S5-glY"/>
+                                            <constraint firstAttribute="height" priority="750" constant="56" id="rpE-sG-g99"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Z2-TR-LVY" customClass="InputFieldView" customModule="Catalog" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="152" width="335" height="56"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="56" id="gLY-UL-6rD"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="syx-4Y-OIO"/>
+                                        </constraints>
+                                    </view>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tapped" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmW-Zi-RkI">
+                                        <rect key="frame" x="0.0" y="208" width="335" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="IAW-L6-J6d"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3pi-N7-nbV"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hYX-oR-Yhb" secondAttribute="trailing" constant="20" id="4yM-yI-z6p"/>
+                            <constraint firstItem="3pi-N7-nbV" firstAttribute="bottom" secondItem="hYX-oR-Yhb" secondAttribute="bottom" priority="750" constant="527" id="9h9-WP-TjE"/>
+                            <constraint firstItem="3pi-N7-nbV" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hYX-oR-Yhb" secondAttribute="bottom" constant="20" id="Tsz-aN-t5S"/>
+                            <constraint firstItem="hYX-oR-Yhb" firstAttribute="leading" secondItem="3pi-N7-nbV" secondAttribute="leading" constant="20" id="hEm-hs-AUk"/>
+                            <constraint firstItem="hYX-oR-Yhb" firstAttribute="top" secondItem="3pi-N7-nbV" secondAttribute="top" constant="20" id="jLq-Rr-UAn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordInputFieldView" destination="DTj-k4-qCW" id="op7-6e-sv6"/>
+                        <outlet property="tapOnlyInputFieldView" destination="5Z2-TR-LVY" id="PTL-Y8-LtR"/>
+                        <outlet property="tappedLabel" destination="AmW-Zi-RkI" id="3zb-jn-koP"/>
+                        <outlet property="typingInputFieldView" destination="3hB-hi-MX8" id="Omy-Rr-cSY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rle-ol-2Ax" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.80000000000001" y="302.6986506746627"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
