@@ -42,13 +42,15 @@ public extension Publisher {
 
     /// Prefixes elements of a sequence for the given `predicate` while also including the value at which the `prefix` operator stops.
     func inclusivePrefix(while predicate: @escaping (Self.Output) -> Bool) -> AnyPublisher<Self.Output, Failure> {
-        let shared = share(replay: 1)
-        // In order to get a prefix that's inclusive, we need to make use of the `share(replay:)` operator
-        // First, we prefix as usual until we get all of the elements we want, for the given predicate.
-        // Next, we make use of the replayed sequence to get the first value which doesn't fulfill the predicate requirement.
         return self
-            .prefix(while: predicate)
-            .append(shared.first { !predicate($0) })
+            .scan((current: Output?.none, priorWasFinal: false)) { state, new in
+                // state.current is only nil for the first output from upstream,
+                // in which case there was no prior element to be final.
+                let priorWasFinal = !(state.current.map(predicate) ?? true)
+                return (current: new, priorWasFinal: priorWasFinal)
+            }
+            .prefix(while: { !$0.priorWasFinal })
+            .compactMap { $0.0 }
             .eraseToAnyPublisher()
     }
 }

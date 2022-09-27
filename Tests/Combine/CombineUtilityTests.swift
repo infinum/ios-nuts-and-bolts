@@ -114,6 +114,25 @@ class CombineUtilityTests: QuickSpec {
 
                 expect(value).toEventually(equal(1), timeout: .seconds(3))
             }
+
+            it("should return the value which failed") {
+                var lastValue: Int = 0
+                let integerRelay = PassthroughRelay<Int>()
+                let predicate: (Int) -> Bool = {
+                    $0 < 2
+                }
+
+                integerRelay
+                    .inclusivePrefix(while: predicate)
+                    .sink(receiveValue: { lastValue = $0 })
+                    .store(in: &cancellables)
+
+                integerRelay.accept(1)
+                integerRelay.accept(3)
+                integerRelay.accept(4)
+
+                expect(lastValue).toEventually(equal(3), timeout: .seconds(3))
+            }
          }
     }
 }
