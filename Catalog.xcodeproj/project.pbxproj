@@ -200,6 +200,8 @@
 		37B782A828E329F100FAF3FF /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B782A728E329F100FAF3FF /* KeyboardHandler.swift */; };
 		37B782AB28E32A4300FAF3FF /* UIEdgeInsets+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B782AA28E32A4300FAF3FF /* UIEdgeInsets+Utility.swift */; };
 		37B782AD28E32D2900FAF3FF /* KeyboardHandlingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B782AC28E32D2900FAF3FF /* KeyboardHandlingViewController.swift */; };
+		37B782B428E32E3800FAF3FF /* KeyboardHandler.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B782AF28E32E3800FAF3FF /* KeyboardHandler.storyboard */; };
+		37B782B728E32E3800FAF3FF /* KeyboardHandlerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B782B228E32E3800FAF3FF /* KeyboardHandlerViewController.swift */; };
 		37BB458928D2FCD100567159 /* AnyPublisher+AsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB458828D2FCD100567159 /* AnyPublisher+AsyncAwait.swift */; };
 		4F14006D2289FF9D0005F37A /* NSArray+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */; };
 		4F140071228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F140070228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m */; };
@@ -494,6 +496,8 @@
 		37B782A728E329F100FAF3FF /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		37B782AA28E32A4300FAF3FF /* UIEdgeInsets+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Utility.swift"; sourceTree = "<group>"; };
 		37B782AC28E32D2900FAF3FF /* KeyboardHandlingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandlingViewController.swift; sourceTree = "<group>"; };
+		37B782AF28E32E3800FAF3FF /* KeyboardHandler.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KeyboardHandler.storyboard; sourceTree = "<group>"; };
+		37B782B228E32E3800FAF3FF /* KeyboardHandlerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandlerViewController.swift; sourceTree = "<group>"; };
 		37BB458828D2FCD100567159 /* AnyPublisher+AsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+AsyncAwait.swift"; sourceTree = "<group>"; };
 		37E7990828D46A8000112F8C /* BaseInputFieldInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldInterface.swift; sourceTree = "<group>"; };
 		37E7990A28D46B4700112F8C /* BaseInputFieldConfiguratorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldConfiguratorInterface.swift; sourceTree = "<group>"; };
@@ -1690,6 +1694,7 @@
 		3781894D27317A3D004E6BE3 /* Combine */ = {
 			isa = PBXGroup;
 			children = (
+				37B782AE28E32E2900FAF3FF /* KeyboardHandler */,
 				374937C428D3376A00BDAC2F /* HapticFeedback */,
 				375C2CDA274E473E00632EF2 /* CombineAlertController */,
 				3722CA96274D0F1A00EDC50D /* Progressable */,
@@ -1726,6 +1731,15 @@
 				37B782AA28E32A4300FAF3FF /* UIEdgeInsets+Utility.swift */,
 			);
 			path = Geometry;
+			sourceTree = "<group>";
+		};
+		37B782AE28E32E2900FAF3FF /* KeyboardHandler */ = {
+			isa = PBXGroup;
+			children = (
+				37B782AF28E32E3800FAF3FF /* KeyboardHandler.storyboard */,
+				37B782B228E32E3800FAF3FF /* KeyboardHandlerViewController.swift */,
+			);
+			path = KeyboardHandler;
 			sourceTree = "<group>";
 		};
 		4F1400692289FF890005F37A /* NSArray */ = {
@@ -2265,6 +2279,7 @@
 				0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */,
 				0612E33C22D32A540081BCF6 /* UIViewModifiers.storyboard in Resources */,
 				C2023276239546F900DC3C42 /* README.MD in Resources */,
+				37B782B428E32E3800FAF3FF /* KeyboardHandler.storyboard in Resources */,
 				3781895527317A54004E6BE3 /* CombinePaging.storyboard in Resources */,
 				CC80F72A2438E3EB00A3F276 /* ToggleViewController.storyboard in Resources */,
 				0D819A0C27BD7E3D007B66F8 /* LineHeight.storyboard in Resources */,
@@ -2428,6 +2443,7 @@
 				3715698528D47B730031802F /* NibLoadable.swift in Sources */,
 				0A0F24492247D9DC0005CF41 /* APIService+Rx.swift in Sources */,
 				0A603FEB220798D800F25622 /* Observable+Progressable.swift in Sources */,
+				37B782B728E32E3800FAF3FF /* KeyboardHandlerViewController.swift in Sources */,
 				C202327D23954DB400DC3C42 /* NetworkingJapxPresenter.swift in Sources */,
 				6047127E222678EA00809454 /* UITextView+ZeroInsets.swift in Sources */,
 				3781895627317A54004E6BE3 /* CombinePagingInterfaces.swift in Sources */,
