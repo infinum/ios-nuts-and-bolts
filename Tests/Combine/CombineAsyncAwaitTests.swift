@@ -13,7 +13,7 @@ import Combine
 import CombineExt
 @testable import Catalog
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 class CombineAsyncAwaitTests: QuickSpec {
 
     enum TestError: Error {
@@ -108,7 +108,7 @@ class CombineAsyncAwaitTests: QuickSpec {
 
 // MARK: Async
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 private extension CombineAsyncAwaitTests {
 
     func getValue() async -> Int {

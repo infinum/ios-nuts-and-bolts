@@ -9,7 +9,7 @@
 import Combine
 import CombineExt
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 public struct AsyncPublisher<Output>: Publisher {
 
     public typealias Output = Output
@@ -37,7 +37,7 @@ public struct AsyncPublisher<Output>: Publisher {
 
 // MARK: - Subscription
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 private extension AsyncPublisher {
 
     final class Subscription<Target: Subscriber>: Combine.Subscription where Target.Input == Output, Target.Failure == Error {
@@ -75,7 +75,7 @@ private extension AsyncPublisher {
 
 // MARK: - Creation
 
-@available(iOS 13.0, *)
+@available(iOS 15.0, *)
 public extension Publisher {
     /// Create a new publisher for the given async task, returning output and finishing.
     ///
