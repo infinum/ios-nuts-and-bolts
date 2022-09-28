@@ -11,16 +11,17 @@
 import UIKit
 import Combine
 
-fileprivate enum Constants {
+private enum Constants {
     static let additionalButtonSpacing: CGFloat = 10
 }
 
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 final class KeyboardHandlerViewController: KeyboardHandlingViewController {
 
     // MARK: - IBOutlets -
 
     @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var inputFieldView: InputFieldView!
 
     // MARK: - Constraints -
 
@@ -41,15 +42,13 @@ final class KeyboardHandlerViewController: KeyboardHandlingViewController {
 
 // MARK: - Extensions -
 
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 private extension KeyboardHandlerViewController {
 
     func setupView() {
         setupKeyboardHandling()
 
-        tableDataSource.items = [
-
-        ]
+        inputFieldView.configure(with: .init(placeholderText: "start editing"))
     }
 
     func setupKeyboardHandling() {
@@ -79,16 +78,15 @@ private extension KeyboardHandlerViewController {
     }
 }
 
-
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 extension KeyboardHandlerViewController: Catalogizable {
 
     static var title: String {
-        return "Keyboard Handling"
+        return "Keyboard Handler"
     }
 
     static var viewController: UIViewController {
-        return UIStoryboard(name: "KeyboardHandling", bundle: nil)
-            .instantiateViewController(ofType: KeyboardHandlingViewController.self)
+        return UIStoryboard(name: "KeyboardHandler", bundle: nil)
+            .instantiateViewController(ofType: KeyboardHandlerViewController.self)
     }
 }

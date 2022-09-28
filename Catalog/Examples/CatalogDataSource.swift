@@ -53,7 +53,8 @@ private extension CatalogDataSource {
                 CatalogNavigationController.self,
                 ToggleViewController.self,
                 LineHeightViewController.self,
-                InputFieldViewController.self
+                InputFieldViewController.self,
+                KeyboardHandlerViewController.self
             ]
         } else {
             return [
