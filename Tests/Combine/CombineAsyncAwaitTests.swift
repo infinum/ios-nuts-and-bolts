@@ -32,9 +32,12 @@ class CombineAsyncAwaitTests: QuickSpec {
 
             it("should await not throwing value of 1") {
                 var value: Int?
-                AnyPublisher
+                AnyPublisher<Int, Error>.just(0)
                     .createAsync(task: { [unowned self] in await getValue() })
-                    .sink(receiveValue: { value = $0 })
+                    .sink(
+                        receiveValue: { value = $0 },
+                        receiveError: { _ in } 
+                    )
                     .store(in: &cancellables)
 
                 expect(value).toEventually(equal(1), timeout: .seconds(3))
@@ -42,7 +45,8 @@ class CombineAsyncAwaitTests: QuickSpec {
 
             it("should await throwing value of 1") {
                 var value: Int?
-                AnyPublisher
+                AnyPublisher<Int, Error>
+                    .just(1)
                     .createAsync(task: { [unowned self] in try await getThrowingValue() })
                     .sink(
                         receiveValue: { value = $0 },
@@ -55,7 +59,7 @@ class CombineAsyncAwaitTests: QuickSpec {
 
             it("should await not throwing result of 1") {
                 var value: Int?
-                AnyPublisher
+                AnyPublisher<Int, Error>.just(1)
                     .createAsyncResult(task: { [unowned self] in await getValue() })
                     .sink(receiveValue: {
                         guard case .success(let number) = $0 else {
@@ -70,7 +74,7 @@ class CombineAsyncAwaitTests: QuickSpec {
 
             it("should await throwing result of 1") {
                 var value: Int?
-                AnyPublisher
+                AnyPublisher<Int, Error>.just(1)
                     .createAsyncResult(task: { [unowned self] in try await getThrowingValue() })
                     .sink(
                         receiveValue: {
@@ -88,7 +92,7 @@ class CombineAsyncAwaitTests: QuickSpec {
 
             it("should throw an error") {
                 var error: TestError?
-                AnyPublisher
+                AnyPublisher<Void, TestError>.just(())
                     .createAsync(task: { [unowned self] in try await throwError() })
                     .sink(
                         receiveValue: { _ in },

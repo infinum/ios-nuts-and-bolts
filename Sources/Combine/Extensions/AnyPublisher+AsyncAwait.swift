@@ -10,70 +10,80 @@ import Combine
 import CombineExt
 
 @available(iOS 13.0, *)
-public extension AnyPublisher {
+struct AsyncPublisher<Output>: Publisher {
+    typealias Output = Output
+    typealias Failure = Error
 
-    /// Create a new publisher for the given async task, returning output and finishing or erroring in case of a failure.
-    /// 
-    /// - Parameters:
-    ///   - task: A work task that needs to be executed and converted into `AnyPublisher`.
-    ///
-    /// - Returns: An `AnyPublisher` once the async task finished with `Output` constrained to the type of the returned value of the async task.
-    static func createAsync(
-        task: @escaping () async throws -> Output,
-        cancellationHandler: (() -> Void)? = nil
-    ) -> AnyPublisher<Output, Failure> where Failure == Error {
-        return AnyPublisher.create { subscriber in
-            let task = Task {
+    private let task: () async throws -> Output
+
+    init(task: @escaping () async throws -> Output) {
+        self.task = task
+    }
+
+    func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
+        let subscription = Subscription(task: task, target: subscriber)
+        subscriber.receive(subscription: subscription)
+    }
+}
+
+@available(iOS 13.0, *)
+private extension AsyncPublisher {
+
+    final class Subscription<Target: Subscriber>: Combine.Subscription where Target.Input == Output, Target.Failure == Error {
+
+        private var task: Task<Void, Error>?
+        private let asyncTask: () async throws -> Output
+        private var subscriber: Target?
+
+        init(task: @escaping () async throws -> Output, target: Target) {
+            self.asyncTask = task
+            subscriber = target
+            getData()
+        }
+
+        func request(_ demand: Subscribers.Demand) { }
+
+        func cancel() {
+            subscriber = nil
+            task?.cancel()
+        }
+
+        private func getData() {
+            task = Task {
                 do {
-                    let output = try await task()
-                    subscriber.send(output)
-                    subscriber.send(completion: .finished)
+                    let value = try await asyncTask()
+                    _ = subscriber?.receive(value)
+                    subscriber?.receive(completion: .finished)
                 } catch {
-                    subscriber.send(completion: .failure(error))
+                    subscriber?.receive(completion: .failure(error))
                 }
             }
-            return AnyCancellable { task.cancel() }
         }
+    }
+}
+
+@available(iOS 13.0, *)
+extension Publisher {
+    /// Create a new publisher for the given async task, returning output and finishing.
+    ///
+    /// - Parameters:
+    ///   - task: A work task that needs to be executed and converted into `AsyncPublisher`.
+    ///
+    /// - Returns: An `AsyncPublisher` once the async task finished with `Output` constrained to the type of the returned value of the async task.
+    func createAsync<Output>(task: @escaping () async throws -> Output) -> AsyncPublisher<Output> {
+        return AsyncPublisher(task: task)
     }
 
     /// Create a new publisher for the given async task, returning output and finishing.
     ///
     /// - Parameters:
-    ///   - task: A work task that needs to be executed and converted into `AnyPublisher`.
+    ///  - task: A work task that needs to be executed and converted into `AsyncPublisher`.
     ///
     /// - Returns: An `AnyPublisher` once the async task finished with `Output` constrained to the type of the returned value of the async task.
-    static func createAsync(task: @escaping () async -> Output) -> AnyPublisher<Output, Failure> where Failure == Never {
-        return AnyPublisher.create { subscriber in
-            let task = Task {
-                let output = await task()
-                subscriber.send(output)
-                subscriber.send(completion: .finished)
-            }
-            return AnyCancellable { task.cancel() }
-        }
-    }
-
-    /// Create a new publisher for the given async task, returning output and finishing or erroring in case of a failure.
-    ///
-    /// - Parameters:
-    ///  - task: A work task that needs to be executed and converted into `AnyPublisher`.
-    ///
-    /// - Returns: An `AnyPublisher` once the async task finished with `Output` constrained to the type of the returned value of the async task. Error will not be thrown in this case.
-    static func createAsyncResult(task: @escaping () async throws -> Output) -> AnyPublisher<Result<Output, Failure>, Never> where Failure == Error {
-        return AnyPublisher
-            .createAsync(task: task)
-            .mapToResult()
-    }
-
-    /// Create a new publisher for the given async task, returning output and finishing.
-    ///
-    /// - Parameters:
-    ///  - task: A work task that needs to be executed and converted into `AnyPublisher`.
-    ///
-    /// - Returns: An `AnyPublisher` once the async task finished with `Output` constrained to the type of the returned value of the async task.
-    static func createAsyncResult(task: @escaping () async -> Output) -> AnyPublisher<Result<Output, Failure>, Never> where Failure == Never {
-        return AnyPublisher
-            .createAsync(task: task)
-            .mapToResult()
+    func createAsyncResult<Output>(task: @escaping () async throws -> Output)
+    -> Publishers.Catch<Publishers.Map<AsyncPublisher<Output>, Result<Output, Error>>, Just<Result<Output, Error>>> {
+        return AsyncPublisher(task: task)
+            .map(Result.success)
+            .catch { Just(.failure($0)) }
     }
 }

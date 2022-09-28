@@ -41,7 +41,9 @@ public extension Publisher {
     }
 
     /// Prefixes elements of a sequence for the given `predicate` while also including the value at which the `prefix` operator stops.
-    func inclusivePrefix(while predicate: @escaping (Self.Output) -> Bool) -> AnyPublisher<Self.Output, Failure> {
+    func inclusivePrefix(
+        while predicate: @escaping (Self.Output) -> Bool
+    ) -> Publishers.CompactMap<Publishers.PrefixWhile<Publishers.Scan<Self, (current: Optional<Self.Output>, priorWasFinal: Bool)>>, Self.Output> {
         return self
             .scan((current: Output?.none, priorWasFinal: false)) { state, new in
                 // state.current is only nil for the first output from upstream,
@@ -51,7 +53,17 @@ public extension Publisher {
             }
             .prefix(while: { !$0.priorWasFinal })
             .compactMap { $0.0 }
-            .eraseToAnyPublisher()
+    }
+
+    // Can be used instead of the .share(replay:) from CombineExt which replays forever
+    /// Replays the latest value while it's connected
+    func shareReplayLatestWhileConnected(
+        // swiftlint:disable:next line_length
+    ) -> Publishers.CompactMap<Publishers.Autoconnect<Publishers.Multicast<Publishers.Map<Self, Self.Output?>, CurrentValueSubject<Self.Output?, Self.Failure>>>, Self.Output> {
+        map(Optional.some)
+            .multicast(subject: CurrentValueSubject<Output?, Failure>(nil))
+            .autoconnect()
+            .compactMap { $0 }
     }
 }
 
