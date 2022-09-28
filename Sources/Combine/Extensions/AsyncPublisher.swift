@@ -10,21 +10,32 @@ import Combine
 import CombineExt
 
 @available(iOS 13.0, *)
-struct AsyncPublisher<Output>: Publisher {
-    typealias Output = Output
-    typealias Failure = Error
+public struct AsyncPublisher<Output>: Publisher {
+
+    public typealias Output = Output
+    public typealias Failure = Error
+
+    // MARK: - Private properties -
 
     private let task: () async throws -> Output
 
-    init(task: @escaping () async throws -> Output) {
+    // MARK: - Init -
+
+    public init(task: @escaping () async throws -> Output) {
         self.task = task
     }
 
-    func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
+    // MARK: - Receive subscription -
+
+    public func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
         let subscription = Subscription(task: task, target: subscriber)
         subscriber.receive(subscription: subscription)
     }
 }
+
+// MARK: - Extensions -
+
+// MARK: - Subscription
 
 @available(iOS 13.0, *)
 private extension AsyncPublisher {
@@ -62,8 +73,10 @@ private extension AsyncPublisher {
     }
 }
 
+// MARK: - Creation
+
 @available(iOS 13.0, *)
-extension Publisher {
+public extension Publisher {
     /// Create a new publisher for the given async task, returning output and finishing.
     ///
     /// - Parameters:
