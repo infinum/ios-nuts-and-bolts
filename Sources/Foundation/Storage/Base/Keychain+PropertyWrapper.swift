@@ -10,29 +10,29 @@ import Foundation
 import Security
 
 @propertyWrapper
-final class Keychain<T> where T: Codable {
-    let key: UserStorage.KeychainKeys
-    let defaultValue: T
+public final class Keychain<T> where T: Codable {
+    public let key: UserStorage.KeychainKeys
+    public let defaultValue: T
 
-    init(_ key: UserStorage.KeychainKeys, defaultValue: T) {
+    public init(_ key: UserStorage.KeychainKeys, defaultValue: T) {
         self.key = key
         self.defaultValue = defaultValue
     }
 
-    var wrappedValue: T {
+    public var wrappedValue: T {
         get { value(forKey: key) ?? defaultValue }
         set { set(value: newValue, forKey: key) }
     }
 }
 
-extension Keychain where T: ExpressibleByNilLiteral {
+public extension Keychain where T: ExpressibleByNilLiteral {
 
     convenience init(_ key: UserStorage.KeychainKeys) {
         self.init(key, defaultValue: nil)
     }
 }
 
-extension Keychain {
+public extension Keychain {
 
     func set(value: T, forKey key: UserStorage.KeychainKeys) {
 

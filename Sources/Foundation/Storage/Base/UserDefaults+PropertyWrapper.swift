@@ -9,18 +9,18 @@
 import Foundation
 
 @propertyWrapper
-final class UserDefault<Value> where Value: Codable {
-    let key: UserStorage.DefaultsKeys
-    let defaultValue: Value
-    let container: UserDefaults
+public final class UserDefault<Value> where Value: Codable {
+    public let key: UserStorage.DefaultsKeys
+    public let defaultValue: Value
+    public let container: UserDefaults
 
-    init(_ key: UserStorage.DefaultsKeys, defaultValue: Value, userDefaults: UserDefaults = .standard) {
+    public init(_ key: UserStorage.DefaultsKeys, defaultValue: Value, userDefaults: UserDefaults = .standard) {
         self.key = key
         self.defaultValue = defaultValue
         self.container = userDefaults
     }
 
-    var wrappedValue: Value {
+    public var wrappedValue: Value {
         get { container.value(ofType: Value.self, forKey: key) ?? defaultValue }
         set { container.set(value: newValue, forKey: key) }
     }
@@ -32,7 +32,7 @@ final class UserDefault<Value> where Value: Codable {
 
 // MARK: Bool value
 
-extension UserDefault where Value == Bool {
+public extension UserDefault where Value == Bool {
 
     convenience init(_ key: UserStorage.DefaultsKeys) {
         self.init(key, defaultValue: false)
@@ -41,7 +41,7 @@ extension UserDefault where Value == Bool {
 
 // MARK: Int value
 
-extension UserDefault where Value == Int {
+public extension UserDefault where Value == Int {
 
     convenience init(_ key: UserStorage.DefaultsKeys) {
         self.init(key, defaultValue: 0)
@@ -50,7 +50,7 @@ extension UserDefault where Value == Int {
 
 // MARK: Nil value
 
-extension UserDefault where Value: ExpressibleByNilLiteral {
+public extension UserDefault where Value: ExpressibleByNilLiteral {
 
     convenience init(_ key: UserStorage.DefaultsKeys) {
         self.init(key, defaultValue: nil)

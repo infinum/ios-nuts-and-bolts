@@ -9,7 +9,7 @@
 import Foundation
 
 /// A protocol that defines all of the values or objects that should be stored in the `UserDefaults`
-protocol DefaultsStorageInterface: AnyObject {
+public protocol DefaultsStorageInterface: AnyObject {
     // Example value
     var username: String? { get set }
     var gameTag: String? { get set }
@@ -17,13 +17,13 @@ protocol DefaultsStorageInterface: AnyObject {
 
 /// A protocol that defines all of the values or objects that should be stored in memory.
 /// - Note: Since we're keeping things in memory, objects will be released at some point, hence being optional. This can occur on app restart or during runtime depending on the case.
-protocol MemoryStorageInterface: AnyObject {
+public protocol MemoryStorageInterface: AnyObject {
     var lastName: String? { get set }
 }
 
 typealias UserStorageInterface = DefaultsStorageInterface & MemoryStorageInterface
 
-final class UserStorage: UserStorageInterface {
+public final class UserStorage: UserStorageInterface {
 
     // MARK: - Singleton -
 
@@ -37,14 +37,14 @@ final class UserStorage: UserStorageInterface {
     // MARK: - User defaults storage
 
     @UserDefault(.username)
-    var username: String?
+    public var username: String?
 
     @Keychain(.gameTag)
-    var gameTag: String?
+    public var gameTag: String?
 
     // MARK: - Memory storage
 
-    var lastName: String? {
+    public var lastName: String? {
         get { memoryStorage.lastName }
         set { memoryStorage.lastName = newValue }
     }
@@ -54,7 +54,7 @@ final class UserStorage: UserStorageInterface {
 
 // MARK: - Keys
 
-extension UserStorage {
+public extension UserStorage {
 
     enum DefaultsKeys: String, CaseIterable {
         case username
