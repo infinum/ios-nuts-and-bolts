@@ -156,6 +156,19 @@ class UserDefaults_PropertyWrapperTests: QuickSpec {
                 StoreTest.optionalStringValue = nil
                 expect(StoreTest.optionalStringValue).to(beNil())
             }
+
+            it("keychain should return string for default non-optional") {
+                expect(StoreTest.nonOptionalStringKeychainDefaultValue).to(equal("Default value"))
+            }
+
+            it("keychain should return nil for default optional") {
+                expect(StoreTest.optionalStringKeychainValue).to(beNil())
+            }
+
+            it("keychain should return value for optional") {
+                StoreTest.optionalStringKeychainValue = "New value"
+                expect(StoreTest.optionalStringKeychainValue).to(equal("New value"))
+            }
         }
 
         describe("testing codable value storing") {
@@ -218,7 +231,10 @@ class UserDefaults_PropertyWrapperTests: QuickSpec {
 
             it("should return stored data for default non-optional rawRepresentable") {
                 StoreTest.nonOptionalEnumValueCustomUserDefaults = .two
-                let storedEnum = StoreTest.customUserDefaults.object(forKey: "nonOptionalEnumValueCustomUserDefaults") as! Int
+                let storedEnum = try? JSONDecoder().decode(
+                    Int.self,
+                    from: StoreTest.customUserDefaults.object(forKey: "nonOptionalEnumValueCustomUserDefaults") as! Data
+                )
                 expect(storedEnum).to(equal(2))
                 expect(StoreTest.nonOptionalEnumValueCustomUserDefaults).to(equal(.two))
             }
@@ -308,6 +324,12 @@ private extension UserDefaults_PropertyWrapperTests {
 
         @UserDefault(.nonOptionalEnumValueCustomUserDefaults, defaultValue: .unknown, userDefaults: customUserDefaults)
         static var nonOptionalEnumValueCustomUserDefaults: Number
+
+        @Keychain(.nonOptionalStringDefaultValue, defaultValue: "Default value")
+        static var nonOptionalStringKeychainDefaultValue: String
+
+        @Keychain(.optionalStringValue)
+        static var optionalStringKeychainValue: String?
     }
 
     static func clearStorage() {
@@ -317,6 +339,7 @@ private extension UserDefaults_PropertyWrapperTests {
         StoreTest.optionalDoubleValue = nil
         StoreTest.optionalStringValue = nil
         StoreTest.optionalCodableValue = nil
+        StoreTest.optionalStringKeychainValue = nil
     }
 }
 

@@ -60,6 +60,7 @@ extension UserStorage {
         case username
 
         // Test cases
+
         case nonOptionalBoolValue
         case nonOptionalBoolDefaultValue
         case optionalBoolValue
@@ -87,6 +88,10 @@ extension UserStorage {
 
     enum KeychainKeys: String, CaseIterable {
         case gameTag
+
+        // Test cases
+        case nonOptionalStringDefaultValue
+        case optionalStringValue
     }
 }
 

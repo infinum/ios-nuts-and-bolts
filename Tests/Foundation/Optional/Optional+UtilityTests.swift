@@ -32,13 +32,13 @@ class OptionalUtilityTests: QuickSpec {
             it("isNotNil should be false") {
                 let value: Int? = nil
 
-                expect(value.isNotNil).to(beTrue())
+                expect(value.isNotNil).to(beFalse())
             }
 
             it("isNotNil should be true") {
                 let value: Int? = 5
 
-                expect(value.isNotNil).to(beFalse())
+                expect(value.isNotNil).to(beTrue())
             }
         }
     }
