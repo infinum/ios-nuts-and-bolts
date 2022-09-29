@@ -2,6 +2,10 @@ platform :ios, '11.0'
 use_frameworks!
 inhibit_all_warnings!
 
+def other
+  pod 'Factory'
+end
+
 def ui
   pod 'MBProgressHUD'
 end
@@ -35,6 +39,7 @@ def shared
   reactive
   localization
   ui
+  other
 end
 
 target 'Catalog' do
