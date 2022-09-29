@@ -240,7 +240,7 @@ private extension UserDefaults_PropertyWrapperTests {
 
     // RawRepresentable test data
 
-    enum Number {
+    enum Number: Codable {
         case zero
         case one
         case two
@@ -251,62 +251,62 @@ private extension UserDefaults_PropertyWrapperTests {
 
     enum StoreTest {
 
-        @Storage("nonOptionalBoolValue", defaultValue: true)
+        @UserDefault(.nonOptionalBoolValue, defaultValue: true)
         static var nonOptionalBoolValue: Bool
-        @Storage("nonOptionalBoolDefaultValue", defaultValue: true)
+        @UserDefault(.nonOptionalBoolDefaultValue, defaultValue: true)
         static var nonOptionalDefaultBoolValue: Bool
-        @Storage("optionalBoolValue")
+        @UserDefault(.optionalBoolValue)
         static var optionalBoolValue: Bool?
 
-        @Storage("nonOptionalIntValue", defaultValue: 100)
+        @UserDefault(.nonOptionalIntValue, defaultValue: 100)
         static var nonOptionalIntValue: Int
-        @Storage("nonOptionalDefaultIntValue", defaultValue: 100)
+        @UserDefault(.nonOptionalDefaultIntValue, defaultValue: 100)
         static var nonOptionalDefaultIntValue: Int
-        @Storage("optionalIntValue")
+        @UserDefault(.optionalIntValue)
         static var optionalIntValue: Int?
 
-        @Storage("nonOptionalFloatValue", defaultValue: 10.0)
+        @UserDefault(.nonOptionalFloatValue, defaultValue: 10.0)
         static var nonOptionalFloatValue: Float
-        @Storage("nonOptionalDefaultFloatValue", defaultValue: 10.0)
+        @UserDefault(.nonOptionalDefaultFloatValue, defaultValue: 10.0)
         static var nonOptionalDefaultFloatValue: Float
-        @Storage("optionalFloatValue")
+        @UserDefault(.optionalFloatValue)
         static var optionalFloatValue: Float?
 
-        @Storage("nonOptionalDoubleValue", defaultValue: 10.0)
+        @UserDefault(.nonOptionalDoubleValue, defaultValue: 10.0)
         static var nonOptionalDoubleValue: Double
-        @Storage("nonOptionalDefaultDoubleValue", defaultValue: 10.0)
+        @UserDefault(.nonOptionalDefaultDoubleValue, defaultValue: 10.0)
         static var nonOptionalDefaultDoubleValue: Double
-        @Storage("optionalDoubleValue")
+        @UserDefault(.optionalDoubleValue)
         static var optionalDoubleValue: Double?
 
-        @Storage("nonOptionalStringValue", defaultValue: "Default value")
+        @UserDefault(.nonOptionalStringValue, defaultValue: "Default value")
         static var nonOptionalStringValue: String
-        @Storage("nonOptionalDefaultStringValue", defaultValue: "Default value")
+        @UserDefault(.nonOptionalDefaultStringValue, defaultValue: "Default value")
         static var nonOptionalDefaultStringValue: String
-        @Storage("optionalStringValue")
+        @UserDefault(.optionalStringValue)
         static var optionalStringValue: String?
 
-        @Storage(codable: "nonOptionalCodableValue", defaultValue: TestData.default)
+        @UserDefault(.nonOptionalCodableValue, defaultValue: TestData.default)
         static var nonOptionalCodableValue: TestData
-        @Storage(codable: "nonOptionalDefaultCodableValue", defaultValue: TestData.default)
+        @UserDefault(.nonOptionalDefaultCodableValue, defaultValue: TestData.default)
         static var nonOptionalDefaultCodableValue: TestData
-        @Storage(codable: "optionalCodableValue")
+        @UserDefault(.optionalCodableValue)
         static var optionalCodableValue: TestData?
 
-        @Storage(rawRepresentable: "nonOptionalEnumValue", defaultValue: .unknown)
+        @UserDefault(.nonOptionalEnumValue, defaultValue: .unknown)
         static var nonOptionalEnumValue: Number
-        @Storage(rawRepresentable: "nonOptionalEnumDefaultValue", defaultValue: .unknown)
+        @UserDefault(.nonOptionalEnumDefaultValue, defaultValue: .unknown)
         static var nonOptionalEnumDefaultValue: Number
 
         static let customUserDefaults = UserDefaults(suiteName: "customUserDefaults")!
 
-        @Storage(codable: "optionalCodableValueCustomUserDefaults", defaultValue: nil, userDefaults: customUserDefaults)
+        @UserDefault(.optionalCodableValueCustomUserDefaults, defaultValue: nil, userDefaults: customUserDefaults)
         static var optionalCodableValueCustomUserDefaults: TestData?
 
-        @Storage("nonOptionalStringValueCustomUserDefaults", defaultValue: "", userDefaults: customUserDefaults)
+        @UserDefault(.nonOptionalStringValueCustomUserDefaults, defaultValue: "", userDefaults: customUserDefaults)
         static var nonOptionalStringValueCustomUserDefaults: String
 
-        @Storage(rawRepresentable: "nonOptionalEnumValueCustomUserDefaults", defaultValue: .unknown, userDefaults: customUserDefaults)
+        @UserDefault(.nonOptionalEnumValueCustomUserDefaults, defaultValue: .unknown, userDefaults: customUserDefaults)
         static var nonOptionalEnumValueCustomUserDefaults: Number
     }
 
