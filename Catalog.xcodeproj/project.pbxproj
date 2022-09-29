@@ -137,6 +137,10 @@
 		3722CA98274D0F3500EDC50D /* CombineProgressableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */; };
 		372448C8273289D400016144 /* CombinePagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372448C7273289D400016144 /* CombinePagingTests.swift */; };
 		3738886B274F915E002CDF0D /* CombineAlertExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37388867274F915E002CDF0D /* CombineAlertExample.storyboard */; };
+		373F6A0F28E5CB0000750011 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A0E28E5CB0000750011 /* DependencyContainer.swift */; };
+		373F6A1128E5CEE600750011 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A1028E5CEE600750011 /* DependencyManager.swift */; };
+		373F6A1428E5D0E000750011 /* DemoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A1328E5D0E000750011 /* DemoManager.swift */; };
+		373F6A1628E5D15300750011 /* MockComplexSingletonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A1528E5D15300750011 /* MockComplexSingletonClass.swift */; };
 		375C2CD9274E3BB500632EF2 /* UIAlertController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */; };
 		375C2CDC274E485C00632EF2 /* CombineAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */; };
 		3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893227316B32004E6BE3 /* Result+Combine.swift */; };
@@ -388,6 +392,10 @@
 		3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineProgressableViewController.swift; sourceTree = "<group>"; };
 		372448C7273289D400016144 /* CombinePagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingTests.swift; sourceTree = "<group>"; };
 		37388867274F915E002CDF0D /* CombineAlertExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineAlertExample.storyboard; sourceTree = "<group>"; };
+		373F6A0E28E5CB0000750011 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		373F6A1028E5CEE600750011 /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
+		373F6A1328E5D0E000750011 /* DemoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoManager.swift; sourceTree = "<group>"; };
+		373F6A1528E5D15300750011 /* MockComplexSingletonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockComplexSingletonClass.swift; sourceTree = "<group>"; };
 		375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Combine.swift"; sourceTree = "<group>"; };
 		375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineAlertExampleViewController.swift; sourceTree = "<group>"; };
 		3781893227316B32004E6BE3 /* Result+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Combine.swift"; sourceTree = "<group>"; };
@@ -1347,6 +1355,32 @@
 			path = Combine;
 			sourceTree = "<group>";
 		};
+		373F6A0D28E5CA9F00750011 /* DependencyManager */ = {
+			isa = PBXGroup;
+			children = (
+				373F6A0E28E5CB0000750011 /* DependencyContainer.swift */,
+				373F6A1028E5CEE600750011 /* DependencyManager.swift */,
+			);
+			path = DependencyManager;
+			sourceTree = "<group>";
+		};
+		373F6A1228E5D0BF00750011 /* DemoManager */ = {
+			isa = PBXGroup;
+			children = (
+				373F6A1728E5D28400750011 /* Mocks */,
+				373F6A1328E5D0E000750011 /* DemoManager.swift */,
+			);
+			path = DemoManager;
+			sourceTree = "<group>";
+		};
+		373F6A1728E5D28400750011 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				373F6A1528E5D15300750011 /* MockComplexSingletonClass.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		375C2CDA274E473E00632EF2 /* Combine Alert Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1630,6 +1664,8 @@
 		A83B221A269D84C4005A4A91 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				373F6A1228E5D0BF00750011 /* DemoManager */,
+				373F6A0D28E5CA9F00750011 /* DependencyManager */,
 				A8D4BE6626899F38002D8202 /* Logging */,
 			);
 			path = Utilities;
@@ -2090,6 +2126,7 @@
 				0AA45E7F22188A80009CF93E /* TokenAdapter.swift in Sources */,
 				0A1DFE5E236EF5B4000F2538 /* PokemonTableViewCell.swift in Sources */,
 				D73703102316A34800D7A986 /* ImageFromColorViewController.swift in Sources */,
+				373F6A1428E5D0E000750011 /* DemoManager.swift in Sources */,
 				0A603FE22207874D00F25622 /* ClosedRange+Scalable.swift in Sources */,
 				81B01CB425EE8CB30058D8E0 /* UICollectionView+Dequeue.swift in Sources */,
 				3781895827317A54004E6BE3 /* CombinePagingViewController.swift in Sources */,
@@ -2120,6 +2157,7 @@
 				6047127E222678EA00809454 /* UITextView+ZeroInsets.swift in Sources */,
 				3781895627317A54004E6BE3 /* CombinePagingInterfaces.swift in Sources */,
 				0A1DFE5D236EF5B4000F2538 /* RxPagingViewController.swift in Sources */,
+				373F6A0F28E5CB0000750011 /* DependencyContainer.swift in Sources */,
 				A8D4BE872689A023002D8202 /* LoggingObjC.swift in Sources */,
 				0A0F24472247D5D80005CF41 /* APIService.swift in Sources */,
 				0A54436622718AB100F26468 /* RxNetworkingWireframe.swift in Sources */,
@@ -2140,6 +2178,7 @@
 				3722CA95274D0E9E00EDC50D /* Publisher+Progressable.swift in Sources */,
 				0AB524082210A45400F35F52 /* CollectionViewReloader.swift in Sources */,
 				3781894227316BCB004E6BE3 /* CombineNetworkingInteractor.swift in Sources */,
+				373F6A1628E5D15300750011 /* MockComplexSingletonClass.swift in Sources */,
 				0AB5241A2210AFFB00F35F52 /* Parameters+Fields.swift in Sources */,
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
 				A8FD60FD2292AFCC00FB50CE /* BaseCollectionSection.m in Sources */,
@@ -2169,6 +2208,7 @@
 				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,
 				0A54436322718AB100F26468 /* RxNetworkingViewController.swift in Sources */,
 				604712852226812100809454 /* Array+SafeGet.swift in Sources */,
+				373F6A1128E5CEE600750011 /* DependencyManager.swift in Sources */,
 				C202327E23954DB400DC3C42 /* NetworkingJapxViewController.swift in Sources */,
 				A8FD60F92292AF5000FB50CE /* BaseCollectionCellItem.m in Sources */,
 				D737030D2316A06000D7A986 /* UIColor+UIImage.swift in Sources */,
