@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+import Alamofire
+import OHHTTPStubs
 
 public protocol DemoManaging {
     var isRunning: Bool { get }
@@ -151,4 +152,3 @@ private extension String {
         return String(self[..<index])
     }
 }
-

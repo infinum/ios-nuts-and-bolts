@@ -13,6 +13,7 @@ end
 def networking
   pod 'Loggie'
   pod 'Japx/RxAlamofire'
+  pod 'OHHTTPStubs/Swift'
 end
 
 def reactive

@@ -22,7 +22,7 @@ public protocol ExampleClassing {
 }
 
 public protocol ComplexSingletonClassing {
-    var exampleClass: ExampleClassing { get }
+    var exampleClass: ExampleClassing { get set }
 }
 
 // MARK: - Example classes
@@ -39,7 +39,7 @@ public final class ComplexSingletonClass: ComplexSingletonClassing {
 
     // MARK: - Public properties -
 
-    public let exampleClass: ExampleClassing
+    public var exampleClass: ExampleClassing
 
     // MARK: - Init -
 
