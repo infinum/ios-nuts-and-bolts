@@ -10,15 +10,15 @@ import Alamofire
 import Combine
 import Foundation
 
-final class OAuthAuthenticator: Authenticator {
-    typealias Credential = OAuthCredential
+public final class OAuthAuthenticator: Authenticator {
+    public typealias Credential = OAuthCredential
 
-    func apply(_ credential: OAuthCredential, to urlRequest: inout URLRequest) {
+    public func apply(_ credential: OAuthCredential, to urlRequest: inout URLRequest) {
         urlRequest.headers.add(.requestId(UUID().uuidString))
         urlRequest.headers.add(.authorization(bearerToken: credential.accessToken))
     }
 
-    func refresh(_ credential: OAuthCredential, for session: Session, completion: @escaping (Result<Credential, Error>) -> Void) {
+    public func refresh(_ credential: OAuthCredential, for session: Session, completion: @escaping (Result<Credential, Error>) -> Void) {
         switch credential {
         case .user(let userCredential):
             Self.refresh(userCredential: userCredential, for: session, completion: completion)
@@ -27,11 +27,11 @@ final class OAuthAuthenticator: Authenticator {
         }
     }
 
-    func didRequest(_ urlRequest: URLRequest, with response: HTTPURLResponse, failDueToAuthenticationError error: Error) -> Bool {
+    public func didRequest(_ urlRequest: URLRequest, with response: HTTPURLResponse, failDueToAuthenticationError error: Error) -> Bool {
         return response.statusCode == 401
     }
 
-    func isRequest(_ urlRequest: URLRequest, authenticatedWith credential: Credential) -> Bool {
+    public func isRequest(_ urlRequest: URLRequest, authenticatedWith credential: Credential) -> Bool {
         let bearerToken = HTTPHeader.authorization(bearerToken: credential.accessToken).value
         return urlRequest.headers["Authorization"] == bearerToken
     }
@@ -43,7 +43,7 @@ final class OAuthAuthenticator: Authenticator {
 
 extension OAuthAuthenticator {
 
-    static func refresh(
+    public static func refresh(
         userCredential: OAuthUserCredential,
         for session: Session,
         completion: @escaping (Result<Credential, Error>) -> Void
@@ -62,7 +62,7 @@ extension OAuthAuthenticator {
         // Don't forget to validate the request
     }
 
-    static func refresh(
+    public static func refresh(
         clientCredential: OAuthClientCredential,
         for session: Session,
         completion: @escaping (Result<Credential, Error>) -> Void

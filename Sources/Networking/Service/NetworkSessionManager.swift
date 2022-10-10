@@ -8,14 +8,14 @@
 
 import Alamofire
 
-protocol NetworkSessionManaging: AnyObject {
+public protocol NetworkSessionManaging: AnyObject {
     var authenticationInterceptor: AuthenticationInterceptor<OAuthAuthenticator>? { get set }
     var session: Alamofire.Session { get }
 }
 
 /// Use it to store all kind of session related info like authorization adapter, networking session,
 /// currently logged in user, etc.
-final class NetworkSessionManager: NetworkSessionManaging {
+public final class NetworkSessionManager: NetworkSessionManaging {
 
     // MARK: - Public properties
 
@@ -60,7 +60,7 @@ private extension NetworkSessionManager {
 
 // MARK: - Session configuration
 
-extension NetworkSessionManager {
+public extension NetworkSessionManager {
 
     func createSession(with configuration: URLSessionConfiguration) -> Session {
         // Queue that is passed to the Session as a `rootQueue` *has* to be serial

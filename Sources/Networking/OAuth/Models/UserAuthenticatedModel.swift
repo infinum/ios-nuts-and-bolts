@@ -9,8 +9,8 @@
 import Foundation
 
 // Example User model
-struct UserAuthenticatedModel: Decodable {
-    let refreshToken: String
-    let accessToken: String
-    let expiresIn: TimeInterval
+public struct UserAuthenticatedModel: Decodable {
+    public let refreshToken: String
+    public let accessToken: String
+    public let expiresIn: TimeInterval
 }

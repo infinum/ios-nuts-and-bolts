@@ -10,7 +10,7 @@ import Foundation
 
 // Example ClientModel
 public struct ClientAuthenticatedModel: Decodable {
-    let accessToken: String
-    let tokenType: String
-    let expiresIn: TimeInterval
+    public let accessToken: String
+    public let tokenType: String
+    public let expiresIn: TimeInterval
 }
