@@ -41,9 +41,9 @@ public final class OAuthAuthenticator: Authenticator {
 
 // MARK: - Token refreshing
 
-extension OAuthAuthenticator {
+public extension OAuthAuthenticator {
 
-    public static func refresh(
+    static func refresh(
         userCredential: OAuthUserCredential,
         for session: Session,
         completion: @escaping (Result<Credential, Error>) -> Void
@@ -62,7 +62,7 @@ extension OAuthAuthenticator {
         // Don't forget to validate the request
     }
 
-    public static func refresh(
+    static func refresh(
         clientCredential: OAuthClientCredential,
         for session: Session,
         completion: @escaping (Result<Credential, Error>) -> Void
@@ -131,4 +131,3 @@ private extension OAuthAuthenticator {
         NotificationCenter.default.post(name: .init(rawValue: "SessionExpired"), object: nil)
     }
 }
-

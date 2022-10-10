@@ -10,7 +10,7 @@ import Alamofire
 
 // MARK: - Common headers
 
-extension HTTPHeader {
+public extension HTTPHeader {
 
     /// Returns a `Request-Id` header.
     ///

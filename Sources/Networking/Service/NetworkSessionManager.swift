@@ -24,10 +24,10 @@ public final class NetworkSessionManager: NetworkSessionManaging {
     private init() { }
 
     /// Authorization interceptor will prefix an authorization header to all requests
-    var authenticationInterceptor: AuthenticationInterceptor<OAuthAuthenticator>?
+    public var authenticationInterceptor: AuthenticationInterceptor<OAuthAuthenticator>?
 
     /// App-default version of `Alamofire.Session`
-    private(set) lazy var session: Session = { createSession(with: defaultConfiguration) }()
+    public private(set) lazy var session: Session = { createSession(with: defaultConfiguration) }()
 }
 
 // MARK: - Private inits
@@ -79,4 +79,3 @@ public extension NetworkSessionManager {
         )
     }
 }
-
