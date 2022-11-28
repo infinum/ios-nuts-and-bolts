@@ -11,6 +11,10 @@ def networking
   pod 'Japx/RxAlamofire'
 end
 
+def security
+  pod 'IOSSecuritySuite'
+end
+
 def reactive
   pod 'RxSwift'
   pod 'RxCocoa'
@@ -35,6 +39,7 @@ def shared
   reactive
   localization
   ui
+  security
 end
 
 target 'Catalog' do

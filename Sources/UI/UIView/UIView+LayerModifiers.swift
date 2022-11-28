@@ -76,5 +76,47 @@ public extension UIView {
         layer.shadowPath = UIBezierPath(rect: rect).cgPath
       }
     }
+    
+    /// Adds blurred view to the current view at BlurPosition with UIBlurEffect.Style
+    ///
+    /// - Parameters:
+    ///   - style: Blur style available for blur effect
+    ///   - position: BlurPosition at which blurEffectView will be inserted
+    ///   - animated: Show blur overlay animated
+    func blur(style: UIBlurEffect.Style = .regular, at position: BlurPosition, animated: Bool = false) {
+        let blurEffect = UIBlurEffect(style: style)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = frame
+        blurEffectView.tag = position.rawValue
+        blurEffectView.alpha = animated ? 0 : 1
+        if position == .background {
+            insertSubview(blurEffectView, at: 0)
+        } else {
+            addSubview(blurEffectView)
+        }
+        if animated {
+            UIView.animate(withDuration: 0.2, animations: {
+                blurEffectView.alpha = 1.0
+            })
+        }
+    }
+    
+    /// Removes previously set blurred view (blur function)
+    ///
+    /// - Parameters:
+    ///   - position: BlurPosition at which blurEffectView will be removed
+    ///   - animated: Hide blur overlay animated
+    func removeBlur(at position: BlurPosition, animated: Bool = false) {
+        let blurEffectView = viewWithTag(position.rawValue)
+        guard animated else {
+            blurEffectView?.removeFromSuperview()
+            return
+        }
+        UIView.animate(
+            withDuration: 0.2,
+            animations: { blurEffectView?.alpha = 0 },
+            completion: { _ in blurEffectView?.removeFromSuperview() }
+        )
+    }
 
 }
