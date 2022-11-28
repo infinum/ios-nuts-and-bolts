@@ -87,6 +87,8 @@ private extension SecurityProtectionManager {
 
     /// Handles background app state. Adds or removes the blur based on app state and security system states.
     ///
+    /// - Parameter window: window on which blur will be applied
+    ///
     func protectAppInBackground(window: UIWindow?) {
         // In modified OS version, blur everything when the app becomes inactive
         let inModified = UIApplication.rx
@@ -150,7 +152,8 @@ private extension SecurityProtectionManager {
     
     func handleRemoveBlur(in window: UIWindow?) {
         UIApplication.rx.didBecomeActive
-            .subscribe(onNext: {
+            .asDriver()
+            .drive(onNext: {
                 UIView.animate(withDuration: 0.2, animations: {
                     window?.removeBlur(at: .foreground, animated: true)
                 })
