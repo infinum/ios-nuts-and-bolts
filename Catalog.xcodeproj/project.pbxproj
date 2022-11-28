@@ -1351,19 +1351,19 @@
 		28A27BB22931028200D8D555 /* SecurityProtectionManager */ = {
 			isa = PBXGroup;
 			children = (
-				28A27BB32931028200D8D555 /* ServiceStatus */,
-				28A27BB62931028200D8D555 /* SecurityTimer.swift */,
+				28A27BB32931028200D8D555 /* Common */,
 				28A27BB72931028200D8D555 /* SecurityProtectionManager.swift */,
 			);
 			path = SecurityProtectionManager;
 			sourceTree = "<group>";
 		};
-		28A27BB32931028200D8D555 /* ServiceStatus */ = {
+		28A27BB32931028200D8D555 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				28A27BB62931028200D8D555 /* SecurityTimer.swift */,
 				28A27BB42931028200D8D555 /* ServiceStatus.swift */,
 			);
-			path = ServiceStatus;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		3722CA96274D0F1A00EDC50D /* Progressable */ = {
