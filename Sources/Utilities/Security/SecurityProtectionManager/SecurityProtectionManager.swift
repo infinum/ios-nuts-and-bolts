@@ -85,6 +85,8 @@ private extension SecurityProtectionManager {
             .disposed(by: disposeBag)
     }
 
+    /// Handles background app state. Adds or removes the blur based on app state and security system states.
+    ///
     func protectAppInBackground(window: UIWindow?) {
         // In modified OS version, blur everything when the app becomes inactive
         let inModified = UIApplication.rx
@@ -98,19 +100,8 @@ private extension SecurityProtectionManager {
             .filter { Self.shouldAddBlur(for: .online) }
             .mapTo(false)
 
-        Observable.merge(inModified, inNonModified)
-            .subscribe(onNext: { animated in
-                window?.blur(style: .regular, at: .foreground, animated: animated)
-            })
-            .disposed(by: disposeBag)
-
-        UIApplication.rx.didBecomeActive
-            .subscribe(onNext: {
-                UIView.animate(withDuration: 0.2, animations: {
-                    window?.removeBlur(at: .foreground, animated: true)
-                })
-            })
-            .disposed(by: disposeBag)
+        handleAddBlur(animated: Observable.merge(inModified, inNonModified), in: window)
+        handleRemoveBlur(in: window)
     }
 
     /// Checks biometrics state every time app becomes active.
@@ -146,6 +137,25 @@ private extension SecurityProtectionManager {
         guard ServiceStatus.firstLevel == .offline else { return }
         // Device is Jailbroken
         // Add custom logic for showing alert or restricting access to the application.
+    }
+    
+    func handleAddBlur(animated: Observable<Bool>, in window: UIWindow?) {
+        animated
+            .asDriverOnErrorComplete()
+            .drive(onNext: { animated in
+                window?.blur(style: .regular, at: .foreground, animated: animated)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func handleRemoveBlur(in window: UIWindow?) {
+        UIApplication.rx.didBecomeActive
+            .subscribe(onNext: {
+                UIView.animate(withDuration: 0.2, animations: {
+                    window?.removeBlur(at: .foreground, animated: true)
+                })
+            })
+            .disposed(by: disposeBag)
     }
     
 }
