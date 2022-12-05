@@ -32,6 +32,10 @@ final class SecurityProtectionManager {
 
 extension SecurityProtectionManager {
 
+    /// Checks current system status.
+    ///
+    /// In the case where device is jailbroken and there are reverse engineering
+    /// actions performed, debugger is denied and app is forced to crash.
     func checkSystemStatus() {
         guard !isSimulator else { return }
         if firstLevel == nil {
@@ -39,15 +43,16 @@ extension SecurityProtectionManager {
         }
         let startupSystem = SecurityService.ServiceStatus.startSystem == .online
         let secondLevel = SecurityService.ServiceStatus.secondLevel == .online
-        
-        // In the case where device is jailbroken and there are reverse engineering
-        // actions performed debugger is denied and app is forced to crash.
         if firstLevel == .offline && (startupSystem || secondLevel) {
             IOSSecuritySuite.denyDebugger()
             exit(0)
         }
     }
 
+    
+    /// Initiates full application security which consist of multiple layers of security.
+    ///
+    /// - Parameter window: UIWindow on which blur will be applied
     func initiateFullSecurity(in window: UIWindow?) {
         guard !isSimulator else { return }
         protectAppInBackground(window: window)
@@ -63,7 +68,6 @@ extension SecurityProtectionManager {
 private extension SecurityProtectionManager {
 
     /// Checks if device is Jailbroken when app finishes launching.
-    ///
     func firstLevelSystemCheck() {
         UIApplication.rx.didFinishLaunching
             .mapToVoid()
@@ -76,7 +80,6 @@ private extension SecurityProtectionManager {
     /// Starts periodic check if device is jailbroken to detect potential reverse engineering during app runtime.
     ///
     /// Periodic timer is restarted every time that application becomes active.
-    ///
     func initiatePeriodicSystemCheck() {
         UIApplication.rx.didBecomeActive
             .startWith(())
@@ -90,7 +93,6 @@ private extension SecurityProtectionManager {
     /// Handles background app state. Adds or removes the blur based on app state and security system states.
     ///
     /// - Parameter window: window on which blur will be applied
-    ///
     func protectAppInBackground(window: UIWindow?) {
         // In modified OS version, blur everything when the app becomes inactive
         let inModified = UIApplication.rx
