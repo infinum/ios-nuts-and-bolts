@@ -15,9 +15,14 @@ final class SecurityProtectionManager {
 
     // MARK: - Private properties
 
+    /// Timer used for periodic checks of the system status.
     private var systemCheckTimer: SecurityTimer?
+    
+    /// Interval in which the periodic timer will trigger system checks.
     private let systemCheckInterval: TimeInterval = 3.0
-    private var firstLevel: SystemStatus?
+    
+    /// First level status of system which tells if device is Jailbroken.
+    private var firstLevel: SecurityService.SystemStatus?
     
     private let disposeBag = DisposeBag()
     
@@ -28,30 +33,27 @@ final class SecurityProtectionManager {
 extension SecurityProtectionManager {
 
     func checkSystemStatus() {
-        #if targetEnvironment(simulator)
-        return
-        #else
+        guard !isSimulator else { return }
         if firstLevel == nil {
-            firstLevel = ServiceStatus.firstLevel
+            firstLevel = SecurityService.ServiceStatus.firstLevel
         }
-        let startupSystem = ServiceStatus.startSystem == .online
-        let secondLevel = ServiceStatus.secondLevel == .online
+        let startupSystem = SecurityService.ServiceStatus.startSystem == .online
+        let secondLevel = SecurityService.ServiceStatus.secondLevel == .online
+        
+        // In the case where device is jailbroken and there are reverse engineering
+        // actions performed debugger is denied and app is forced to crash.
         if firstLevel == .offline && (startupSystem || secondLevel) {
             IOSSecuritySuite.denyDebugger()
             exit(0)
         }
-        #endif
     }
 
     func initiateFullSecurity(in window: UIWindow?) {
-        #if targetEnvironment(simulator)
-        return
-        #else
+        guard !isSimulator else { return }
         protectAppInBackground(window: window)
         biometricChangesCheck()
         firstLevelSystemCheck()
         initiatePeriodicSystemCheck()
-        #endif
     }
     
 }
@@ -121,10 +123,14 @@ private extension SecurityProtectionManager {
 // MARK: - Private extensions
 
 private extension SecurityProtectionManager {
-
-    static func shouldAddBlur(for level: SystemStatus) -> Bool {
+    
+    var isSimulator: Bool {
+        return TARGET_OS_SIMULATOR != 0
+    }
+    
+    static func shouldAddBlur(for level: SecurityService.SystemStatus) -> Bool {
         // Add additional custom logic to check if blur should be added
-        return ServiceStatus.firstLevel == level
+        return SecurityService.ServiceStatus.firstLevel == level
     }
     
     func startPeriodicSystemCheck() {
@@ -136,7 +142,7 @@ private extension SecurityProtectionManager {
     }
 
     func checkSystemChange() {
-        guard ServiceStatus.firstLevel == .offline else { return }
+        guard SecurityService.ServiceStatus.firstLevel == .offline else { return }
         // Device is Jailbroken
         // Add custom logic for showing alert or restricting access to the application.
     }

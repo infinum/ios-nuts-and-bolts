@@ -14,11 +14,12 @@ import Foundation
 /// already resumed (noted by https://github.com/SiftScience/sift-ios/issues/52
 class SecurityTimer {
 
+    // MARK: - Public properties
+    
     let timeInterval: TimeInterval
-
-    init(timeInterval: TimeInterval) {
-        self.timeInterval = timeInterval
-    }
+    var eventHandler: (() -> Void)?
+    
+    // MARK: - Private properties
 
     private lazy var timer: DispatchSourceTimer = {
         let timerSource = DispatchSource.makeTimerSource()
@@ -29,8 +30,6 @@ class SecurityTimer {
         return timerSource
     }()
 
-    var eventHandler: (() -> Void)?
-
     private enum State {
         case suspended
         case resumed
@@ -38,30 +37,41 @@ class SecurityTimer {
 
     private var state: State = .suspended
 
+    // MARK: - Lifecycle
+
+    init(timeInterval: TimeInterval) {
+        self.timeInterval = timeInterval
+    }
+    
     deinit {
         timer.setEventHandler {}
         timer.cancel()
         /*
          If the timer is suspended, calling cancel without resuming
          triggers a crash. This is documented here https://forums.developer.apple.com/thread/15902
-         */
+        */
         resume()
         eventHandler = nil
     }
+    
+    // MARK: - Public methods
 
     func resume() {
-        guard state == .suspended else {
-            return
+        switch state {
+        case .resumed: break
+        case .suspended:
+            state = .resumed
+            timer.resume()
         }
-        state = .resumed
-        timer.resume()
     }
 
     func suspend() {
-        guard state == .resumed else {
-            return
+        switch state {
+        case .resumed:
+            state = .resumed
+            timer.resume()
+        case .suspended: break
         }
-        state = .suspended
-        timer.suspend()
     }
+    
 }
