@@ -2,8 +2,8 @@
 //  Page.swift
 //  Catalog
 //
-//  Created by Antonijo Bezmalinovic on 11.01.2023..
-//  Copyright © 2023 Infinum. All rights reserved.
+//  Created by Antonijo Bezmalinovic on 10.01.2023..
+//  Copyright (c) 2021 Infinum. All rights reserved.
 //
 
 import Foundation

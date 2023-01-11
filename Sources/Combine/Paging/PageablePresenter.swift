@@ -1,8 +1,9 @@
 //
 //  PageablePresenter.swift
-//  TVShows
+//  Catalog
 //
 //  Created by Antonijo Bezmalinovic on 10.01.2023..
+//  Copyright (c) 2021 Infinum. All rights reserved.
 //
 
 import Foundation
@@ -14,7 +15,7 @@ protocol PageablePresenter {
     /// Defines closures for implementator to implement
     typealias PageableResultClosure = (([Pageable], (any Page)?) -> AnyPublisher<any Page, PagingError>)
     typealias HasNextPageClosure = (([Pageable], (any Page)?) -> Bool)
-    
+
     typealias Container = [Pageable]
     
     /// Defines interface for setting up pagination
@@ -50,6 +51,7 @@ extension PageablePresenter {
         nextPage: @escaping PageableResultClosure,
         hasNextPage: @escaping HasNextPageClosure
     ) -> AnyPublisher<[Pageable], PagingError> {
+        
         let loadNewEvent = loadNextPage.map { _ in CombinePaging.Event<Container>.nextPage }
         let reloadEvent = reload.map { _ in CombinePaging.Event<Container>.reload }
         let events = CurrentValueSubject<CombinePaging.Event<Container>, Never>(.reload)
