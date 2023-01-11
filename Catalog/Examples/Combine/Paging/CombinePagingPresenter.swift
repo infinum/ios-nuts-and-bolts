@@ -36,79 +36,38 @@ final class CombinePagingPresenter {
 // MARK: - Extensions -
 
 @available(iOS 13, *)
-extension CombinePagingPresenter: CombinePagingPresenterInterface {
+extension CombinePagingPresenter: CombinePagingPresenterInterface, PageablePresenter {
     func configure(with output: CombinePagingExample.ViewOutput) -> CombinePagingExample.ViewInput {
-        return CombinePagingExample.ViewInput(pokemon: setupPagination(
-            willDisplayLastCell: output.willDisplayLastCell,
-            pullToRefresh: output.restart
-        ))
-    }
-}
-
-// MARK: - Private Extension -
-
-@available(iOS 13, *)
-private extension CombinePagingPresenter {
-
-    func setupPagination(
-        willDisplayLastCell: AnyPublisher<Void, Never>,
-        pullToRefresh: AnyPublisher<Void, Never>
-    ) -> AnyPublisher<[PokemonTableCellItem], PagingError> {
-
-        let pokemons = pokemonsPage(loadNextPage: willDisplayLastCell, reload: pullToRefresh)
-
-        return pokemons
-            .map { $0.map(PokemonTableCellItem.init) }
-            .compactMap { $0 }
-            .eraseToAnyPublisher()
-
-    }
-}
-
-@available(iOS 13, *)
-private extension CombinePagingPresenter {
-
-    typealias Container = [Pokemon]
-    typealias Page = PokemonsPage
-    typealias PagingEvent = Paging.Event<Container>
-
-    func pokemonsPage(
-        loadNextPage: AnyPublisher<Void, Never>,
-        reload: AnyPublisher<Void, Never>
-    ) -> AnyPublisher<[Pokemon], PagingError> {
-        let loadNewEvent = loadNextPage.map { _ in CombinePaging.Event<Container>.nextPage }
-        let reloadEvent = reload.map { _ in CombinePaging.Event<Container>.reload }
-        let events = CurrentValueSubject<CombinePaging.Event<Container>, Never>(.reload)
-            .merge(with: loadNewEvent, reloadEvent)
-            .eraseToAnyPublisher()
-
-        let nextPage: (_ container: Container, _ lastPage: Page?) -> AnyPublisher<PokemonsPage, PagingError> = { [unowned self] _, lastPage in
-            // Fetch pokemons in batch of 60, no last page represents inital load
-            let url = lastPage?.next?.absoluteString ?? "https://pokeapi.co/api/v2/pokemon?limit=60"
-            let router = Router(baseUrl: url, path: "")
-            return interactor
-                .getPokemons(router: router)
-                .mapError { _ in return PagingError.network }
+        return CombinePagingExample.ViewInput(
+            pokemon:
+                setupPagination(
+                    nextPagePublisher: output.willDisplayLastCell,
+                    reloadPublisher: output.restart,
+                    nextPage: { [unowned self] container, page in
+                        return handleFetchNextData(lastPage: page)
+                    },
+                    hasNextPage: { container, page in
+                        return container.count < (page?.count ?? 0)
+                    }
+                )
+                .map { $0.map { $0 as! Pokemon } }
+                .map({ [unowned self] in createPokemonCellItems(pokemons: $0)})
                 .eraseToAnyPublisher()
-        }
-
-        let accumulator: (_ container: Container, _ page: Page) -> Container = { container, page in
-            return container + page.results
-        }
-
-        let hasNext: (_ container: Container, _ lastPage: Page) -> Bool = { _, lastPage in
-            return lastPage.next != nil
-        }
-
-        return CombinePaging
-            .page(
-                make: nextPage,
-                startingWith: [],
-                joining: accumulator,
-                while: hasNext,
-                on: events
-            )
-            .map(\.container)
+        )
+    }
+    
+    private func createPokemonCellItems(pokemons: [Pokemon]) -> [PokemonTableCellItem] {
+        return pokemons.map { PokemonTableCellItem(pokemon: $0) }
+    }
+    
+    private func handleFetchNextData(lastPage: (any Page)?) -> AnyPublisher<any Page, PagingError> {
+        
+        let url = lastPage?.next?.absoluteString ?? "https://pokeapi.co/api/v2/pokemon?limit=60"
+        let router = Router(baseUrl: url, path: "")
+        return interactor
+            .getPokemons(router: router)
+            .mapError { _ in return PagingError.network }
+            .map { $0 as (any Page) }
             .eraseToAnyPublisher()
     }
 }

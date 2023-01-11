@@ -77,6 +77,9 @@
 		0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FE722078DC000F25622 /* Single+Utility.swift */; };
 		0A603FEB220798D800F25622 /* Observable+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FEA220798D800F25622 /* Observable+Progressable.swift */; };
 		0A603FED22079A9800F25622 /* Observable+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A603FEC22079A9800F25622 /* Observable+Utility.swift */; };
+		0A95ECB1296EB9AB004E0459 /* PageablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A95ECB0296EB9AB004E0459 /* PageablePresenter.swift */; };
+		0A95ECB4296EBA2E004E0459 /* Pageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A95ECB3296EBA2E004E0459 /* Pageable.swift */; };
+		0A95ECB6296EBA50004E0459 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A95ECB5296EBA50004E0459 /* Page.swift */; };
 		0AA45E772218880A009CF93E /* JapxResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA45E762218880A009CF93E /* JapxResponse.swift */; };
 		0AA45E7922188833009CF93E /* JapxPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA45E7822188833009CF93E /* JapxPagination.swift */; };
 		0AA45E7F22188A80009CF93E /* TokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA45E7E22188A80009CF93E /* TokenAdapter.swift */; };
@@ -321,6 +324,9 @@
 		0A603FE722078DC000F25622 /* Single+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Utility.swift"; sourceTree = "<group>"; };
 		0A603FEA220798D800F25622 /* Observable+Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Progressable.swift"; sourceTree = "<group>"; };
 		0A603FEC22079A9800F25622 /* Observable+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Utility.swift"; sourceTree = "<group>"; };
+		0A95ECB0296EB9AB004E0459 /* PageablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageablePresenter.swift; sourceTree = "<group>"; };
+		0A95ECB3296EBA2E004E0459 /* Pageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pageable.swift; sourceTree = "<group>"; };
+		0A95ECB5296EBA50004E0459 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		0AA45E762218880A009CF93E /* JapxResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxResponse.swift; sourceTree = "<group>"; };
 		0AA45E7822188833009CF93E /* JapxPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapxPagination.swift; sourceTree = "<group>"; };
 		0AA45E7E22188A80009CF93E /* TokenAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAdapter.swift; sourceTree = "<group>"; };
@@ -854,6 +860,15 @@
 				0A603FEC22079A9800F25622 /* Observable+Utility.swift */,
 			);
 			path = Observable;
+			sourceTree = "<group>";
+		};
+		0A95ECB2296EB9F3004E0459 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				0A95ECB3296EBA2E004E0459 /* Pageable.swift */,
+				0A95ECB5296EBA50004E0459 /* Page.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		0AA45E75221887D3009CF93E /* Japx */ = {
@@ -1400,6 +1415,8 @@
 		3781894A273179EF004E6BE3 /* Paging */ = {
 			isa = PBXGroup;
 			children = (
+				0A95ECB2296EB9F3004E0459 /* Protocol */,
+				0A95ECB0296EB9AB004E0459 /* PageablePresenter.swift */,
 				3781894B273179FF004E6BE3 /* CombinePaging.swift */,
 			);
 			path = Paging;
@@ -2084,6 +2101,7 @@
 			files = (
 				A8FD61092292CC2C00FB50CE /* TableDataSourceDelegate.m in Sources */,
 				0A1FAFFC2406BDB6000F72D6 /* URLRequest+Alamofire.swift in Sources */,
+				0A95ECB6296EBA50004E0459 /* Page.swift in Sources */,
 				063B5AA62317F64D003A7B84 /* BasicViewController.swift in Sources */,
 				0A1FB0022406C015000F72D6 /* HTTPURLResponse+LogRepresentation.swift in Sources */,
 				CC80F71D2438C7C700A3F276 /* ToggleViewController.swift in Sources */,
@@ -2109,6 +2127,7 @@
 				CC80F71B2438C53400A3F276 /* FollowButton.swift in Sources */,
 				0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */,
 				0AB524182210AF9A00F35F52 /* Parameters+Filter.swift in Sources */,
+				0A95ECB4296EBA2E004E0459 /* Pageable.swift in Sources */,
 				0612E33F22D32A750081BCF6 /* UIViewModifiersViewController.swift in Sources */,
 				0A1FAFF92406BB6F000F72D6 /* SessionManager.swift in Sources */,
 				0AB524222210B3CB00F35F52 /* URL+Append.swift in Sources */,
@@ -2253,6 +2272,7 @@
 				60471281222679BC00809454 /* UIColor+InitHelper.swift in Sources */,
 				81B01CA925EE8B190058D8E0 /* AssociableCollectionCellItem.swift in Sources */,
 				0AE0B759220435FA0033A476 /* TableDataSourceDelegate.swift in Sources */,
+				0A95ECB1296EB9AB004E0459 /* PageablePresenter.swift in Sources */,
 				0AE0B77D2204803D0033A476 /* String+Blank.swift in Sources */,
 				4F286F812291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m in Sources */,
 				0A0F24452247CE5D0005CF41 /* Routable.swift in Sources */,
