@@ -165,8 +165,9 @@
 		3738886B274F915E002CDF0D /* CombineAlertExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37388867274F915E002CDF0D /* CombineAlertExample.storyboard */; };
 		3739D41328D4A2F5005DBD86 /* InputFieldViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739D41228D4A2F5005DBD86 /* InputFieldViewTests.swift */; };
 		3739D41728D4A3B0005DBD86 /* ComponentConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3739D41528D4A362005DBD86 /* ComponentConfigurable.swift */; };
+		3747275B28E4874200D9999D /* CombineNotificationUnwrappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3747275A28E4874200D9999D /* CombineNotificationUnwrappingTests.swift */; };
 		374937A428D30D7300BDAC2F /* Publisher+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A328D30D7300BDAC2F /* Publisher+Binding.swift */; };
-		374937A628D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */; };
+		374937A628D30E4D00BDAC2F /* NotificationCenterPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A528D30E4D00BDAC2F /* NotificationCenterPublisher.swift */; };
 		374937A928D30FE600BDAC2F /* NotificationCenter+Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937A828D30FE600BDAC2F /* NotificationCenter+Publishers.swift */; };
 		374937AE28D312CC00BDAC2F /* UIFeedbackGenerator+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937AD28D312CC00BDAC2F /* UIFeedbackGenerator+Combine.swift */; };
 		374937B128D313F400BDAC2F /* UIFeedbackGenerator+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937B028D313F400BDAC2F /* UIFeedbackGenerator+Utility.swift */; };
@@ -202,12 +203,12 @@
 		3781895927317A54004E6BE3 /* CombinePagingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781895327317A54004E6BE3 /* CombinePagingInteractor.swift */; };
 		3781895A27317A54004E6BE3 /* CombinePagingWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781895427317A54004E6BE3 /* CombinePagingWireframe.swift */; };
 		3781895C27317D7F004E6BE3 /* UIScrollView+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781895B27317D7F004E6BE3 /* UIScrollView+Combine.swift */; };
+		37BB458928D2FCD100567159 /* AsyncPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB458828D2FCD100567159 /* AsyncPublisher.swift */; };
 		37B782A828E329F100FAF3FF /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B782A728E329F100FAF3FF /* KeyboardHandler.swift */; };
 		37B782AB28E32A4300FAF3FF /* UIEdgeInsets+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B782AA28E32A4300FAF3FF /* UIEdgeInsets+Utility.swift */; };
 		37B782AD28E32D2900FAF3FF /* KeyboardHandlingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B782AC28E32D2900FAF3FF /* KeyboardHandlingViewController.swift */; };
 		37B782B428E32E3800FAF3FF /* KeyboardHandler.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B782AF28E32E3800FAF3FF /* KeyboardHandler.storyboard */; };
 		37B782B728E32E3800FAF3FF /* KeyboardHandlerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B782B228E32E3800FAF3FF /* KeyboardHandlerViewController.swift */; };
-		37BB458928D2FCD100567159 /* AnyPublisher+AsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB458828D2FCD100567159 /* AnyPublisher+AsyncAwait.swift */; };
 		4F14006D2289FF9D0005F37A /* NSArray+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */; };
 		4F140071228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F140070228A00F60005F37A /* NSArray+FunctionalOperatorsTests.m */; };
 		4F286F812291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F286F802291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m */; };
@@ -466,8 +467,9 @@
 		37388867274F915E002CDF0D /* CombineAlertExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineAlertExample.storyboard; sourceTree = "<group>"; };
 		3739D41228D4A2F5005DBD86 /* InputFieldViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewTests.swift; sourceTree = "<group>"; };
 		3739D41528D4A362005DBD86 /* ComponentConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentConfigurable.swift; sourceTree = "<group>"; };
+		3747275A28E4874200D9999D /* CombineNotificationUnwrappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineNotificationUnwrappingTests.swift; sourceTree = "<group>"; };
 		374937A328D30D7300BDAC2F /* Publisher+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Binding.swift"; sourceTree = "<group>"; };
-		374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenterPublisher+Unwrapping.swift"; sourceTree = "<group>"; };
+		374937A528D30E4D00BDAC2F /* NotificationCenterPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterPublisher.swift; sourceTree = "<group>"; };
 		374937A828D30FE600BDAC2F /* NotificationCenter+Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Publishers.swift"; sourceTree = "<group>"; };
 		374937AD28D312CC00BDAC2F /* UIFeedbackGenerator+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFeedbackGenerator+Combine.swift"; sourceTree = "<group>"; };
 		374937B028D313F400BDAC2F /* UIFeedbackGenerator+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFeedbackGenerator+Utility.swift"; sourceTree = "<group>"; };
@@ -508,9 +510,9 @@
 		37B782AC28E32D2900FAF3FF /* KeyboardHandlingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandlingViewController.swift; sourceTree = "<group>"; };
 		37B782AF28E32E3800FAF3FF /* KeyboardHandler.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KeyboardHandler.storyboard; sourceTree = "<group>"; };
 		37B782B228E32E3800FAF3FF /* KeyboardHandlerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandlerViewController.swift; sourceTree = "<group>"; };
-		37BB458828D2FCD100567159 /* AnyPublisher+AsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+AsyncAwait.swift"; sourceTree = "<group>"; };
 		37E7990828D46A8000112F8C /* BaseInputFieldInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldInterface.swift; sourceTree = "<group>"; };
 		37E7990A28D46B4700112F8C /* BaseInputFieldConfiguratorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldConfiguratorInterface.swift; sourceTree = "<group>"; };
+		37BB458828D2FCD100567159 /* AsyncPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncPublisher.swift; sourceTree = "<group>"; };
 		4F14006A2289FF9C0005F37A /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FunctionalOperators.m"; sourceTree = "<group>"; };
 		4F14006C2289FF9C0005F37A /* NSArray+FunctionalOperators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FunctionalOperators.h"; sourceTree = "<group>"; };
@@ -1506,6 +1508,7 @@
 				374937BC28D31B3B00BDAC2F /* CombineUtilityTests.swift */,
 				374937C028D32CF500BDAC2F /* CombineBindingTests.swift */,
 				374937C228D32F0500BDAC2F /* CombineAsyncAwaitTests.swift */,
+				3747275A28E4874200D9999D /* CombineNotificationUnwrappingTests.swift */,
 			);
 			path = Combine;
 			sourceTree = "<group>";
@@ -1617,7 +1620,7 @@
 		374937A728D30FCF00BDAC2F /* NotificationCenter */ = {
 			isa = PBXGroup;
 			children = (
-				374937A528D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift */,
+				374937A528D30E4D00BDAC2F /* NotificationCenterPublisher.swift */,
 				374937A828D30FE600BDAC2F /* NotificationCenter+Publishers.swift */,
 			);
 			path = NotificationCenter;
@@ -1705,7 +1708,7 @@
 				3781895B27317D7F004E6BE3 /* UIScrollView+Combine.swift */,
 				3722CA94274D0E9E00EDC50D /* Publisher+Progressable.swift */,
 				375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */,
-				37BB458828D2FCD100567159 /* AnyPublisher+AsyncAwait.swift */,
+				37BB458828D2FCD100567159 /* AsyncPublisher.swift */,
 				374937A328D30D7300BDAC2F /* Publisher+Binding.swift */,
 				374937BA28D319FE00BDAC2F /* Combine+Traits.swift */,
 			);
@@ -2510,14 +2513,14 @@
 				0AB5241A2210AFFB00F35F52 /* Parameters+Fields.swift in Sources */,
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
 				A8FD60FD2292AFCC00FB50CE /* BaseCollectionSection.m in Sources */,
-				37BB458928D2FCD100567159 /* AnyPublisher+AsyncAwait.swift in Sources */,
+				37BB458928D2FCD100567159 /* AsyncPublisher.swift in Sources */,
 				A8FD61012292BB6D00FB50CE /* CollectionViewReloader.m in Sources */,
 				0AB5240B2210ADA700F35F52 /* Router.swift in Sources */,
 				0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */,
 				3781895927317A54004E6BE3 /* CombinePagingInteractor.swift in Sources */,
 				4F286F942291E46A00935FD3 /* NSMutableSet+FunctionalOperators.m in Sources */,
 				3715698028D474320031802F /* InputField.swift in Sources */,
-				374937A628D30E4D00BDAC2F /* NotificationCenterPublisher+Unwrapping.swift in Sources */,
+				374937A628D30E4D00BDAC2F /* NotificationCenterPublisher.swift in Sources */,
 				0AE0B75D2204365C0033A476 /* SectionItem.swift in Sources */,
 				A8D4BE8A2689A023002D8202 /* Logging.swift in Sources */,
 				0AD9EAC52204274300FF3F2C /* BaseWireframe.swift in Sources */,
@@ -2692,6 +2695,7 @@
 				536E5AD9225F311600EF01A6 /* String+SubstringTests.swift in Sources */,
 				0A1DFE55236EEA0B000F2538 /* PagingTests.swift in Sources */,
 				374937C328D32F0500BDAC2F /* CombineAsyncAwaitTests.swift in Sources */,
+				3747275B28E4874200D9999D /* CombineNotificationUnwrappingTests.swift in Sources */,
 				066C78AB24FE6C39000AC617 /* UserDefaults+PropertyWrapperTests.swift in Sources */,
 				372B1D1728D45DA8000066D2 /* MaxValueLengthValidatorTests.swift in Sources */,
 				60B4BDF22243AC7000849B8D /* Array+SafeGetTests.swift in Sources */,

@@ -41,15 +41,29 @@ public extension Publisher {
     }
 
     /// Prefixes elements of a sequence for the given `predicate` while also including the value at which the `prefix` operator stops.
-    func inclusivePrefix(while predicate: @escaping (Self.Output) -> Bool) -> AnyPublisher<Self.Output, Failure> {
-        let shared = share(replay: 1)
-        // In order to get a prefix that's inclusive, we need to make use of the `share(replay:)` operator
-        // First, we prefix as usual until we get all of the elements we want, for the given predicate.
-        // Next, we make use of the replayed sequence to get the first value which doesn't fulfill the predicate requirement.
-        return shared
-            .prefix(while: predicate)
-            .append(shared.first { !predicate($0) })
-            .eraseToAnyPublisher()
+    func inclusivePrefix(
+        while predicate: @escaping (Self.Output) -> Bool
+    ) -> Publishers.CompactMap<Publishers.PrefixWhile<Publishers.Scan<Self, (current: Optional<Self.Output>, priorWasFinal: Bool)>>, Self.Output> {
+        return self
+            .scan((current: Output?.none, priorWasFinal: false)) { state, new in
+                // state.current is only nil for the first output from upstream,
+                // in which case there was no prior element to be final.
+                let priorWasFinal = !(state.current.map(predicate) ?? true)
+                return (current: new, priorWasFinal: priorWasFinal)
+            }
+            .prefix(while: { !$0.priorWasFinal })
+            .compactMap { $0.0 }
+    }
+
+    // Can be used instead of the .share(replay:) from CombineExt which replays forever
+    /// Replays the latest value while it's connected
+    func shareReplayLatestWhileConnected(
+        // swiftlint:disable:next line_length
+    ) -> Publishers.CompactMap<Publishers.Autoconnect<Publishers.Multicast<Publishers.Map<Self, Self.Output?>, CurrentValueSubject<Self.Output?, Self.Failure>>>, Self.Output> {
+        map(Optional.some)
+            .multicast(subject: CurrentValueSubject<Output?, Failure>(nil))
+            .autoconnect()
+            .compactMap { $0 }
     }
 }
 
@@ -91,13 +105,10 @@ public extension Publisher {
     func assignWeakifed<T: AnyObject> (
         on object: T,
         errorAt errorSubject: PassthroughSubject<Error, Never>? = nil,
-        valueAt valueKeyPath: ReferenceWritableKeyPath<T, Self.Output?>? = nil
+        valueAt valueKeyPath: ReferenceWritableKeyPath<T, Self.Output?>
     ) -> AnyCancellable {
         return sink(
-            receiveValue: { [weak object] in
-                guard let keyPath = valueKeyPath else { return }
-                object?[keyPath: keyPath] = $0
-            },
+            receiveValue: { [weak object] in object?[keyPath: valueKeyPath] = $0 },
             receiveError: { errorSubject?.send($0) }
         )
     }
