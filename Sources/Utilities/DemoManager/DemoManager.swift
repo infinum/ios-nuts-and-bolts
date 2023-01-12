@@ -79,8 +79,9 @@ private extension DemoManager {
         bodyPart: [String]? = nil,
         method: HTTPMethod? = nil,
         statusCode: Int32 = 200,
-        from fileName: String? = nil
-        ) {
+        from fileName: String? = nil,
+        responseDelay: DispatchTimeInterval
+    ) {
         stub(
             condition: { (request: URLRequest) -> Bool in
                 // Method
@@ -120,9 +121,9 @@ private extension DemoManager {
 
                 let path = Bundle.main.path(forResource: fileName, ofType: "json") ?? ""
 
-                let headers = fileName == "locations" ?
-                    ["Content-Type": "text/html;charset=UTF-8"] :
-                    ["Content-Type": "application/json"]
+                let headers = fileName == "locations"
+                ? ["Content-Type": "text/html;charset=UTF-8"]
+                : ["Content-Type": "application/json"]
 
                 if !Thread.isMainThread { sleep(1) }
 
