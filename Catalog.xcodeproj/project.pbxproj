@@ -145,6 +145,7 @@
 		373E785E28F42F8400D4DF17 /* UserAuthenticatedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373E785D28F42F8400D4DF17 /* UserAuthenticatedModel.swift */; };
 		373E786028F42FA200D4DF17 /* ClientAuthenticatedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373E785F28F42FA200D4DF17 /* ClientAuthenticatedModel.swift */; };
 		373E786328F4330900D4DF17 /* NetworkSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373E786228F4330900D4DF17 /* NetworkSessionManager.swift */; };
+		375677952970319E00634754 /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375677942970319E00634754 /* NotificationNameExtensions.swift */; };
 		375C2CD9274E3BB500632EF2 /* UIAlertController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */; };
 		375C2CDC274E485C00632EF2 /* CombineAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */; };
 		3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893227316B32004E6BE3 /* Result+Combine.swift */; };
@@ -404,6 +405,7 @@
 		373E785D28F42F8400D4DF17 /* UserAuthenticatedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticatedModel.swift; sourceTree = "<group>"; };
 		373E785F28F42FA200D4DF17 /* ClientAuthenticatedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAuthenticatedModel.swift; sourceTree = "<group>"; };
 		373E786228F4330900D4DF17 /* NetworkSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManager.swift; sourceTree = "<group>"; };
+		375677942970319E00634754 /* NotificationNameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtensions.swift; sourceTree = "<group>"; };
 		375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Combine.swift"; sourceTree = "<group>"; };
 		375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineAlertExampleViewController.swift; sourceTree = "<group>"; };
 		3781893227316B32004E6BE3 /* Result+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Combine.swift"; sourceTree = "<group>"; };
@@ -1243,6 +1245,7 @@
 		0AE0B7722204772B0033A476 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				375677922970318200634754 /* Notifications */,
 				066C78A624FE6BA7000AC617 /* UserDefaults */,
 				0A1FAFEF2406B6A0000F72D6 /* Result */,
 				C2220311236AE7EF00C11B2E /* NSDate */,
@@ -1401,6 +1404,22 @@
 				373E785D28F42F8400D4DF17 /* UserAuthenticatedModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		375677922970318200634754 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				375677932970318B00634754 /* NotificationNameExtensions */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		375677932970318B00634754 /* NotificationNameExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				375677942970319E00634754 /* NotificationNameExtensions.swift */,
+			);
+			path = NotificationNameExtensions;
 			sourceTree = "<group>";
 		};
 		375C2CDA274E473E00632EF2 /* Combine Alert Controller */ = {
@@ -2200,6 +2219,7 @@
 				3722CA95274D0E9E00EDC50D /* Publisher+Progressable.swift in Sources */,
 				0AB524082210A45400F35F52 /* CollectionViewReloader.swift in Sources */,
 				373E786028F42FA200D4DF17 /* ClientAuthenticatedModel.swift in Sources */,
+				375677952970319E00634754 /* NotificationNameExtensions.swift in Sources */,
 				3781894227316BCB004E6BE3 /* CombineNetworkingInteractor.swift in Sources */,
 				0AB5241A2210AFFB00F35F52 /* Parameters+Fields.swift in Sources */,
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,

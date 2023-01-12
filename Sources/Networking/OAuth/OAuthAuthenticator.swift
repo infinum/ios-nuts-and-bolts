@@ -7,8 +7,6 @@
 //
 
 import Alamofire
-import Combine
-import Foundation
 
 public final class OAuthAuthenticator: Authenticator {
     public typealias Credential = OAuthCredential
@@ -100,7 +98,7 @@ private extension OAuthAuthenticator {
 
         // Notify and save the new model/required properties in sessionManager
         let object = ["AccessTokenRefreshed": model]
-        NotificationCenter.default.post(name: .init(rawValue: "AccessTokenRefreshed"), object: object)
+        NotificationCenter.default.post(name: .accessTokenRefreshed, object: object)
     }
 
     // Modify the ClientAuthenticatedModel to suit your needs
@@ -116,7 +114,7 @@ private extension OAuthAuthenticator {
 
         // Notify and save the new model/required properties in sessionManager
         let object = ["ClientTokenRefreshed": model]
-        NotificationCenter.default.post(name: .init(rawValue: "ClientTokenRefreshed"), object: object)
+        NotificationCenter.default.post(name: .clientTokenRefreshed, object: object)
     }
 
     static func handle(
@@ -128,6 +126,6 @@ private extension OAuthAuthenticator {
         // Notify that the session has expired
         // No actual model to send here, we just want to notify any concerning observers that we didn't manage to restore the session
         // So that we get to clean up any potential related resources
-        NotificationCenter.default.post(name: .init(rawValue: "SessionExpired"), object: nil)
+        NotificationCenter.default.post(name: .sessionExpired, object: nil)
     }
 }

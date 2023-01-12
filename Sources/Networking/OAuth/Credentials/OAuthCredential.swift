@@ -15,7 +15,7 @@ public enum OAuthCredential {
 
 // MARK: - Extensions -
 
-// MARK: AuthenticationCredential confromance
+// MARK: AuthenticationCredential conformance
 
 extension OAuthCredential: AuthenticationCredential {
 
