@@ -79,8 +79,7 @@ private extension DemoManager {
         bodyPart: [String]? = nil,
         method: HTTPMethod? = nil,
         statusCode: Int32 = 200,
-        from fileName: String? = nil,
-        responseDelay: DispatchTimeInterval
+        from fileName: String? = nil
     ) {
         stub(
             condition: { (request: URLRequest) -> Bool in
