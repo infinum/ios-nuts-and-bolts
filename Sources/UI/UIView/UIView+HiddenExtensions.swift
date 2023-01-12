@@ -41,11 +41,7 @@ public extension UIView {
     }
 
     private func setHiddenInStackView(_ hidden: Bool) {
-        if hidden {
-            hide()
-        } else {
-            show()
-        }
+        hidden ? hide() : show()
     }
 }
 

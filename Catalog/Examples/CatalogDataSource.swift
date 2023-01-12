@@ -52,10 +52,9 @@ private extension CatalogDataSource {
                 ImageFromColorViewController.self,
                 CatalogNavigationController.self,
                 ToggleViewController.self,
-                LineHeightViewController.self,
-                InputFieldViewController.self,
-                KeyboardHandlerViewController.self
+                LineHeightViewController.self
             ]
+            + createiOS14Items()
         } else {
             return [
                 RatioTransitionViewController.self,
@@ -111,6 +110,17 @@ private extension CatalogDataSource {
             CombineProgressableViewController.self,
             CombineAlertExampleViewController.self,
             CombineHapticFeedbackViewController.self
+        ]
+    }
+}
+
+@available(iOS 14, *)
+private extension CatalogDataSource {
+
+    func createiOS14Items() -> [Catalogizable.Type] {
+        return [
+            InputFieldViewController.self,
+            KeyboardHandlerViewController.self
         ]
     }
 }
