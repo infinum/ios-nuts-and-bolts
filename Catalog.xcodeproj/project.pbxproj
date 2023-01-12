@@ -136,6 +136,11 @@
 		3722CA98274D0F3500EDC50D /* CombineProgressableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */; };
 		372448C8273289D400016144 /* CombinePagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372448C7273289D400016144 /* CombinePagingTests.swift */; };
 		3738886B274F915E002CDF0D /* CombineAlertExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37388867274F915E002CDF0D /* CombineAlertExample.storyboard */; };
+		373F6A0F28E5CB0000750011 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A0E28E5CB0000750011 /* DependencyContainer.swift */; };
+		373F6A1128E5CEE600750011 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A1028E5CEE600750011 /* DependencyManager.swift */; };
+		373F6A1428E5D0E000750011 /* DemoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A1328E5D0E000750011 /* DemoManager.swift */; };
+		373F6A1628E5D15300750011 /* MockComplexSingletonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A1528E5D15300750011 /* MockComplexSingletonClass.swift */; };
+		373F6A1A28E5D4D400750011 /* DependecyManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A1928E5D4D400750011 /* DependecyManagerTest.swift */; };
 		373E785228F4196000D4DF17 /* OAuthAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373E785128F4196000D4DF17 /* OAuthAuthenticator.swift */; };
 		373E785428F4238200D4DF17 /* OAuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373E785328F4238200D4DF17 /* OAuthCredential.swift */; };
 		373E785728F4241B00D4DF17 /* OAuthUserCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373E785628F4241B00D4DF17 /* OAuthUserCredential.swift */; };
@@ -401,6 +406,11 @@
 		3722CA97274D0F3500EDC50D /* CombineProgressableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineProgressableViewController.swift; sourceTree = "<group>"; };
 		372448C7273289D400016144 /* CombinePagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingTests.swift; sourceTree = "<group>"; };
 		37388867274F915E002CDF0D /* CombineAlertExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineAlertExample.storyboard; sourceTree = "<group>"; };
+		373F6A0E28E5CB0000750011 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		373F6A1028E5CEE600750011 /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
+		373F6A1328E5D0E000750011 /* DemoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoManager.swift; sourceTree = "<group>"; };
+		373F6A1528E5D15300750011 /* MockComplexSingletonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockComplexSingletonClass.swift; sourceTree = "<group>"; };
+		373F6A1928E5D4D400750011 /* DependecyManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependecyManagerTest.swift; sourceTree = "<group>"; };
 		373E785128F4196000D4DF17 /* OAuthAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAuthenticator.swift; sourceTree = "<group>"; };
 		373E785328F4238200D4DF17 /* OAuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthCredential.swift; sourceTree = "<group>"; };
 		373E785628F4241B00D4DF17 /* OAuthUserCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthUserCredential.swift; sourceTree = "<group>"; };
@@ -1045,6 +1055,7 @@
 		0AD9EAA72204218800FF3F2C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				373F6A1828E5D4C800750011 /* Utility */,
 				372448C6273289CB00016144 /* Combine */,
 				0A1DFE53236EE9F6000F2538 /* Rx */,
 				0ADB25AE227081B800288054 /* Networking */,
@@ -1369,6 +1380,40 @@
 				372448C7273289D400016144 /* CombinePagingTests.swift */,
 			);
 			path = Combine;
+			sourceTree = "<group>";
+		};
+		373F6A0D28E5CA9F00750011 /* DependencyManager */ = {
+			isa = PBXGroup;
+			children = (
+				373F6A0E28E5CB0000750011 /* DependencyContainer.swift */,
+				373F6A1028E5CEE600750011 /* DependencyManager.swift */,
+			);
+			path = DependencyManager;
+			sourceTree = "<group>";
+		};
+		373F6A1228E5D0BF00750011 /* DemoManager */ = {
+			isa = PBXGroup;
+			children = (
+				373F6A1728E5D28400750011 /* Mocks */,
+				373F6A1328E5D0E000750011 /* DemoManager.swift */,
+			);
+			path = DemoManager;
+			sourceTree = "<group>";
+		};
+		373F6A1728E5D28400750011 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				373F6A1528E5D15300750011 /* MockComplexSingletonClass.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		373F6A1828E5D4C800750011 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				373F6A1928E5D4D400750011 /* DependecyManagerTest.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		373F69FE28E58A4000750011 /* Storage */ = {
@@ -1736,6 +1781,8 @@
 		A83B221A269D84C4005A4A91 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				373F6A1228E5D0BF00750011 /* DemoManager */,
+				373F6A0D28E5CA9F00750011 /* DependencyManager */,
 				A8D4BE6626899F38002D8202 /* Logging */,
 			);
 			path = Utilities;
@@ -2197,6 +2244,7 @@
 				0AA45E7F22188A80009CF93E /* TokenAdapter.swift in Sources */,
 				0A1DFE5E236EF5B4000F2538 /* PokemonTableViewCell.swift in Sources */,
 				D73703102316A34800D7A986 /* ImageFromColorViewController.swift in Sources */,
+				373F6A1428E5D0E000750011 /* DemoManager.swift in Sources */,
 				0A603FE22207874D00F25622 /* ClosedRange+Scalable.swift in Sources */,
 				81B01CB425EE8CB30058D8E0 /* UICollectionView+Dequeue.swift in Sources */,
 				3781895827317A54004E6BE3 /* CombinePagingViewController.swift in Sources */,
@@ -2230,6 +2278,7 @@
 				6047127E222678EA00809454 /* UITextView+ZeroInsets.swift in Sources */,
 				3781895627317A54004E6BE3 /* CombinePagingInterfaces.swift in Sources */,
 				0A1DFE5D236EF5B4000F2538 /* RxPagingViewController.swift in Sources */,
+				373F6A0F28E5CB0000750011 /* DependencyContainer.swift in Sources */,
 				A8D4BE872689A023002D8202 /* LoggingObjC.swift in Sources */,
 				0A0F24472247D5D80005CF41 /* APIService.swift in Sources */,
 				0A54436622718AB100F26468 /* RxNetworkingWireframe.swift in Sources */,
@@ -2253,6 +2302,7 @@
 				373E786028F42FA200D4DF17 /* ClientAuthenticatedModel.swift in Sources */,
 				375677952970319E00634754 /* NotificationNameExtensions.swift in Sources */,
 				3781894227316BCB004E6BE3 /* CombineNetworkingInteractor.swift in Sources */,
+				373F6A1628E5D15300750011 /* MockComplexSingletonClass.swift in Sources */,
 				0AB5241A2210AFFB00F35F52 /* Parameters+Fields.swift in Sources */,
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
 				A8FD60FD2292AFCC00FB50CE /* BaseCollectionSection.m in Sources */,
@@ -2283,6 +2333,7 @@
 				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,
 				0A54436322718AB100F26468 /* RxNetworkingViewController.swift in Sources */,
 				604712852226812100809454 /* Array+SafeGet.swift in Sources */,
+				373F6A1128E5CEE600750011 /* DependencyManager.swift in Sources */,
 				C202327E23954DB400DC3C42 /* NetworkingJapxViewController.swift in Sources */,
 				A8FD60F92292AF5000FB50CE /* BaseCollectionCellItem.m in Sources */,
 				D737030D2316A06000D7A986 /* UIColor+UIImage.swift in Sources */,
@@ -2408,6 +2459,7 @@
 				0AE0B78922049DC50033A476 /* TableDataSourceDelegateTests.swift in Sources */,
 				4F286F972291E4E500935FD3 /* NSMutableSet+FunctionalOperatorsTests.m in Sources */,
 				60B4BDF52243B78A00849B8D /* UIColor+InitHelperTests.swift in Sources */,
+				373F6A1A28E5D4D400750011 /* DependecyManagerTest.swift in Sources */,
 				0A40C5C62212F60A007AFC6C /* URL+AppendTests.swift in Sources */,
 				0A37C9AF2270882A00B50CEB /* Date+ComparisonTests.swift in Sources */,
 				0ADB25B0227081E000288054 /* RequestAdapterTests.swift in Sources */,
