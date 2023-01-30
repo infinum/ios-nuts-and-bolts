@@ -14,6 +14,10 @@ analyzer_rules:
   - unused_optional_binding
   - unused_setter_value
 
+disabled_rules:
+  - trailing_whitespace # Generates >600 warnings
+  - unused_capture_list # False positives with implicit unowned self
+
 only_rules:
   - array_init
   - attributes
@@ -186,3 +190,7 @@ type_name:
   max_length:
     warning: 60
     error: 1000
+nesting:
+  type_level:
+    warning: 3
+    error: 5

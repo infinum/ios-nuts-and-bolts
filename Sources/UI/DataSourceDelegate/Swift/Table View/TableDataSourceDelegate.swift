@@ -121,11 +121,11 @@ extension TableDataSourceDelegate: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return sections?[section].headerView(from:tableView, at:section)
+        return sections?[section].headerView(from: tableView, at: section)
     }
     
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return sections?[section].footerView(from:tableView, at:section)
+        return sections?[section].footerView(from: tableView, at: section)
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
