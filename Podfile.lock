@@ -27,6 +27,11 @@ PODS:
   - OHHTTPStubs/Swift (9.1.0):
     - OHHTTPStubs/Default
   - Quick (5.0.1)
+  - Realm (10.34.1):
+    - Realm/Headers (= 10.34.1)
+  - Realm/Headers (10.34.1)
+  - RealmSwift (10.34.1):
+    - Realm (= 10.34.1)
   - RxBlocking (6.2.0):
     - RxSwift (= 6.2.0)
   - RxCocoa (6.2.0):
@@ -57,6 +62,7 @@ DEPENDENCIES:
   - Nimble
   - OHHTTPStubs/Swift
   - Quick
+  - RealmSwift
   - RxBlocking
   - RxCocoa
   - RxNimble
@@ -76,6 +82,8 @@ SPEC REPOS:
     - Nimble
     - OHHTTPStubs
     - Quick
+    - Realm
+    - RealmSwift
     - RxBlocking
     - RxCocoa
     - RxNimble
@@ -95,6 +103,8 @@ SPEC CHECKSUMS:
   Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
   OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
   Quick: 749aa754fd1e7d984f2000fe051e18a3a9809179
+  Realm: fe824cd5b183cd55a50a6bcb4bce3ac1650e60b6
+  RealmSwift: c7f668f82982fc8b62366b78b8dc761f15141df6
   RxBlocking: 0b29f7d2079109a8de49c411381bed7c33ef1eeb
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxNimble: 60c8162b1518306a11d0c272a65ade133b209670
@@ -103,6 +113,6 @@ SPEC CHECKSUMS:
   RxTest: 0c692fa672b694373ba86d2b00033595297a2831
   SwiftI18n: 67d3b531548924f5a562660e938d76f42e6493f7
 
-PODFILE CHECKSUM: d7ff096c012b18873e5020efd4d2a164a1d92af7
+PODFILE CHECKSUM: 7731833cc4f6e380f70a9d2fa546419a922c2c6c
 
 COCOAPODS: 1.11.3
