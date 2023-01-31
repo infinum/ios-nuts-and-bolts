@@ -51,6 +51,7 @@ private extension CatalogDataSource {
             ImageFromColorViewController.self,
             CatalogNavigationController.self,
             ToggleViewController.self,
+            ConstraintsViewController.self,
             LineHeightViewController.self
         ]
     }
