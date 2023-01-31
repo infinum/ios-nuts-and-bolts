@@ -32,8 +32,8 @@ private extension RoundCornersViewController {
         view.addSubview(sampleView)
         
         let insets = UIEdgeInsets(top: 200, left: 50, bottom: -100, right: -50)
-        sampleView.pinToSuperview(insets: insets)
-        
+        sampleView.constraintWhichFitSuperview(insets: insets).activateAll()
+
         sampleView.backgroundColor = .green
         
         sampleView.layer.masksToBounds = true
