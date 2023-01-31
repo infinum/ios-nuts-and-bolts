@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol LayoutFromCode: UIView {
+public protocol Layoutable: UIView {
 
     /// Returns this view with 'translatesAutoresizingMaskIntoConstraints' set to false
     func autoLayoutable(preservesMargins: Bool?) -> Self
@@ -17,7 +17,7 @@ public protocol LayoutFromCode: UIView {
     func makeAutoautoLayoutable(preservesMargins: Bool?)
 }
 
-public extension LayoutFromCode {
+public extension Layoutable {
 
     /// Returns this view with 'translatesAutoresizingMaskIntoConstraints' set to false
     func autoLayoutable() -> Self {
@@ -32,9 +32,9 @@ public extension LayoutFromCode {
 
 // MARK: - Conformances
 
-extension UIView: LayoutFromCode {}
+extension UIView: Layoutable {}
 
-public extension LayoutFromCode where Self: UIView {
+public extension Layoutable where Self: UIView {
 
     func autoLayoutable(preservesMargins: Bool?) -> Self {
         makeAutoautoLayoutable(preservesMargins: preservesMargins)
