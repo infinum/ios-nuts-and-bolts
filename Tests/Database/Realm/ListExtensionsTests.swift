@@ -6,12 +6,12 @@ import RealmSwift
 final class ListExtensionsTests: XCTestCase {
 
     func testCreateRealmListFromArray() {
-        let list = List([User(), User(), User()])
+        let list = List([UserDB(), UserDB(), UserDB()])
         XCTAssertEqual(list.count, 3)
     }
 
     func testRemoveFromRealmList() {
-        let items = [User(), User(), User()]
+        let items = [UserDB(), UserDB(), UserDB()]
         let list = List(items)
 
         let toRemove = items.first!

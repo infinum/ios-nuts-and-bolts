@@ -270,6 +270,8 @@
 		FA8892CD298BDD2000283B02 /* CascadeDeleteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892CC298BDD2000283B02 /* CascadeDeleteTests.swift */; };
 		FA8892D0298BDD2D00283B02 /* RealmCascadeDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892CE298BDD2A00283B02 /* RealmCascadeDelete.swift */; };
 		FA8892D4298BDEB900283B02 /* ValidatedDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892D2298BDDF700283B02 /* ValidatedDelete.swift */; };
+		FA8892DD298BE63F00283B02 /* BookDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892DB298BE63B00283B02 /* BookDB.swift */; };
+		FA8892DE298BE64100283B02 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892D9298BE62F00283B02 /* UserDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -579,6 +581,8 @@
 		FA8892CC298BDD2000283B02 /* CascadeDeleteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CascadeDeleteTests.swift; sourceTree = "<group>"; };
 		FA8892CE298BDD2A00283B02 /* RealmCascadeDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCascadeDelete.swift; sourceTree = "<group>"; };
 		FA8892D2298BDDF700283B02 /* ValidatedDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatedDelete.swift; sourceTree = "<group>"; };
+		FA8892D9298BE62F00283B02 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
+		FA8892DB298BE63B00283B02 /* BookDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2075,10 +2079,10 @@
 		FA2586A92982C4AF00CFA350 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				FA8892D8298BE62300283B02 /* Schema */,
 				FA8892D1298BDDE600283B02 /* Protocols */,
 				FA2586AE2982C58700CFA350 /* Extensions */,
 				FA2586AB2982C4D200CFA350 /* Database.swift */,
-				FA2586AA2982C4D200CFA350 /* SchemaVersion.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -2101,6 +2105,16 @@
 				FA8892D2298BDDF700283B02 /* ValidatedDelete.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FA8892D8298BE62300283B02 /* Schema */ = {
+			isa = PBXGroup;
+			children = (
+				FA2586AA2982C4D200CFA350 /* SchemaVersion.swift */,
+				FA8892D9298BE62F00283B02 /* UserDB.swift */,
+				FA8892DB298BE63B00283B02 /* BookDB.swift */,
+			);
+			path = Schema;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2462,6 +2476,7 @@
 				CC80F7212438CABF00A3F276 /* ToggleInterfaces.swift in Sources */,
 				0A1FB0032406C015000F72D6 /* URLRequest+LogRepresentation.swift in Sources */,
 				0A40C5C42212EC29007AFC6C /* URLQueryItemsEncoding.swift in Sources */,
+				FA8892DE298BE64100283B02 /* UserDB.swift in Sources */,
 				0AD9EAC62204274300FF3F2C /* PresenterInterface.swift in Sources */,
 				0AE0B775220477E40033A476 /* Array+Rotate.swift in Sources */,
 				0AE0B74E22042D5E0033A476 /* CatalogWireframe.swift in Sources */,
@@ -2519,6 +2534,7 @@
 				81B01CA925EE8B190058D8E0 /* AssociableCollectionCellItem.swift in Sources */,
 				0AE0B759220435FA0033A476 /* TableDataSourceDelegate.swift in Sources */,
 				0AE0B77D2204803D0033A476 /* String+Blank.swift in Sources */,
+				FA8892DD298BE63F00283B02 /* BookDB.swift in Sources */,
 				4F286F812291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m in Sources */,
 				0A0F24452247CE5D0005CF41 /* Routable.swift in Sources */,
 				0A1FAFF42406B705000F72D6 /* DataRequest+Decodable.swift in Sources */,

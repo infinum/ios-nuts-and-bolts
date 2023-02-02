@@ -4,20 +4,20 @@ import RealmSwift
 
 class CascadeDeleteTests: XCTestCase {
     var realm: Realm!
-    var user: User!
+    var user: UserDB!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         realm = try Realm(configuration: .inMemory(name: name))
         user = try realm.write {
-            let user = User()
-            let book = Book()
+            let user = UserDB()
+            let book = BookDB()
             user.books.append(book)
             realm.add(user)
             return user
         }
-        XCTAssertEqual(realm.objects(User.self).count, 1)
-        XCTAssertEqual(realm.objects(Book.self).count, 1)
+        XCTAssertEqual(realm.objects(UserDB.self).count, 1)
+        XCTAssertEqual(realm.objects(BookDB.self).count, 1)
     }
 
     override func tearDownWithError() throws {
@@ -31,8 +31,8 @@ class CascadeDeleteTests: XCTestCase {
 
         try realm.write { realm.cascadeDelete(user) }
 
-        XCTAssertEqual(realm.objects(User.self).count, 0)
-        XCTAssertEqual(realm.objects(Book.self).count, 0)
+        XCTAssertEqual(realm.objects(UserDB.self).count, 0)
+        XCTAssertEqual(realm.objects(BookDB.self).count, 0)
     }
 
     func testDeletesUserButNotBooks() throws {
@@ -40,7 +40,7 @@ class CascadeDeleteTests: XCTestCase {
 
         try realm.write { realm.cascadeDelete(user) }
 
-        XCTAssertEqual(realm.objects(User.self).count, 0)
-        XCTAssertEqual(realm.objects(Book.self).count, 1)
+        XCTAssertEqual(realm.objects(UserDB.self).count, 0)
+        XCTAssertEqual(realm.objects(BookDB.self).count, 1)
     }
 }
