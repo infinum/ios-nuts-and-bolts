@@ -51,13 +51,13 @@ extension CombinePagingPresenter: CombinePagingPresenterInterface, PageablePrese
                     }
                 )
                 .map { $0.map { $0 as! Pokemon } }
-                .map({ [unowned self] in createPokemonCellItems(pokemons: $0)})
+                .map({ [unowned self] in createPokemonCellItems(pokemon: $0)})
                 .eraseToAnyPublisher()
         )
     }
     
-    private func createPokemonCellItems(pokemons: [Pokemon]) -> [PokemonTableCellItem] {
-        return pokemons.map { PokemonTableCellItem(pokemon: $0) }
+    private func createPokemonCellItems(pokemon: [Pokemon]) -> [PokemonTableCellItem] {
+        return pokemon.map { PokemonTableCellItem(pokemon: $0) }
     }
     
     private func handleFetchNextData(lastPage: (any Page)?) -> AnyPublisher<any Page, PagingError> {
@@ -65,7 +65,7 @@ extension CombinePagingPresenter: CombinePagingPresenterInterface, PageablePrese
         let url = lastPage?.next?.absoluteString ?? "https://pokeapi.co/api/v2/pokemon?limit=60"
         let router = Router(baseUrl: url, path: "")
         return interactor
-            .getPokemons(router: router)
+            .getPokemon(router: router)
             .mapError { _ in return PagingError.network }
             .map { $0 as (any Page) }
             .eraseToAnyPublisher()

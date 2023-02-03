@@ -66,13 +66,13 @@ private extension RxPagingViewController {
         let willDisplayLastCell = tableView.rx
             .reachedBottomOnceWith(restart: pullToRefresh)
 
-        let pokemons = pokemonsPaging(
+        let pokemon = pokemonPaging(
             loadNextPage: willDisplayLastCell,
             reload: pullToRefresh,
             sort: sort
         )
 
-        pokemons
+        pokemon
             .map { $0.map(PokemonTableCellItem.init) }
             .do(onNext: { [unowned self] _ in self.endRefreshing() })
             .bind(to: tableDataSource.rx.items)
@@ -84,10 +84,10 @@ private extension RxPagingViewController {
 private extension RxPagingViewController {
 
     typealias Container = [Pokemon]
-    typealias Page = PokemonsPage
+    typealias Page = PokemonPage
     typealias PagingEvent = Paging.Event<Container>
 
-    func pokemonsPaging(loadNextPage: Driver<Void>, reload: Driver<Void>, sort: Driver<Bool>) -> Observable<[Pokemon]> {
+    func pokemonPaging(loadNextPage: Driver<Void>, reload: Driver<Void>, sort: Driver<Bool>) -> Observable<[Pokemon]> {
         let sortItems = sort.map { ascending in
             return PagingEvent.update { ascending ? $0.sorted() : $0.sorted().reversed() }
         }
@@ -99,7 +99,7 @@ private extension RxPagingViewController {
                 sortItems
             )
 
-        func nextPage(container: Container, lastPage: Page?) -> Single<PokemonsPage> {
+        func nextPage(container: Container, lastPage: Page?) -> Single<PokemonPage> {
             // Fetch pokemons in batch of 60, no last page represents inital load
             let url = lastPage?.next?.absoluteString ?? "https://pokeapi.co/api/v2/pokemon?limit=60"
             let router = Router(baseUrl: url, path: "")
@@ -107,7 +107,7 @@ private extension RxPagingViewController {
             return APIService
                 .instance
                 .rx.request(
-                    PokemonsPage.self,
+                    PokemonPage.self,
                     router: router,
                     session: Session.default
                 )

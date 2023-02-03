@@ -23,8 +23,9 @@ protocol PageablePresenter {
         nextPagePublisher: AnyPublisher<Void, Never>,
         reloadPublisher: AnyPublisher<Void, Never>,
         nextPage: @escaping PageableResultClosure,
-        hasNextPage: @escaping HasNextPageClosure
-    ) -> AnyPublisher<[Pageable], PagingError>
+        hasNextPage: @escaping HasNextPageClosure,
+        startingWith: Container
+    ) -> AnyPublisher<Container, PagingError>
 }
 
 @available(iOS 13.0, *)
@@ -35,12 +36,19 @@ extension PageablePresenter {
         nextPagePublisher: AnyPublisher<Void, Never>,
         reloadPublisher: AnyPublisher<Void, Never>,
         nextPage: @escaping PageableResultClosure,
-        hasNextPage: @escaping HasNextPageClosure
-    ) -> AnyPublisher<[Pageable], PagingError> {
+        hasNextPage: @escaping HasNextPageClosure,
+        startingWith: Container = []
+    ) -> AnyPublisher<Container, PagingError> {
         
-        let shows = page(loadNextPage: nextPagePublisher, reload: reloadPublisher, nextPage: nextPage, hasNextPage: hasNextPage)
+        let items = page(
+            loadNextPage: nextPagePublisher,
+            reload: reloadPublisher,
+            nextPage: nextPage,
+            hasNextPage: hasNextPage,
+            startingWith: startingWith
+        )
         
-        return shows
+        return items
             .compactMap { $0 }
             .eraseToAnyPublisher()
     }
@@ -49,8 +57,9 @@ extension PageablePresenter {
         loadNextPage: AnyPublisher<Void, Never>,
         reload: AnyPublisher<Void, Never>,
         nextPage: @escaping PageableResultClosure,
-        hasNextPage: @escaping HasNextPageClosure
-    ) -> AnyPublisher<[Pageable], PagingError> {
+        hasNextPage: @escaping HasNextPageClosure,
+        startingWith: Container = []
+    ) -> AnyPublisher<Container, PagingError> {
         
         let loadNewEvent = loadNextPage.map { _ in CombinePaging.Event<Container>.nextPage }
         let reloadEvent = reload.map { _ in CombinePaging.Event<Container>.reload }
@@ -73,7 +82,7 @@ extension PageablePresenter {
         return CombinePaging
             .page(
                 make: nextPage,
-                startingWith: [],
+                startingWith: startingWith,
                 joining: accumulator,
                 while: hasNext,
                 on: events

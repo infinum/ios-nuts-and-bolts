@@ -18,7 +18,7 @@ struct Pokemon: Comparable, Hashable, Pageable {
     }
 }
 
-struct PokemonsPage: Decodable, Page {
+struct PokemonPage: Decodable, Page {
     
     let count: Int
     let next: URL?

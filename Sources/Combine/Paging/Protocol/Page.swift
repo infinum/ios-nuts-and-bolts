@@ -10,10 +10,10 @@ import Foundation
 
 /// Defines template for page
 protocol Page where Item: Pageable {
-    
+
     /// Constraint results to types that conform to Pageable
     associatedtype Item
-    
+
     var count: Int { get }
     var next: URL? { get }
     var previous: URL? { get }
