@@ -16,10 +16,11 @@ class SecurityTimer {
 
     // MARK: - Public properties
     
-    let timeInterval: TimeInterval
     var eventHandler: (() -> Void)?
     
     // MARK: - Private properties
+    
+    private let timeInterval: TimeInterval
 
     private lazy var timer: DispatchSourceTimer = {
         let timerSource = DispatchSource.makeTimerSource()
