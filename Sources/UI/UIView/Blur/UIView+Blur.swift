@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public extension UIView {
+extension UIView {
     
     /// Adds blurred view to the current view at BlurPosition with UIBlurEffect.Style
     ///
@@ -18,6 +18,7 @@ public extension UIView {
     ///   - position: BlurPosition at which blurEffectView will be inserted
     ///   - animated: Show blur overlay animated
     func blur(style: UIBlurEffect.Style = .regular, at position: BlurPosition, animated: Bool = false) {
+        guard viewWithTag(position.rawValue) == nil else { return }
         let blurEffect = UIBlurEffect(style: style)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = frame
