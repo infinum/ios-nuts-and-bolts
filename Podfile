@@ -2,6 +2,10 @@ platform :ios, '11.0'
 use_frameworks!
 inhibit_all_warnings!
 
+def other
+  pod 'Factory'
+end
+
 def ui
   pod 'MBProgressHUD'
 end
@@ -9,6 +13,7 @@ end
 def networking
   pod 'Loggie'
   pod 'Japx/RxAlamofire'
+  pod 'OHHTTPStubs/Swift'
 end
 
 def security
@@ -40,6 +45,7 @@ def shared
   localization
   ui
   security
+  other
 end
 
 target 'Catalog' do
