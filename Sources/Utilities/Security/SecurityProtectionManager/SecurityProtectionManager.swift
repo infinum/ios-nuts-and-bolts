@@ -52,10 +52,11 @@ extension SecurityProtectionManager {
     
     /// Initiates full application security which consist of multiple layers of security.
     ///
-    /// - Parameter window: UIWindow on which blur will be applied
-    func initiateFullSecurity(in window: UIWindow?) {
+    /// - Parameter window: UIWindow on which blur will be applied.
+    /// - Parameter blurProtectionType: BlurProtectionType to specify which type of blur protection should be applied.
+    func initiateFullSecurity(in window: UIWindow?, blurProtectionType: BlurProtectionType = .securityBased) {
         guard !isSimulator else { return }
-        protectAppInBackground(window: window)
+        protectAppInBackground(window: window, blurProtectionType: blurProtectionType)
         biometricChangesCheck()
         firstLevelSystemCheck()
         initiatePeriodicSystemCheck()
@@ -93,29 +94,35 @@ private extension SecurityProtectionManager {
     /// Handles background app state. Adds or removes the blur based on app state and security system states.
     ///
     /// - Parameter window: window on which blur will be applied
-    func protectAppInBackground(window: UIWindow?) {
-        // In modified OS version, blur everything when the app becomes inactive
-        let inModified = UIApplication.rx
-            .willResignActive
-            .filter { Self.shouldAddBlur(for: .offline) }
-            .mapTo(true)
+    func protectAppInBackground(window: UIWindow?, blurProtectionType: BlurProtectionType) {
+        let applyBlurOnWillResignActive = UIApplication.rx.willResignActive
+            .filter {
+                switch blurProtectionType {
+                case .always: return true
+                case .inBackgroundOnly: return false
+                case .securityBased: return Self.shouldAddBlur(for: .offline)
+                }
+            }
 
-        // Non modified version is secured from the attack, so keep blur only when the app goes to the background
-        let inNonModified = UIApplication.rx
-            .didEnterBackground
-            .filter { Self.shouldAddBlur(for: .online) }
-            .mapTo(false)
-
-        handleAddBlur(animated: Observable.merge(inModified, inNonModified), in: window)
+        let applyBlurOnDidEnterBackground = UIApplication.rx.didEnterBackground
+            .filter {
+                switch blurProtectionType {
+                case .always: return true
+                case .inBackgroundOnly: return true
+                case .securityBased: return Self.shouldAddBlur(for: .online)
+                }
+            }
+        handleAddBlur(animated: Observable.merge(applyBlurOnWillResignActive.mapTo(true), applyBlurOnDidEnterBackground.mapTo(false)), in: window)
         handleRemoveBlur(in: window)
     }
 
+    // TODO: Add biometric check if app is using biometric. Otherwise, remove this method.
     /// Checks biometrics state every time app becomes active.
     ///
     func biometricChangesCheck() {
         UIApplication.rx.didBecomeActive
-            .subscribe(onNext: { [unowned self] in
-                checkBiometricsState()
+            .subscribe(onNext: {
+                // Logic implementation
             })
             .disposed(by: disposeBag)
     }
@@ -146,7 +153,7 @@ private extension SecurityProtectionManager {
     func checkSystemChange() {
         guard SecurityService.ServiceStatus.firstLevel == .offline else { return }
         // Device is Jailbroken
-        // Add custom logic for showing alert or restricting access to the application.
+        // TODO: Add custom logic for showing alert or restricting access to the application.
     }
     
     func handleAddBlur(animated: Observable<Bool>, in window: UIWindow?) {
@@ -167,33 +174,6 @@ private extension SecurityProtectionManager {
                 })
             })
             .disposed(by: disposeBag)
-    }
-    
-}
-
-// MARK: - Biometrics helpers
-
-// Uncomment code below if your project uses Locker
-
-private extension SecurityProtectionManager {
-    
-    func checkBiometricsState() {
-//        let canUseBiometrics = TokenHelper.canUseBiometricsAuthentication
-//        let shouldUseBiometrics = Locker.shouldUseAuthenticationWithBiometrics(for: Locker.identifier)
-//        || TokenHelper.shouldUseAuthenticationWithBiometrics
-//        let biometricsDisabledNotified = UserStoreManager.biometricsDisabledNotified
-//
-//        // Notify user that biometrics is disabled from OS
-//        if !canUseBiometrics && shouldUseBiometrics && !biometricsDisabledNotified {
-//            handleBiometricsDisabled()
-//        } else if canUseBiometrics && shouldUseBiometrics {
-//            // Biometrics is re-enabled. Reset the flag!
-//            UserStoreManager.biometricsDisabledNotified = false
-//        }
-    }
-    
-    func handleBiometricsDisabled() {
-        // Add code here to handle disabled biometrics
     }
     
 }
