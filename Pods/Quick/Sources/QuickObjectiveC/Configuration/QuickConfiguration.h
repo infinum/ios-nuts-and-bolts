@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class QCKConfiguration;
+@class Configuration;
 
 /**
  Subclass QuickConfiguration and override the +[QuickConfiguration configure:]
@@ -23,8 +23,8 @@
 
  @param configuration A mutable object that is used to configure how Quick behaves on
                       a framework level. For details on all the options, see the
-                      documentation in QCKConfiguration.swift.
+                      documentation in Configuration.swift.
  */
-+ (void)configure:(QCKConfiguration *)configuration;
++ (void)configure:(Configuration *)configuration;
 
 @end

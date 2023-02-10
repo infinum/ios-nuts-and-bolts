@@ -24,10 +24,6 @@ static QuickSpec *currentSpec = nil;
  @return An array of invocations that execute the newly defined example methods.
  */
 + (NSArray *)testInvocations {
-    // Xcode 13.3 hack, see this issue for more info: https://github.com/Quick/Quick/issues/1123
-    // In case of fix in later versions next line can be removed
-    [[QuickTestObservation sharedInstance] buildAllExamplesIfNeeded];
-
     NSArray *examples = [[World sharedWorld] examplesForSpecClass:[self class]];
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
     
@@ -67,7 +63,7 @@ static QuickSpec *currentSpec = nil;
     World *world = [World sharedWorld];
 
     if ([world isRootExampleGroupInitializedForSpecClass:[self class]]) {
-        // The examples for this subclass have been already built. Skipping.
+        // The examples fot this subclass have been already built. Skipping.
         return;
     }
 
@@ -133,33 +129,36 @@ static QuickSpec *currentSpec = nil;
     return selector;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 /**
  This method is used to record failures, whether they represent example
  expectations that were not met, or exceptions raised during test setup
  and teardown. By default, the failure will be reported as an
  XCTest failure, and the example will be highlighted in Xcode.
  */
-- (void)recordIssue:(XCTIssue *)issue {
+- (void)recordFailureWithDescription:(NSString *)description
+                              inFile:(NSString *)filePath
+                              atLine:(NSUInteger)lineNumber
+                            expected:(BOOL)expected {
     if (self != [QuickSpec current]) {
-        [[QuickSpec current] recordIssue:issue];
+        [[QuickSpec current] recordFailureWithDescription:description
+                                                   inFile:filePath
+                                                   atLine:lineNumber
+                                                 expected:expected];
         return;
     }
 
     if (self.example.isSharedExample) {
-        XCTSourceCodeLocation *location = [[XCTSourceCodeLocation alloc] initWithFilePath:self.example.callsite.file
-                                                                               lineNumber:self.example.callsite.line];
-        XCTSourceCodeContext *sourceCodeContext = [[XCTSourceCodeContext alloc] initWithLocation:location];
-        XCTIssue *newIssue = [[XCTIssue alloc] initWithType:issue.type
-                                         compactDescription:issue.compactDescription
-                                        detailedDescription:issue.detailedDescription
-                                          sourceCodeContext:sourceCodeContext
-                                            associatedError:issue.associatedError
-                                                attachments:issue.attachments];
-        [super recordIssue:newIssue];
-    } else {
-        [super recordIssue:issue];
+        filePath = self.example.callsite.file;
+        lineNumber = self.example.callsite.line;
     }
+    [super recordFailureWithDescription:description
+                                 inFile:filePath
+                                 atLine:lineNumber
+                               expected:expected];
 }
+#pragma clang diagnostic pop
 
 @end
 
