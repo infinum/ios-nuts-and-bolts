@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        securityProtectionManager.checkSystemStatus()
         window = createInitialWindow()
+        securityProtectionManager.checkSystemStatus()
         securityProtectionManager.initiateFullSecurity(in: window)
         return true
     }
