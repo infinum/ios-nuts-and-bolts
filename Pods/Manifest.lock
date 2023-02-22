@@ -2,7 +2,8 @@ PODS:
   - Alamofire (5.4.3)
   - CombineCocoa (0.4.0)
   - CombineExt (1.5.1)
-  - Factory (1.2.8)
+  - Factory (1.3.6)
+  - IOSSecuritySuite (1.9.5)
   - Japx/Alamofire (4.0.0):
     - Alamofire
     - Japx/Core
@@ -26,7 +27,7 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (9.1.0)
   - OHHTTPStubs/Swift (9.1.0):
     - OHHTTPStubs/Default
-  - Quick (5.0.1)
+  - Quick (4.0.0)
   - RxBlocking (6.2.0):
     - RxSwift (= 6.2.0)
   - RxCocoa (6.2.0):
@@ -51,6 +52,7 @@ DEPENDENCIES:
   - CombineCocoa
   - CombineExt
   - Factory
+  - IOSSecuritySuite
   - Japx/RxAlamofire
   - Loggie
   - MBProgressHUD
@@ -70,6 +72,7 @@ SPEC REPOS:
     - CombineCocoa
     - CombineExt
     - Factory
+    - IOSSecuritySuite
     - Japx
     - Loggie
     - MBProgressHUD
@@ -88,13 +91,14 @@ SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   CombineCocoa: 68a050228ce7c53c1c5ac2c57cccf92a7f5c5085
   CombineExt: e081b93f38f507660550e001531a049a6825f63e
-  Factory: 7bffa5f381d923eabeb750fc8f7920a4bc443220
+  Factory: cd65aeedf349b1869274b4910d832f6f07724782
+  IOSSecuritySuite: 1c04c80a45c9f8899909c70854c05e992acc34aa
   Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
   Loggie: 12ed0ea1f90590b627bb2f4b8aeb983c112a7c8d
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
   OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
-  Quick: 749aa754fd1e7d984f2000fe051e18a3a9809179
+  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   RxBlocking: 0b29f7d2079109a8de49c411381bed7c33ef1eeb
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxNimble: 60c8162b1518306a11d0c272a65ade133b209670
@@ -103,6 +107,6 @@ SPEC CHECKSUMS:
   RxTest: 0c692fa672b694373ba86d2b00033595297a2831
   SwiftI18n: 67d3b531548924f5a562660e938d76f42e6493f7
 
-PODFILE CHECKSUM: d7ff096c012b18873e5020efd4d2a164a1d92af7
+PODFILE CHECKSUM: d4f2d58c9944572454f0d95c5030e5f26afe79e4
 
 COCOAPODS: 1.11.3
