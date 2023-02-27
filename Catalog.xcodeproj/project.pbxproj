@@ -267,6 +267,10 @@
 		FA3B914229AC9F1200ECFFA4 /* ThrowingTaskPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914029AC9F1200ECFFA4 /* ThrowingTaskPublisher.swift */; };
 		FA3B914329AC9F1200ECFFA4 /* TaskPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914129AC9F1200ECFFA4 /* TaskPublisher.swift */; };
 		FA3B914529AC9F4500ECFFA4 /* TaskPublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914429AC9F4500ECFFA4 /* TaskPublisherTests.swift */; };
+		FA3B914729ACA66800ECFFA4 /* RealmCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914629ACA66800ECFFA4 /* RealmCombine.swift */; };
+		FA3B914929ACA80C00ECFFA4 /* NotFoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914829ACA80C00ECFFA4 /* NotFoundError.swift */; };
+		FA3B914B29ACA9D300ECFFA4 /* RealmCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914A29ACA9D300ECFFA4 /* RealmCRUD.swift */; };
+		FA3B914D29ACAAF000ECFFA4 /* RealmCRUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914C29ACAAF000ECFFA4 /* RealmCRUDTests.swift */; };
 		FA8892C7298BDA5300283B02 /* ListExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892C6298BDA5300283B02 /* ListExtensions.swift */; };
 		FA8892C9298BDABE00283B02 /* ListExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892C8298BDABE00283B02 /* ListExtensionsTests.swift */; };
 		FA8892CB298BDB3B00283B02 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892CA298BDB3B00283B02 /* Helpers.swift */; };
@@ -581,6 +585,10 @@
 		FA3B914029AC9F1200ECFFA4 /* ThrowingTaskPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowingTaskPublisher.swift; sourceTree = "<group>"; };
 		FA3B914129AC9F1200ECFFA4 /* TaskPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskPublisher.swift; sourceTree = "<group>"; };
 		FA3B914429AC9F4500ECFFA4 /* TaskPublisherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskPublisherTests.swift; sourceTree = "<group>"; };
+		FA3B914629ACA66800ECFFA4 /* RealmCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCombine.swift; sourceTree = "<group>"; };
+		FA3B914829ACA80C00ECFFA4 /* NotFoundError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundError.swift; sourceTree = "<group>"; };
+		FA3B914A29ACA9D300ECFFA4 /* RealmCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCRUD.swift; sourceTree = "<group>"; };
+		FA3B914C29ACAAF000ECFFA4 /* RealmCRUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCRUDTests.swift; sourceTree = "<group>"; };
 		FA8892C6298BDA5300283B02 /* ListExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExtensions.swift; sourceTree = "<group>"; };
 		FA8892C8298BDABE00283B02 /* ListExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExtensionsTests.swift; sourceTree = "<group>"; };
 		FA8892CA298BDB3B00283B02 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -2072,6 +2080,7 @@
 				FA08410F2987C86C0042F476 /* SchemaVersionTests.swift */,
 				FA8892C8298BDABE00283B02 /* ListExtensionsTests.swift */,
 				FA8892CA298BDB3B00283B02 /* Helpers.swift */,
+				FA3B914C29ACAAF000ECFFA4 /* RealmCRUDTests.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -2091,6 +2100,7 @@
 				FA8892D1298BDDE600283B02 /* Protocols */,
 				FA2586AE2982C58700CFA350 /* Extensions */,
 				FA2586AB2982C4D200CFA350 /* Database.swift */,
+				FA3B914829ACA80C00ECFFA4 /* NotFoundError.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -2103,6 +2113,8 @@
 				FA2586AF2982C59700CFA350 /* DispatchQueueExtensions.swift */,
 				FA2586B32982CAED00CFA350 /* MigrationObjectExtensions.swift */,
 				FA8892C6298BDA5300283B02 /* ListExtensions.swift */,
+				FA3B914629ACA66800ECFFA4 /* RealmCombine.swift */,
+				FA3B914A29ACA9D300ECFFA4 /* RealmCRUD.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2388,6 +2400,7 @@
 				0612E33F22D32A750081BCF6 /* UIViewModifiersViewController.swift in Sources */,
 				FA8892D4298BDEB900283B02 /* ValidatedDelete.swift in Sources */,
 				FA3B914329AC9F1200ECFFA4 /* TaskPublisher.swift in Sources */,
+				FA3B914B29ACA9D300ECFFA4 /* RealmCRUD.swift in Sources */,
 				0A1FAFF92406BB6F000F72D6 /* SessionManager.swift in Sources */,
 				0AB524222210B3CB00F35F52 /* URL+Append.swift in Sources */,
 				0A1DFE4F236EE8C5000F2538 /* Signal+Utility.swift in Sources */,
@@ -2428,6 +2441,7 @@
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
 				A8FD60FD2292AFCC00FB50CE /* BaseCollectionSection.m in Sources */,
 				A8FD61012292BB6D00FB50CE /* CollectionViewReloader.m in Sources */,
+				FA3B914729ACA66800ECFFA4 /* RealmCombine.swift in Sources */,
 				0AB5240B2210ADA700F35F52 /* Router.swift in Sources */,
 				0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */,
 				3781895927317A54004E6BE3 /* CombinePagingInteractor.swift in Sources */,
@@ -2554,6 +2568,7 @@
 				0AE0B759220435FA0033A476 /* TableDataSourceDelegate.swift in Sources */,
 				0AE0B77D2204803D0033A476 /* String+Blank.swift in Sources */,
 				FA8892DD298BE63F00283B02 /* BookDB.swift in Sources */,
+				FA3B914929ACA80C00ECFFA4 /* NotFoundError.swift in Sources */,
 				4F286F812291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m in Sources */,
 				0A0F24452247CE5D0005CF41 /* Routable.swift in Sources */,
 				0A1FAFF42406B705000F72D6 /* DataRequest+Decodable.swift in Sources */,
@@ -2565,6 +2580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F286F8D2291E33600935FD3 /* NSSet+FunctionalOperatorsTests.m in Sources */,
+				FA3B914D29ACAAF000ECFFA4 /* RealmCRUDTests.swift in Sources */,
 				536E5ADB225F334300EF01A6 /* String+Inserting.swift in Sources */,
 				536E5ACE225F2CF500EF01A6 /* Date+AdditionTests.swift in Sources */,
 				372448C8273289D400016144 /* CombinePagingTests.swift in Sources */,
