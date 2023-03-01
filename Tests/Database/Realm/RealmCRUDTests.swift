@@ -16,7 +16,7 @@ final class RealmCRUDTests: XCTestCase {
     }
 
     func testFindExistingObject() throws {
-        let existing = try realm.write {
+        try realm.write {
             let user = UserDB()
             user.id = "test"
             realm.add(user)
