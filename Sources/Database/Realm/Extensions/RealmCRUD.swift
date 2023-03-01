@@ -34,3 +34,75 @@ extension Realm {
         add(object)
     }
 }
+
+@available(iOS 13.0, *)
+extension Realm {
+
+    @discardableResult
+    func execute<T>(_ block: @escaping (Realm) throws -> T) async throws -> T {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<T, Swift.Error>) in
+            DispatchQueue.database.async {
+                do {
+                    let response = try block(self)
+                    continuation.resume(with: .success(response))
+                } catch {
+                    continuation.resume(with: .failure(error))
+                }
+            }
+        }
+    }
+
+    @discardableResult
+    func executeWrite<T>(_ block: @escaping (Realm) throws -> T) async throws -> T {
+        try await execute { realm in
+            try realm.write { try block(self) }
+        }
+    }
+
+    func fetch<T>(read: @escaping (Realm) throws -> T) async throws -> T {
+        try await execute(read)
+    }
+}
+
+@available(iOS 13.0, *)
+extension Realm {
+    func read<DBModel: Object, Model>(
+        dbModel type: DBModel.Type,
+        id: String,
+        mapping: @escaping (DBModel) -> Model
+    ) async throws -> Model {
+        try await fetch { _ in
+            try mapping(findObject(of: type, for: id))
+        }
+    }
+
+    func readOptional<DBModel: Object, Model>(
+        dbModel type: DBModel.Type,
+        id: String,
+        mapping: @escaping (DBModel) -> Model
+    ) async throws -> Model? {
+        try await fetch { _ in
+            guard let object = object(ofType: type, forPrimaryKey: id) else { return nil }
+            return mapping(object)
+        }
+    }
+
+    func update<DBModel: Object, KeyType>(
+        _ type: DBModel.Type,
+        id: KeyType,
+        update: @escaping (DBModel) -> Void
+    ) async throws {
+        try await executeWrite { _ in
+            let object = try findObject(of: type, for: id)
+            update(object)
+        }
+    }
+
+    func createOrUpdate<DBModel: Object, KeyType>(
+        _ type: DBModel.Type,
+        id: KeyType,
+        update: @escaping (DBModel) -> Void
+    ) async throws {
+        try await executeWrite { _ in findOrCreateObject(type, id: id, update: update) }
+    }
+}

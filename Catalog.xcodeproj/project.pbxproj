@@ -279,6 +279,9 @@
 		FA8892D4298BDEB900283B02 /* ValidatedDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892D2298BDDF700283B02 /* ValidatedDelete.swift */; };
 		FA8892DD298BE63F00283B02 /* BookDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892DB298BE63B00283B02 /* BookDB.swift */; };
 		FA8892DE298BE64100283B02 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892D9298BE62F00283B02 /* UserDB.swift */; };
+		FA97AE7B29AF486D0047C8F3 /* ModelMapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97AE7A29AF486D0047C8F3 /* ModelMapped.swift */; };
+		FA97AE7E29AF497E0047C8F3 /* DatabaseCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97AE7D29AF497E0047C8F3 /* DatabaseCombine.swift */; };
+		FA97AE8029AF49EC0047C8F3 /* DatabaseAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97AE7F29AF49EC0047C8F3 /* DatabaseAsyncAwait.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -597,6 +600,9 @@
 		FA8892D2298BDDF700283B02 /* ValidatedDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatedDelete.swift; sourceTree = "<group>"; };
 		FA8892D9298BE62F00283B02 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
 		FA8892DB298BE63B00283B02 /* BookDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDB.swift; sourceTree = "<group>"; };
+		FA97AE7A29AF486D0047C8F3 /* ModelMapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMapped.swift; sourceTree = "<group>"; };
+		FA97AE7D29AF497E0047C8F3 /* DatabaseCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCombine.swift; sourceTree = "<group>"; };
+		FA97AE7F29AF49EC0047C8F3 /* DatabaseAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseAsyncAwait.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2096,10 +2102,10 @@
 		FA2586A92982C4AF00CFA350 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				FA97AE7C29AF49650047C8F3 /* Database */,
 				FA8892D8298BE62300283B02 /* Schema */,
 				FA8892D1298BDDE600283B02 /* Protocols */,
 				FA2586AE2982C58700CFA350 /* Extensions */,
-				FA2586AB2982C4D200CFA350 /* Database.swift */,
 				FA3B914829ACA80C00ECFFA4 /* NotFoundError.swift */,
 			);
 			path = Realm;
@@ -2132,6 +2138,7 @@
 			isa = PBXGroup;
 			children = (
 				FA8892D2298BDDF700283B02 /* ValidatedDelete.swift */,
+				FA97AE7A29AF486D0047C8F3 /* ModelMapped.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -2144,6 +2151,16 @@
 				FA8892DB298BE63B00283B02 /* BookDB.swift */,
 			);
 			path = Schema;
+			sourceTree = "<group>";
+		};
+		FA97AE7C29AF49650047C8F3 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				FA2586AB2982C4D200CFA350 /* Database.swift */,
+				FA97AE7D29AF497E0047C8F3 /* DatabaseCombine.swift */,
+				FA97AE7F29AF49EC0047C8F3 /* DatabaseAsyncAwait.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2383,6 +2400,7 @@
 				373E785928F4244400D4DF17 /* OAuthClientCredential.swift in Sources */,
 				0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */,
 				373E785428F4238200D4DF17 /* OAuthCredential.swift in Sources */,
+				FA97AE7E29AF497E0047C8F3 /* DatabaseCombine.swift in Sources */,
 				0A0ECF532206FED800C1853E /* RatioPresentationManager.swift in Sources */,
 				0AB524122210AECB00F35F52 /* Parameters+Include.swift in Sources */,
 				0A1DFE52236EE90B000F2538 /* Paging.swift in Sources */,
@@ -2390,6 +2408,7 @@
 				CC80F71F2438C7DC00A3F276 /* TogglePresenter.swift in Sources */,
 				A8D4BE842689A023002D8202 /* LoggingOptions.swift in Sources */,
 				063B5AA82317F64D003A7B84 /* WithoutBackViewController.swift in Sources */,
+				FA97AE8029AF49EC0047C8F3 /* DatabaseAsyncAwait.swift in Sources */,
 				0A1DFE64236EFA78000F2538 /* UIScrollView+BottomDetection.swift in Sources */,
 				373F6A0328E58AC500750011 /* Keychain+PropertyWrapper.swift in Sources */,
 				0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */,
@@ -2465,6 +2484,7 @@
 				FA8892C7298BDA5300283B02 /* ListExtensions.swift in Sources */,
 				064B18FB22DF47AD001D4489 /* UIView+LayerModifiers.swift in Sources */,
 				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
+				FA97AE7B29AF486D0047C8F3 /* ModelMapped.swift in Sources */,
 				0A54435A22718A8F00F26468 /* NetworkingWireframe.swift in Sources */,
 				3781894327316BCB004E6BE3 /* CombineNetworkingWireframe.swift in Sources */,
 				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,

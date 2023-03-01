@@ -28,4 +28,20 @@ extension Realm {
             }
         }
     }
+
+    func update<DBModel: Object, KeyType>(
+        _ type: DBModel.Type,
+        id: KeyType,
+        update: @escaping (DBModel) -> Void
+    ) -> ThrowingTaskPublisher<Void> {
+        ThrowingTaskPublisher { try await self.update(type, id: id, update: update) }
+    }
+
+    func createOrUpdate<DBModel: Object, KeyType>(
+        _ type: DBModel.Type,
+        id: KeyType,
+        update: @escaping (DBModel) -> Void
+    ) -> ThrowingTaskPublisher<Void> {
+        ThrowingTaskPublisher { try await createOrUpdate(type, id: id, update: update) }
+    }
 }
