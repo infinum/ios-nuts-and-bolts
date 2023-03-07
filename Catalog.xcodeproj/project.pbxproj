@@ -282,6 +282,8 @@
 		FA97AE7B29AF486D0047C8F3 /* ModelMapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97AE7A29AF486D0047C8F3 /* ModelMapped.swift */; };
 		FA97AE7E29AF497E0047C8F3 /* DatabaseCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97AE7D29AF497E0047C8F3 /* DatabaseCombine.swift */; };
 		FA97AE8029AF49EC0047C8F3 /* DatabaseAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97AE7F29AF49EC0047C8F3 /* DatabaseAsyncAwait.swift */; };
+		FAC678D329B74EF6009419DA /* ObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC678D229B74EF6009419DA /* ObjectExtensions.swift */; };
+		FAC678D529B75460009419DA /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC678D429B7545F009419DA /* XCTestExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -603,6 +605,8 @@
 		FA97AE7A29AF486D0047C8F3 /* ModelMapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMapped.swift; sourceTree = "<group>"; };
 		FA97AE7D29AF497E0047C8F3 /* DatabaseCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCombine.swift; sourceTree = "<group>"; };
 		FA97AE7F29AF49EC0047C8F3 /* DatabaseAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseAsyncAwait.swift; sourceTree = "<group>"; };
+		FAC678D229B74EF6009419DA /* ObjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectExtensions.swift; sourceTree = "<group>"; };
+		FAC678D429B7545F009419DA /* XCTestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1529,6 +1533,7 @@
 			isa = PBXGroup;
 			children = (
 				373F6A1928E5D4D400750011 /* DependecyManagerTest.swift */,
+				FAC678D429B7545F009419DA /* XCTestExtensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -2121,6 +2126,7 @@
 				FA8892C6298BDA5300283B02 /* ListExtensions.swift */,
 				FA3B914629ACA66800ECFFA4 /* RealmCombine.swift */,
 				FA3B914A29ACA9D300ECFFA4 /* RealmCRUD.swift */,
+				FAC678D229B74EF6009419DA /* ObjectExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2587,6 +2593,7 @@
 				81B01CA925EE8B190058D8E0 /* AssociableCollectionCellItem.swift in Sources */,
 				0AE0B759220435FA0033A476 /* TableDataSourceDelegate.swift in Sources */,
 				0AE0B77D2204803D0033A476 /* String+Blank.swift in Sources */,
+				FAC678D329B74EF6009419DA /* ObjectExtensions.swift in Sources */,
 				FA8892DD298BE63F00283B02 /* BookDB.swift in Sources */,
 				FA3B914929ACA80C00ECFFA4 /* NotFoundError.swift in Sources */,
 				4F286F812291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m in Sources */,
@@ -2604,6 +2611,7 @@
 				536E5ADB225F334300EF01A6 /* String+Inserting.swift in Sources */,
 				536E5ACE225F2CF500EF01A6 /* Date+AdditionTests.swift in Sources */,
 				372448C8273289D400016144 /* CombinePagingTests.swift in Sources */,
+				FAC678D529B75460009419DA /* XCTestExtensions.swift in Sources */,
 				A8FD61052292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m in Sources */,
 				0AE0B778220478220033A476 /* Array+RotateTests.swift in Sources */,
 				60B4BDF82243B8AF00849B8D /* UIColor+HexTests.swift in Sources */,
