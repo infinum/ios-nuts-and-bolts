@@ -2108,10 +2108,9 @@
 			isa = PBXGroup;
 			children = (
 				FA97AE7C29AF49650047C8F3 /* Database */,
-				FA8892D8298BE62300283B02 /* Schema */,
+				FA8892D8298BE62300283B02 /* Models */,
 				FA8892D1298BDDE600283B02 /* Protocols */,
 				FA2586AE2982C58700CFA350 /* Extensions */,
-				FA3B914829ACA80C00ECFFA4 /* NotFoundError.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -2149,14 +2148,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		FA8892D8298BE62300283B02 /* Schema */ = {
+		FA8892D8298BE62300283B02 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA3B914829ACA80C00ECFFA4 /* NotFoundError.swift */,
 				FA2586AA2982C4D200CFA350 /* SchemaVersion.swift */,
 				FA8892D9298BE62F00283B02 /* UserDB.swift */,
 				FA8892DB298BE63B00283B02 /* BookDB.swift */,
 			);
-			path = Schema;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FA97AE7C29AF49650047C8F3 /* Database */ = {
