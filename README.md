@@ -42,6 +42,8 @@ Used for easier implementation of storage features.
 
 None of the methods are marked public intentionally. All components are imagined to be in a separate `Storage` module. `Storage` module should expose simple interface for the main app.
 
+`ModelMapped` protocol allows mapping of Domain object to DB objects. This way Realm objects remain internal to `Storage` module and the rest of the app doesn't know about them.
+
 <br/><br/>
 </details>
 
