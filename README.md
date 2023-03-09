@@ -75,6 +75,7 @@ Interfaces used for building your application using the VIPER architecture patte
 Useful classes and methods which help you achieve your goals.
 
 * **Logging** - Used for lightweight logging and debugging during development process.
+* **SecurityProtectionManager** - Used for handling the security regarding Jailbreak and Reverse engineering detection.
 
 <br/><br/>
 </details>
