@@ -54,6 +54,7 @@ extension Database {
     static var seedURL: URL? {
         get throws {
             if FileManager.default.fileExists(atPath: try defaultURL().path) { return nil }
+            // Bundle.main(....<Your filepath goes here>...)
             return nil
         }
     }
