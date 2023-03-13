@@ -52,7 +52,7 @@ final class DataKeyPathSerializer<SerializedObject: Decodable>: DataResponseSeri
             throw AFError.responseSerializationFailed(reason: .decodingFailed(error: AlamofireDecodableError.emptyKeyPath))
         }
         
-        let json = try JSONResponseSerializer().serialize(request: nil, response: response, data: data, error: nil)
+        let json = try DecodableResponseSerializer<[String: SerializedObject]>().serialize(request: nil, response: response, data: data, error: nil)
         if let nestedJson = (json as AnyObject).value(forKeyPath: keyPath) {
             guard JSONSerialization.isValidJSONObject(nestedJson) else {
                 throw AFError.responseSerializationFailed(reason: .decodingFailed(error: AlamofireDecodableError.invalidJSON))
