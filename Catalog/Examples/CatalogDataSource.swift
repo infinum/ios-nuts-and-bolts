@@ -23,7 +23,7 @@ class CatalogDataSource {
 private extension CatalogDataSource {
 
     func createSections() -> [CatalogSectionModel] {
-        if #available(iOS 13, *) {
+        if #available(iOS 15, *) {
             return [
                 CatalogSectionModel(title: "UI", items: createUIItems()),
                 CatalogSectionModel(title: "Rx", items: createRxItems()),
@@ -44,15 +44,29 @@ private extension CatalogDataSource {
 private extension CatalogDataSource {
 
     func createUIItems() -> [Catalogizable.Type] {
-        return [
-            RatioTransitionViewController.self,
-            RoundCornersViewController.self,
-            UIViewModifiersViewController.self,
-            ImageFromColorViewController.self,
-            CatalogNavigationController.self,
-            ToggleViewController.self,
-            LineHeightViewController.self
-        ]
+        if #available(iOS 15.0, *) {
+            return [
+                RatioTransitionViewController.self,
+                RoundCornersViewController.self,
+                UIViewModifiersViewController.self,
+                ImageFromColorViewController.self,
+                CatalogNavigationController.self,
+                ToggleViewController.self,
+                LineHeightViewController.self,
+                RxUIMenuExampleViewController.self
+            ]
+        } else {
+            return [
+                RatioTransitionViewController.self,
+                RoundCornersViewController.self,
+                UIViewModifiersViewController.self,
+                ImageFromColorViewController.self,
+                CatalogNavigationController.self,
+                ToggleViewController.self,
+                LineHeightViewController.self
+            ]
+        }
+
     }
 
 }

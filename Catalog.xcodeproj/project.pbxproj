@@ -133,6 +133,12 @@
 		0D819A0827BD7DDF007B66F8 /* LineHeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D819A0327BD7DDF007B66F8 /* LineHeightViewController.swift */; };
 		0D819A0A27BD7DDF007B66F8 /* LineHeightWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D819A0527BD7DDF007B66F8 /* LineHeightWireframe.swift */; };
 		0D819A0C27BD7E3D007B66F8 /* LineHeight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D819A0B27BD7E3D007B66F8 /* LineHeight.storyboard */; };
+		265358A429C08E3E009D921B /* RxUIMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265358A329C08E3E009D921B /* RxUIMenu.swift */; };
+		265358AA29C0904A009D921B /* RxUIMenuExample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265358A529C0904A009D921B /* RxUIMenuExample.storyboard */; };
+		265358AB29C0904A009D921B /* RxUIMenuExampleInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265358A629C0904A009D921B /* RxUIMenuExampleInterfaces.swift */; };
+		265358AC29C0904A009D921B /* RxUIMenuExamplePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265358A729C0904A009D921B /* RxUIMenuExamplePresenter.swift */; };
+		265358AD29C0904A009D921B /* RxUIMenuExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265358A829C0904A009D921B /* RxUIMenuExampleViewController.swift */; };
+		265358AE29C0904A009D921B /* RxUIMenuExampleWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265358A929C0904A009D921B /* RxUIMenuExampleWireframe.swift */; };
 		2864DE4B293DFDDC00C16290 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2864DE4A293DFDDC00C16290 /* UIView+Blur.swift */; };
 		288E291B29966B90004C5AA8 /* BlurProtectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288E291A29966B90004C5AA8 /* BlurProtectionType.swift */; };
 		28A27BB0293101F100D8D555 /* BlurPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A27BAF293101F100D8D555 /* BlurPosition.swift */; };
@@ -407,6 +413,12 @@
 		0D819A0327BD7DDF007B66F8 /* LineHeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineHeightViewController.swift; sourceTree = "<group>"; };
 		0D819A0527BD7DDF007B66F8 /* LineHeightWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineHeightWireframe.swift; sourceTree = "<group>"; };
 		0D819A0B27BD7E3D007B66F8 /* LineHeight.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LineHeight.storyboard; sourceTree = "<group>"; };
+		265358A329C08E3E009D921B /* RxUIMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUIMenu.swift; sourceTree = "<group>"; };
+		265358A529C0904A009D921B /* RxUIMenuExample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RxUIMenuExample.storyboard; sourceTree = "<group>"; };
+		265358A629C0904A009D921B /* RxUIMenuExampleInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUIMenuExampleInterfaces.swift; sourceTree = "<group>"; };
+		265358A729C0904A009D921B /* RxUIMenuExamplePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUIMenuExamplePresenter.swift; sourceTree = "<group>"; };
+		265358A829C0904A009D921B /* RxUIMenuExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUIMenuExampleViewController.swift; sourceTree = "<group>"; };
+		265358A929C0904A009D921B /* RxUIMenuExampleWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUIMenuExampleWireframe.swift; sourceTree = "<group>"; };
 		2729A70699669A6CA7922447 /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2864DE4A293DFDDC00C16290 /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 		288E291A29966B90004C5AA8 /* BlurProtectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurProtectionType.swift; sourceTree = "<group>"; };
@@ -652,6 +664,7 @@
 		0A0ECF562207022200C1853E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2653589829C08DB0009D921B /* RxUIMenu */,
 				0D819A0027BD7D7F007B66F8 /* LineHeightLabel */,
 				CC80F7192438C45200A3F276 /* ToggleButton */,
 				063B5A982317F622003A7B84 /* Interactive UINavigationController */,
@@ -1379,6 +1392,19 @@
 			path = LineHeightLabel;
 			sourceTree = "<group>";
 		};
+		2653589829C08DB0009D921B /* RxUIMenu */ = {
+			isa = PBXGroup;
+			children = (
+				265358A329C08E3E009D921B /* RxUIMenu.swift */,
+				265358A529C0904A009D921B /* RxUIMenuExample.storyboard */,
+				265358A629C0904A009D921B /* RxUIMenuExampleInterfaces.swift */,
+				265358A729C0904A009D921B /* RxUIMenuExamplePresenter.swift */,
+				265358A829C0904A009D921B /* RxUIMenuExampleViewController.swift */,
+				265358A929C0904A009D921B /* RxUIMenuExampleWireframe.swift */,
+			);
+			path = RxUIMenu;
+			sourceTree = "<group>";
+		};
 		2864DE49293DFDBE00C16290 /* Blur */ = {
 			isa = PBXGroup;
 			children = (
@@ -2079,6 +2105,7 @@
 				0AD9EA8E2204218600FF3F2C /* Resources */,
 				535E5DD22670A1E300C88BD1 /* SwiftLint */,
 				02603DB7284D83A5A257F992 /* [CP] Embed Pods Frameworks */,
+				26F191EC29BF9ED8007905C5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2164,6 +2191,7 @@
 				0A603FD622077C4400F25622 /* RxAlertExampleViewController.xib in Resources */,
 				0612E33C22D32A540081BCF6 /* UIViewModifiers.storyboard in Resources */,
 				C2023276239546F900DC3C42 /* README.MD in Resources */,
+				265358AA29C0904A009D921B /* RxUIMenuExample.storyboard in Resources */,
 				3781895527317A54004E6BE3 /* CombinePaging.storyboard in Resources */,
 				CC80F72A2438E3EB00A3F276 /* ToggleViewController.storyboard in Resources */,
 				0D819A0C27BD7E3D007B66F8 /* LineHeight.storyboard in Resources */,
@@ -2198,6 +2226,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Catalog/Pods-Catalog-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		26F191EC29BF9ED8007905C5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		535E5DD22670A1E300C88BD1 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2291,6 +2336,7 @@
 				063B5AA62317F64D003A7B84 /* BasicViewController.swift in Sources */,
 				0A1FB0022406C015000F72D6 /* HTTPURLResponse+LogRepresentation.swift in Sources */,
 				CC80F71D2438C7C700A3F276 /* ToggleViewController.swift in Sources */,
+				265358AC29C0904A009D921B /* RxUIMenuExamplePresenter.swift in Sources */,
 				0AA45E7F22188A80009CF93E /* TokenAdapter.swift in Sources */,
 				0A1DFE5E236EF5B4000F2538 /* PokemonTableViewCell.swift in Sources */,
 				D73703102316A34800D7A986 /* ImageFromColorViewController.swift in Sources */,
@@ -2331,11 +2377,13 @@
 				3781895627317A54004E6BE3 /* CombinePagingInterfaces.swift in Sources */,
 				0A1DFE5D236EF5B4000F2538 /* RxPagingViewController.swift in Sources */,
 				373F6A0F28E5CB0000750011 /* DependencyContainer.swift in Sources */,
+				265358AE29C0904A009D921B /* RxUIMenuExampleWireframe.swift in Sources */,
 				A8D4BE872689A023002D8202 /* LoggingObjC.swift in Sources */,
 				0A0F24472247D5D80005CF41 /* APIService.swift in Sources */,
 				0A54436622718AB100F26468 /* RxNetworkingWireframe.swift in Sources */,
 				81B01C6725EE7FEC0058D8E0 /* ItemConfigurable.swift in Sources */,
 				0AD9EAC82204274300FF3F2C /* InteractorInterface.swift in Sources */,
+				265358A429C08E3E009D921B /* RxUIMenu.swift in Sources */,
 				0A0F244A2247DCC70005CF41 /* Service+JapxRx.swift in Sources */,
 				0AB524102210AEA000F35F52 /* Parameters+Pagination.swift in Sources */,
 				0AB524052210A11500F35F52 /* CollectionDataSourceDelegate.swift in Sources */,
@@ -2425,6 +2473,7 @@
 				0A40C5C42212EC29007AFC6C /* URLQueryItemsEncoding.swift in Sources */,
 				0AD9EAC62204274300FF3F2C /* PresenterInterface.swift in Sources */,
 				0AE0B775220477E40033A476 /* Array+Rotate.swift in Sources */,
+				265358AD29C0904A009D921B /* RxUIMenuExampleViewController.swift in Sources */,
 				0AE0B74E22042D5E0033A476 /* CatalogWireframe.swift in Sources */,
 				C202327C23954DB400DC3C42 /* NetworkingJapxInterfaces.swift in Sources */,
 				0AE0B76A22045C9A0033A476 /* UITableView+Register.swift in Sources */,
@@ -2483,6 +2532,7 @@
 				4F286F812291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m in Sources */,
 				0A0F24452247CE5D0005CF41 /* Routable.swift in Sources */,
 				0A1FAFF42406B705000F72D6 /* DataRequest+Decodable.swift in Sources */,
+				265358AB29C0904A009D921B /* RxUIMenuExampleInterfaces.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
