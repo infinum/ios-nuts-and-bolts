@@ -270,6 +270,9 @@
 		FA2586B02982C59700CFA350 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2586AF2982C59700CFA350 /* DispatchQueueExtensions.swift */; };
 		FA2586B22982C5AA00CFA350 /* LoggerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2586B12982C5AA00CFA350 /* LoggerExtensions.swift */; };
 		FA2586B42982CAED00CFA350 /* MigrationObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2586B32982CAED00CFA350 /* MigrationObjectExtensions.swift */; };
+		FA3B914229AC9F1200ECFFA4 /* ThrowingTaskPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914029AC9F1200ECFFA4 /* ThrowingTaskPublisher.swift */; };
+		FA3B914329AC9F1200ECFFA4 /* TaskPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914129AC9F1200ECFFA4 /* TaskPublisher.swift */; };
+		FA3B914529AC9F4500ECFFA4 /* TaskPublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914429AC9F4500ECFFA4 /* TaskPublisherTests.swift */; };
 		FA8892C7298BDA5300283B02 /* ListExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892C6298BDA5300283B02 /* ListExtensions.swift */; };
 		FA8892C9298BDABE00283B02 /* ListExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892C8298BDABE00283B02 /* ListExtensionsTests.swift */; };
 		FA8892CB298BDB3B00283B02 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892CA298BDB3B00283B02 /* Helpers.swift */; };
@@ -587,6 +590,9 @@
 		FA2586AF2982C59700CFA350 /* DispatchQueueExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtensions.swift; sourceTree = "<group>"; };
 		FA2586B12982C5AA00CFA350 /* LoggerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerExtensions.swift; sourceTree = "<group>"; };
 		FA2586B32982CAED00CFA350 /* MigrationObjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationObjectExtensions.swift; sourceTree = "<group>"; };
+		FA3B914029AC9F1200ECFFA4 /* ThrowingTaskPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowingTaskPublisher.swift; sourceTree = "<group>"; };
+		FA3B914129AC9F1200ECFFA4 /* TaskPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskPublisher.swift; sourceTree = "<group>"; };
+		FA3B914429AC9F4500ECFFA4 /* TaskPublisherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskPublisherTests.swift; sourceTree = "<group>"; };
 		FA8892C6298BDA5300283B02 /* ListExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExtensions.swift; sourceTree = "<group>"; };
 		FA8892C8298BDABE00283B02 /* ListExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExtensionsTests.swift; sourceTree = "<group>"; };
 		FA8892CA298BDB3B00283B02 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -1459,6 +1465,7 @@
 		372448C6273289CB00016144 /* Combine */ = {
 			isa = PBXGroup;
 			children = (
+				FA3B914429AC9F4500ECFFA4 /* TaskPublisherTests.swift */,
 				372448C7273289D400016144 /* CombinePagingTests.swift */,
 			);
 			path = Combine;
@@ -1611,6 +1618,7 @@
 		37818944273176A0004E6BE3 /* Combine */ = {
 			isa = PBXGroup;
 			children = (
+				FA3B913F29AC9F1200ECFFA4 /* AsyncAwait */,
 				3781894A273179EF004E6BE3 /* Paging */,
 				37818945273176C0004E6BE3 /* Extensions */,
 			);
@@ -2150,6 +2158,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		FA3B913F29AC9F1200ECFFA4 /* AsyncAwait */ = {
+			isa = PBXGroup;
+			children = (
+				FA3B914029AC9F1200ECFFA4 /* ThrowingTaskPublisher.swift */,
+				FA3B914129AC9F1200ECFFA4 /* TaskPublisher.swift */,
+			);
+			path = AsyncAwait;
+			sourceTree = "<group>";
+		};
 		FA8892D1298BDDE600283B02 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -2423,6 +2440,7 @@
 				0AB524182210AF9A00F35F52 /* Parameters+Filter.swift in Sources */,
 				0612E33F22D32A750081BCF6 /* UIViewModifiersViewController.swift in Sources */,
 				FA8892D4298BDEB900283B02 /* ValidatedDelete.swift in Sources */,
+				FA3B914329AC9F1200ECFFA4 /* TaskPublisher.swift in Sources */,
 				0A1FAFF92406BB6F000F72D6 /* SessionManager.swift in Sources */,
 				0AB524222210B3CB00F35F52 /* URL+Append.swift in Sources */,
 				0A1DFE4F236EE8C5000F2538 /* Signal+Utility.swift in Sources */,
@@ -2569,6 +2587,7 @@
 				A8D4BE892689A023002D8202 /* LoggingFormatter.swift in Sources */,
 				81B01CAE25EE8C7E0058D8E0 /* UICollectionView+Register.swift in Sources */,
 				3781894127316BCB004E6BE3 /* CombineNetworkingViewController.swift in Sources */,
+				FA3B914229AC9F1200ECFFA4 /* ThrowingTaskPublisher.swift in Sources */,
 				0AB524142210AF1000F35F52 /* Parameters+Sorting.swift in Sources */,
 				0A0C8CFE22492E2C0071011F /* EncodableParams.swift in Sources */,
 				0A54436422718AB100F26468 /* RxNetworkingInteractor.swift in Sources */,
@@ -2614,6 +2633,7 @@
 				536E5ADD225F33B900EF01A6 /* String+InsertingTests.swift in Sources */,
 				536E5AE0225F36CF00EF01A6 /* Collection+Grouping.swift in Sources */,
 				536E5ACC225F2BF500EF01A6 /* Date+Addition.swift in Sources */,
+				FA3B914529AC9F4500ECFFA4 /* TaskPublisherTests.swift in Sources */,
 				536E5AC0225F20A600EF01A6 /* Bool+FunctionTests.swift in Sources */,
 				FA8892CB298BDB3B00283B02 /* Helpers.swift in Sources */,
 				536E5AB7225F1BB300EF01A6 /* Bool+MappingTests.swift in Sources */,
