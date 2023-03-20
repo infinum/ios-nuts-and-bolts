@@ -72,6 +72,10 @@ public final class ReplaySubject<Output, Failure: Error>: Subject {
         }
 
         subscriptions.forEach { $0.forwardCompletionToBuffer(completion) }
+
+        lock.lock()
+        defer { self.lock.unlock() }
+        self.subscriptions.removeAll()
     }
 
     public func send(subscription: Combine.Subscription) {
@@ -85,21 +89,15 @@ public final class ReplaySubject<Output, Failure: Error>: Subject {
             self?.completeSubscriber(withIdentifier: subscriberIdentifier)
         }
 
-        let buffer: [Output]
-        let completion: Subscribers.Completion<Failure>?
-
         do {
             lock.lock()
             defer { lock.unlock() }
 
+            subscription.replay(buffer, completion: completion)
             subscriptions.append(subscription)
-
-            buffer = self.buffer
-            completion = self.completion
         }
 
         subscriber.receive(subscription: subscription)
-        subscription.replay(buffer, completion: completion)
     }
 
     private func completeSubscriber(withIdentifier subscriberIdentifier: CombineIdentifier) {
@@ -138,7 +136,6 @@ extension ReplaySubject {
 
         func forwardCompletionToBuffer(_ completion: Subscribers.Completion<Failure>) {
             demandBuffer?.complete(completion: completion)
-            cancel()
         }
 
         func request(_ demand: Subscribers.Demand) {
