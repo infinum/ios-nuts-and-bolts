@@ -24,7 +24,6 @@ extension SchemaVersion {
 }
 
 extension SchemaVersion {
-    @available(iOS 14.0, *)
     static func execute(
         migration: Migration,
         from: SchemaVersion,
@@ -33,7 +32,9 @@ extension SchemaVersion {
     ) {
         guard from < to else { return }
         for schema in SchemaVersion.allCases where schema > from && schema <= to {
-            Logger.realm.log("Performing migration from \(from.rawValue) to \(to.rawValue)")
+            if #available(iOS 14.0, *) {
+                Logger.realm.log("Performing migration from \(from.rawValue) to \(to.rawValue)")
+            }
             migrations[schema]?(migration)
         }
     }

@@ -7,14 +7,15 @@ import OSLog
 /// This ensures that underlying realm is accessed in a right way.
 /// Mainly to ensure that all access is through a single `DispatchQueue`
 /// but also exposes good patterns of accessing realm.
-@available(iOS 14.0, *)
 class Database {
     private(set) var realm: Realm!
 
     init(configuration: Realm.Configuration? = nil) throws {
         let config = try configuration ?? Database.defaultConfiguration()
         if let fileURL = config.fileURL {
-            Logger.realm.debug("Database URL: \(fileURL)")
+            if #available(iOS 14.0, *) {
+                Logger.realm.debug("Database URL: \(fileURL)")
+            }
         }
         try DispatchQueue.database.sync { [unowned self] in
             realm = try Realm(configuration: config, queue: DispatchQueue.database)
@@ -22,7 +23,6 @@ class Database {
     }
 }
 
-@available(iOS 14.0, *)
 extension Database {
     /// Default realm configuration
     /// Takes care of migrations, seeds and compacting if needed
@@ -58,6 +58,7 @@ extension Database {
     static var seedURL: URL? {
         get throws {
             if FileManager.default.fileExists(atPath: try defaultURL().path) { return nil }
+            // Bundle.main(....<Your filepath goes here>...)
             return nil
         }
     }
