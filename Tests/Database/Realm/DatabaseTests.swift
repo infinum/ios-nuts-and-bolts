@@ -44,4 +44,24 @@ class DatabaseTests: XCTestCase {
         XCTAssertEqual(user.id, "test")
         XCTAssertEqual(user.name, "Changed")
     }
+
+    func testObserveNameChange() async throws {
+        let database = try Database(configuration: .inMemory(name: name))
+        try await database.createOrUpdate(UserDB.self, with: User(id: "test", name: "Initial"))
+        let expectation = self.expectation(description: "Name observer")
+
+        var nameEvents: [String] = []
+        let cancellable = database
+            .observe(dbModel: UserDB.self, id: "test", mapping: \.asModel)
+            .sink {
+                nameEvents.append($0.name)
+                if nameEvents.count == 2 { expectation.fulfill() }
+            }
+        _ = cancellable
+
+        try await database.update(UserDB.self, with: User(id: "test", name: "Changed"))
+
+        await waitForExpectations(timeout: 1, handler: nil)
+        XCTAssertEqual(nameEvents, ["Initial", "Changed"])
+    }
 }

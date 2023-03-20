@@ -30,7 +30,7 @@ extension Database {
         id: String,
         mapping: @escaping (DBModel) -> Model
     ) -> some Publisher<Model, Never> {
-        realm.read(dbModel: type, id: id, mapping: { $0 })
+        realm.read(dbModel: type, id: id)
             .receive(on: DispatchQueue.database)
             .flatMap { object in
                 valuePublisher(object)

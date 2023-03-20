@@ -13,6 +13,13 @@ extension Realm {
         }
     }
 
+    func read<DBModel: Object>(
+        dbModel type: DBModel.Type,
+        id: String
+    ) -> Future<DBModel, Swift.Error> {
+        read(dbModel: DBModel.self, id: id, mapping: { $0 })
+    }
+
     func create<DBModel: Object>(
         _ createBlock: @escaping (Realm) -> DBModel
     ) -> Future<Void, Swift.Error> {
