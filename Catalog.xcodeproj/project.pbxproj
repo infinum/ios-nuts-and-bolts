@@ -273,6 +273,10 @@
 		FA3B914229AC9F1200ECFFA4 /* ThrowingTaskPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914029AC9F1200ECFFA4 /* ThrowingTaskPublisher.swift */; };
 		FA3B914329AC9F1200ECFFA4 /* TaskPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914129AC9F1200ECFFA4 /* TaskPublisher.swift */; };
 		FA3B914529AC9F4500ECFFA4 /* TaskPublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914429AC9F4500ECFFA4 /* TaskPublisherTests.swift */; };
+		FA3B914729ACA66800ECFFA4 /* RealmCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914629ACA66800ECFFA4 /* RealmCombine.swift */; };
+		FA3B914929ACA80C00ECFFA4 /* NotFoundError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914829ACA80C00ECFFA4 /* NotFoundError.swift */; };
+		FA3B914B29ACA9D300ECFFA4 /* RealmCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914A29ACA9D300ECFFA4 /* RealmCRUD.swift */; };
+		FA3B914D29ACAAF000ECFFA4 /* RealmCRUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B914C29ACAAF000ECFFA4 /* RealmCRUDTests.swift */; };
 		FA8892C7298BDA5300283B02 /* ListExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892C6298BDA5300283B02 /* ListExtensions.swift */; };
 		FA8892C9298BDABE00283B02 /* ListExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892C8298BDABE00283B02 /* ListExtensionsTests.swift */; };
 		FA8892CB298BDB3B00283B02 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892CA298BDB3B00283B02 /* Helpers.swift */; };
@@ -281,6 +285,11 @@
 		FA8892D4298BDEB900283B02 /* ValidatedDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892D2298BDDF700283B02 /* ValidatedDelete.swift */; };
 		FA8892DD298BE63F00283B02 /* BookDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892DB298BE63B00283B02 /* BookDB.swift */; };
 		FA8892DE298BE64100283B02 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8892D9298BE62F00283B02 /* UserDB.swift */; };
+		FA97AE7B29AF486D0047C8F3 /* ModelMapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97AE7A29AF486D0047C8F3 /* ModelMapped.swift */; };
+		FA97AE7E29AF497E0047C8F3 /* DatabaseCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97AE7D29AF497E0047C8F3 /* DatabaseCombine.swift */; };
+		FA97AE8029AF49EC0047C8F3 /* DatabaseAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97AE7F29AF49EC0047C8F3 /* DatabaseAsyncAwait.swift */; };
+		FAC678D329B74EF6009419DA /* ObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC678D229B74EF6009419DA /* ObjectExtensions.swift */; };
+		FAC678D529B75460009419DA /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC678D429B7545F009419DA /* XCTestExtensions.swift */; };
 		F631BCF3D4D4B319116B9FD1 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2729A70699669A6CA7922447 /* Pods_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -593,6 +602,10 @@
 		FA3B914029AC9F1200ECFFA4 /* ThrowingTaskPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThrowingTaskPublisher.swift; sourceTree = "<group>"; };
 		FA3B914129AC9F1200ECFFA4 /* TaskPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskPublisher.swift; sourceTree = "<group>"; };
 		FA3B914429AC9F4500ECFFA4 /* TaskPublisherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskPublisherTests.swift; sourceTree = "<group>"; };
+		FA3B914629ACA66800ECFFA4 /* RealmCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCombine.swift; sourceTree = "<group>"; };
+		FA3B914829ACA80C00ECFFA4 /* NotFoundError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundError.swift; sourceTree = "<group>"; };
+		FA3B914A29ACA9D300ECFFA4 /* RealmCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCRUD.swift; sourceTree = "<group>"; };
+		FA3B914C29ACAAF000ECFFA4 /* RealmCRUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCRUDTests.swift; sourceTree = "<group>"; };
 		FA8892C6298BDA5300283B02 /* ListExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExtensions.swift; sourceTree = "<group>"; };
 		FA8892C8298BDABE00283B02 /* ListExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExtensionsTests.swift; sourceTree = "<group>"; };
 		FA8892CA298BDB3B00283B02 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -601,6 +614,11 @@
 		FA8892D2298BDDF700283B02 /* ValidatedDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatedDelete.swift; sourceTree = "<group>"; };
 		FA8892D9298BE62F00283B02 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
 		FA8892DB298BE63B00283B02 /* BookDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDB.swift; sourceTree = "<group>"; };
+		FA97AE7A29AF486D0047C8F3 /* ModelMapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMapped.swift; sourceTree = "<group>"; };
+		FA97AE7D29AF497E0047C8F3 /* DatabaseCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCombine.swift; sourceTree = "<group>"; };
+		FA97AE7F29AF49EC0047C8F3 /* DatabaseAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseAsyncAwait.swift; sourceTree = "<group>"; };
+		FAC678D229B74EF6009419DA /* ObjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectExtensions.swift; sourceTree = "<group>"; };
+		FAC678D429B7545F009419DA /* XCTestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 		FC33319F5CC36475AEF3EC1D /* Pods-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.release.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1565,6 +1583,7 @@
 			isa = PBXGroup;
 			children = (
 				373F6A1928E5D4D400750011 /* DependecyManagerTest.swift */,
+				FAC678D429B7545F009419DA /* XCTestExtensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -2123,6 +2142,7 @@
 				FA08410F2987C86C0042F476 /* SchemaVersionTests.swift */,
 				FA8892C8298BDABE00283B02 /* ListExtensionsTests.swift */,
 				FA8892CA298BDB3B00283B02 /* Helpers.swift */,
+				FA3B914C29ACAAF000ECFFA4 /* RealmCRUDTests.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -2138,10 +2158,10 @@
 		FA2586A92982C4AF00CFA350 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				FA8892D8298BE62300283B02 /* Schema */,
+				FA97AE7C29AF49650047C8F3 /* Database */,
+				FA8892D8298BE62300283B02 /* Models */,
 				FA8892D1298BDDE600283B02 /* Protocols */,
 				FA2586AE2982C58700CFA350 /* Extensions */,
-				FA2586AB2982C4D200CFA350 /* Database.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -2154,6 +2174,9 @@
 				FA2586AF2982C59700CFA350 /* DispatchQueueExtensions.swift */,
 				FA2586B32982CAED00CFA350 /* MigrationObjectExtensions.swift */,
 				FA8892C6298BDA5300283B02 /* ListExtensions.swift */,
+				FA3B914629ACA66800ECFFA4 /* RealmCombine.swift */,
+				FA3B914A29ACA9D300ECFFA4 /* RealmCRUD.swift */,
+				FAC678D229B74EF6009419DA /* ObjectExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2171,18 +2194,30 @@
 			isa = PBXGroup;
 			children = (
 				FA8892D2298BDDF700283B02 /* ValidatedDelete.swift */,
+				FA97AE7A29AF486D0047C8F3 /* ModelMapped.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		FA8892D8298BE62300283B02 /* Schema */ = {
+		FA8892D8298BE62300283B02 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA3B914829ACA80C00ECFFA4 /* NotFoundError.swift */,
 				FA2586AA2982C4D200CFA350 /* SchemaVersion.swift */,
 				FA8892D9298BE62F00283B02 /* UserDB.swift */,
 				FA8892DB298BE63B00283B02 /* BookDB.swift */,
 			);
-			path = Schema;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA97AE7C29AF49650047C8F3 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				FA2586AB2982C4D200CFA350 /* Database.swift */,
+				FA97AE7D29AF497E0047C8F3 /* DatabaseCombine.swift */,
+				FA97AE7F29AF49EC0047C8F3 /* DatabaseAsyncAwait.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2422,6 +2457,7 @@
 				373E785928F4244400D4DF17 /* OAuthClientCredential.swift in Sources */,
 				0AD9EA942204218600FF3F2C /* AppDelegate.swift in Sources */,
 				373E785428F4238200D4DF17 /* OAuthCredential.swift in Sources */,
+				FA97AE7E29AF497E0047C8F3 /* DatabaseCombine.swift in Sources */,
 				0A0ECF532206FED800C1853E /* RatioPresentationManager.swift in Sources */,
 				0AB524122210AECB00F35F52 /* Parameters+Include.swift in Sources */,
 				0A1DFE52236EE90B000F2538 /* Paging.swift in Sources */,
@@ -2430,6 +2466,7 @@
 				A8D4BE842689A023002D8202 /* LoggingOptions.swift in Sources */,
 				28A27BBB2931028200D8D555 /* SecurityProtectionManager.swift in Sources */,
 				063B5AA82317F64D003A7B84 /* WithoutBackViewController.swift in Sources */,
+				FA97AE8029AF49EC0047C8F3 /* DatabaseAsyncAwait.swift in Sources */,
 				0A1DFE64236EFA78000F2538 /* UIScrollView+BottomDetection.swift in Sources */,
 				373F6A0328E58AC500750011 /* Keychain+PropertyWrapper.swift in Sources */,
 				0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */,
@@ -2441,6 +2478,7 @@
 				0612E33F22D32A750081BCF6 /* UIViewModifiersViewController.swift in Sources */,
 				FA8892D4298BDEB900283B02 /* ValidatedDelete.swift in Sources */,
 				FA3B914329AC9F1200ECFFA4 /* TaskPublisher.swift in Sources */,
+				FA3B914B29ACA9D300ECFFA4 /* RealmCRUD.swift in Sources */,
 				0A1FAFF92406BB6F000F72D6 /* SessionManager.swift in Sources */,
 				0AB524222210B3CB00F35F52 /* URL+Append.swift in Sources */,
 				0A1DFE4F236EE8C5000F2538 /* Signal+Utility.swift in Sources */,
@@ -2481,6 +2519,7 @@
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
 				A8FD60FD2292AFCC00FB50CE /* BaseCollectionSection.m in Sources */,
 				A8FD61012292BB6D00FB50CE /* CollectionViewReloader.m in Sources */,
+				FA3B914729ACA66800ECFFA4 /* RealmCombine.swift in Sources */,
 				0AB5240B2210ADA700F35F52 /* Router.swift in Sources */,
 				0A603FE822078DC000F25622 /* Single+Utility.swift in Sources */,
 				3781895927317A54004E6BE3 /* CombinePagingInteractor.swift in Sources */,
@@ -2505,6 +2544,7 @@
 				FA8892C7298BDA5300283B02 /* ListExtensions.swift in Sources */,
 				064B18FB22DF47AD001D4489 /* UIView+LayerModifiers.swift in Sources */,
 				0AE0B762220438AE0033A476 /* SimpleAnimationTableViewReloader.swift in Sources */,
+				FA97AE7B29AF486D0047C8F3 /* ModelMapped.swift in Sources */,
 				0A54435A22718A8F00F26468 /* NetworkingWireframe.swift in Sources */,
 				3781894327316BCB004E6BE3 /* CombineNetworkingWireframe.swift in Sources */,
 				0AE0B755220430070033A476 /* TableCellItem.swift in Sources */,
@@ -2610,7 +2650,9 @@
 				81B01CA925EE8B190058D8E0 /* AssociableCollectionCellItem.swift in Sources */,
 				0AE0B759220435FA0033A476 /* TableDataSourceDelegate.swift in Sources */,
 				0AE0B77D2204803D0033A476 /* String+Blank.swift in Sources */,
+				FAC678D329B74EF6009419DA /* ObjectExtensions.swift in Sources */,
 				FA8892DD298BE63F00283B02 /* BookDB.swift in Sources */,
+				FA3B914929ACA80C00ECFFA4 /* NotFoundError.swift in Sources */,
 				4F286F812291DCFD00935FD3 /* NSMutableArray+FunctionalOperators.m in Sources */,
 				0A0F24452247CE5D0005CF41 /* Routable.swift in Sources */,
 				0A1FAFF42406B705000F72D6 /* DataRequest+Decodable.swift in Sources */,
@@ -2622,9 +2664,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F286F8D2291E33600935FD3 /* NSSet+FunctionalOperatorsTests.m in Sources */,
+				FA3B914D29ACAAF000ECFFA4 /* RealmCRUDTests.swift in Sources */,
 				536E5ADB225F334300EF01A6 /* String+Inserting.swift in Sources */,
 				536E5ACE225F2CF500EF01A6 /* Date+AdditionTests.swift in Sources */,
 				372448C8273289D400016144 /* CombinePagingTests.swift in Sources */,
+				FAC678D529B75460009419DA /* XCTestExtensions.swift in Sources */,
 				A8FD61052292C44500FB50CE /* TableDataSourceDelegateTestsObjC.m in Sources */,
 				0AE0B778220478220033A476 /* Array+RotateTests.swift in Sources */,
 				60B4BDF82243B8AF00849B8D /* UIColor+HexTests.swift in Sources */,

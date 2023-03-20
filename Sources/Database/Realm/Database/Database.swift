@@ -3,6 +3,10 @@ import RealmSwift
 import Realm
 import OSLog
 
+/// A simple wrapper around Realm
+/// This ensures that underlying realm is accessed in a right way.
+/// Mainly to ensure that all access is through a single `DispatchQueue`
+/// but also exposes good patterns of accessing realm.
 class Database {
     private(set) var realm: Realm!
 
