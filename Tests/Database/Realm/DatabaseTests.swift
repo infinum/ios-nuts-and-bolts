@@ -61,7 +61,7 @@ class DatabaseTests: XCTestCase {
 
         try await database.update(UserDB.self, with: User(id: "test", name: "Changed"))
 
-        await waitForExpectations(timeout: 1, handler: nil)
+        await fulfillment(of: [expectation], timeout: 1)
         XCTAssertEqual(nameEvents, ["Initial", "Changed"])
     }
 }
