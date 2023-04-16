@@ -10,6 +10,8 @@ enum SchemaVersion: UInt64, CaseIterable {
     case v0
     // Added property `x`
     case v1
+    // Added property `id` on `User`
+    case v2
 }
 
 extension SchemaVersion: Comparable {
