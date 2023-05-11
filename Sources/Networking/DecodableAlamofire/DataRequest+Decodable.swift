@@ -25,7 +25,7 @@ public extension DataRequest {
     }
 }
 
-final class DataKeyPathSerializer<SerializedObject: Decodable>: DataResponseSerializerProtocol {
+final class DataKeyPathSerializer<SerializedObject: Decodable>: ResponseSerializer {
 
     private let keyPath: String?
     private let decoder: JSONDecoder
@@ -52,14 +52,25 @@ final class DataKeyPathSerializer<SerializedObject: Decodable>: DataResponseSeri
             throw AFError.responseSerializationFailed(reason: .decodingFailed(error: AlamofireDecodableError.emptyKeyPath))
         }
         
-        let json = try DecodableResponseSerializer<[String: SerializedObject]>().serialize(request: nil, response: response, data: data, error: nil)
-        if let nestedJson = (json as AnyObject).value(forKeyPath: keyPath) {
-            guard JSONSerialization.isValidJSONObject(nestedJson) else {
+        guard let data = data, !data.isEmpty else {
+            guard emptyResponseAllowed(forRequest: request, response: response) else {
+                throw AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength)
+            }
+            throw AFError.responseSerializationFailed(reason: .decodingFailed(error: AlamofireDecodableError.invalidKeyPath))
+        }
+
+        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+
+        if let nestedData = (json as AnyObject).value(forKeyPath: keyPath) {
+            if JSONSerialization.isValidJSONObject(nestedData) {
+                let data = try JSONSerialization.data(withJSONObject: nestedData)
+                let object = try decoder.decode(SerializedObject.self, from: data)
+                return object
+            } else if let nestedObject = nestedData as? SerializedObject {
+                return nestedObject
+            } else {
                 throw AFError.responseSerializationFailed(reason: .decodingFailed(error: AlamofireDecodableError.invalidJSON))
             }
-            let data = try JSONSerialization.data(withJSONObject: nestedJson)
-            let object = try decoder.decode(SerializedObject.self, from: data)
-            return object
         } else {
             throw AFError.responseSerializationFailed(reason: .decodingFailed(error: AlamofireDecodableError.invalidKeyPath))
         }
