@@ -23,20 +23,16 @@ class CatalogDataSource {
 private extension CatalogDataSource {
 
     func createSections() -> [CatalogSectionModel] {
-        if #available(iOS 13, *) {
-            return [
-                CatalogSectionModel(title: "UI", items: createUIItems()),
-                CatalogSectionModel(title: "Rx", items: createRxItems()),
-                CatalogSectionModel(title: "Networking", items: createNetworkingItems()),
-                CatalogSectionModel(title: "Combine", items: createCombineItems())
-            ]
-        } else {
-            return [
-                CatalogSectionModel(title: "UI", items: createUIItems()),
-                CatalogSectionModel(title: "Rx", items: createRxItems()),
-                CatalogSectionModel(title: "Networking", items: createNetworkingItems())
-            ]
+        var sections = [
+            CatalogSectionModel(title: "UI", items: createUIItems()),
+            CatalogSectionModel(title: "Rx", items: createRxItems()),
+            CatalogSectionModel(title: "Networking", items: createNetworkingItems())
+        ]
+
+        if #available(iOS 15, *) {
+            sections.append(CatalogSectionModel(title: "Combine", items: createCombineItems()))
         }
+        return sections
     }
 
 }
@@ -44,28 +40,24 @@ private extension CatalogDataSource {
 private extension CatalogDataSource {
 
     func createUIItems() -> [Catalogizable.Type] {
-        if #available(iOS 14, *) {
-            return [
-                RatioTransitionViewController.self,
-                RoundCornersViewController.self,
-                UIViewModifiersViewController.self,
-                ImageFromColorViewController.self,
-                CatalogNavigationController.self,
-                ToggleViewController.self,
-                LineHeightViewController.self
-            ]
-            + createiOS14Items()
-        } else {
-            return [
-                RatioTransitionViewController.self,
-                RoundCornersViewController.self,
-                UIViewModifiersViewController.self,
-                ImageFromColorViewController.self,
-                CatalogNavigationController.self,
-                ToggleViewController.self,
-                LineHeightViewController.self
-            ]
+        var items: [Catalogizable.Type] = [
+            RatioTransitionViewController.self,
+            RoundCornersViewController.self,
+            UIViewModifiersViewController.self,
+            ImageFromColorViewController.self,
+            CatalogNavigationController.self,
+            ToggleViewController.self,
+            LineHeightViewController.self
+        ]
+
+        if #available(iOS 14.0, *) {
+            items.append(contentsOf: createiOS14Items())
         }
+
+        if #available(iOS 15.0, *) {
+            items.append(RxUIMenuExampleViewController.self)
+        }
+        return items
     }
 
 }

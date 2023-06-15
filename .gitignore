@@ -186,4 +186,12 @@ playground.xcworkspace
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+### Realm
+
+# watchos Realm library is too big for git
+Pods/Realm/core/realm-monorepo.xcframework/watchos-arm64_i386_x86_64-simulator/librealm-monorepo.a
+Pods/Realm/core/realm-monorepo.xcframework/watchos-armv7k_arm64_32_arm64/librealm-monorepo.a
+Pods/Realm/core/realm-monorepo.xcframework/watchos-armv7k_arm64_32_arm64/librealm-monorepo.a
+Pods/Realm/core/realm-monorepo.xcframework/tvos-arm64_x86_64-simulator/librealm-monorepo.a
+
 # End of https://www.gitignore.io/api/xcode,swift,macos,cocoapods,objective-c,visualstudiocode
