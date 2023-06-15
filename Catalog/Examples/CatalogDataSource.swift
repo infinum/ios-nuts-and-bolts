@@ -29,7 +29,7 @@ private extension CatalogDataSource {
             CatalogSectionModel(title: "Networking", items: createNetworkingItems())
         ]
 
-        if #available(iOS 15, *) {
+        if #available(iOS 13, *) {
             sections.append(CatalogSectionModel(title: "Combine", items: createCombineItems()))
         }
         return sections
@@ -49,6 +49,10 @@ private extension CatalogDataSource {
             ToggleViewController.self,
             LineHeightViewController.self
         ]
+
+        if #available(iOS 14.0, *) {
+            items.append(contentsOf: createiOS14Items())
+        }
 
         if #available(iOS 15.0, *) {
             items.append(RxUIMenuExampleViewController.self)
@@ -96,7 +100,19 @@ private extension CatalogDataSource {
         return [
             CombinePagingViewController.self,
             CombineProgressableViewController.self,
-            CombineAlertExampleViewController.self
+            CombineAlertExampleViewController.self,
+            CombineHapticFeedbackViewController.self
+        ]
+    }
+}
+
+@available(iOS 14, *)
+private extension CatalogDataSource {
+
+    func createiOS14Items() -> [Catalogizable.Type] {
+        return [
+            InputFieldViewController.self,
+            KeyboardHandlerViewController.self
         ]
     }
 }

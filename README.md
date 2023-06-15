@@ -62,6 +62,15 @@ Extensions for *Observables* and *Singles* which will make your reactive life a 
 <br/><br/>
 </details>
 
+<summary><big><b>Combine</b></big></summary>
+<hr />
+
+Extensions for *Publishers* which will make your reactive life a little easier.
+<br/><br/>
+</details>
+
+<details>
+
 <details>
 <summary><big><b>Foundation</b></big></summary>
 <hr />
