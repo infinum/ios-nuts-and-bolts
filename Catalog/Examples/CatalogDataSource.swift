@@ -29,7 +29,7 @@ private extension CatalogDataSource {
             CatalogSectionModel(title: "Networking", items: createNetworkingItems())
         ]
 
-        if #available(iOS 15, *) {
+        if #available(iOS 13, *) {
             sections.append(CatalogSectionModel(title: "Combine", items: createCombineItems()))
         }
         return sections
