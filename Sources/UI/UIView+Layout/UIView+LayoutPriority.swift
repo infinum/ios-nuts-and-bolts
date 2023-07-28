@@ -6,7 +6,7 @@
 
 import UIKit
 
-// MARK: - CompreTakssion Resistance And Hugging Priority
+// MARK: - Compression Resistance And Hugging Priority
 
 public extension UIView {
 

@@ -23,13 +23,13 @@ extension UILabelInitializable {
         self.init(frame: .zero)
         self.text = text
         self.textAlignment = alignment
-        if let textColor = textColor {
+        if let textColor {
             self.textColor = textColor
         }
-        if let lines = lines {
+        if let lines {
             self.numberOfLines = lines
         }
-        if let font = font {
+        if let font {
             self.font = font
         }
     }

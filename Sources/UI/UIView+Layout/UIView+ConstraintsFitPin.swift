@@ -70,6 +70,7 @@ public extension UIView {
         )
     }
 
+    /// Creates and returns constraints that align view edges to superview (if any). Returned constraints have to be activated.
     func constraintWhichFitSuperview(
         horizontal: LayoutGuideKind = .edge,
         vertical: LayoutGuideKind = .edge,

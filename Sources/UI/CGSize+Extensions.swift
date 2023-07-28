@@ -14,11 +14,15 @@ public extension CGSize {
         return CGSize(width: width + size.width, height: height + size.height)
     }
 
+    func subtracting(size: CGSize) -> CGSize {
+        return CGSize(width: width - size.width, height: height - size.height)
+    }
+
     func adding(insets: UIEdgeInsets) -> CGSize {
         return CGSize(width: width + insets.left + insets.right, height: height + insets.top + insets.bottom)
     }
 
-    func substracting(insets: UIEdgeInsets) -> CGSize {
+    func subtracting(insets: UIEdgeInsets) -> CGSize {
         return adding(insets: insets.inversed)
     }
 

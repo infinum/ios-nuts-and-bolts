@@ -34,18 +34,22 @@ public extension UIStackView {
 
 public extension UIStackView {
 
+    /// Indicates whether this stack contains no subviews or it does but they're all hidden. Useful when deciding whether to hide the stack itself.
     var isEmptyOrAllSubviewsHidden: Bool {
         return arrangedSubviews.isEmpty || arrangedSubviews.allSatisfy(\.isHidden)
     }
 
+    /// Adds specified view to the end of the arranged subviews array.
     func addArrangedSubviews(_ views: [UIView]) {
         views.forEach { addArrangedSubview($0) }
     }
 
+    /// Adds specified view to the end of the arranged subviews array.
     func addArrangedSubviews(_ views: UIView...) {
         addArrangedSubviews(views)
     }
 
+    /// Removes all the existing views from the stack’s array of arranged subviews.
     func removeAllArrangedSubviews() {
         for subview in subviews {
             removeArrangedSubview(subview)
@@ -53,10 +57,12 @@ public extension UIStackView {
         }
     }
 
+    /// Removes provided views from the stack’s array of arranged subviews.
     func removeArrangedSubviews(_ views: [UIView]) {
         views.forEach { removeArrangedSubview($0) }
     }
 
+    /// Removes all existing views and replaces them with this one new view (if provided).
     func replaceAllArrangedSubviews(with view: UIView?) {
         removeAllArrangedSubviews()
         if let view = view {
@@ -67,11 +73,21 @@ public extension UIStackView {
     /// Adds padding. Sets up non-default layoutMargins and makes sure that 'isLayoutMarginsRelativeArrangement' is on.
     var explicitMargins: UIEdgeInsets? {
         get {
-            return isLayoutMarginsRelativeArrangement ? nil : layoutMargins
+            if isLayoutMarginsRelativeArrangement {
+                return layoutMargins
+            } else {
+                return nil
+            }
         }
         set {
-            isLayoutMarginsRelativeArrangement = newValue != nil
-            layoutMargins = newValue ?? .zero
+            if let newValue {
+                isLayoutMarginsRelativeArrangement = true
+                layoutMargins = newValue
+            } else {
+                isLayoutMarginsRelativeArrangement = false
+                layoutMargins = .zero
+            }
+
         }
     }
 }
