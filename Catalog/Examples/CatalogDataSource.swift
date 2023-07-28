@@ -23,20 +23,16 @@ class CatalogDataSource {
 private extension CatalogDataSource {
 
     func createSections() -> [CatalogSectionModel] {
+        var sections = [
+            CatalogSectionModel(title: "UI", items: createUIItems()),
+            CatalogSectionModel(title: "Rx", items: createRxItems()),
+            CatalogSectionModel(title: "Networking", items: createNetworkingItems())
+        ]
+
         if #available(iOS 13, *) {
-            return [
-                CatalogSectionModel(title: "UI", items: createUIItems()),
-                CatalogSectionModel(title: "Rx", items: createRxItems()),
-                CatalogSectionModel(title: "Networking", items: createNetworkingItems()),
-                CatalogSectionModel(title: "Combine", items: createCombineItems())
-            ]
-        } else {
-            return [
-                CatalogSectionModel(title: "UI", items: createUIItems()),
-                CatalogSectionModel(title: "Rx", items: createRxItems()),
-                CatalogSectionModel(title: "Networking", items: createNetworkingItems())
-            ]
+            sections.append(CatalogSectionModel(title: "Combine", items: createCombineItems()))
         }
+        return sections
     }
 
 }
@@ -44,7 +40,7 @@ private extension CatalogDataSource {
 private extension CatalogDataSource {
 
     func createUIItems() -> [Catalogizable.Type] {
-        return [
+        var items: [Catalogizable.Type] = [
             RatioTransitionViewController.self,
             RoundCornersViewController.self,
             UIViewModifiersViewController.self,
@@ -54,6 +50,15 @@ private extension CatalogDataSource {
             ConstraintsViewController.self,
             LineHeightViewController.self
         ]
+
+        if #available(iOS 14.0, *) {
+            items.append(contentsOf: createiOS14Items())
+        }
+
+        if #available(iOS 15.0, *) {
+            items.append(RxUIMenuExampleViewController.self)
+        }
+        return items
     }
 
 }
@@ -96,7 +101,19 @@ private extension CatalogDataSource {
         return [
             CombinePagingViewController.self,
             CombineProgressableViewController.self,
-            CombineAlertExampleViewController.self
+            CombineAlertExampleViewController.self,
+            CombineHapticFeedbackViewController.self
+        ]
+    }
+}
+
+@available(iOS 14, *)
+private extension CatalogDataSource {
+
+    func createiOS14Items() -> [Catalogizable.Type] {
+        return [
+            InputFieldViewController.self,
+            KeyboardHandlerViewController.self
         ]
     }
 }

@@ -16,6 +16,14 @@ def networking
   pod 'OHHTTPStubs/Swift'
 end
 
+def database
+  pod 'RealmSwift'
+end
+
+def security
+  pod 'IOSSecuritySuite'
+end
+
 def reactive
   pod 'RxSwift'
   pod 'RxCocoa'
@@ -37,9 +45,11 @@ end
 
 def shared
   networking
+  database
   reactive
   localization
   ui
+  security
   other
 end
 
