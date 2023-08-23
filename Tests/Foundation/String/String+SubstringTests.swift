@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class String_SubstringTests: QuickSpec {
+class StringSubstringTests: QuickSpec {
     
     override func spec() {
         
