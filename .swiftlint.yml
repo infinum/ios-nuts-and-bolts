@@ -14,10 +14,6 @@ analyzer_rules:
   - unused_optional_binding
   - unused_setter_value
 
-disabled_rules:
-  - trailing_whitespace # Generates >600 warnings
-  - unused_capture_list # False positives with implicit unowned self
-
 only_rules:
   - array_init
   - attributes
@@ -84,7 +80,7 @@ only_rules:
   - lower_acl_than_parent
   - mark
   - modifier_order
-#  - multiline_arguments
+  - multiline_arguments
   - multiline_arguments_brackets
   - multiline_function_chains
   - multiline_literal_brackets
@@ -168,15 +164,24 @@ identifier_name:
     error: 100
   excluded:
     - id
+    - Id
     - ID
+    - on
+    - On
+    - ON
     - x
     - y
     - z
     - i
     - j
-    - r
-    - g
-    - b
+type_name:
+  excluded:
+    - id
+    - Id
+    - ID
+    - on
+    - On
+    - ON
 line_length:
   warning: 150
   error: 250
@@ -186,11 +191,3 @@ number_separator:
 type_body_length:
   warning: 300
   error: 450
-type_name:
-  max_length:
-    warning: 60
-    error: 1000
-nesting:
-  type_level:
-    warning: 3
-    error: 5
