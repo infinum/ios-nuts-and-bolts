@@ -13,6 +13,9 @@ public extension Bundle {
     @discardableResult
     func load<T: UIView>(viewOfType _: T.Type, owner: Any? = nil) -> T {
         let viewName = String(describing: T.self)
-        return loadNibNamed(viewName, owner: nil, options: nil)!.first as! T
+        guard let view = loadNibNamed(viewName, owner: nil, options: nil)?.first as? T else {
+            fatalError("Couldn't load view!")
+        }
+        return view
     }
 }

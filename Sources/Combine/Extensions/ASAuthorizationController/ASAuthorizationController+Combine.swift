@@ -26,7 +26,7 @@ public extension ASAuthorizationController {
     var didCompleteWithAuthorizationPublisher: AnyPublisher<Result<ASAuthorization, Error>, Never> {
         let selector = #selector(ASAuthorizationControllerDelegate.authorizationController(controller:didCompleteWithAuthorization:))
         return delegateProxy.interceptSelectorPublisher(selector)
-            .map { $0[1] as! ASAuthorization }
+            .compactMap { $0[1] as? ASAuthorization }
             .map { .success($0) }
             .eraseToAnyPublisher()
     }
@@ -35,7 +35,7 @@ public extension ASAuthorizationController {
     var didCompleteWithErrorPublisher: AnyPublisher<Result<ASAuthorization, Error>, Never> {
         let selector = #selector(ASAuthorizationControllerDelegate.authorizationController(controller:didCompleteWithError:))
         return delegateProxy.interceptSelectorPublisher(selector)
-            .map { $0[1] as! Error }
+            .compactMap { $0[1] as? Error }
             .map { .failure($0) }
             .eraseToAnyPublisher()
     }

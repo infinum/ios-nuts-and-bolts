@@ -54,7 +54,7 @@ private extension CatalogViewController {
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-        tableView.pinToSuperview()
+        tableView.constraintWhichFitSuperview().activateAll()
         
         return tableView
     }

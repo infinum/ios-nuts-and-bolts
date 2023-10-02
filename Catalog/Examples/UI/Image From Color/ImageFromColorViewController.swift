@@ -28,7 +28,7 @@ private extension ImageFromColorViewController {
         view.addSubview(sampleView)
         
         let insets = UIEdgeInsets(top: 200, left: 50, bottom: -200, right: -50)
-        sampleView.pinToSuperview(insets: insets)
+        sampleView.constraintWhichFitSuperview(insets: insets).activateAll()
         
         let normalImage = UIColor.red.image()
         let disabledImage = UIColor.green.image()

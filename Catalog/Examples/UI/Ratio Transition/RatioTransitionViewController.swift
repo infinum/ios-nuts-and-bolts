@@ -26,7 +26,7 @@ private extension RatioTransitionViewController {
         // Button logic
         let showButton = UIButton(type: .system)
         view.addSubview(showButton)
-        showButton.centerToSuperview()
+        showButton.constraintsWhichCenterSuperview().activateAll()
         showButton.setTitle("Show ratio transition", for: .normal)
         
         showButton.addTarget(

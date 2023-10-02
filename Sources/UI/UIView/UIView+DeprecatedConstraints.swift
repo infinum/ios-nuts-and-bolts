@@ -7,6 +7,16 @@
 
 import UIKit
 
+// MARK: - ⚠️ Deprecated ⚠️
+///
+/// These extensions are deprecated due to:
+/// - Their naming is not consistent
+/// - Instead of just returning them, they activate constraints at once
+///
+/// See new extensions at:
+/// - `UIView+ConstraintsFitPin`
+/// - `UIView+ConstraintsSize`
+/// - `UIView+ConstraintsPosition`
 public extension UIView {
     
     // MARK: - Pin edges -
@@ -19,6 +29,7 @@ public extension UIView {
     ///
     /// - Parameters:
     ///   - insets: View insets
+    @available(*, deprecated, renamed: "constraintWhichFitSuperview")
     func pinToSuperview(insets: UIEdgeInsets = .zero) {
         guard let superview = superview else { return }
         pin(to: superview, with: insets)
@@ -32,6 +43,7 @@ public extension UIView {
     /// - Parameters:
     ///   - view: Other view
     ///   - insets: View insets
+    @available(*, deprecated, renamed: "constraintsWhichFit")
     func pin(to view: UIView, with insets: UIEdgeInsets = .zero) {
         pinTo(
             top: view.topAnchor,
@@ -46,6 +58,7 @@ public extension UIView {
     ///
     /// It uses left/top/right/bottom anchors when pinning view.
     /// Try to avoid leading/trailing anchors since they depend on locale
+    @available(*, deprecated, renamed: "constraintsWhichPin")
     func pinTo(
         top: NSLayoutYAxisAnchor? = nil,
         left: NSLayoutXAxisAnchor? = nil,
@@ -75,6 +88,7 @@ public extension UIView {
     ///
     /// - Parameters:
     ///   - size: Pin size
+    @available(*, deprecated, renamed: "constraintsWhichSize")
     func pin(to size: CGSize) {
         translatesAutoresizingMaskIntoConstraints = false
         var constraints = [NSLayoutConstraint]()
@@ -90,13 +104,14 @@ public extension UIView {
     /// - Parameters:
     ///   - width: Pin width
     ///   - height: Pin height
+    @available(*, deprecated, renamed: "constraintsWhichSize")
     func pinTo(
         width: NSLayoutDimension? = nil,
         height: NSLayoutDimension? = nil
     ) {
         translatesAutoresizingMaskIntoConstraints = false
         var constraints = [NSLayoutConstraint]()
-        
+
         if let height = height {
             constraints.append(heightAnchor.constraint(equalTo: height, multiplier: 1.0))
         }
@@ -113,6 +128,7 @@ public extension UIView {
     ///
     /// - Parameters:
     ///   - insets: Center insets
+    @available(*, deprecated, renamed: "constraintsWhichCenterSuperview")
     func centerToSuperview(insets: CGPoint = .zero) {
         guard let superview = superview else { return }
         center(to: superview, with: insets)
@@ -123,6 +139,7 @@ public extension UIView {
     /// - Parameters:
     ///   - view: Other view
     ///   - insets: Center insets
+    @available(*, deprecated, renamed: "constraintsWhichCenter")
     func center(to view: UIView, with insets: CGPoint = .zero) {
         centerTo(
             centerX: view.centerXAnchor,
@@ -132,6 +149,7 @@ public extension UIView {
     }
     
     /// Centers the current view to the specified centers with given insets
+    @available(*, deprecated, renamed: "constraintsWhichCenter")
     func centerTo(
         centerX: NSLayoutXAxisAnchor? = nil,
         centerY: NSLayoutYAxisAnchor? = nil,

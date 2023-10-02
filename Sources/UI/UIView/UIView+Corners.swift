@@ -20,7 +20,7 @@ public extension UIView {
     /// - Parameters:
     ///   - corners: Corners where to place round edge
     ///   - radius: Corner radius
-    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+    func roundCorners(corners: UIRectCorner = .allCorners, radius: CGFloat, isContinuous: Bool = false) {
         var maskedCorners: CACornerMask = []
         if corners.contains(.topLeft) { maskedCorners.insert(.layerMinXMinYCorner) }
         if corners.contains(.topRight) { maskedCorners.insert(.layerMaxXMinYCorner) }
@@ -28,6 +28,19 @@ public extension UIView {
         if corners.contains(.bottomRight) { maskedCorners.insert(.layerMaxXMaxYCorner) }
         layer.cornerRadius = radius
         layer.maskedCorners = maskedCorners
+        if #available(iOS 13.0, *) {
+            layer.cornerCurve = isContinuous ? .continuous : .circular
+        }
     }
-    
+
+    /// Applies rounded corners so that the view appears as a pill (or a circle if square shaped).
+    func roundCornersAsPill() {
+        cornerRadius = bounds.size.minSide / 2
+    }
+
+    /// Applies rounded corners so that the view appears as circle. Warning: frame must be square.
+    func roundCornersAsCircle() {
+        cornerRadius = bounds.size.maxSide / 2
+    }
+
 }
