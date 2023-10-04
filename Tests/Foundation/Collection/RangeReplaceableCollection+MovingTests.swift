@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class RangeReplaceableCollection_MovingTests: QuickSpec {
+class RangeReplaceableCollectionMovingTests: QuickSpec {
     
     override func spec() {
         

@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class String_BlankTests: QuickSpec {
+class StringBlankTests: QuickSpec {
     
     override func spec() {
         

@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class Date_AdditionTests: QuickSpec {
+class DateAdditionTests: QuickSpec {
     
     override func spec() {
         

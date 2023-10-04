@@ -10,11 +10,11 @@
 #import "NSArray+FunctionalOperators.h"
 #import "NSArrayTestModel.h"
 
-@interface NSArray_FunctionalOperatorsTests : XCTestCase
+@interface NSArrayFunctionalOperatorsTests : XCTestCase
 
 @end
 
-@implementation NSArray_FunctionalOperatorsTests
+@implementation NSArrayFunctionalOperatorsTests
 
 - (void)testArrayMapOperator
 {

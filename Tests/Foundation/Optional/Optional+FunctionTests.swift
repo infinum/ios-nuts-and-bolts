@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class Optional_FunctionTests: QuickSpec {
+class OptionalFunctionTests: QuickSpec {
     
     override func spec() {
         

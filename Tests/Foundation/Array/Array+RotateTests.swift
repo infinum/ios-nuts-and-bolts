@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class Array_RotateTests: QuickSpec {
+class ArrayRotateTests: QuickSpec {
 
     override func spec() {
 

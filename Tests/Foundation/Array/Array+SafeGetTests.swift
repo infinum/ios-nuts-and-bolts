@@ -9,7 +9,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class Array_SafeGetTests: QuickSpec {
+class ArraySafeGetTests: QuickSpec {
     
     override func spec() {
         
