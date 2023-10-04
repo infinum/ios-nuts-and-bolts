@@ -1,5 +1,5 @@
 # Parent config - Infinum Style Guide
- parent_config: https://raw.githubusercontent.com/infinum/swift-style-guide/master/.swiftlint.yml
+parent_config: https://raw.githubusercontent.com/infinum/swift-style-guide/master/.swiftlint.yml
 
 included:
   - .
