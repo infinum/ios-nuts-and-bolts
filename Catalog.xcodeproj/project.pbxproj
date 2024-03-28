@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03B125A82BB5C8BA006EC791 /* DebugBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B125A72BB5C8BA006EC791 /* DebugBackgroundModifier.swift */; };
+		03B125AC2BB5CB3E006EC791 /* DebugLayoutModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B125AB2BB5CB3E006EC791 /* DebugLayoutModifier.swift */; };
+		03B125AE2BB5CD1A006EC791 /* DebugBorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B125AD2BB5CD1A006EC791 /* DebugBorderModifier.swift */; };
 		0612E33C22D32A540081BCF6 /* UIViewModifiers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0612E33B22D32A540081BCF6 /* UIViewModifiers.storyboard */; };
 		0612E33F22D32A750081BCF6 /* UIViewModifiersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0612E33E22D32A750081BCF6 /* UIViewModifiersViewController.swift */; };
 		063B5AA52317F64D003A7B84 /* CatalogNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063B5AA12317F64C003A7B84 /* CatalogNavigationController.swift */; };
@@ -207,12 +210,6 @@
 		374937CA28D3383400BDAC2F /* CombineHapticFeedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 374937C528D3383400BDAC2F /* CombineHapticFeedback.storyboard */; };
 		374937CD28D3383400BDAC2F /* CombineHapticFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374937C828D3383400BDAC2F /* CombineHapticFeedbackViewController.swift */; };
 		375677952970319E00634754 /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375677942970319E00634754 /* NotificationNameExtensions.swift */; };
-		373F6A0F28E5CB0000750011 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A0E28E5CB0000750011 /* DependencyContainer.swift */; };
-		373F6A1128E5CEE600750011 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A1028E5CEE600750011 /* DependencyManager.swift */; };
-		373F6A1428E5D0E000750011 /* DemoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A1328E5D0E000750011 /* DemoManager.swift */; };
-		373F6A1628E5D15300750011 /* MockComplexSingletonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A1528E5D15300750011 /* MockComplexSingletonClass.swift */; };
-		373F6A1A28E5D4D400750011 /* DependecyManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373F6A1928E5D4D400750011 /* DependecyManagerTest.swift */; };
-		375677952970319E00634754 /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375677942970319E00634754 /* NotificationNameExtensions.swift */; };
 		375C2CD9274E3BB500632EF2 /* UIAlertController+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CD8274E3BB500632EF2 /* UIAlertController+Combine.swift */; };
 		375C2CDC274E485C00632EF2 /* CombineAlertExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375C2CDB274E485C00632EF2 /* CombineAlertExampleViewController.swift */; };
 		3781893327316B32004E6BE3 /* Result+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781893227316B32004E6BE3 /* Result+Combine.swift */; };
@@ -388,6 +385,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03B125A72BB5C8BA006EC791 /* DebugBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugBackgroundModifier.swift; sourceTree = "<group>"; };
+		03B125AB2BB5CB3E006EC791 /* DebugLayoutModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLayoutModifier.swift; sourceTree = "<group>"; };
+		03B125AD2BB5CD1A006EC791 /* DebugBorderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugBorderModifier.swift; sourceTree = "<group>"; };
 		0612E33B22D32A540081BCF6 /* UIViewModifiers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIViewModifiers.storyboard; sourceTree = "<group>"; };
 		0612E33E22D32A750081BCF6 /* UIViewModifiersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewModifiersViewController.swift; sourceTree = "<group>"; };
 		063B5AA12317F64C003A7B84 /* CatalogNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogNavigationController.swift; sourceTree = "<group>"; };
@@ -612,6 +612,18 @@
 		3781895327317A54004E6BE3 /* CombinePagingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingInteractor.swift; sourceTree = "<group>"; };
 		3781895427317A54004E6BE3 /* CombinePagingWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinePagingWireframe.swift; sourceTree = "<group>"; };
 		3781895B27317D7F004E6BE3 /* UIScrollView+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Combine.swift"; sourceTree = "<group>"; };
+		379D23802A3AF9C2004AB543 /* MatchingValueValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingValueValidatorTests.swift; sourceTree = "<group>"; };
+		379D23812A3AF9C2004AB543 /* EmailValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatorTests.swift; sourceTree = "<group>"; };
+		379D23822A3AF9C2004AB543 /* MaxValueLengthValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxValueLengthValidatorTests.swift; sourceTree = "<group>"; };
+		379D23862A3AF9C8004AB543 /* RequiredValueValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequiredValueValidatorTests.swift; sourceTree = "<group>"; };
+		37B782A728E329F100FAF3FF /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
+		37B782AA28E32A4300FAF3FF /* UIEdgeInsets+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Utility.swift"; sourceTree = "<group>"; };
+		37B782AC28E32D2900FAF3FF /* KeyboardHandlingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandlingViewController.swift; sourceTree = "<group>"; };
+		37B782AF28E32E3800FAF3FF /* KeyboardHandler.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KeyboardHandler.storyboard; sourceTree = "<group>"; };
+		37B782B228E32E3800FAF3FF /* KeyboardHandlerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandlerViewController.swift; sourceTree = "<group>"; };
+		37BB458828D2FCD100567159 /* AsyncPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncPublisher.swift; sourceTree = "<group>"; };
+		37E7990828D46A8000112F8C /* BaseInputFieldInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldInterface.swift; sourceTree = "<group>"; };
+		37E7990A28D46B4700112F8C /* BaseInputFieldConfiguratorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldConfiguratorInterface.swift; sourceTree = "<group>"; };
 		4230BF1329886E8E0086E3CA /* ScrollingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingViewController.swift; sourceTree = "<group>"; };
 		4230BF15298870350086E3CA /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		4230BF17298870F70086E3CA /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -637,18 +649,6 @@
 		42CC57BD2A73EB1800A819E1 /* LayoutPriorityAndConstraintsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutPriorityAndConstraintsTestCase.swift; sourceTree = "<group>"; };
 		42CC57BF2A73EB2400A819E1 /* EdgeInsetsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsTestCase.swift; sourceTree = "<group>"; };
 		42CC57C12A73EB2D00A819E1 /* CGSizeTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeTestCase.swift; sourceTree = "<group>"; };
-		379D23802A3AF9C2004AB543 /* MatchingValueValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingValueValidatorTests.swift; sourceTree = "<group>"; };
-		379D23812A3AF9C2004AB543 /* EmailValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatorTests.swift; sourceTree = "<group>"; };
-		379D23822A3AF9C2004AB543 /* MaxValueLengthValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxValueLengthValidatorTests.swift; sourceTree = "<group>"; };
-		379D23862A3AF9C8004AB543 /* RequiredValueValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequiredValueValidatorTests.swift; sourceTree = "<group>"; };
-		37B782A728E329F100FAF3FF /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
-		37B782AA28E32A4300FAF3FF /* UIEdgeInsets+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Utility.swift"; sourceTree = "<group>"; };
-		37B782AC28E32D2900FAF3FF /* KeyboardHandlingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandlingViewController.swift; sourceTree = "<group>"; };
-		37B782AF28E32E3800FAF3FF /* KeyboardHandler.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KeyboardHandler.storyboard; sourceTree = "<group>"; };
-		37B782B228E32E3800FAF3FF /* KeyboardHandlerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandlerViewController.swift; sourceTree = "<group>"; };
-		37BB458828D2FCD100567159 /* AsyncPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncPublisher.swift; sourceTree = "<group>"; };
-		37E7990828D46A8000112F8C /* BaseInputFieldInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldInterface.swift; sourceTree = "<group>"; };
-		37E7990A28D46B4700112F8C /* BaseInputFieldConfiguratorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInputFieldConfiguratorInterface.swift; sourceTree = "<group>"; };
 		4F14006A2289FF9C0005F37A /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F14006B2289FF9C0005F37A /* NSArray+FunctionalOperators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FunctionalOperators.m"; sourceTree = "<group>"; };
 		4F14006C2289FF9C0005F37A /* NSArray+FunctionalOperators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FunctionalOperators.h"; sourceTree = "<group>"; };
@@ -805,6 +805,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03B125A52BB5C8A4006EC791 /* Debugging */ = {
+			isa = PBXGroup;
+			children = (
+				03B125A62BB5C8AD006EC791 /* SwiftUI */,
+			);
+			path = Debugging;
+			sourceTree = "<group>";
+		};
+		03B125A62BB5C8AD006EC791 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				03B125A72BB5C8BA006EC791 /* DebugBackgroundModifier.swift */,
+				03B125AB2BB5CB3E006EC791 /* DebugLayoutModifier.swift */,
+				03B125AD2BB5CD1A006EC791 /* DebugBorderModifier.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		0612E33A22D32A360081BCF6 /* UIView Modifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -2355,6 +2373,7 @@
 		A83B221A269D84C4005A4A91 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				03B125A52BB5C8A4006EC791 /* Debugging */,
 				372B1D0228D456F6000066D2 /* Validators */,
 				28A27BB12931028200D8D555 /* Security */,
 				373F6A1228E5D0BF00750011 /* DemoManager */,
@@ -2934,6 +2953,7 @@
 				42BA11FE2987FA4B0022B1A1 /* CGSize+Extensions.swift in Sources */,
 				D73703102316A34800D7A986 /* ImageFromColorViewController.swift in Sources */,
 				42BA1209298829130022B1A1 /* ConstraintsInterfaces.swift in Sources */,
+				03B125AC2BB5CB3E006EC791 /* DebugLayoutModifier.swift in Sources */,
 				373F6A1428E5D0E000750011 /* DemoManager.swift in Sources */,
 				374937CD28D3383400BDAC2F /* CombineHapticFeedbackViewController.swift in Sources */,
 				0A603FE22207874D00F25622 /* ClosedRange+Scalable.swift in Sources */,
@@ -3008,6 +3028,7 @@
 				0AA45E772218880A009CF93E /* JapxResponse.swift in Sources */,
 				427B96CE29892B960020BFCE /* StackViewController.swift in Sources */,
 				C202328023954DB400DC3C42 /* NetworkingJapxWireframe.swift in Sources */,
+				03B125A82BB5C8BA006EC791 /* DebugBackgroundModifier.swift in Sources */,
 				3715698828D47B9F0031802F /* Bundle+NibLoading.swift in Sources */,
 				CC80F7232438DAEC00A3F276 /* ToggleWireframe.swift in Sources */,
 				0A54435522718A8F00F26468 /* NetworkingInterfaces.swift in Sources */,
@@ -3023,6 +3044,7 @@
 				373F6A1628E5D15300750011 /* MockComplexSingletonClass.swift in Sources */,
 				0AB5241A2210AFFB00F35F52 /* Parameters+Fields.swift in Sources */,
 				0AE0B764220439650033A476 /* BlankTableSection.swift in Sources */,
+				03B125AE2BB5CD1A006EC791 /* DebugBorderModifier.swift in Sources */,
 				A8FD60FD2292AFCC00FB50CE /* BaseCollectionSection.m in Sources */,
 				37BB458928D2FCD100567159 /* AsyncPublisher.swift in Sources */,
 				A8FD61012292BB6D00FB50CE /* CollectionViewReloader.m in Sources */,
