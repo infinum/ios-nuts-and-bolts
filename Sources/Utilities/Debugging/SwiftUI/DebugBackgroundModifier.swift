@@ -11,6 +11,8 @@ import SwiftUI
 @available(iOS 13.0, *)
 public extension View {
 
+    /// A convenience method that you can use to track when SwiftUI calls `body` on `View` types.
+    /// - important: Only works in `DEBUG` builds, otherwise this does nothing.
     func debugBackground() -> some View {
         #if DEBUG
             self.background(Color.random())

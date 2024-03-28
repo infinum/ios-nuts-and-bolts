@@ -12,6 +12,28 @@ import SwiftUI
 @available(iOS 13.0, *)
 public extension View {
 
+    /// Use this modifier to gain insight into what is being proposed to a `View` and what it returns as it's desired size.
+    /// - Parameter label: A label used to represent this View in the console output
+    ///
+    /// This example shows how the layout exchange between a `Color` and a `frame` modifier looks like
+    /// ```swift
+    /// struct ContentView: View {
+    ///     var body: some View {
+    ///         Color.red
+    ///             .debugLayout("Color")
+    ///             .frame(width: 100)
+    ///             .debugLayout("width: 100")
+    ///     }
+    /// }
+    /// ```
+    ///
+    /// The following is outputed to the console:
+    /// ```
+    /// 🔵  -> | width: 100 | w:393.0 h:759.0
+    ///     🔵 -> | Color | w:100.0 h:759.0
+    ///     🔶 <- | Color | w:100.0 h:759.0
+    /// 🔶 <- | width: 100 | w:100.0 h:759.0
+    /// ```
     @ViewBuilder
     func debugLayout(_ label: String) -> some View {
         if #available(iOS 16.0, *) {
