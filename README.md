@@ -62,6 +62,7 @@ Extensions for *Observables* and *Singles* which will make your reactive life a 
 <br/><br/>
 </details>
 
+<details>
 <summary><big><b>Combine</b></big></summary>
 <hr />
 
@@ -70,6 +71,18 @@ Extensions for *Publishers* which will make your reactive life a little easier.
 </details>
 
 <details>
+<summary><big><b>SwiftUI</b></big></summary>
+<hr />
+
+Extensions for *SwiftUI* including custom *Views* and *ViewModifiers* that will help you with building declarative user experiences.
+
+*Debugging*
+* **debugBackground** - Detect unwanted *body* calls.
+* **debugBorder** - Simplify adding a border to a view while debugging layout.
+* **debugLayout** - Gain insight into the *SwiftUI* layout cycle.
+
+<br/><br/>
+</details>
 
 <details>
 <summary><big><b>Foundation</b></big></summary>
