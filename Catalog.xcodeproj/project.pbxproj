@@ -143,11 +143,7 @@
 		265358AD29C0904A009D921B /* RxUIMenuExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265358A829C0904A009D921B /* RxUIMenuExampleViewController.swift */; };
 		265358AE29C0904A009D921B /* RxUIMenuExampleWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265358A929C0904A009D921B /* RxUIMenuExampleWireframe.swift */; };
 		2864DE4B293DFDDC00C16290 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2864DE4A293DFDDC00C16290 /* UIView+Blur.swift */; };
-		288E291B29966B90004C5AA8 /* BlurProtectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288E291A29966B90004C5AA8 /* BlurProtectionType.swift */; };
 		28A27BB0293101F100D8D555 /* BlurPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A27BAF293101F100D8D555 /* BlurPosition.swift */; };
-		28A27BB82931028200D8D555 /* ServiceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A27BB42931028200D8D555 /* ServiceStatus.swift */; };
-		28A27BBA2931028200D8D555 /* SecurityTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A27BB62931028200D8D555 /* SecurityTimer.swift */; };
-		28A27BBB2931028200D8D555 /* SecurityProtectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A27BB72931028200D8D555 /* SecurityProtectionManager.swift */; };
 		3715697028D46C940031802F /* UIView+HiddenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715696F28D46C940031802F /* UIView+HiddenExtensions.swift */; };
 		3715697328D46E060031802F /* Collection+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715697228D46E060031802F /* Collection+Utility.swift */; };
 		3715697528D46F120031802F /* UIView+BorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715697428D46F120031802F /* UIView+BorderColor.swift */; };
@@ -527,11 +523,7 @@
 		265358A929C0904A009D921B /* RxUIMenuExampleWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUIMenuExampleWireframe.swift; sourceTree = "<group>"; };
 		2729A70699669A6CA7922447 /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2864DE4A293DFDDC00C16290 /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
-		288E291A29966B90004C5AA8 /* BlurProtectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurProtectionType.swift; sourceTree = "<group>"; };
 		28A27BAF293101F100D8D555 /* BlurPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurPosition.swift; sourceTree = "<group>"; };
-		28A27BB42931028200D8D555 /* ServiceStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceStatus.swift; sourceTree = "<group>"; };
-		28A27BB62931028200D8D555 /* SecurityTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityTimer.swift; sourceTree = "<group>"; };
-		28A27BB72931028200D8D555 /* SecurityProtectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityProtectionManager.swift; sourceTree = "<group>"; };
 		35F81E5102FFB53483883EBD /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
 		3715696F28D46C940031802F /* UIView+HiddenExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+HiddenExtensions.swift"; sourceTree = "<group>"; };
 		3715697228D46E060031802F /* Collection+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Utility.swift"; sourceTree = "<group>"; };
@@ -1666,33 +1658,6 @@
 			path = Blur;
 			sourceTree = "<group>";
 		};
-		28A27BB12931028200D8D555 /* Security */ = {
-			isa = PBXGroup;
-			children = (
-				28A27BB22931028200D8D555 /* SecurityProtectionManager */,
-			);
-			path = Security;
-			sourceTree = "<group>";
-		};
-		28A27BB22931028200D8D555 /* SecurityProtectionManager */ = {
-			isa = PBXGroup;
-			children = (
-				28A27BB32931028200D8D555 /* Common */,
-				28A27BB72931028200D8D555 /* SecurityProtectionManager.swift */,
-			);
-			path = SecurityProtectionManager;
-			sourceTree = "<group>";
-		};
-		28A27BB32931028200D8D555 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				28A27BB62931028200D8D555 /* SecurityTimer.swift */,
-				28A27BB42931028200D8D555 /* ServiceStatus.swift */,
-				288E291A29966B90004C5AA8 /* BlurProtectionType.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		3715697B28D473EE0031802F /* InputFieldView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2375,7 +2340,6 @@
 			children = (
 				03B125A52BB5C8A4006EC791 /* Debugging */,
 				372B1D0228D456F6000066D2 /* Validators */,
-				28A27BB12931028200D8D555 /* Security */,
 				373F6A1228E5D0BF00750011 /* DemoManager */,
 				373F6A0D28E5CA9F00750011 /* DependencyManager */,
 				A8D4BE6626899F38002D8202 /* Logging */,
@@ -2972,14 +2936,12 @@
 				0A603FD82207802E00F25622 /* BaseWireframe+Progressable.swift in Sources */,
 				CC80F71F2438C7DC00A3F276 /* TogglePresenter.swift in Sources */,
 				A8D4BE842689A023002D8202 /* LoggingOptions.swift in Sources */,
-				28A27BBB2931028200D8D555 /* SecurityProtectionManager.swift in Sources */,
 				063B5AA82317F64D003A7B84 /* WithoutBackViewController.swift in Sources */,
 				FA97AE8029AF49EC0047C8F3 /* DatabaseAsyncAwait.swift in Sources */,
 				0A1DFE64236EFA78000F2538 /* UIScrollView+BottomDetection.swift in Sources */,
 				373F6A0328E58AC500750011 /* Keychain+PropertyWrapper.swift in Sources */,
 				0A0ECF522206FED800C1853E /* RatioPresentationController.swift in Sources */,
 				A8FD60EB2292AE2C00FB50CE /* BaseTableSection.m in Sources */,
-				28A27BB82931028200D8D555 /* ServiceStatus.swift in Sources */,
 				42BA11FC2987F9920022B1A1 /* UIEdgeInsets+Extensions.swift in Sources */,
 				CC80F71B2438C53400A3F276 /* FollowButton.swift in Sources */,
 				0AE0B74B22042D5E0033A476 /* CatalogInterfaces.swift in Sources */,
@@ -3119,7 +3081,6 @@
 				0AD9EAC72204274300FF3F2C /* ViewInterface.swift in Sources */,
 				0AB524162210AF3400F35F52 /* JSONAPI.swift in Sources */,
 				0AE0B74D22042D5E0033A476 /* CatalogViewController.swift in Sources */,
-				28A27BBA2931028200D8D555 /* SecurityTimer.swift in Sources */,
 				0A0ECF5E220771A600C1853E /* Progressable.swift in Sources */,
 				0D819A0A27BD7DDF007B66F8 /* LineHeightWireframe.swift in Sources */,
 				3739D41728D4A3B0005DBD86 /* ComponentConfigurable.swift in Sources */,
@@ -3163,7 +3124,6 @@
 				A8FD60F52292AF1A00FB50CE /* CollectionDataSourceDelegate.m in Sources */,
 				A83B221C269D84EA005A4A91 /* LoggingBridge.swift in Sources */,
 				0AE0B75F220436B10033A476 /* TableSectionItem.swift in Sources */,
-				288E291B29966B90004C5AA8 /* BlurProtectionType.swift in Sources */,
 				2864DE4B293DFDDC00C16290 /* UIView+Blur.swift in Sources */,
 				0ADB25AD2270806A00288054 /* BasicAuthAdapter.swift in Sources */,
 				0AE0B76722045BB00033A476 /* CatalogItem.swift in Sources */,

@@ -11,18 +11,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private let securityProtectionManager = SecurityProtectionManager()
 
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         window = createInitialWindow()
-        securityProtectionManager.checkSystemStatus()
-        securityProtectionManager.initiateFullSecurity(in: window)
         return true
     }
-
+git
 }
 
 private extension AppDelegate {

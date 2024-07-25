@@ -1,6 +1,0 @@
-framework module IOSSecuritySuite {
-  umbrella header "IOSSecuritySuite-umbrella.h"
-
-  export *
-  module * { export * }
-}
