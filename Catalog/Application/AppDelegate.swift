@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = createInitialWindow()
         return true
     }
-git
 }
 
 private extension AppDelegate {
