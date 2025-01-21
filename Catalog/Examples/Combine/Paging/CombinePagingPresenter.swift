@@ -38,29 +38,42 @@ final class CombinePagingPresenter {
 @available(iOS 13, *)
 extension CombinePagingPresenter: CombinePagingPresenterInterface, PageablePresenter {
     func configure(with output: CombinePagingExample.ViewOutput) -> CombinePagingExample.ViewInput {
-        return CombinePagingExample.ViewInput(
-            pokemon:
-                setupPagination(
-                    nextPagePublisher: output.willDisplayLastCell,
-                    reloadPublisher: output.restart,
-                    nextPage: { [unowned self] container, page in
-                        return handleFetchNextData(lastPage: page)
-                    },
-                    hasNextPage: { container, page in
-                        return container.count < (page?.count ?? 0)
-                    }
-                )
-                .map { $0.map { $0 as! Pokemon } }
-                .map({ [unowned self] in createPokemonCellItems(pokemon: $0)})
-                .eraseToAnyPublisher()
-        )
+        return CombinePagingExample.ViewInput(pokemon: setupAndCreatePokemonCellsPublisher(with: output))
+    }
+}
+
+@available(iOS 13, *)
+private extension CombinePagingPresenter {
+    
+    var handleNextPage: PageableResultClosure {
+        return { [unowned self] _, page in
+            return handleFetchNextData(lastPage: page)
+        }
     }
     
-    private func createPokemonCellItems(pokemon: [Pokemon]) -> [PokemonTableCellItem] {
+    var handleHasNextPage: HasNextPageClosure {
+        return { container, page in
+            return container.count < (page?.count ?? 0)
+        }
+    }
+    
+    func setupAndCreatePokemonCellsPublisher(with output: CombinePagingExample.ViewOutput) -> AnyPublisher<[PokemonTableCellItem], PagingError> {
+        setupPagination(
+            nextPagePublisher: output.willDisplayLastCell,
+            reloadPublisher: output.restart,
+            nextPage: handleNextPage,
+            hasNextPage: handleHasNextPage
+        )
+        .map { $0.map { $0 as! Pokemon } }
+        .map({ [unowned self] in createPokemonCellItems(pokemon: $0)})
+        .eraseToAnyPublisher()
+    }
+    
+    func createPokemonCellItems(pokemon: [Pokemon]) -> [PokemonTableCellItem] {
         return pokemon.map { PokemonTableCellItem(pokemon: $0) }
     }
     
-    private func handleFetchNextData(lastPage: (any Page)?) -> AnyPublisher<any Page, PagingError> {
+    func handleFetchNextData(lastPage: (any Page)?) -> AnyPublisher<any Page, PagingError> {
         
         let url = lastPage?.next?.absoluteString ?? "https://pokeapi.co/api/v2/pokemon?limit=60"
         let router = Router(baseUrl: url, path: "")
