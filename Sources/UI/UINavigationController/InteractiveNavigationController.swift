@@ -53,7 +53,7 @@ extension InteractiveNavigationController: UINavigationControllerDelegate {
             return
         }
         duringPushAnimation = false
-        realDelegate?.navigationController?(navigationController, didShow: viewController, animated:animated)
+        realDelegate?.navigationController?(navigationController, didShow: viewController, animated: animated)
     }
 }
 

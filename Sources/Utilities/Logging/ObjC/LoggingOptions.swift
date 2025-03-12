@@ -10,7 +10,7 @@ import Foundation
 /// Custom options for logging
 @objc(LoggingOptions)
 @objcMembers
-// swiftlint:disable type_name
+// swiftlint:disable type_name attributes
 final class __ObjCLoggingOptions: NSObject {
     var category: __ObjCLogCategory?
     var functionName: String?

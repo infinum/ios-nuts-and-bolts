@@ -15,7 +15,10 @@ public extension String {
     var isBlank: Bool {
         return trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
-    
+
+    var isNotBlank: Bool {
+        return !isBlank
+    }
 }
 
 public extension Optional where Wrapped == String {
@@ -30,5 +33,8 @@ public extension Optional where Wrapped == String {
             return true
         }
     }
-    
+
+    var isNotBlank: Bool {
+        return !isBlank
+    }
 }

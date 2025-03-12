@@ -108,7 +108,7 @@ public enum CombinePaging {
     ) -> AnyPublisher<Response<Container>, PagingError> {
         let nextPageRelay = PassthroughRelay<CombinePaging.Event<Container>>()
         let nextPageEvent = nextPageRelay
-            .mapTo(CombinePaging.Event<Container>.nextPage)
+            .mapToValue(CombinePaging.Event<Container>.nextPage)
             .receive(on: scheduler.instance)
 
         return CombinePaging

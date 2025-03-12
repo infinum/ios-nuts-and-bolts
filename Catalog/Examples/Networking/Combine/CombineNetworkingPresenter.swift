@@ -49,7 +49,7 @@ extension CombineNetworkingPresenter: CombineNetworkingPresenterInterface {
             .flatMap { [unowned interactor] email, password in
                 return interactor
                     .login(email, password)
-                    .mapTo(true)
+                    .mapToValue(true)
             }
             .replaceError(with: false)
             .eraseToAnyPublisher()

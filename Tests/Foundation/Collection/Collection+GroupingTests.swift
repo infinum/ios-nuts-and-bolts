@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class Collection_GroupingTests: QuickSpec {
+class CollectionGroupingTests: QuickSpec {
     
     override func spec() {
         

@@ -2,6 +2,10 @@ platform :ios, '11.0'
 use_frameworks!
 inhibit_all_warnings!
 
+def other
+  pod 'Factory'
+end
+
 def ui
   pod 'MBProgressHUD'
 end
@@ -9,6 +13,11 @@ end
 def networking
   pod 'Loggie'
   pod 'Japx/RxAlamofire'
+  pod 'OHHTTPStubs/Swift'
+end
+
+def database
+  pod 'RealmSwift'
 end
 
 def reactive
@@ -32,9 +41,11 @@ end
 
 def shared
   networking
+  database
   reactive
   localization
   ui
+  other
 end
 
 target 'Catalog' do

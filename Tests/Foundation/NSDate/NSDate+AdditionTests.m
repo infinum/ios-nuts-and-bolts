@@ -9,11 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "NSDate+Addition.h"
 
-@interface NSDate_AdditionTests : XCTestCase
+@interface NSDateAdditionTests : XCTestCase
 
 @end
 
-@implementation NSDate_AdditionTests
+@implementation NSDateAdditionTests
 
 - (void)testDateAdditionByAddingDays
 {

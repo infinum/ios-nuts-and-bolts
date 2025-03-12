@@ -39,7 +39,7 @@ enum LoggingFormatter {
         category: OSLog? = nil
     ) {
 
-        guard let configurator = Log.configurator else { return }
+        guard let configurator = Log.configurator, configurator.isLoggingEnabled else { return }
 
         let function = stripParams(function: function)
         let message = formatMessage(
@@ -52,8 +52,6 @@ enum LoggingFormatter {
             line: line,
             context: context
         )
-
-        guard configurator.isLoggingEnabled else { return }
 
         if let category = category {
             os_log("%{public}s", log: category, type: level.osLogType, message)

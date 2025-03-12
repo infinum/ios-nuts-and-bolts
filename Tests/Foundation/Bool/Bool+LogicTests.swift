@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class Bool_LogicTests: QuickSpec {
+class BoolLogicTests: QuickSpec {
     
     override func spec() {
         

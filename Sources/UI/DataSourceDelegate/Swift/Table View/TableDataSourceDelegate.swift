@@ -32,7 +32,7 @@ public class TableDataSourceDelegate: NSObject {
         get {
             return sections?
                 .map(\.items)
-                .reduce(into: [TableCellItem]()) { $0 = $0 + $1 }
+                .reduce(into: [TableCellItem]()) { $0 += $1 }
         }
         set {
             let section: TableSectionItem? = BlankTableSection(items: newValue)
@@ -121,11 +121,11 @@ extension TableDataSourceDelegate: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return sections?[section].headerView(from:tableView, at:section)
+        return sections?[section].headerView(from: tableView, at: section)
     }
     
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return sections?[section].footerView(from:tableView, at:section)
+        return sections?[section].footerView(from: tableView, at: section)
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
