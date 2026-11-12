@@ -11,7 +11,7 @@ import os
 // MARK: - Objc Bridge -
 
 @objc(LogCategory)
-// swiftlint:disable type_name
+// swiftlint:disable type_name attributes
 enum __ObjCLogCategory: Int {
     case none, ui, network
 

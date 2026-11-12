@@ -9,7 +9,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class UIColor_HexTests: QuickSpec {
+class UIColorHexTests: QuickSpec {
     
     override func spec() {
         

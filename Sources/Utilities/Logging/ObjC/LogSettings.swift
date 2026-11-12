@@ -10,7 +10,7 @@ import Foundation
 /// Custom options for logging
 @objc(LogSettings)
 @objcMembers
-// swiftlint:disable type_name
+// swiftlint:disable type_name attributes
 final class __ObjCLogSettings: NSObject {
 
     var shouldLogInfo = true

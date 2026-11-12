@@ -16,7 +16,7 @@ class LoginRouter: Router {
             "password": password
         ]
 //        return LoginRouter(
-//            baseUrl: "https://api.infinum.academy/api",
+//            baseUrl: "https://tv-shows.infinum.academy/api",
 //            path: "/users/sessions",
 //            method: .post,
 //            parameters: params,
@@ -26,7 +26,7 @@ class LoginRouter: Router {
         // Or with custom encoding for each set of params
         let encodedParams = EncodableParams(encoding: JSONEncoding.default, parameters: params)
         return LoginRouter(
-            baseUrl: "https://api.infinum.academy/api",
+            baseUrl: "https://tv-shows.infinum.academy/api",
             path: "/users/sessions",
             method: .post,
             encodableParams: [encodedParams]
@@ -36,7 +36,7 @@ class LoginRouter: Router {
 //        let user = User(email: email, password: password)
 //        let encodableParams = EncodableParamsCoder(encoding: JSONParameterEncoder.default, parameters: user)
 //        return LoginRouter(
-//            baseUrl: "https://api.infinum.academy/api",
+//            baseUrl: "https://tv-shows.infinum.academy/api",
 //            path: "/users/sessions",
 //            method: .post,
 //            encodableParams: [encodableParams]
@@ -45,7 +45,7 @@ class LoginRouter: Router {
         // Or with encodable model
 //        let user = User(email: email, password: password)
 //        return LoginRouter(
-//            baseUrl: "https://api.infinum.academy/api",
+//            baseUrl: "https://tv-shows.infinum.academy/api",
 //            path: "/users/sessions",
 //            method: .post,
 //            parameters: user,

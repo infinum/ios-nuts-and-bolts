@@ -30,6 +30,24 @@ Used for easier implementation of networking features.
 </details>
 
 <details>
+<summary><big><b>Database</b></big></summary>
+<hr />
+Used for easier implementation of storage features.
+
+* **Database** - High level component that should generally be interacted with. This hides unnecessary details of Realm and exposes good usage patterns.
+* **Schema Migration** - A way to design your Realm schema that supports migrations. (integrated within the Database component)
+* **Various Extensions** - Various Realm extensions that are commonly used
+* **Async/Await** - async/await support for accessing Realm
+* **Combine** - Combine support for accessing Realm
+
+None of the methods are marked public intentionally. All components are imagined to be in a separate `Storage` module. `Storage` module should expose simple interface for the main app.
+
+`ModelMapped` protocol allows mapping of Domain object to DB objects. This way Realm objects remain internal to `Storage` module and the rest of the app doesn't know about them.
+
+<br/><br/>
+</details>
+
+<details>
 <summary><big><b>RxCocoa</b></big></summary>
 <hr />
 Extensions useful when dealing with all things Cocoa, in a reactive way.
@@ -41,6 +59,28 @@ Extensions useful when dealing with all things Cocoa, in a reactive way.
 <hr />
 
 Extensions for *Observables* and *Singles* which will make your reactive life a little easier.
+<br/><br/>
+</details>
+
+<details>
+<summary><big><b>Combine</b></big></summary>
+<hr />
+
+Extensions for *Publishers* which will make your reactive life a little easier.
+<br/><br/>
+</details>
+
+<details>
+<summary><big><b>SwiftUI</b></big></summary>
+<hr />
+
+Extensions for *SwiftUI* including custom *Views* and *ViewModifiers* that will help you with building declarative user experiences.
+
+*Debugging*
+* **debugBackground** - Detect unwanted *body* calls.
+* **debugBorder** - Simplify adding a border to a view while debugging layout.
+* **debugLayout** - Gain insight into the *SwiftUI* layout cycle.
+
 <br/><br/>
 </details>
 

@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class URL_AppendTests: QuickSpec {
+class URLAppendTests: QuickSpec {
 
     override func spec() {
 

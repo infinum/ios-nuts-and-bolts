@@ -10,7 +10,7 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class ClosedRange_ScalableTests: QuickSpec {
+class ClosedRangeScalableTests: QuickSpec {
 
     override func spec() {
 

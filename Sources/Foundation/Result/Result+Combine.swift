@@ -14,7 +14,7 @@ public extension Result {
         switch self {
         case .failure(let error):
             return .failure(error)
-        case .success(_):
+        case .success:
             return .success(())
         }
     }

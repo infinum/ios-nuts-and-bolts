@@ -63,6 +63,14 @@ public class LoggieManager: NSObject, LogsDataSourceDelegate {
 
         let navigationController = UINavigationController(rootViewController: vc)
         navigationController.navigationBar.isTranslucent = false
+
+        if #available(iOS 15.0, *) {
+            let appearence = UINavigationBarAppearance()
+            appearence.configureWithOpaqueBackground()
+            navigationController.navigationBar.standardAppearance = appearence
+            navigationController.navigationBar.scrollEdgeAppearance = appearence
+        }
+
         viewController.present(navigationController, animated: true, completion: nil)
         return navigationController
     }

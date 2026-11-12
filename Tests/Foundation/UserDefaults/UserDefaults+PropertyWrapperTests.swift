@@ -11,16 +11,16 @@ import Quick
 import Nimble
 @testable import Catalog
 
-class UserDefaults_PropertyWrapperTests: QuickSpec {
+class UserDefaultsPropertyWrapperTests: QuickSpec {
 
     override func spec() {
 
         beforeEach {
-            UserDefaults_PropertyWrapperTests.clearStorage()
+            UserDefaultsPropertyWrapperTests.clearStorage()
         }
 
         afterEach {
-            UserDefaults_PropertyWrapperTests.clearStorage()
+            UserDefaultsPropertyWrapperTests.clearStorage()
         }
 
         describe("testing bool value storing") {
@@ -242,7 +242,7 @@ class UserDefaults_PropertyWrapperTests: QuickSpec {
     }
 }
 
-private extension UserDefaults_PropertyWrapperTests {
+private extension UserDefaultsPropertyWrapperTests {
 
     // Codable test data
 
@@ -343,7 +343,7 @@ private extension UserDefaults_PropertyWrapperTests {
     }
 }
 
-extension UserDefaults_PropertyWrapperTests.Number: RawRepresentable {
+extension UserDefaultsPropertyWrapperTests.Number: RawRepresentable {
 
     init(rawValue: Int) {
         switch rawValue {

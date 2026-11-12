@@ -9,11 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "NSSet+FunctionalOperators.h"
 
-@interface NSSet_FunctionalOperatorsTests : XCTestCase
+@interface NSSetFunctionalOperatorsTests : XCTestCase
 
 @end
 
-@implementation NSSet_FunctionalOperatorsTests
+@implementation NSSetFunctionalOperatorsTests
 
 - (void)testSetMapOperator
 {
