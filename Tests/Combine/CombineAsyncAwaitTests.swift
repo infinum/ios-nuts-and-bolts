@@ -106,6 +106,105 @@ class CombineAsyncAwaitTests: QuickSpec {
     }
 }
 
+@available(iOS 15.0, *)
+final class AsyncPublisherSubscriptionTests: XCTestCase {
+
+    func testDoesNotStartWithoutDemand() {
+        let started = expectation(description: "Task must wait for demand")
+        started.isInverted = true
+        var subscription: Subscription?
+        let subscriber = AnySubscriber<Int, Error>(
+            receiveSubscription: { subscription = $0 },
+            receiveValue: { _ in .none },
+            receiveCompletion: { _ in }
+        )
+
+        Catalog.AsyncPublisher {
+            started.fulfill()
+            return 1
+        }.subscribe(subscriber)
+        subscription?.request(.none)
+
+        wait(for: [started], timeout: 0.1)
+        subscription?.cancel()
+    }
+
+    func testStartsOnlyOnceWhenDemandIsRequested() {
+        let started = expectation(description: "Task started once")
+        let completed = expectation(description: "Publisher completed once")
+        var subscription: Subscription?
+        let subscriber = AnySubscriber<Int, Error>(
+            receiveSubscription: { subscription = $0 },
+            receiveValue: { value in
+                XCTAssertEqual(value, 1)
+                subscription?.request(.max(1))
+                return .max(1)
+            },
+            receiveCompletion: { completion in
+                guard case .finished = completion else {
+                    XCTFail("Task should complete successfully")
+                    return
+                }
+                completed.fulfill()
+            }
+        )
+
+        Catalog.AsyncPublisher {
+            started.fulfill()
+            return 1
+        }.subscribe(subscriber)
+        subscription?.request(.max(1))
+        subscription?.request(.unlimited)
+
+        wait(for: [started, completed], timeout: 1)
+        subscription?.cancel()
+    }
+
+    func testCancellationBeforeDemandPreventsWork() {
+        let started = expectation(description: "Cancelled task must not start")
+        started.isInverted = true
+        let subscriber = AnySubscriber<Int, Error>(
+            receiveSubscription: {
+                $0.cancel()
+                $0.request(.max(1))
+            },
+            receiveValue: { _ in .none },
+            receiveCompletion: { _ in }
+        )
+
+        Catalog.AsyncPublisher {
+            started.fulfill()
+            return 1
+        }.subscribe(subscriber)
+
+        wait(for: [started], timeout: 0.1)
+    }
+
+    func testCancellationStopsTaskAndSuppressesDelivery() {
+        let started = expectation(description: "Task started")
+        let cancelled = expectation(description: "Task cancelled")
+        let delivered = expectation(description: "Cancelled publisher must not deliver events")
+        delivered.isInverted = true
+        let subscription = Catalog.AsyncPublisher {
+            started.fulfill()
+            do {
+                try await Task.sleep(nanoseconds: 10_000_000_000)
+            } catch {
+                cancelled.fulfill()
+            }
+            return 1
+        }.sink(
+            receiveCompletion: { _ in delivered.fulfill() },
+            receiveValue: { _ in delivered.fulfill() }
+        )
+
+        wait(for: [started], timeout: 1)
+        subscription.cancel()
+        wait(for: [cancelled], timeout: 1)
+        wait(for: [delivered], timeout: 0.1)
+    }
+}
+
 // MARK: Async
 
 @available(iOS 15.0, *)

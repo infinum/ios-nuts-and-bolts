@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Pokemon: Codable, Comparable, Hashable {
+struct Pokemon: Comparable, Hashable, Pageable {
+    
     let name: String
     let url: String?
 
@@ -17,7 +18,8 @@ struct Pokemon: Codable, Comparable, Hashable {
     }
 }
 
-struct PokemonsPage: Codable {
+struct PokemonPage: Decodable, Page {
+    
     let count: Int
     let next: URL?
     let previous: URL?

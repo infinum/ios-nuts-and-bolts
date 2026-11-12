@@ -1,5 +1,5 @@
 //
-//  AnyPublisher+AsyncAwait.swift
+//  AsyncPublisher.swift
 //  Catalog
 //
 //  Created by Zvonimir Medak on 15.09.2022..
@@ -7,7 +7,7 @@
 //
 
 import Combine
-import CombineExt
+import Foundation
 
 @available(iOS 15.0, *)
 public struct AsyncPublisher<Output>: Publisher {
@@ -27,7 +27,7 @@ public struct AsyncPublisher<Output>: Publisher {
 
     // MARK: - Receive subscription -
 
-    public func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
+    public func receive<S>(subscriber: S) where S: Subscriber, Failure == S.Failure, Output == S.Input {
         let subscription = Subscription(task: task, target: subscriber)
         subscriber.receive(subscription: subscription)
     }
@@ -42,33 +42,59 @@ private extension AsyncPublisher {
 
     final class Subscription<Target: Subscriber>: Combine.Subscription where Target.Input == Output, Target.Failure == Error {
 
-        private var task: Task<Void, Error>?
+        private let lock = NSRecursiveLock()
+        private var task: Task<Void, Never>?
         private let asyncTask: () async throws -> Output
         private var subscriber: Target?
+        private var hasStarted = false
 
         init(task: @escaping () async throws -> Output, target: Target) {
             self.asyncTask = task
             subscriber = target
-            getData()
         }
 
-        func request(_ demand: Subscribers.Demand) { }
+        func request(_ demand: Subscribers.Demand) {
+            lock.lock()
+            defer { lock.unlock() }
+
+            guard demand > .none, subscriber != nil, !hasStarted else { return }
+            hasStarted = true
+            task = Task {
+                do {
+                    finish(with: .success(try await asyncTask()))
+                } catch {
+                    finish(with: .failure(error))
+                }
+            }
+        }
 
         func cancel() {
+            lock.lock()
             subscriber = nil
+            let task = self.task
+            self.task = nil
+            lock.unlock()
+
             task?.cancel()
         }
 
-        private func getData() {
-            task = Task {
-                do {
-                    let value = try await asyncTask()
-                    _ = subscriber?.receive(value)
-                    subscriber?.receive(completion: .finished)
-                } catch {
-                    subscriber?.receive(completion: .failure(error))
-                }
+        private func finish(with result: Result<Output, Error>) {
+            lock.lock()
+            defer { lock.unlock() }
+
+            guard let subscriber = subscriber else { return }
+            task = nil
+
+            switch result {
+            case .success(let value):
+                _ = subscriber.receive(value)
+                // Receiving a value can synchronously cancel the subscription.
+                guard self.subscriber != nil else { return }
+                subscriber.receive(completion: .finished)
+            case .failure(let error):
+                subscriber.receive(completion: .failure(error))
             }
+            self.subscriber = nil
         }
     }
 }
@@ -92,7 +118,7 @@ public extension Publisher {
     /// - Parameters:
     ///  - task: A work task that needs to be executed and converted into `AsyncPublisher`.
     ///
-    /// - Returns: An `AnyPublisher` once the async task finished with `Output` constrained to the type of the returned value of the async task.
+    /// - Returns: A publisher that emits the async task's success or failure as a `Result` and finishes.
     func createAsyncResult<Output>(task: @escaping () async throws -> Output)
     -> Publishers.Catch<Publishers.Map<AsyncPublisher<Output>, Result<Output, Error>>, Just<Result<Output, Error>>> {
         return AsyncPublisher(task: task)

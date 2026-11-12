@@ -26,10 +26,10 @@ final class CombinePagingInteractor {
 
 @available(iOS 13, *)
 extension CombinePagingInteractor: CombinePagingInteractorInterface {
-    func getPokemons(router: Routable) -> AnyPublisher<PokemonsPage, AFError> {
+    func getPokemon(router: Routable) -> AnyPublisher<PokemonPage, AFError> {
         service
             .requestPublisher(
-                PokemonsPage.self,
+                PokemonPage.self,
                 router: router,
                 session: Session.default
             )

@@ -25,7 +25,7 @@ protocol CombinePagingPresenterInterface: PresenterInterface {
 
 @available(iOS 13, *)
 protocol CombinePagingInteractorInterface: InteractorInterface {
-    func getPokemons(router: Routable) -> AnyPublisher<PokemonsPage, AFError>
+    func getPokemon(router: Routable) -> AnyPublisher<PokemonPage, AFError>
 }
 
 @available(iOS 13, *)
